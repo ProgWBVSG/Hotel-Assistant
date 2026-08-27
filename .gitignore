@@ -1,0 +1,17 @@
+# datos reales del hotel: no van al repositorio
+fuente/*.xlsx
+fuente/*.xls
+fuente/*.csv
+app/js/datos-reales.js
+*.json.local
+
+# secretos
+.env
+.env.local
+supabase/.env
+
+# sistema
+node_modules/
+.DS_Store
+Thumbs.db
+*.log

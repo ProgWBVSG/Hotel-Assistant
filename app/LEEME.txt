@@ -1,0 +1,92 @@
+REPORTE DIARIO DE INGRESOS - ALIMENTOS Y BEBIDAS
+================================================
+
+COMO ABRIRLO
+------------
+Doble clic en index.html. No hay que instalar nada.
+Funciona sin internet (salvo la tipografia, la primera vez).
+
+
+IDIOMA Y MONEDA
+---------------
+Arriba a la derecha, el selector ES / EN cambia todo el programa.
+La moneda es AUD (dolares australianos). Se puede cambiar en
+"Equipos y sueldos" si alguna vez hace falta.
+
+
+LO QUE SE USA TODOS LOS DIAS
+----------------------------
+Pestana "+ Cargar dia", la primera.
+
+  - Solo se tipea lo minimo: cubiertos, comida, bebida y descuentos.
+    El total, el ticket promedio y el "todo el dia" se calculan solos.
+  - Una area por vez.
+
+  ATAJOS PARA IR RAPIDO:
+    * Tab pasa al casillero de al lado, Enter baja.
+    * Se puede PEGAR UN BLOQUE COPIADO DE EXCEL. Copias las celdas,
+      hacer clic en el primer casillero y Ctrl+V: se acomoda solo.
+    * Se pueden escribir cuentas: "300+120" queda 420.
+    * En gris claro aparece lo del mismo dia de la semana anterior,
+      como referencia. No se guarda solo: hay que escribirlo.
+    * Si un numero queda muy lejos de lo normal, el casillero se marca.
+    * En los turnos, los nombres se autocompletan con los ya usados.
+    * Los botones de horario (17:00-23:00, etc.) salen de los turnos
+      que mas se repiten en el historico. No hay que configurarlos.
+
+Para corregir un dia ya cargado: pestana "Dia" -> boton "Corregir".
+
+
+EQUIPOS Y SUELDOS
+-----------------
+Se puede poner un valor por hora distinto para cada equipo, y ademas
+un valor propio para alguien puntual.
+
+El orden es: valor propio -> valor del equipo -> valor general.
+Asi se carga una vez por equipo y solo se ajustan las excepciones.
+
+Las personas aparecen solas cuando hay turnos cargados.
+Las que quedan sin valor se marcan en rojo: sus horas no suman al costo.
+
+
+ENVIAR EL REPORTE
+-----------------
+Pestana "Enviar".
+
+  - "Abrir el mail" abre tu programa de correo con todo el reporte
+    escrito. Lo revisas y le das enviar.
+  - "Copiar el texto" para pegarlo donde quieras.
+  - "Bajar en JSON" es para cuando este armado el servidor.
+
+El mail NO sale solo todavia: para eso hace falta el Supabase.
+Esta explicado en docs/07-envio-por-mail.md
+
+
+LAS OTRAS PANTALLAS
+-------------------
+Resumen del mes . Acumulado dia a dia y calendario con semaforo
+                  (verde llego, rojo no llego, amarillo se paso mucho)
+Dia ............. El detalle de una jornada
+Proyeccion ...... Cuanto se va a cerrar el mes y de donde sale ese numero
+Horarios ........ En que franja entra la plata y cuanto rinde cada hora
+                  de personal
+Personal ........ Horas, costo y dotacion dia por dia
+Presentacion .... Una hoja para mostrarle al jefe (se imprime o va a PDF)
+Comentarios ..... Todas las observaciones, buscables
+Cargar Excel .... Traer el reporte de Excel de una
+
+
+COSAS QUE HAY QUE SABER
+-----------------------
+- Los datos se guardan SOLO en este navegador y en esta computadora.
+  Si lo abris en otra, no vas a ver los cambios.
+- Para compartir: "Cargar Excel" -> bajar una copia, y cargarla en la otra.
+- NO hay copia de seguridad automatica. Bajar una copia cada tanto.
+- El costo de personal es PARCIAL: solo cuenta los turnos que estan
+  anotados en el reporte, que no son todo el equipo. El programa lo avisa.
+
+
+DATOS QUE TRAE
+--------------
+83 dias reales del archivo 2026.xlsx (febrero 2025 a agosto 2026),
+con 83 comentarios y 537 turnos de personal.
