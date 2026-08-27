@@ -386,3 +386,74 @@ table input.celda.sospechoso{ border-color:var(--aviso); background:#fdf8e8; }
   border:1px solid #33474f; border-radius:var(--radio);
   font-family:inherit; font-size:11.5px;
 }
+
+/* ==========================================================================
+   Arreglos de estructura
+   Los botones se partían en dos líneas y se salían de la celda; las tablas
+   con muchas columnas quedaban apretadas.
+   ========================================================================== */
+
+/* Un botón nunca se parte al medio */
+.boton, .boton.chico{ white-space:nowrap; flex-shrink:0; }
+
+/* Celdas con más de un botón: que queden en fila y con aire */
+td .acciones-celda{
+  display:flex; gap:6px; align-items:center; justify-content:flex-end;
+  flex-wrap:nowrap;
+}
+
+/* Tablas anchas: ancho mínimo y scroll propio en vez de aplastarse */
+.marco{ max-width:100%; }
+.marco table{ min-width:100%; }
+.tabla-ancha table{ min-width:860px; }
+.tabla-muy-ancha table{ min-width:1040px; }
+
+/* Aire entre columnas: antes quedaban pegadas */
+thead th, tbody td{ padding-left:12px; padding-right:12px; }
+thead th:first-child, tbody td:first-child{ padding-left:14px; }
+thead th:last-child,  tbody td:last-child{ padding-right:14px; }
+
+/* Los casilleros de la tabla no se estiran ni se aplastan */
+table input.celda{ min-width:88px; max-width:150px; }
+table select.celda{ min-width:130px; max-width:190px; }
+td .celda + .celda{ margin-left:6px; }
+
+/* Filas más altas donde hay campos: antes se tocaban entre sí */
+tbody tr:has(input.celda) td,
+tbody tr:has(select.celda) td{ padding-top:8px; padding-bottom:8px; }
+
+/* Bloque de configuración: que no se amontone en pantallas medianas */
+.config-fila{
+  display:flex; gap:20px; flex-wrap:wrap; align-items:flex-end;
+}
+.config-fila .campo{ margin:0; }
+.config-fila .campo.ancho{ flex:1 1 240px; min-width:200px; }
+.config-fila .campo.angosto{ flex:0 0 150px; }
+
+/* Separación entre secciones: estaban muy juntas */
+.titulo-seccion{ margin-top:34px; }
+.titulo-seccion:first-child{ margin-top:8px; }
+.marco + .marco{ margin-top:14px; }
+.marco + .caja, .caja + .marco{ margin-top:14px; }
+.tarjetas + .titulo-seccion{ margin-top:30px; }
+
+/* Barra de pestañas: que no se corte ni se superponga */
+.barra{ gap:12px; }
+.tabs{ flex:1; overflow-x:auto; overflow-y:hidden; scrollbar-width:thin; }
+.tabs::-webkit-scrollbar{ height:4px; }
+.tabs::-webkit-scrollbar-thumb{ background:#3a5058; border-radius:2px; }
+.tabs a{ white-space:nowrap; flex-shrink:0; }
+.barra-der{ flex-shrink:0; }
+
+/* Etiquetas de estado: que no se partan */
+.eti{ white-space:nowrap; }
+
+/* Pie de las tarjetas: aire entre el número y el texto */
+.t-pie{ line-height:1.45; }
+
+@media (max-width:820px){
+  thead th, tbody td{ padding-left:9px; padding-right:9px; }
+  .config-fila{ gap:13px; }
+  .config-fila .campo.angosto{ flex:1 1 130px; }
+  .titulo-seccion{ margin-top:26px; }
+}

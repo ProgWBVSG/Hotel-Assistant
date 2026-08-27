@@ -182,14 +182,14 @@ function vistaPersonal() {
 
   /* configuración */
   h += '<div class="marco no-imprimir" style="padding:16px 18px;margin-bottom:18px">' +
-    '<div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end">' +
-    '<div class="campo" style="margin:0;flex:1;min-width:200px">' +
+    '<div class="config-fila">' +
+    '<div class="campo ancho">' +
     '<label>Cuánto se paga la hora (' + E.moneda + ')</label>' +
     '<input type="number" step="0.5" value="' + (E.valorHora || '') + '" placeholder="Ej: 32" ' +
     'onchange="E.valorHora=this.value?+this.value:0;guardarTodo();pintar()">' +
     '<div class="pista">En Australia se paga por hora. Este valor multiplica las horas de cada turno.</div>' +
     '</div>' +
-    '<div class="campo" style="margin:0;width:170px"><label>Moneda</label>' +
+    '<div class="campo angosto"><label>Moneda</label>' +
     '<select onchange="E.moneda=this.value;guardarTodo();pintar()">' +
     ['AUD','USD','EUR','GBP','NZD'].map(function (m) {
       return '<option value="' + m + '"' + (m === E.moneda ? ' selected' : '') + '>' + m + '</option>';
@@ -221,7 +221,7 @@ function vistaPersonal() {
     'Cuando algo se sale de lo habitual lo marca — <strong>pero no saca conclusiones solo</strong>. ' +
     'Poné el motivo en la última columna: eso es lo que después explica el mes.</div>';
 
-  h += '<div class="marco"><table><thead><tr>' +
+  h += '<div class="marco tabla-muy-ancha"><table><thead><tr>' +
     '<th>Fecha</th><th class="num">Personas</th><th class="num">Horas</th>' +
     '<th class="num">Costo</th><th class="num">Venta</th><th class="num">% costo</th>' +
     '<th class="num">Por hora</th><th>Dotación</th><th>Tu nota</th></tr></thead><tbody>';

@@ -1,0 +1,195 @@
+  Acumulado del mes ....... 
+  Contra días parecidos ... 
+  Meta del mes ............ 
+  Proyección de cierre .... 
+  Total del día ........... 
+  · Día de evento en Penny Blue.
+  · Día incompleto: no reportó 
+ (mediana de 
+ + (f.equipo === eq.id ? 
+ + (m === MES ? 
+ + (x.fecha === DIA_SEL ? 
+ + DIA_SEL + 
+ + ap.personas + 
+ + plata(acum.total), acum.dias + 
+ + si + 
+ : mes.pesoCosto > 25 ? 
+ : mes.pesoCosto > 35 ? 
+ comentarios registrados en 
+ como día normal
+ como evento
+ de 
+ de evento
+ día
+ día(s) de evento previsto(s) en Penny Blue. 
+ días
+ días cargados
+ días cargados de 
+ días cargados · se recalcula con cada día nuevo
+ días con turnos cargados. 
+ días parecidos
+ días que faltan se parecen a los que ya pasaron 
+ días que faltan. El promedio de los días cargados es <b>
+ días · promedio 
+ días × 
+ hojas no se pudieron interpretar
+ hojas tienen la fecha de la pestaña 
+ horas, un 
+ más
+ no aparece
+ no aparecen
+ personas a 
+ personas en promedio">
+ por día
+ se van en horas
+ turnos. Ajustá lo que haga falta.
+ veces en el histórico" 
+ veces más
+ y 
+ ya había <b>
+ · de un día de evento: <b>
+ — días de evento
+ — días normales
+ — es la mediana de los días ya cargados, porque todavía no hay meta cargada.
+ — sale de repartir la meta del mes.
+% de la venta
+% del total
+% menos que en días parecidos, y cada hora rindió un 
+% menos. Puede haber habido más gente de la necesaria.
+% más que en días parecidos, y cada hora rindió un 
+% más), aunque el rendimiento por hora se sostuvo.
+% más. El equipo pudo haber quedado corto.
+("30 min break"). Los turnos que cruzan la medianoche se calculan bien. 
+(por ejemplo "16:00 - 23:00, 30 min break"). De ahí salen las horas pagadas, descontando el 
+) y días de evento (alrededor de 
+)">día 
+), para tener una referencia. No se guarda solo: hay que escribirlo.
+, cada hora de personal en <strong>
+, y 
+, y la proyección de cierre está en <strong>
+. El acumulado del mes es de <strong>
+. La barra completa sería la meta del mes.
+ACUMULADO DEL MES
+Abriendo el archivo…
+Abrió el mail del reporte
+Al <b>día 
+Anotó sobre el personal
+Antes del día 
+Arrastrá el archivo y el sistema acomoda todo solo
+Asignales un equipo o poneles un valor propio: 
+Asignó equipo
+Bajó el resumen
+Basada en 
+Bastantes menos horas que lo habitual (
+Bastantes más horas que lo habitual (
+Cada hora de personal generó esto en promedio
+Cambió el valor hora de un equipo
+Cambió el valor hora de una persona
+Cargar el Excel
+Cargá el valor hora arriba
+Cargó un Excel
+Cargó un día a mano
+Contra el promedio de los últimos 
+Copiar los del 
+Corrigió un día
+Cuánto se paga la hora, por equipo y por persona
+De cada 100 que entran, 
+Descomprimiendo y leyendo las hojas…
+Día guardado: 
+Días cargados
+El 
+El <b>
+El acumulado suma solo los días cargados. La proyección es estadística sobre lo ya
+El archivo pesa más de 25 MB.
+El archivo tiene que ser .xlsx. Si el tuyo es .xls, abrilo en Excel y guardalo como .xlsx.
+El costo usa un valor de hora único: no contempla recargos de fin de semana, feriados, nocturnidad 
+El día cerró en <strong>
+El día va a quedar marcado como incompleto y no se va a usar como 
+El reporte es largo para el mail. Lo copié: pegalo en el mensaje.
+Elegí abajo qué hacer
+En el reporte se anotan <b>
+En gastronomía ese porcentaje suele estar entre 25% y 35%, así que 
+En gris claro, lo que se hizo el <strong>
+Enviar el reporte
+Es el primer día del mes: no había nada antes
+Esta segunda comparación es la que vale: un lunes contra un domingo siempre da mal.
+Este programa es un archivo que se abre en el navegador: no tiene forma de mandar un mail por 
+Esto borra lo que hayas cargado y vuelve a los datos del Excel original. ¿Seguir?
+Esto después aparece en la presentación y queda buscable en Observaciones. 
+Estos números quedaron muy lejos del día de referencia:\n\n
+Horas trabajadas, costo y dotación · 
+La barra clara es lo que ya traía de los días anteriores; la oscura, lo que sumó ese día
+La columna Horas muestra las del día y, en chico, las habituales para un día parecido. 
+La dotación estuvo en línea con días parecidos.
+Las horas salen de los turnos escritos en el reporte, descontando el descanso cuando está anotado 
+Lo estoy suponiendo por la proporción de los días ya cargados. Si sabés el número real, cargalo.
+Los importes se cargan a mano.
+Marcado como día de evento
+Marcado como día normal
+Marcó un día
+Mostrando 25 de 
+Muy distinto al
+No cargaste 
+No hay datos para bajar
+No hay un día anterior para tomar de referencia
+No reportó: <b>
+No se pudo abrir el archivo.
+OBSERVACIONES DEL TURNO
+Objetivo de un día normal: <b>
+POR ÁREA
+Para alcanzar la meta hay que hacer <b>
+Promediarlos daría un número que no ocurre nunca. El corte está en 
+Promedio de personas trabajando en cada hora, sobre 
+Proyección basada en la mediana de los días de referencia, con 
+Proyección de cierre — 
+Puede que el formato sea distinto al del reporte diario.
+Quiere decir que el día se fue tanto por encima que no conviene tomarlo como referencia: 
+REPORTE DIARIO DE INGRESOS — ALIMENTOS Y BEBIDAS
+Rescatados del reporte
+Resumen de 
+Se abrió el archivo pero no se reconoció ningún día. 
+Se leyeron todas
+Se pagaron 
+Se quedó la que tenía más datos cargados. 
+Se reconocieron <b>
+Se van a agregar
+Si guardás, se reemplaza lo que había. 
+Sin días comparables todavía
+Sin días en este mes
+Supera la meta por <b>
+Supervisión
+Sus horas no suman al costo, así que el total va a quedar corto. 
+Tab pasa al de al lado · Enter baja · se puede pegar un bloque copiado de Excel · 
+Todavía no cargaste ningún número
+Todavía no hay suficientes días con turnos cargados para comparar.
+Todavía no hay un día anterior para comparar.
+Total del día
+Turnos traídos del
+Va por el <b>
+Ver el detalle abajo
+almuerzo, cena y madrugada — no hay detalle hora por hora. Así que la mayor precisión posible 
+condiciones (evento o normal), horas trabajadas y cuánto rindió cada hora. 
+el mes cierra alrededor de <strong>
+exactamente lo que se le va a mandar al servidor cuando exista. Está documentado en 
+facturado y no incluye reservas tomadas para los días que faltan.
+fecha de adentro; si no, la del nombre. 
+hoja del día y nadie los vuelve a leer. Acá están todos juntos y se pueden buscar: es donde 
+mié
+personal que caen adentro de esa franja. El número que importa es el último: 
+placeholder="Lo mismo que se escribe en el reporte: cómo estuvo el servicio, si hubo algún 
+por debajo 
+por encima 
+reclamo, si vino un grupo, si hubo demoras…" 
+referencia para la proyección.\n\n¿Guardar igual?
+si se usa de piso, las cuentas del mes salen infladas y después no se cumplen.
+siempre significa que sobre gente. Puede que ese personal esté preparando el servicio 
+sin cargar
+su cuenta. Cuando esté armado el Supabase, se le puede agregar un envío programado 
+sáb
+todo el reporte ya escrito. Vos lo revisás y le das enviar. 
+turnos cargados en esa franja para esta area. Hay ingresos, pero no queda registrado quien los 
+valor general
+valor propio
+y eso da un costo del <b>
+Último día cargado — 
+—con 

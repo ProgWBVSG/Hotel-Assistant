@@ -200,56 +200,75 @@ var DIC = {
 /* Frases largas: se traducen enteras porque no se pueden partir. */
 var DIC_FRASES = {};
 
+/* ==========================================================================
+   Traducción de la pantalla.
+
+   Se traduce por BLOQUE COMPLETO, nunca palabra por palabra: reemplazar
+   palabras sueltas dentro de una frase mezcla los dos idiomas y queda peor
+   que dejarlo sin traducir.
+
+   Lo que no está en el diccionario queda en español, entero y legible.
+   ========================================================================== */
+
 function T(s) {
   if ((E.idioma || 'es') === 'es') return s;
-  var k = String(s == null ? '' : s);
-  if (DIC[k] !== undefined) return DIC[k];
-  var t = k.trim();
-  if (DIC[t] !== undefined) return k.replace(t, DIC[t]);
-  return k;
+  var r = traducirFrase(s);
+  return r === null ? s : r;
 }
 
-/* Recorre los textos de la pantalla y los traduce. */
+/* Bloques que llevan texto propio. Se traducen de afuera hacia adentro:
+   si el padre está en el diccionario, no hace falta mirar los hijos. */
+var SEL_BLOQUES = 'div.caja,div.pista,div.t-rotulo,div.t-pie,div.titulo-seccion,' +
+  'div.vacio h3,div.vacio p,p,td,th,h1,h2,h3,label,button,option,' +
+  'div.calculo-desc,div.calculo-total,div.hoja-resumen,div.hoja-nota,' +
+  'div.cal-num,div.cal-monto,span.eti,strong,em,small,li,' +
+  'div.calculo-linea>div,div.ficha-meta>span,div:not([class]),span:not([class])';
+
 function traducirPantalla() {
   if ((E.idioma || 'es') === 'es') return;
-  var raiz = document.getElementById('principal');
-  if (!raiz) return;
 
-  traducirNodo(raiz);
-  traducirNodo(document.getElementById('tabs'));
-  traducirNodo(document.querySelector('.marca'));
-
-  /* placeholders, títulos y opciones */
-  raiz.querySelectorAll('[placeholder]').forEach(function (el) {
-    var p = el.getAttribute('placeholder');
-    if (DIC[p]) el.setAttribute('placeholder', DIC[p]);
-  });
-  raiz.querySelectorAll('option').forEach(function (o) {
-    var t = o.textContent.trim();
-    if (DIC[t]) o.textContent = DIC[t];
-  });
+  [document.getElementById('principal'),
+   document.getElementById('tabs'),
+   document.querySelector('.marca'),
+   document.querySelector('.franja')].forEach(traducirZona);
 }
 
-function traducirNodo(raiz) {
+function traducirZona(raiz) {
   if (!raiz) return;
+
+  var listos = [];
+  raiz.querySelectorAll(SEL_BLOQUES).forEach(function (el) {
+    /* si un ancestro ya se tradujo, este bloque vino adentro */
+    for (var i = 0; i < listos.length; i++) if (listos[i].contains(el)) return;
+    if (el.querySelector('input,select,textarea')) return;
+
+    var t = traducirFrase(el.innerHTML);
+    if (t !== null) { el.innerHTML = t; listos.push(el); }
+  });
+
+  /* nodos de texto sueltos que no cayeron en ningún bloque */
   var it = document.createTreeWalker(raiz, NodeFilter.SHOW_TEXT, null);
   var nodos = [], n;
   while ((n = it.nextNode())) nodos.push(n);
   nodos.forEach(function (nodo) {
-    var txt = nodo.nodeValue;
-    if (!txt || !txt.trim()) return;
-    var limpio = txt.trim();
-    if (DIC[limpio] !== undefined) {
-      nodo.nodeValue = txt.replace(limpio, DIC[limpio]);
-      return;
-    }
-    /* reemplazo de palabras conocidas dentro de una frase */
-    var salida = txt;
-    for (var k in DIC) {
-      if (k.length < 4) continue;
-      if (salida.indexOf(k) !== -1) salida = salida.split(k).join(DIC[k]);
-    }
-    if (salida !== txt) nodo.nodeValue = salida;
+    var crudo = nodo.nodeValue;
+    if (!crudo || !crudo.trim() || crudo.trim().length < 3) return;
+    var t = traducirFrase(crudo.trim());
+    if (t !== null) nodo.nodeValue = crudo.replace(crudo.trim(), t);
+  });
+
+  /* atributos */
+  raiz.querySelectorAll('[placeholder]').forEach(function (el) {
+    var t = traducirFrase('@@PH@@' + el.getAttribute('placeholder'));
+    if (t !== null) el.setAttribute('placeholder', t.replace('@@PH@@', ''));
+  });
+  raiz.querySelectorAll('[title]').forEach(function (el) {
+    var t = traducirFrase('@@TI@@' + el.getAttribute('title'));
+    if (t !== null) el.setAttribute('title', t.replace('@@TI@@', ''));
+  });
+  raiz.querySelectorAll('option').forEach(function (o) {
+    var t = traducirFrase(o.textContent.trim());
+    if (t !== null) o.textContent = t;
   });
 }
 

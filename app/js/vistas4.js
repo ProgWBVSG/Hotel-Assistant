@@ -14,17 +14,17 @@ function vistaEquipos() {
 
   /* --- valor general y moneda --- */
   h += '<div class="marco" style="padding:16px 18px;margin-bottom:18px">' +
-    '<div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end">' +
-    '<div class="campo" style="margin:0;flex:1;min-width:190px"><label>Valor general por hora</label>' +
+    '<div class="config-fila">' +
+    '<div class="campo ancho"><label>Valor general por hora</label>' +
     '<input type="number" step="0.5" value="' + (E.valorHora || '') + '" placeholder="Ej: 32" ' +
     'onchange="E.valorHora=this.value?+this.value:0;guardarTodo();pintar()">' +
     '<div class="pista">Se usa para quien no tenga equipo ni valor propio.</div></div>' +
-    '<div class="campo" style="margin:0;width:150px"><label>Moneda</label>' +
+    '<div class="campo angosto"><label>Moneda</label>' +
     '<select onchange="E.moneda=this.value;guardarTodo();pintar()">' +
     ['AUD','USD','NZD','GBP','EUR'].map(function (m) {
       return '<option value="' + m + '"' + (m === E.moneda ? ' selected' : '') + '>' + m + '</option>';
     }).join('') + '</select></div>' +
-    '<div class="campo" style="margin:0;width:170px"><label>Idioma</label>' +
+    '<div class="campo angosto"><label>Idioma</label>' +
     '<select onchange="cambiarIdioma(this.value)">' +
     '<option value="es"' + ((E.idioma || 'es') === 'es' ? ' selected' : '') + '>Español</option>' +
     '<option value="en"' + (E.idioma === 'en' ? ' selected' : '') + '>English</option>' +
@@ -34,8 +34,9 @@ function vistaEquipos() {
   /* --- equipos --- */
   h += '<div class="titulo-seccion">Equipos</div>';
   h += '<div class="marco"><table><thead><tr>' +
-    '<th>Equipo</th><th class="num" style="width:170px">Valor por hora</th>' +
-    '<th class="num">Personas</th><th style="width:130px"></th></tr></thead><tbody>';
+    '<th>Equipo</th><th class="num" style="width:150px">Valor por hora</th>' +
+    '<th class="num" style="width:90px">Personas</th>' +
+    '<th style="width:210px"></th></tr></thead><tbody>';
 
   var gente = gentePorTurnos();
   equipos().forEach(function (eq) {
@@ -45,9 +46,11 @@ function vistaEquipos() {
       'value="' + (eq.valorHora || '') + '" placeholder="' + (E.valorHora || 'sin valor') + '" ' +
       'onchange="setValorEquipo(\'' + eq.id + '\',this.value)"></td>' +
       '<td class="num">' + (n || '—') + '</td>' +
-      '<td><button class="boton chico" onclick="asignarPorNombre(\'' + eq.id + '\')" ' +
-      'title="Pone en este equipo a todos los que todavía no tienen uno">Asignar sueltos</button> ' +
-      '<button class="boton chico" onclick="borrarEquipo(\'' + eq.id + '\')">✕</button></td></tr>';
+      '<td><div class="acciones-celda">' +
+      '<button class="boton chico" onclick="asignarPorNombre(\'' + eq.id + '\')" ' +
+      'title="Pone en este equipo a todos los que todavía no tienen uno">Asignar sueltos</button>' +
+      '<button class="boton chico" onclick="borrarEquipo(\'' + eq.id + '\')" ' +
+      'title="Borrar el equipo">✕</button></div></td></tr>';
   });
   h += '</tbody></table></div>';
   h += '<div class="acciones" style="border:none;margin-top:11px">' +
@@ -71,8 +74,8 @@ function vistaEquipos() {
     return h;
   }
 
-  h += '<div class="marco"><table><thead><tr>' +
-    '<th>Persona</th><th style="width:180px">Equipo</th>' +
+  h += '<div class="marco tabla-ancha"><table><thead><tr>' +
+    '<th>Persona</th><th style="width:190px">Equipo</th>' +
     '<th class="num" style="width:150px">Valor propio</th>' +
     '<th class="num">Se aplica</th><th>De dónde sale</th>' +
     '<th class="num">Turnos</th><th class="num">Horas</th><th class="num">Costo</th>' +
@@ -216,53 +219,80 @@ function armarTextoReporte(f) {
   var M = E.moneda;
   var L = [];
 
-  L.push('REPORTE DIARIO DE INGRESOS — ALIMENTOS Y BEBIDAS');
+  var EN = (E.idioma || 'es') === 'en';
+  var R = EN ? {
+    tit:'DAILY REVENUE REPORT — FOOD & BEVERAGE', res:'SUMMARY', area:'BY AREA',
+    obs:'SHIFT OBSERVATIONS', per:'STAFF', avisos:'ALERTS', general:'General',
+    total:'Day total', comp:'Vs similar days', acum:'Month to date',
+    proy:'Forecast close', meta:'Month target',
+    entre:'between', dias:'days entered of',
+    incompleto:'Incomplete day: no report from', eventoDia:'Event day at Penny Blue.',
+    cub:'covers', ticket:'avg check', comida:'Food', bebida:'Beverage', desc:'Discounts',
+    personas:'people', horas:'hours', costo:'cost', deVenta:'of sales',
+    sinRep:'not reported', arriba:'above ', abajo:'below ',
+    pie1:'The running total only adds the days entered. The forecast is statistical, based on',
+    pie2:'what has already been billed, and excludes bookings held for the remaining days.'
+  } : {
+    tit:'REPORTE DIARIO DE INGRESOS — ALIMENTOS Y BEBIDAS', res:'RESUMEN', area:'POR ÁREA',
+    obs:'OBSERVACIONES DEL TURNO', per:'PERSONAL', avisos:'AVISOS', general:'General',
+    total:'Total del día', comp:'Contra días parecidos', acum:'Acumulado del mes',
+    proy:'Proyección de cierre', meta:'Meta del mes',
+    entre:'entre', dias:'días cargados de',
+    incompleto:'Día incompleto: no reportó', eventoDia:'Día de evento en Penny Blue.',
+    cub:'cubiertos', ticket:'ticket', comida:'Comida', bebida:'Bebida', desc:'Descuentos',
+    personas:'personas', horas:'horas', costo:'costo', deVenta:'de la venta',
+    sinRep:'sin reportar', arriba:'por encima ', abajo:'por debajo ',
+    pie1:'El acumulado suma solo los días cargados. La proyección es estadística sobre lo ya',
+    pie2:'facturado y no incluye reservas tomadas para los días que faltan.'
+  };
+
+  L.push(R.tit);
   L.push(fechaLegible(f));
   L.push('');
-  L.push('RESUMEN');
-  L.push('  Total del día ........... ' + M + ' ' + plata(cmp.total));
+  L.push(R.res);
+  L.push('  ' + pad(R.total, 24) + ' ' + M + ' ' + plata(cmp.total));
   if (cmp.variacionComparables !== null) {
-    L.push('  Contra días parecidos ... ' + plata(cmp.variacionComparables, true) +
-           ' (' + cmp.comparables + ' días)');
+    L.push('  ' + pad(R.comp, 24) + ' ' + plata(cmp.variacionComparables, true) +
+           ' (' + cmp.comparables + ' ' + (EN ? 'days' : 'días') + ')');
   }
-  L.push('  Acumulado del mes ....... ' + M + ' ' + plata(ac.total) +
-         '   (' + ac.dias + ' días cargados de ' + cantidadDiasMes(MES) + ')');
+  L.push('  ' + pad(R.acum, 24) + ' ' + M + ' ' + plata(ac.total) +
+         '   (' + ac.dias + ' ' + R.dias + ' ' + cantidadDiasMes(MES) + ')');
   if (p.ok) {
-    L.push('  Proyección de cierre .... ' + M + ' ' + plata(p.cierre) +
-           '   (entre ' + plata(p.piso) + ' y ' + plata(p.techo) + ')');
+    L.push('  ' + pad(R.proy, 24) + ' ' + M + ' ' + plata(p.cierre) +
+           '   (' + R.entre + ' ' + plata(p.piso) + ' y ' + plata(p.techo) + ')');
     if (p.meta) {
-      L.push('  Meta del mes ............ ' + M + ' ' + plata(p.meta) +
-             '   → ' + (p.diferencia >= 0 ? 'por encima ' : 'por debajo ') + plata(Math.abs(p.diferencia)));
+      L.push('  ' + pad(R.meta, 24) + ' ' + M + ' ' + plata(p.meta) +
+             '   → ' + (p.diferencia >= 0 ? R.arriba : R.abajo) + plata(Math.abs(p.diferencia)));
     }
   }
   L.push('');
-  L.push('POR ÁREA');
+  L.push(R.area);
   AREAS_ORDEN.forEach(function (a) {
     var v = totalArea(d, a);
-    if (v === null) { L.push('  ' + pad(a, 20) + ' sin reportar'); return; }
+    if (v === null) { L.push('  ' + pad(a, 20) + ' ' + R.sinRep); return; }
     var sv = d.areas[a], ad = null;
     for (var k in sv) if (k.toLowerCase().replace(/\s/g, '') === 'allday') ad = sv[k];
     L.push('  ' + pad(a, 20) + M + ' ' + padIzq(plata(v), 10) +
-      (ad && ad.Covers ? '   ' + ad.Covers + ' cubiertos · ticket ' + plata(v / ad.Covers) : ''));
+      (ad && ad.Covers ? '   ' + ad.Covers + ' ' + R.cub + ' · ' + R.ticket + ' ' + plata(v / ad.Covers) : ''));
   });
   L.push('  ' + pad('TOTAL', 20) + M + ' ' + padIzq(plata(cmp.total), 10) +
-    (cmp.cubiertos ? '   ' + cmp.cubiertos + ' cubiertos · ticket ' + plata(cmp.total / cmp.cubiertos) : ''));
+    (cmp.cubiertos ? '   ' + cmp.cubiertos + ' ' + R.cub + ' · ' + R.ticket + ' ' + plata(cmp.total / cmp.cubiertos) : ''));
   L.push('');
-  L.push('  Comida ' + plata(cmp.comida) + '  ·  Bebida ' + plata(cmp.bebida) +
-         '  ·  Descuentos ' + plata(cmp.descuentos));
+  L.push('  ' + R.comida + ' ' + plata(cmp.comida) + '  ·  ' + R.bebida + ' ' + plata(cmp.bebida) +
+         '  ·  ' + R.desc + ' ' + plata(cmp.descuentos));
 
   if (falt.length || ev) {
     L.push('');
-    L.push('AVISOS');
-    if (falt.length) L.push('  · Día incompleto: no reportó ' + falt.join(', ') + '.');
-    if (ev) L.push('  · Día de evento en Penny Blue.');
+    L.push(R.avisos);
+    if (falt.length) L.push('  · ' + R.incompleto + ' ' + falt.join(', ') + '.');
+    if (ev) L.push('  · ' + R.eventoDia);
   }
 
   if (d.comentarios && d.comentarios.length) {
     L.push('');
-    L.push('OBSERVACIONES DEL TURNO');
+    L.push(R.obs);
     d.comentarios.forEach(function (c) {
-      L.push('  [' + (c.area || 'General') + ']');
+      L.push('  [' + (c.area || R.general) + ']');
       L.push('  ' + partirTexto(c.texto, 74, '  '));
     });
   }
@@ -270,17 +300,17 @@ function armarTextoReporte(f) {
   var ap = analisisPersonal(d, MES);
   if (!ap.sinDatos) {
     L.push('');
-    L.push('PERSONAL');
-    L.push('  ' + ap.personas + ' personas · ' + Math.round(ap.horas) + ' horas' +
-      (hayValores() ? ' · costo ' + M + ' ' + plata(costoPersonalReal(d)) +
-        (ap.pesoCosto !== null ? ' (' + ap.pesoCosto + '% de la venta)' : '') : ''));
+    L.push(R.per);
+    L.push('  ' + ap.personas + ' ' + R.personas + ' · ' + Math.round(ap.horas) + ' horas' +
+      (hayValores() ? ' · ' + R.costo + ' ' + M + ' ' + plata(costoPersonalReal(d)) +
+        (ap.pesoCosto !== null ? ' (' + ap.pesoCosto + '% ' + R.deVenta + ')' : '') : ''));
     if (ap.estado !== 'normal') L.push('  ' + ap.mensaje);
   }
 
   L.push('');
   L.push('---');
-  L.push('El acumulado suma solo los días cargados. La proyección es estadística sobre lo ya');
-  L.push('facturado y no incluye reservas tomadas para los días que faltan.');
+  L.push(R.pie1);
+  L.push(R.pie2);
   return L.join('\n');
 }
 

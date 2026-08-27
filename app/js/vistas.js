@@ -208,7 +208,7 @@ function calendarioMes(mes, corte) {
   var hoy = new Date().toISOString().slice(0, 10);
 
   var h = '<div class="marco" style="padding:14px"><div class="calendario">';
-  ['lun','mar','mié','jue','vie','sáb','dom'].forEach(function (d) { h += '<div class="cal-dow">' + d + '</div>'; });
+  (enIngles() ? ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'] : ['lun','mar','mié','jue','vie','sáb','dom']).forEach(function (d) { h += '<div class="cal-dow">' + d + '</div>'; });
   for (var i = 0; i < offset; i++) h += '<div class="cal-dia vacio"></div>';
 
   for (var n = 1; n <= total; n++) {
@@ -287,11 +287,18 @@ function vistaDia() {
   /* comparación */
   if (cmp.anterior) {
     h += '<div class="caja gris" style="margin-top:16px">' +
-      '<strong>Contra el día anterior</strong> (' + fechaCorta(cmp.anterior.fecha) + ', ' + diaSemana(cmp.anterior.fecha) + '): ' +
-      plata(cmp.variacionAnterior, true) + '. ' +
-      (cmp.comparables ? 'Contra el promedio de los últimos ' + cmp.comparables + ' ' + diaSemana(DIA_SEL) +
-        (cmp.evento ? ' de evento' : '') + ': <strong>' + plata(cmp.variacionComparables, true) + '</strong>. ' +
-        'Esta segunda comparación es la que vale: un lunes contra un domingo siempre da mal.' : '') +
+      (enIngles()
+        ? '<strong>Vs the previous day</strong> (' + fechaCorta(cmp.anterior.fecha) + ', ' + diaSemana(cmp.anterior.fecha) + '): ' +
+          plata(cmp.variacionAnterior, true) + '. ' +
+          (cmp.comparables ? 'Vs the average of the last ' + cmp.comparables + ' ' +
+            (cmp.evento ? 'event ' : '') + diaSemana(DIA_SEL) + 's: <strong>' +
+            plata(cmp.variacionComparables, true) + '</strong>. ' +
+            'This second comparison is the one that counts: a Monday against a Sunday always looks bad.' : '')
+        : '<strong>Contra el día anterior</strong> (' + fechaCorta(cmp.anterior.fecha) + ', ' + diaSemana(cmp.anterior.fecha) + '): ' +
+          plata(cmp.variacionAnterior, true) + '. ' +
+          (cmp.comparables ? 'Contra el promedio de los últimos ' + cmp.comparables + ' ' + diaSemana(DIA_SEL) +
+            (cmp.evento ? ' de evento' : '') + ': <strong>' + plata(cmp.variacionComparables, true) + '</strong>. ' +
+            'Esta segunda comparación es la que vale: un lunes contra un domingo siempre da mal.' : '')) +
       '</div>';
   }
 
