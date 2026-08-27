@@ -201,3 +201,62 @@ function revisarCasillero(el, area, serv, campo) {
     el.title = T('Muy distinto al') + ' ' + fechaCorta(ref.fecha) + ' (' + r + ')';
   }
 }
+
+
+/* ==========================================================================
+   Que en un casillero de números solo se puedan escribir números.
+
+   El casillero es de texto (no <input type=number>) porque así se puede pegar
+   un bloque de Excel y escribir cuentas. Pero entonces hay que filtrar a mano
+   lo que se teclea: si no, entran letras.
+   ========================================================================== */
+
+/* Lo permitido: dígitos, un separador decimal, el signo menos adelante,
+   y los signos de una cuenta. */
+var PERMITIDO = /^-?[\d.,]*([+\-*/][\d.,]*)*$/;
+
+function soloNumeros(e) {
+  var el = e.target;
+
+  /* teclas que no escriben nada */
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  if (e.key && e.key.length > 1) return;          /* Tab, flechas, Backspace… */
+  if (!e.key) return;
+
+  var futuro = valorFuturo(el, e.key);
+  if (!PERMITIDO.test(futuro)) {
+    e.preventDefault();
+    avisarTecla(el);
+  }
+}
+
+/* Cómo quedaría el casillero si se aceptara esta tecla. */
+function valorFuturo(el, tecla) {
+  var v = el.value;
+  var a = el.selectionStart, b = el.selectionEnd;
+  if (a === null) return v + tecla;
+  return v.slice(0, a) + tecla + v.slice(b);
+}
+
+/* Un parpadeo corto: se entiende que algo no entró, sin cartel ni ruido. */
+var _avisoTecla = null;
+function avisarTecla(el) {
+  el.classList.add('rechazado');
+  clearTimeout(_avisoTecla);
+  _avisoTecla = setTimeout(function () { el.classList.remove('rechazado'); }, 320);
+}
+
+/* Red de seguridad: si algo se coló (dictado, autocompletar, arrastrar texto),
+   se limpia al vuelo. */
+function limpiarSiSobra(el) {
+  if (PERMITIDO.test(el.value)) return false;
+  var pos = el.selectionStart;
+  var limpio = el.value.replace(/[^\d.,+\-*/]/g, '');
+  if (limpio !== el.value) {
+    el.value = limpio;
+    try { el.setSelectionRange(Math.max(0, pos - 1), Math.max(0, pos - 1)); } catch (x) {}
+    avisarTecla(el);
+    return true;
+  }
+  return false;
+}

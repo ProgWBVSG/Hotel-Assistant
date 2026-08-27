@@ -42,7 +42,7 @@ function vistaEquipos() {
   equipos().forEach(function (eq) {
     var n = gente.filter(function (g) { return g.equipo === eq.id; }).length;
     h += '<tr><td><strong>' + esc(eq.nombre) + '</strong></td>' +
-      '<td class="num"><input type="number" step="0.5" class="celda" ' +
+      '<td class="num"><input type="text" inputmode="decimal" class="celda" onkeypress="soloNumeros(event)" oninput="limpiarSiSobra(this)" ' +
       'value="' + (eq.valorHora || '') + '" placeholder="' + (E.valorHora || 'sin valor') + '" ' +
       'onchange="setValorEquipo(\'' + eq.id + '\',this.value)"></td>' +
       '<td class="num">' + (n || '—') + '</td>' +
@@ -92,7 +92,7 @@ function vistaEquipos() {
           return '<option value="' + eq.id + '"' + (f.equipo === eq.id ? ' selected' : '') + '>' +
             esc(eq.nombre) + '</option>';
         }).join('') + '</select></td>' +
-      '<td class="num"><input type="number" step="0.5" class="celda" ' +
+      '<td class="num"><input type="text" inputmode="decimal" class="celda" onkeypress="soloNumeros(event)" oninput="limpiarSiSobra(this)" ' +
         'value="' + (f.valorHora || '') + '" placeholder="—" ' +
         'onchange="setValorPersona(\'' + esc(g.quien).replace(/'/g, "\\'") + '\',this.value)"></td>' +
       '<td class="num"><strong>' + (g.valor ? plata(g.valor) : '<span style="color:var(--mal)">0</span>') + '</strong></td>' +

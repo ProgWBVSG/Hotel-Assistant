@@ -275,8 +275,9 @@ function grillaArea(area, ref) {
         'title="' + (r !== null ? 'El ' + fechaCorta(ref.fecha) + ' fue ' + r : 'Sin referencia') + '" ' +
         'onpaste="pegarEnGrilla(event,\'' + area + '\',' + si + ',' + ci + ')" ' +
         'onkeydown="teclaEnGrilla(event,\'' + area + '\',' + si + ',' + ci + ')" ' +
+        'onkeypress="soloNumeros(event)" ' +
         'onblur="resolverCuenta(this,\'' + area + '\',\'' + s + '\',\'' + c + '\');revisarCasillero(this,\'' + area + '\',\'' + s + '\',\'' + c + '\')" ' +
-        'oninput="setVal(\'' + area + '\',\'' + s + '\',\'' + c + '\',this.value)"></td>';
+        'oninput="limpiarSiSobra(this);setVal(\'' + area + '\',\'' + s + '\',\'' + c + '\',this.value)"></td>';
     });
     h += '<td class="num calc" id="tot-' + s + '">' + plata(totalServicio(area, s)) + '</td>' +
       '<td class="num calc" id="tk-' + s + '">' + (ticketServicio(area, s) ? plata(ticketServicio(area, s)) : '—') + '</td></tr>';
