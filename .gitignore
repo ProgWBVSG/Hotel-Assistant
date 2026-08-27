@@ -5,6 +5,11 @@ fuente/*.csv
 app/js/datos-reales.js
 *.json.local
 
+# comentarios reales del reporte: mencionan habitaciones y mesas
+fuente/comentarios.json
+fuente/extraido.csv
+fuente/analisis.json
+
 # secretos
 .env
 .env.local
