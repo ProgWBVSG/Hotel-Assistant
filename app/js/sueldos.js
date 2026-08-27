@@ -8,7 +8,7 @@
    ========================================================================== */
 
 /* E.equipos     -> [{id, nombre, valorHora}]
-   E.personas    -> { "Sheerin": {equipo:"id", valorHora:null} }
+   E.personas    -> { "Nombre": {equipo:"id", valorHora:null} }
    E.valorHora   -> valor general de respaldo                                */
 
 var EQUIPOS_BASE = [

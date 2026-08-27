@@ -38,41 +38,41 @@ no tener que rehacerlo después.
 {
   "version": 1,
   "generado": "2026-08-27T09:12:44.000Z",
-  "propiedad": "hotel-demo",
+  "propiedad": "hotel",
   "moneda": "AUD",
   "fecha": "2026-08-24",
 
   "dia": {
-    "total": 21474,
-    "cubiertos": 578,
-    "comida": 14677,
-    "bebida": 6470,
-    "descuentos": 2319,
+    "total": 18500,
+    "cubiertos": 520,
+    "comida": 12600,
+    "bebida": 5900,
+    "descuentos": 2100,
     "esEvento": true,
     "incompleto": [],
     "areas": [
-      { "area": "Penny Blue",     "total": 12507, "servicios": { } },
-      { "area": "Exchange Lane",  "total": 6604,  "servicios": { } },
-      { "area": "In Room Dining", "total": 2364,  "servicios": { } }
+      { "area": "Penny Blue",     "total": 10800, "servicios": { } },
+      { "area": "Exchange Lane",  "total": 5700,  "servicios": { } },
+      { "area": "In Room Dining", "total": 2000,  "servicios": { } }
     ]
   },
 
   "mes": {
     "periodo": "2026-08",
-    "acumulado": 147993,
+    "acumulado": 132000,
     "diasCargados": 10,
     "diasDelMes": 31,
-    "meta": 420000,
-    "proyeccion": { "base": 469890, "piso": 396000, "techo": 536276, "eventosPrevistos": 6 }
+    "meta": 400000,
+    "proyeccion": { "base": 412000, "piso": 360000, "techo": 470000, "eventosPrevistos": 6 }
   },
 
   "personal": {
-    "personas": 6, "horas": 47, "costo": 1731,
+    "personas": 6, "horas": 45, "costo": 1500,
     "pesoCosto": 8, "estado": "normal"
   },
 
   "comentarios": [
-    { "area": "Exchange Lane", "texto": "The bar got extremely busy between 18:00 - 21:30…" }
+    { "area": "Exchange Lane", "texto": "The bar was busy in the evening with several small groups…" }
   ],
 
   "destinatarios": ["jefe@hotel.com"]
@@ -128,7 +128,7 @@ Anotado ahora para no olvidarlo después:
 - Los destinatarios se guardan en la base, no se pasan por la URL.
 - Cada envío queda registrado en la tabla `envios` con su estado.
 - El mail **no lleva datos personales**: ni nombres del personal, ni números de habitación de los
-  comentarios. Si los comentarios traen `Room 1306`, hay que limpiarlos antes de mandarlos afuera.
+  comentarios. Si los comentarios traen números de habitación, hay que limpiarlos antes de mandarlos afuera.
 
 > ⚠️ **Ese último punto está pendiente.** Los comentarios del reporte mencionan habitaciones y mesas.
 > Antes de que salgan por mail hay que decidir si se limpian. Está en `02-preguntas.md` P0-9.

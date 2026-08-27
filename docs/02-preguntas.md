@@ -52,16 +52,16 @@ El archivo es **solo gastronomía** (F&B): Penny Blue, Exchange Lane, In Room Di
 **En el archivo no está escrito en ningún lado.** Vos dijiste USD.
 
 - ¿Es USD? ¿O es libra, euro, dólar australiano?
-- Los montos (mediana 7.567 por día) ¿te suenan razonables para el F&B de este hotel?
+- Los montos ¿te suenan razonables para el F&B de este hotel?
 - ¿Los importes son netos o llevan impuestos?
 
-> Los comentarios mencionan "football", "ATAC event", y nombres como Penny Blue y Exchange Lane
-> suenan británicos o australianos. No quiero asumir.
+> Los comentarios mencionan deportes y eventos locales, y los nombres de los outlets suenan
+> británicos o australianos. No quiero asumir.
 
 ### P0-5 🔴 Los días altos de Penny Blue, ¿son eventos?
 
-Penny Blue tiene dos modos claros: días de ~2.000-6.000 y días de ~12.000-15.000, casi nada en el
-medio. Es lo que más mueve el total.
+Penny Blue tiene dos modos claros: días normales y días que rinden unas tres veces más, casi
+nada en el medio. Es lo que más mueve el total.
 
 - ¿Los días altos son banquetes, comedor privado, grupos?
 - **¿Se sabe con anticipación cuántos hay en el mes?**
@@ -99,7 +99,7 @@ medio. Es lo que más mueve el total.
 
 ### P0-9 🔴 Los comentarios tienen números de habitación y de mesa
 
-Cosas como `Room 1306`, `Room 1422`, `Table 34`. Eso identifica a un huésped concreto en una fecha
+Números de habitación y de mesa escritos textualmente. Eso identifica a un huésped concreto en una fecha
 concreta: es dato personal.
 
 - ¿Hay alguna política sobre esto?
@@ -107,7 +107,7 @@ concreta: es dato personal.
 - ¿Alguien de sistemas o legales tendría que revisarlo?
 
 > Mi recomendación por defecto: **guardar el comentario pero reemplazar el número de habitación**
-> (`Room 1306` → `Room ***`). El valor del comentario está en lo que pasó, no en quién era.
+> (`Room 412` → `Room ***`). El valor del comentario está en lo que pasó, no en quién era.
 
 ---
 

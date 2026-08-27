@@ -1,5 +1,9 @@
 # 01 — Análisis del Excel real
 
+> ℹ️ **Versión pública.** Los ejemplos de comentarios están reescritos y las cifras
+> exactas de facturación se omiten. El análisis de la estructura y de los problemas de
+> datos está completo.
+
 **Archivo:** `2026.xlsx` · 468 KB · 89 hojas · analizado el 26/08/2026
 **Copia de trabajo:** `reporte-diario/fuente/2026.xlsx`
 **Datos extraídos:** `fuente/extraido.csv` (5.502 filas) · `fuente/comentarios.json` (89 comentarios)
@@ -19,7 +23,7 @@ Esto cambia cosas importantes y hay que confirmarlo antes de seguir:
 
 - ¿Este es **el** reporte que le llega, o es **uno de varios** (y existe otro con habitaciones)?
 - Si es solo F&B, la meta mensual y la proyección son **de gastronomía**, no del hotel.
-- Los montos son chicos para un hotel entero: mediana de **7.567 por día**, máximo 21.474. Eso es
+- Los montos son chicos para un hotel entero: mediana del orden de **7.500 por día**, con picos que llegan al triple. Eso es
   consistente con F&B solo.
 
 **La moneda no figura en ninguna parte del archivo.** Ni símbolo, ni formato, ni encabezado. Vos
@@ -37,7 +41,7 @@ reporte completo de una jornada. El resumen mensual que querés **hoy no existe 
     Fila 1     F&B DAILY REPORT                     (combinado A1:G3)
     Fila 4     Date | 2026-08-24
     Fila 5     MOD  | Breakfast | Lunch | Dinner     (MOD = Manager on Duty)
-    Fila 6     OUTLET | Thisuri | Jamie|Sheerin | Jamie|Sheerin
+    Fila 6     OUTLET | [nombre] | [nombre] | [nombre]
 
     Filas 7-35   ┌ PENNY BLUE
                  │   Breakfast → Covers, Food, Beverage, Total, AV CHECK, Discounts
@@ -122,7 +126,7 @@ proyección quedan mal. Y no hay forma automática de saber cuál de las dos fec
 
 ### 4.2 🔴 Faltan la mayoría de los días
 
-87 días útiles repartidos en 18 meses. Agosto 2026, por ejemplo:
+87 días útiles repartidos en 18 meses. Un mes cualquiera, por ejemplo:
 
     Días con datos:  04, 05, 06, 07, 08, 12, 15, 16, 23, 24, 25   (11 días)
     Días que faltan: 01, 02, 03, 09, 10, 11, 13, 14, 17, 18, 19, 20, 21, 22
@@ -158,20 +162,26 @@ No son comentarios sobre los números: son **relatos de lo que pasó en el turno
 se repiten:
 
 **Reclamos de huéspedes con su resolución** — el más frecuente:
-> *"Table 41, our regular guests, ordered a well done steak but received a medium steak instead. The kitchen offered to remake it, however the guest denied…"*
+> *"[Mesa N], regular guests, ordered a well done steak but received a medium steak instead. The kitchen offered to remake it, however the guest declined…"*
+>
+> *(ejemplo reescrito: el original menciona el número de mesa)*
 
 **Problemas de operación:**
-> *"IRD got busy at the same time as the bar. We had slight delays on orders but guests were updated about the expected waiting periods."*
+> *"In Room Dining got busy at the same time as the bar. We had slight delays on orders but guests were kept informed about waiting times."*
 
 **Ventas destacadas:**
-> *"Room 1422 ordered some of our most expensive wines such as Winston Churchill Champagne, Hill of Grace and Penfolds Grange."*
+> *"[Habitación N] ordered several of our most expensive wines."*
+>
+> *(ejemplo reescrito: el original menciona el número de habitación y las etiquetas)*
 
 **Contexto del volumen:**
-> *"Guests from the ATAC event arrived at the bar around 4:30 PM, resulting in a busy period, followed by an additional inflow of guests after the football."*
+> *"Guests from a nearby event arrived at the bar in the late afternoon, resulting in a busy period, followed by more guests after the football."*
+>
+> *(ejemplo reescrito: el original nombra el evento)*
 
 **Están en inglés.** Todo el reporte está en inglés.
 
-⚠️ **Contienen números de habitación y de mesa** (`Room 1306`, `Table 34`). Eso es dato de huésped:
+⚠️ **Contienen números de habitación y de mesa** (`Room ***`, `Table **`). Eso es dato de huésped:
 identifica a una persona concreta en una fecha concreta. Hay que decidir qué se hace con eso antes
 de meterlo en ningún sistema. Ver [02-preguntas.md](02-preguntas.md) P0-9.
 
@@ -183,13 +193,13 @@ Miré si el día de la semana explica la variación. **Casi no la explica:**
 
 | Día | Casos | Mediana | Índice |
 |---|---|---|---|
-| Lunes | 10 | 5.761 | 0,60 |
-| Martes | 17 | 7.567 | 0,79 |
-| Miércoles | 15 | 7.479 | 0,78 |
-| Jueves | 16 | 8.736 | 0,91 |
-| Viernes | 10 | 7.148 | 0,74 |
-| Sábado | 11 | 7.675 | 0,80 |
-| Domingo | 7 | 7.959 | 0,83 |
+| Lunes | 10 | — | 0,60 |
+| Martes | 17 | — | 0,79 |
+| Miércoles | 15 | — | 0,78 |
+| Jueves | 16 | — | 0,91 |
+| Viernes | 10 | — | 0,74 |
+| Sábado | 11 | — | 0,80 |
+| Domingo | 7 | — | 0,83 |
 
 Salvo el lunes, todos los días se parecen. **Lo que mueve el número es otra cosa: Penny Blue.**
 
@@ -197,16 +207,18 @@ Salvo el lunes, todos los días se parecen. **Lo que mueve el número es otra co
 
 | Outlet | Mínimo | Mediana | Máximo | Variabilidad |
 |---|---|---|---|---|
-| **Penny Blue** | 760 | 6.448 | 14.862 | **58%** |
-| Exchange Lane | 1.748 | 5.636 | 9.060 | 29% |
-| In Room Dining | 796 | 1.840 | 3.086 | 30% |
-| **Total del día** | 5.761 | 14.063 | 21.474 | 32% |
+| **Penny Blue** | — | — | — | **58%** |
+| Exchange Lane | — | — | — | 29% |
+| In Room Dining | — | — | — | 30% |
+| **Total del día** | — | — | — | 32% |
+
+*(los importes se omiten en el repositorio público; lo que importa acá es la variabilidad de la última columna)*
 
 Penny Blue pasa de ser el 20% del día a ser el 71%:
 
-    2026-08-24   total 10.074   Penny Blue  2.056 = 20%
-    2026-08-25   total 21.474   Penny Blue 12.507 = 58%
-    2026-08-15   total 19.069   Penny Blue 13.564 = 71%
+    día A    Penny Blue = 20% del total del día
+    día B    Penny Blue = 58% del total del día
+    día C    Penny Blue = 71% del total del día
 
 Y no es gradual: **es o ~2.000-6.000, o ~12.000-15.000.** Son dos modos distintos. Casi seguro que
 los días altos son eventos, banquetes o comedor privado reservado (la fila `Misc/Banquets` del
