@@ -218,19 +218,37 @@ function T(s) {
 
 /* Bloques que llevan texto propio. Se traducen de afuera hacia adentro:
    si el padre está en el diccionario, no hace falta mirar los hijos. */
-var SEL_BLOQUES = 'div.caja,div.pista,div.t-rotulo,div.t-pie,div.titulo-seccion,' +
+var SEL_BLOQUES =
+  /* Solo bloques que contienen una frase completa. Las etiquetas de línea
+     (<strong>, <em>, <small>) NO van acá: si se tradujeran por separado,
+     partirían la frase que las contiene y quedaría mitad en cada idioma. */
+  'div.caja,div.pista,div.t-rotulo,div.t-pie,div.titulo-seccion,' +
   'div.vacio h3,div.vacio p,p,td,th,h1,h2,h3,label,button,option,' +
   'div.calculo-desc,div.calculo-total,div.hoja-resumen,div.hoja-nota,' +
-  'div.cal-num,div.cal-monto,span.eti,strong,em,small,li,' +
-  'div.calculo-linea>div,div.ficha-meta>span,div:not([class]),span:not([class])';
+  'div.cal-num,div.cal-monto,span.eti,li,div.ayuda';
 
 function traducirPantalla() {
+  ajustarFranja();
   if ((E.idioma || 'es') === 'es') return;
 
   [document.getElementById('principal'),
    document.getElementById('tabs'),
    document.querySelector('.marca'),
-   document.querySelector('.franja')].forEach(traducirZona);
+   null].forEach(traducirZona);
+
+}
+
+/* La franja de arriba es una sola frase fija: se cambia entera y se puede volver. */
+var FRANJA_ES = null;
+function ajustarFranja() {
+  var fr = document.getElementById('franja');
+  if (!fr) return;
+  if (FRANJA_ES === null) FRANJA_ES = fr.innerHTML;
+  fr.innerHTML = (E.idioma || 'es') === 'en'
+    ? '<strong>PROTOTYPE</strong> · Data comes from the real Excel file · ' +
+      'Everything is stored only on this computer · ' +
+      'Review with IT and legal before using it as an official source'
+    : FRANJA_ES;
 }
 
 function traducirZona(raiz) {

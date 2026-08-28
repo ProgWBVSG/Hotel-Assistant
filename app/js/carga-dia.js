@@ -197,8 +197,11 @@ function vistaCargarDia() {
   });
   h += '<span class="sep"></span></div>';
   h += '<div style="font-size:11.5px;color:var(--tinta-suave);margin:0 0 12px;text-align:center">' +
-    'Tab pasa al de al lado · Enter baja · se puede pegar un bloque copiado de Excel · ' +
-    'se pueden escribir cuentas como <b>300+120</b></div>';
+    (enIngles()
+      ? 'Tab moves across · Enter moves down · you can paste a block copied from Excel · ' +
+        'you can type sums like <b>300+120</b>'
+      : 'Tab pasa al de al lado · Enter baja · se puede pegar un bloque copiado de Excel · ' +
+        'se pueden escribir cuentas como <b>300+120</b>') + '</div>';
 
   h += grillaArea(FORM.area, ref);
 

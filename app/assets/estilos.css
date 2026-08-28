@@ -457,3 +457,7 @@ tbody tr:has(select.celda) td{ padding-top:8px; padding-bottom:8px; }
   .config-fila .campo.angosto{ flex:1 1 130px; }
   .titulo-seccion{ margin-top:26px; }
 }
+
+/* La ultima pestana quedaba cortada al hacer scroll */
+.tabs{ padding-right:10px; }
+.tabs a:last-child{ margin-right:6px; }

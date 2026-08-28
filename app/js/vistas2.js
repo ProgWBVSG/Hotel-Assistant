@@ -26,13 +26,21 @@ function vistaHorarios() {
   /* --- conclusión arriba de todo --- */
   if (a.mejor && a.peor && a.mejor.franja.id !== a.peor.franja.id) {
     var brecha = a.peor.porHora ? Math.round(a.mejor.porHora / a.peor.porHora * 10) / 10 : null;
-    h += '<div class="caja ok"><strong>Lo que conviene mirar:</strong> en ' +
-      nombreMes(MES) + ', cada hora de personal en <strong>' + a.mejor.franja.nombre.toLowerCase() +
-      '</strong> generó <strong>' + E.moneda + ' ' + plata(a.mejor.porHora) + '</strong>, ' +
-      'contra <strong>' + E.moneda + ' ' + plata(a.peor.porHora) + '</strong> en <strong>' +
-      a.peor.franja.nombre.toLowerCase() + '</strong>' +
-      (brecha ? ' — ' + brecha + ' veces más' : '') + '. ' +
-      'Es donde más margen hay para mover gente o para empujar la venta.</div>';
+    h += enIngles()
+      ? '<div class="caja ok"><strong>Worth looking at:</strong> in ' +
+        nombreMes(MES) + ', each staff hour at <strong>' + a.mejor.franja.nombre.toLowerCase() +
+        '</strong> generated <strong>' + E.moneda + ' ' + plata(a.mejor.porHora) + '</strong>, ' +
+        'against <strong>' + E.moneda + ' ' + plata(a.peor.porHora) + '</strong> at <strong>' +
+        a.peor.franja.nombre.toLowerCase() + '</strong>' +
+        (brecha ? ' — ' + brecha + ' times more' : '') + '. ' +
+        'That is where there is most room to move people or push sales.</div>'
+      : '<div class="caja ok"><strong>Lo que conviene mirar:</strong> en ' +
+        nombreMes(MES) + ', cada hora de personal en <strong>' + a.mejor.franja.nombre.toLowerCase() +
+        '</strong> generó <strong>' + E.moneda + ' ' + plata(a.mejor.porHora) + '</strong>, ' +
+        'contra <strong>' + E.moneda + ' ' + plata(a.peor.porHora) + '</strong> en <strong>' +
+        a.peor.franja.nombre.toLowerCase() + '</strong>' +
+        (brecha ? ' — ' + brecha + ' veces más' : '') + '. ' +
+        'Es donde más margen hay para mover gente o para empujar la venta.</div>';
   }
 
   /* --- tabla por franja --- */
@@ -102,17 +110,27 @@ function vistaHorarios() {
     h += '</tbody></table></div>';
 
     if (!E.valorHora) {
-      h += '<div class="caja aviso" style="margin-top:13px">Para ver el costo hace falta cargar ' +
-        'cuánto se paga la hora. Está en <span class="link" onclick="ir(\'personal\')">Personal</span>.</div>';
+      h += '<div class="caja aviso" style="margin-top:13px">' +
+        (enIngles() ? 'To see the cost you need to set ' : 'Para ver el costo hace falta cargar ') +
+        (enIngles() ? 'the hourly rate. It is under ' : 'cuánto se paga la hora. Está en ') +
+        '<span class="link" onclick="ir(\'personal\')">' + (enIngles() ? 'Staff' : 'Personal') +
+        '</span>.</div>';
     }
 
     var sinTurnos = a.lista.filter(function (x) { return x.total > 0 && x.horas === 0; });
     if (sinTurnos.length) {
       h += '<div class="caja gris" style="margin-top:13px"><strong>' +
-        sinTurnos.map(function (x) { return x.franja.nombre.toLowerCase(); }).join(' y ') +
-        (sinTurnos.length === 1 ? ' no aparece' : ' no aparecen') + ' en el cruce</strong> porque no hay ' +
-        'turnos cargados en esa franja para esta area. Hay ingresos, pero no queda registrado quien los ' +
-        'atendio, asi que no se puede calcular el rendimiento por hora.</div>';
+        sinTurnos.map(function (x) { return x.franja.nombre.toLowerCase(); })
+          .join(enIngles() ? ' and ' : ' y ') +
+        (enIngles()
+          ? (sinTurnos.length === 1 ? ' does not appear' : ' do not appear') +
+            ' in the cross-check</strong> because there are no shifts entered for that slot in this ' +
+            'area. There is revenue, but no record of who served it, so revenue per hour cannot be ' +
+            'calculated.</div>'
+          : (sinTurnos.length === 1 ? ' no aparece' : ' no aparecen') +
+            ' en el cruce</strong> porque no hay turnos cargados en esa franja para esta área. ' +
+            'Hay ingresos, pero no queda registrado quién los atendió, así que no se puede ' +
+            'calcular el rendimiento por hora.</div>');
     }
   }
 
@@ -158,9 +176,13 @@ function vistaHorarios() {
     '<p><strong>Los ingresos vienen por servicio, no por hora.</strong> El reporte trae desayuno, ' +
     'almuerzo, cena y madrugada — no hay detalle hora por hora. Así que la mayor precisión posible ' +
     'con estos datos es la franja, no la hora exacta.</p>' +
-    '<p><strong>Las franjas horarias son un supuesto:</strong> ' +
-    FRANJAS.map(function (f) { return f.nombre.toLowerCase() + ' ' + horaTexto(f.desde) + '–' + horaTexto(f.hasta); }).join(' · ') +
-    '. Si en el hotel son otras, hay que corregirlas y todo el cruce con el personal cambia.</p>' +
+    (enIngles()
+      ? '<p><strong>The time slots are an assumption:</strong> ' +
+        FRANJAS.map(function (f) { return f.nombre.toLowerCase() + ' ' + horaTexto(f.desde) + '–' + horaTexto(f.hasta); }).join(' · ') +
+        '. If the hotel uses different ones, they must be corrected and the whole staff cross-check changes.</p>'
+      : '<p><strong>Las franjas horarias son un supuesto:</strong> ' +
+        FRANJAS.map(function (f) { return f.nombre.toLowerCase() + ' ' + horaTexto(f.desde) + '–' + horaTexto(f.hasta); }).join(' · ') +
+        '. Si en el hotel son otras, hay que corregirlas y todo el cruce con el personal cambia.</p>') +
     '<p><strong>Los turnos sí tienen hora exacta</strong>, porque están escritos en el reporte ' +
     '(por ejemplo "16:00 - 23:00, 30 min break"). De ahí salen las horas pagadas, descontando el ' +
     'descanso. Los turnos que cruzan la medianoche se manejan bien.</p>' +

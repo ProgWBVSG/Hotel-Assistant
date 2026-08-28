@@ -422,6 +422,90 @@ var FRASES = {
 'Se va a reemplazar todo lo que tenés cargado ahora': 'Everything currently entered will be replaced',
 'del': 'from',
 
+/* ---- cierre definitivo ---- */
+'PROTOTIPO': 'PROTOTYPE',
+'Los datos salen del Excel real': 'Data comes from the real Excel file',
+'Todo se guarda solo en esta computadora': 'Everything is stored only on this computer',
+'Revisar con sistemas y legales antes de usarlo como fuente oficial':
+  'Review with IT and legal before using it as an official source',
+'Equipos': 'Teams',
+'Idioma': 'Language',
+'Bajar en JSON': 'Download JSON',
+'sin valor': 'no rate',
+'<span class="eti eti-mal">sin valor</span>': '<span class="eti eti-mal">no rate</span>',
+'Cargá la meta del mes': 'Set the month target',
+'<span class="link" onclick="ir(\'proyeccion\')">Cargá la meta del mes</span>':
+  '<span class="link" onclick="ir(\'proyeccion\')">Set the month target</span>',
+'Cargá el valor hora arriba': 'Set the hourly rate above',
+'Sin meta cargada': 'No target set',
+'{} por encima': '{} above',
+'{} por debajo': '{} below',
+
+/* equipos y sueldos */
+'{} personas sin valor por hora.': '{} people without an hourly rate.',
+'<strong>{} personas sin valor por hora.</strong> Sus horas no suman al costo, así que el total va a quedar corto. Asignales un equipo o poneles un valor propio: {} y {} más.':
+  '<strong>{} people without an hourly rate.</strong> Their hours do not add to the cost, so the total will fall short. Assign them a team or set an own rate: {} and {} more.',
+'Sus horas no suman al costo, así que el total va a quedar corto.':
+  'Their hours do not add to the cost, so the total will fall short.',
+'Asignales un equipo o poneles un valor propio:': 'Assign them a team or set an own rate:',
+'y {} más.': 'and {} more.',
+
+/* pantalla Los datos */
+'<strong>Sí, se guarda.</strong> Todo lo que cargues queda en este navegador aunque cierres la pestaña, apagues la computadora o pasen semanas. No hay que apretar ningún botón de guardar.':
+  '<strong>Yes, it is saved.</strong> Everything you enter stays in this browser even if you close the tab, shut down the computer or weeks go by. There is no save button to press.',
+'Sí, se guarda.': 'Yes, it is saved.',
+'<strong>Pero se guarda por navegador y por computadora.</strong> Lo que carga una persona no lo ve la otra. Si abrís esto en el celular, vas a ver otra cosa que en la computadora. Ni siquiera pasa de Chrome a Edge en la misma máquina.':
+  '<strong>But it is saved per browser and per computer.</strong> What one person enters, the other cannot see. If you open this on a phone you will see something different than on the computer. It does not even carry from Chrome to Edge on the same machine.',
+'Pero se guarda por navegador y por computadora.': 'But it is saved per browser and per computer.',
+'<strong>Se puede perder</strong> si se borran los datos de navegación, si se usa una ventana de incógnito, o si el navegador necesita lugar y limpia solo. No es frecuente, pero pasa.':
+  '<strong>It can be lost</strong> if browsing data is cleared, if an incognito window is used, or if the browser needs space and clears it on its own. It is not common, but it happens.',
+'Se puede perder': 'It can be lost',
+'<strong>Por eso conviene bajar una copia cada tanto</strong> — los viernes, por ejemplo. Es un archivo que se guarda donde ustedes quieran y sirve para restaurar o para pasarle los datos a otra persona.':
+  '<strong>That is why it is worth downloading a backup now and then</strong> — on Fridays, for example. It is a file you keep wherever you want, and it works to restore or to hand the data to someone else.',
+'Por eso conviene bajar una copia cada tanto': 'That is why it is worth downloading a backup now and then',
+'<strong>Para trabajar de a dos:</strong> que una sola persona cargue los días, baje la copia al terminar y se la pase a la otra. No es cómodo, pero funciona. La forma buena de resolverlo es la base de datos — está explicado en <code>docs/{}-pasos-para-publicar.md</code>.':
+  '<strong>To work as two people:</strong> have one person enter the days, download the backup when finished and pass it to the other. Not convenient, but it works. The proper fix is the database — explained in <code>docs/{}-pasos-para-publicar.md</code>.',
+'Para trabajar de a dos:': 'To work as two people:',
+'Borra todo lo cargado y deja el sistema vacío para arrancar con datos reales. <strong style="color:var(--mal)">Tenés {} días propios cargados: bajá una copia antes.</strong>':
+  'Deletes everything entered and leaves the system empty to start with real data. <strong style="color:var(--mal)">You have {} of your own days entered: download a backup first.</strong>',
+'Borra todo lo cargado y deja el sistema vacío para arrancar con datos reales.':
+  'Deletes everything entered and leaves the system empty to start with real data.',
+'Tenés {} días propios cargados: bajá una copia antes.':
+  'You have {} of your own days entered: download a backup first.',
+
+/* ---- ultimos ---- */
+'Meta {}': 'Target {}',
+'por encima de la meta': 'above target',
+'por debajo de la meta': 'below target',
+'Las franjas horarias son un supuesto:': 'The time slots are an assumption:',
+
+'<strong>No se llega al ritmo actual.</strong> Para alcanzar la meta hay que hacer <b> {} por día</b> en los {} días que faltan. El promedio de los días cargados es <b> {}</b>.':
+  '<strong>Not on track at the current pace.</strong> To reach the target you need <b> {} per day</b> over the {} remaining days. The average of the days entered is <b> {}</b>.',
+'Faltan <b> {}</b> para la meta': '<b> {}</b> short of target',
+'Hacen falta <b> {}</b> por día. Vienen haciendo {}': 'Needs <b> {}</b> per day. Currently running at {}',
+'No se llega al ritmo actual.': 'Not on track at the current pace.',
+
+/* estados vacios */
+'No hay días cargados en este mes.': 'No days entered for this month.',
+'<h3>No hay días cargados en este mes.</h3>': '<h3>No days entered for this month.</h3>',
+'No hay datos de esta área en {}': 'No data for this area in {}',
+'No hay turnos cargados en {}': 'No shifts entered in {}',
+'Probá con otro mes u otra área.': 'Try another month or area.',
+'Los turnos salen de las columnas de la derecha del reporte (nombre, horario y descanso).':
+  'Shifts come from the right-hand columns of the report (name, times and break).',
+'Sin días en este mes': 'No days in this month',
+'Todavía no hay días cargados de este mes': 'No days entered for this month yet',
+'Cuando entre el primero, acá va a aparecer cómo se va sumando.':
+  'Once the first one is entered, this will show how it adds up.',
+
+'Nada con esa búsqueda': 'Nothing matches that search',
+'No hay días cargados': 'No days entered',
+'No hay días en este mes': 'No days in this month',
+'Todavía no hay turnos cargados': 'No shifts entered yet',
+'Todavía no hay un día anterior para comparar.': 'There is no previous day to compare with yet.',
+'Las personas aparecen solas cuando se cargan turnos, desde el Excel o a mano.':
+  'People appear automatically once shifts are entered, from Excel or by hand.',
+
 /* ---- placeholders ---- */
 '@@PH@@Buscar en las observaciones…': '@@PH@@Search observations…',
 '@@PH@@Sin meta cargada': '@@PH@@No target set',

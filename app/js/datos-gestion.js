@@ -147,19 +147,29 @@ function vistaDatos() {
   /* --- explicación honesta --- */
   h += '<div class="titulo-seccion">Cómo funciona hoy</div>';
   h += '<div class="marco" style="padding:18px 20px;font-size:12.5px;line-height:1.65">' +
-    '<p><strong>Sí, se guarda.</strong> Todo lo que cargues queda en este navegador aunque cierres ' +
-    'la pestaña, apagues la computadora o pasen semanas. No hay que apretar ningún botón de guardar.</p>' +
-
-    '<p><strong>Pero se guarda por navegador y por computadora.</strong> Lo que carga una persona ' +
-    'no lo ve la otra. Si abrís esto en el celular, vas a ver otra cosa que en la computadora. ' +
-    'Ni siquiera pasa de Chrome a Edge en la misma máquina.</p>' +
-
-    '<p><strong>Se puede perder</strong> si se borran los datos de navegación, si se usa una ventana ' +
-    'de incógnito, o si el navegador necesita lugar y limpia solo. No es frecuente, pero pasa.</p>' +
-
-    '<p style="margin-bottom:0"><strong>Por eso conviene bajar una copia cada tanto</strong> — los ' +
-    'viernes, por ejemplo. Es un archivo que se guarda donde ustedes quieran y sirve para restaurar ' +
-    'o para pasarle los datos a otra persona.</p></div>';
+    (enIngles()
+      ? '<p><strong>Yes, it is saved.</strong> Everything you enter stays in this browser even if ' +
+        'you close the tab, shut down the computer or weeks go by. There is no save button.</p>' +
+        '<p><strong>But it is saved per browser and per computer.</strong> What one person enters, ' +
+        'the other cannot see. If you open this on a phone you will see something different than on ' +
+        'the computer. It does not even carry from Chrome to Edge on the same machine.</p>' +
+        '<p><strong>It can be lost</strong> if browsing data is cleared, if an incognito window is ' +
+        'used, or if the browser needs space and clears it on its own. Not common, but it happens.</p>' +
+        '<p style="margin-bottom:0"><strong>That is why it is worth downloading a backup now and ' +
+        'then</strong> — on Fridays, for example. It is a file you keep wherever you want, and it ' +
+        'works to restore or to hand the data to someone else.</p>'
+      : '<p><strong>Sí, se guarda.</strong> Todo lo que cargues queda en este navegador aunque ' +
+        'cierres la pestaña, apagues la computadora o pasen semanas. No hay que apretar ningún ' +
+        'botón de guardar.</p>' +
+        '<p><strong>Pero se guarda por navegador y por computadora.</strong> Lo que carga una ' +
+        'persona no lo ve la otra. Si abrís esto en el celular, vas a ver otra cosa que en la ' +
+        'computadora. Ni siquiera pasa de Chrome a Edge en la misma máquina.</p>' +
+        '<p><strong>Se puede perder</strong> si se borran los datos de navegación, si se usa una ' +
+        'ventana de incógnito, o si el navegador necesita lugar y limpia solo. No es frecuente, ' +
+        'pero pasa.</p>' +
+        '<p style="margin-bottom:0"><strong>Por eso conviene bajar una copia cada tanto</strong> — ' +
+        'los viernes, por ejemplo. Es un archivo que se guarda donde ustedes quieran y sirve para ' +
+        'restaurar o para pasarle los datos a otra persona.</p>') + '</div>';
 
   /* --- acciones --- */
   h += '<div class="titulo-seccion">Copia de seguridad</div>';
@@ -181,18 +191,26 @@ function vistaDatos() {
     '</div></div>';
 
   h += '<div class="caja gris" style="margin-top:16px">' +
-    '<strong>Para trabajar de a dos:</strong> que una sola persona cargue los días, baje la copia ' +
-    'al terminar y se la pase a la otra. No es cómodo, pero funciona. ' +
-    'La forma buena de resolverlo es la base de datos — está explicado en ' +
-    '<code>docs/08-pasos-para-publicar.md</code>.</div>';
+    (enIngles()
+      ? '<strong>To work as two people:</strong> have one person enter the days, download the ' +
+        'backup when finished and pass it to the other. Not convenient, but it works. The proper ' +
+        'fix is the database — explained in <code>docs/08-pasos-para-publicar.md</code>.'
+      : '<strong>Para trabajar de a dos:</strong> que una sola persona cargue los días, baje la ' +
+        'copia al terminar y se la pase a la otra. No es cómodo, pero funciona. La forma buena de ' +
+        'resolverlo es la base de datos — está explicado en <code>docs/08-pasos-para-publicar.md</code>.') +
+    '</div>';
 
   /* --- empezar de cero --- */
   h += '<div class="titulo-seccion">Empezar de cero</div>';
   h += '<div class="marco" style="padding:18px 20px">' +
     '<div style="font-size:12.5px;color:var(--tinta-media);margin-bottom:13px">' +
-    'Borra todo lo cargado y deja el sistema vacío para arrancar con datos reales. ' +
-    (propios ? '<strong style="color:var(--mal)">Tenés ' + propios + ' días propios cargados: ' +
-               'bajá una copia antes.</strong>' : '') + '</div>' +
+    (enIngles()
+      ? 'Deletes everything entered and leaves the system empty to start with real data. ' +
+        (propios ? '<strong style="color:var(--mal)">You have ' + propios + ' of your own days ' +
+                   'entered: download a backup first.</strong>' : '')
+      : 'Borra todo lo cargado y deja el sistema vacío para arrancar con datos reales. ' +
+        (propios ? '<strong style="color:var(--mal)">Tenés ' + propios + ' días propios cargados: ' +
+                   'bajá una copia antes.</strong>' : '')) + '</div>' +
     '<div class="acciones" style="border:none;margin:0">' +
     '<button class="boton' + (ejemplo ? ' primario' : '') + '" onclick="empezarVacio()">Empezar de cero</button>' +
     '<button class="boton" onclick="volverDemo()">Volver a los datos de ejemplo</button>' +

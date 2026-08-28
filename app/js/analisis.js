@@ -95,12 +95,23 @@ function semaforoDia(d, mes) {
 
 /* Los ingresos vienen por servicio, no por hora. Estas son las franjas que se
    usan para poder cruzarlos con los turnos del personal. */
-var FRANJAS = [
-  { id:'Breakfast', nombre:'Desayuno',  desde:6*60,  hasta:11*60 },
-  { id:'Lunch',     nombre:'Almuerzo',  desde:12*60, hasta:15*60 },
-  { id:'Dinner',    nombre:'Cena',      desde:17*60, hasta:23*60 },
-  { id:'Overnight', nombre:'Madrugada', desde:23*60, hasta:30*60 }
+var FRANJAS_BASE = [
+  { id:'Breakfast', es:'Desayuno',  en:'Breakfast', desde:6*60,  hasta:11*60 },
+  { id:'Lunch',     es:'Almuerzo',  en:'Lunch',     desde:12*60, hasta:15*60 },
+  { id:'Dinner',    es:'Cena',      en:'Dinner',    desde:17*60, hasta:23*60 },
+  { id:'Overnight', es:'Madrugada', en:'Overnight', desde:23*60, hasta:30*60 }
 ];
+
+/* El nombre de la franja se arma segun el idioma: es un dato que se muestra,
+   no un texto fijo de la pantalla. */
+Object.defineProperty(window, 'FRANJAS', {
+  get: function () {
+    var en = (typeof enIngles === 'function') && enIngles();
+    return FRANJAS_BASE.map(function (f) {
+      return { id:f.id, nombre: en ? f.en : f.es, desde:f.desde, hasta:f.hasta };
+    });
+  }
+});
 
 function horaTexto(min) {
   var h = Math.floor((min % (24 * 60)) / 60), m = min % 60;

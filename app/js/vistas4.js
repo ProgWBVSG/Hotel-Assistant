@@ -61,11 +61,16 @@ function vistaEquipos() {
 
   var sinValor = genteSinValor();
   if (sinValor.length) {
-    h += '<div class="caja aviso"><strong>' + sinValor.length + ' personas sin valor por hora.</strong> ' +
-      'Sus horas no suman al costo, así que el total va a quedar corto. ' +
-      'Asignales un equipo o poneles un valor propio: ' +
-      sinValor.slice(0, 6).map(function (g) { return esc(g.quien); }).join(', ') +
-      (sinValor.length > 6 ? ' y ' + (sinValor.length - 6) + ' más' : '') + '.</div>';
+    var quienes = sinValor.slice(0, 6).map(function (g) { return esc(g.quien); }).join(', ');
+    h += enIngles()
+      ? '<div class="caja aviso"><strong>' + sinValor.length + ' people without an hourly rate.</strong> ' +
+        'Their hours do not add to the cost, so the total will fall short. ' +
+        'Assign them a team or set an own rate: ' + quienes +
+        (sinValor.length > 6 ? ' and ' + (sinValor.length - 6) + ' more' : '') + '.</div>'
+      : '<div class="caja aviso"><strong>' + sinValor.length + ' personas sin valor por hora.</strong> ' +
+        'Sus horas no suman al costo, así que el total va a quedar corto. ' +
+        'Asignales un equipo o poneles un valor propio: ' + quienes +
+        (sinValor.length > 6 ? ' y ' + (sinValor.length - 6) + ' más' : '') + '.</div>';
   }
 
   if (!gente.length) {

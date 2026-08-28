@@ -493,21 +493,32 @@ function vistaPresentacion() {
     '<h2>Resumen del día</h2><div class="fecha">' + fechaLegible(f) + '</div></div>';
 
   /* resumen ejecutivo en dos líneas */
-  var frase = 'El día cerró en <strong>' + E.moneda + ' ' + plata(cmp.total) + '</strong>';
+  var EN = enIngles();
+  var frase = (EN ? 'The day closed at <strong>' : 'El día cerró en <strong>') +
+    E.moneda + ' ' + plata(cmp.total) + '</strong>';
   if (cmp.variacionComparables !== null) {
-    frase += cmp.variacionComparables >= 0
-      ? ', <strong>' + plata(cmp.variacionComparables) + ' por encima</strong> del promedio de días parecidos'
-      : ', <strong>' + plata(Math.abs(cmp.variacionComparables)) + ' por debajo</strong> del promedio de días parecidos';
+    var arriba = cmp.variacionComparables >= 0;
+    var monto = plata(Math.abs(cmp.variacionComparables));
+    frase += EN
+      ? ', <strong>' + monto + (arriba ? ' above' : ' below') + '</strong> the average of similar days'
+      : ', <strong>' + monto + (arriba ? ' por encima' : ' por debajo') + '</strong> del promedio de días parecidos';
   }
-  frase += '. El acumulado del mes es de <strong>' + E.moneda + ' ' + plata(acum.total) + '</strong> sobre ' +
-    acum.dias + ' días cargados';
+  frase += EN
+    ? '. Month to date is <strong>' + E.moneda + ' ' + plata(acum.total) + '</strong> across ' +
+      acum.dias + ' days entered'
+    : '. El acumulado del mes es de <strong>' + E.moneda + ' ' + plata(acum.total) + '</strong> sobre ' +
+      acum.dias + ' días cargados';
   if (p.ok) {
-    frase += ', y la proyección de cierre está en <strong>' + E.moneda + ' ' + plata(p.cierre) + '</strong>';
-    if (p.meta) frase += p.diferencia >= 0
-      ? ', <strong>por encima de la meta</strong>'
-      : ', <strong>' + plata(Math.abs(p.diferencia)) + ' por debajo de la meta</strong>';
+    frase += EN
+      ? ', and the forecast close is <strong>' + E.moneda + ' ' + plata(p.cierre) + '</strong>'
+      : ', y la proyección de cierre está en <strong>' + E.moneda + ' ' + plata(p.cierre) + '</strong>';
+    if (p.meta) {
+      frase += p.diferencia >= 0
+        ? (EN ? ', <strong>above target</strong>' : ', <strong>por encima de la meta</strong>')
+        : ', <strong>' + plata(Math.abs(p.diferencia)) +
+          (EN ? ' below target</strong>' : ' por debajo de la meta</strong>');
+    }
   }
-  frase += '.';
   h += '<div class="hoja-resumen">' + frase + '</div>';
 
   /* KPIs */
