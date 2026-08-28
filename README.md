@@ -97,7 +97,9 @@ app/                 la aplicación (se abre con doble clic)
 
 docs/                análisis del formato, método de estimación y decisiones
 supabase/            esquema SQL y función de envío (sin desplegar)
-fuente/              scripts para regenerar los datos de ejemplo
+fuente/
+  generar_demo.py    genera los datos de ejemplo del repositorio
+  generar_datos.py   lee un .xlsx real y arma datos-reales.js (queda local)
 ```
 
 ---

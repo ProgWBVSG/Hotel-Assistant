@@ -21,3 +21,8 @@ node_modules/
 Thumbs.db
 *.log
 fuente/limpiar_docs.py
+
+# scripts de un solo uso (quedan en la maquina, no en el repositorio)
+fuente/faltan.txt
+fuente/completar_idioma*.py
+fuente/limpiar_docs.py
