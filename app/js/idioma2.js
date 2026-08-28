@@ -378,6 +378,50 @@ var FRASES = {
   '. This second comparison is the one that counts: a Monday against a Sunday always looks bad.',
 'Contra el día anterior': 'Vs the previous day',
 
+/* ---- los datos ---- */
+'Los datos': 'Your data',
+'Dónde se guardan y cómo moverlos': 'Where they are stored and how to move them',
+'Días guardados': 'Days stored',
+'Espacio usado': 'Space used',
+'Dónde están': 'Where they are',
+'Cómo funciona hoy': 'How it works today',
+'Copia de seguridad': 'Backup',
+'Bajar una copia': 'Download a backup',
+'Bajar copia': 'Download backup',
+'Restaurar o traer de otra computadora': 'Restore or bring from another computer',
+'Elegir un archivo': 'Choose a file',
+'Empezar de cero': 'Start from scratch',
+'Últimos movimientos': 'Recent activity',
+'son de ejemplo': 'these are samples',
+'ninguno todavía': 'none yet',
+'KB de unos {} disponibles': 'KB of about {} available',
+'{} cargados por ustedes': '{} entered by you',
+'En este navegador, en esta computadora. <b>No se comparten.</b>':
+  'In this browser, on this computer. <b>Not shared.</b>',
+'Un archivo con todo: los días, los comentarios, los turnos, los sueldos y las metas.':
+  'One file with everything: days, comments, shifts, rates and targets.',
+'Reemplaza lo que hay ahora por lo que traiga el archivo. Pide confirmación antes.':
+  'Replaces what is here with whatever the file brings. It asks for confirmation first.',
+'<strong>Estos números son de ejemplo, no son del hotel.</strong> Antes de cargar días reales hay que vaciar el sistema:':
+  '<strong>These figures are samples, not the hotel figures.</strong> Before entering real days the system must be emptied:',
+'ir a Los datos': 'go to Your data',
+'Listo. El sistema está vacío.': 'Done. The system is empty.',
+'Copia bajada': 'Backup downloaded',
+'Copia restaurada': 'Backup restored',
+'Ese archivo no es una copia válida': 'That file is not a valid backup',
+'Ese archivo no es una copia de este sistema': 'That file is not a backup from this system',
+'La copia tiene': 'The backup has',
+'Vas a borrar': 'You are about to delete',
+'días que cargaste vos': 'days you entered',
+'Esto no se puede deshacer. ¿Bajaste una copia antes?':
+  'This cannot be undone. Did you download a backup first?',
+'Se van a borrar los días de ejemplo y vas a arrancar con el sistema vacío.':
+  'The sample days will be deleted and you will start with an empty system.',
+'¿Seguir?': 'Continue?',
+'Se va a reemplazar lo que hay ahora.': 'What is here now will be replaced.',
+'Se va a reemplazar todo lo que tenés cargado ahora': 'Everything currently entered will be replaced',
+'del': 'from',
+
 /* ---- placeholders ---- */
 '@@PH@@Buscar en las observaciones…': '@@PH@@Search observations…',
 '@@PH@@Sin meta cargada': '@@PH@@No target set',

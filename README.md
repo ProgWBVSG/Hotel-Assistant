@@ -33,6 +33,7 @@ Todo se guarda en el navegador de esa computadora. No sale nada a ningún servid
 | **Enviar** | Arma el reporte listo para mandar por mail. |
 | **Cargar Excel** | Lee el reporte diario en `.xlsx` y acomoda todo solo. |
 | **Equipos y sueldos** | Valor por hora, por equipo y por persona. |
+| **Los datos** | Dónde se guardan, copia de seguridad y empezar de cero. |
 
 **Español e inglés**, con el selector de arriba a la derecha. Moneda configurable (AUD por defecto).
 
@@ -113,6 +114,10 @@ pero ninguna cifra corresponde a un hotel.
 
 Se regeneran con `python fuente/generar_demo.py`.
 
+> En la consola del navegador aparece un **404 de `js/datos-reales.js`**. Es esperado: ese archivo
+> solo existe en la máquina donde están los datos del hotel, y la página está preparada para
+> seguir sin él. No es un error.
+
 **Los datos reales no están acá y no deben subirse.** El `.gitignore` deja afuera el `.xlsx`,
 `app/js/datos-reales.js` y los comentarios extraídos. Si existe `app/js/datos-reales.js` en la
 computadora, la aplicación lo usa en lugar de los de ejemplo; si no existe, no pasa nada.
@@ -150,7 +155,7 @@ Funciona y se puede usar. Lo que **todavía no tiene**:
 
 - **No hay login.** Publicado en una dirección web, entra cualquiera con el link.
 - **Los datos no se comparten** entre computadoras: cada una tiene los suyos.
-- **No hay copia de seguridad automática.** Hay un botón para bajar una copia.
+- **No hay copia de seguridad automática.** Hay que bajar la copia a mano desde *Los datos*.
 - **El mail no sale solo.** Necesita servidor.
 
 El esquema de base de datos y la función de envío están escritos en `supabase/`, **sin desplegar y

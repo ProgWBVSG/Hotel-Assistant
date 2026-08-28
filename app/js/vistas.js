@@ -31,6 +31,7 @@ function pintar() {
     ['comentarios', 'Comentarios'],
     ['enviar', 'Enviar'],
     ['cargar', 'Cargar Excel'],
+    ['datos', 'Los datos'],
     ['equipos', 'Equipos y sueldos']
   ].map(function (t) {
     return '<a href="javascript:ir(\'' + t[0] + '\')" class="' + (VISTA === t[0] ? 'activo' : '') + '">' + t[1] + '</a>';
@@ -49,8 +50,13 @@ function pintar() {
               horarios:vistaHorarios, personal:vistaPersonal,
               presentacion:vistaPresentacion, comentarios:vistaComentarios,
               enviar:vistaEnviar, equipos:vistaEquipos,
-              cargar:vistaCargar })[VISTA] || vistaResumen;
-  cont.innerHTML = fn();
+              cargar:vistaCargar, datos:vistaDatos })[VISTA] || vistaResumen;
+  cont.innerHTML = (typeof sonDatosDeEjemplo === 'function' && sonDatosDeEjemplo() && VISTA !== 'datos'
+    ? '<div class="caja mal" style="margin-bottom:16px">' +
+      '<strong>Estos números son de ejemplo, no son del hotel.</strong> ' +
+      'Antes de cargar días reales hay que vaciar el sistema: ' +
+      '<span class="link" onclick="ir(\'datos\')">ir a Los datos</span>.</div>'
+    : '') + fn();
   if (typeof traducirPantalla === 'function') traducirPantalla();
   window.scrollTo(0, 0);
 }
