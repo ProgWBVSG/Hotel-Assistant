@@ -126,12 +126,19 @@ function vistaDatos() {
 
   /* --- lo primero: si son de ejemplo, avisarlo fuerte --- */
   if (ejemplo) {
-    h += '<div class="caja mal"><strong>Lo que estás viendo son datos inventados.</strong> ' +
+    h += (enIngles()
+      ? '<div class="caja mal"><strong>What you are seeing is made-up data.</strong> ' +
+        'The ' + E.dias.length + ' days loaded are samples, so you can see how it works. ' +
+        '<strong>Before using it for real the system must be emptied</strong>, or the real ' +
+        'figures will end up mixed with the fake ones.' +
+        '<div style="margin-top:11px"><button class="boton primario" onclick="empezarVacio()">' +
+        'Start from scratch</button></div></div>'
+      : '<div class="caja mal"><strong>Lo que estás viendo son datos inventados.</strong> ' +
       'Los ' + E.dias.length + ' días cargados son de ejemplo, para que se vea cómo funciona. ' +
       '<strong>Antes de empezar a usarlo en serio hay que vaciarlo</strong>, o los números reales ' +
       'van a quedar mezclados con los falsos.' +
       '<div style="margin-top:11px"><button class="boton primario" onclick="empezarVacio()">' +
-      'Empezar de cero</button></div></div>';
+      'Empezar de cero</button></div></div>');
   }
 
   /* --- estado --- */

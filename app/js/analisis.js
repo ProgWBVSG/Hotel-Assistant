@@ -272,32 +272,44 @@ function analisisPersonal(d, mes) {
   var rendHoy = total / horas;
 
   var estado = 'normal', mensaje = '';
+  var EN = (typeof enIngles === 'function') && enIngles();
+
   if (horasEsp && rendEsp && refs.length >= 3) {
     var dH = ((horas - horasEsp) / horasEsp) * 100;
     var dR = ((rendHoy - rendEsp) / rendEsp) * 100;
+    var hs = Math.round(horas);
 
     if (dH > 15 && dR < -15) {
       estado = 'sobra';
-      mensaje = 'Se pagaron ' + Math.round(horas) + ' horas, un ' + Math.round(dH) +
-        '% más que en días parecidos, y cada hora rindió un ' + Math.abs(Math.round(dR)) +
-        '% menos. Puede haber habido más gente de la necesaria.';
+      mensaje = EN
+        ? hs + ' hours were paid, ' + Math.round(dH) + '% more than on similar days, and each hour ' +
+          'returned ' + Math.abs(Math.round(dR)) + '% less. There may have been more people than needed.'
+        : 'Se pagaron ' + hs + ' horas, un ' + Math.round(dH) + '% más que en días parecidos, y cada ' +
+          'hora rindió un ' + Math.abs(Math.round(dR)) + '% menos. Puede haber habido más gente de la necesaria.';
     } else if (dH < -15 && dR > 15) {
       estado = 'falta';
-      mensaje = 'Se pagaron ' + Math.round(horas) + ' horas, un ' + Math.abs(Math.round(dH)) +
-        '% menos que en días parecidos, y cada hora rindió un ' + Math.round(dR) +
-        '% más. El equipo pudo haber quedado corto.';
+      mensaje = EN
+        ? hs + ' hours were paid, ' + Math.abs(Math.round(dH)) + '% fewer than on similar days, and ' +
+          'each hour returned ' + Math.round(dR) + '% more. The team may have been short.'
+        : 'Se pagaron ' + hs + ' horas, un ' + Math.abs(Math.round(dH)) + '% menos que en días ' +
+          'parecidos, y cada hora rindió un ' + Math.round(dR) + '% más. El equipo pudo haber quedado corto.';
     } else if (dH > 25) {
       estado = 'sobra';
-      mensaje = 'Bastantes más horas que lo habitual (' + Math.round(dH) +
-        '% más), aunque el rendimiento por hora se sostuvo.';
+      mensaje = EN
+        ? 'Considerably more hours than usual (' + Math.round(dH) + '% more), although revenue per hour held up.'
+        : 'Bastantes más horas que lo habitual (' + Math.round(dH) + '% más), aunque el rendimiento por hora se sostuvo.';
     } else if (dH < -25) {
       estado = 'falta';
-      mensaje = 'Bastantes menos horas que lo habitual (' + Math.abs(Math.round(dH)) + '% menos).';
+      mensaje = EN
+        ? 'Considerably fewer hours than usual (' + Math.abs(Math.round(dH)) + '% less).'
+        : 'Bastantes menos horas que lo habitual (' + Math.abs(Math.round(dH)) + '% menos).';
     } else {
-      mensaje = 'La dotación estuvo en línea con días parecidos.';
+      mensaje = EN ? 'Staffing was in line with similar days.'
+                   : 'La dotación estuvo en línea con días parecidos.';
     }
   } else {
-    mensaje = 'Todavía no hay suficientes días con turnos cargados para comparar.';
+    mensaje = EN ? 'Not enough days with shifts entered to compare yet.'
+                 : 'Todavía no hay suficientes días con turnos cargados para comparar.';
   }
 
   return {

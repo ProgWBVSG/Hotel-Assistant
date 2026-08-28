@@ -506,6 +506,10 @@ var FRASES = {
 'Las personas aparecen solas cuando se cargan turnos, desde el Excel o a mano.':
   'People appear automatically once shifts are entered, from Excel or by hand.',
 
+'Hoja original: {}': 'Source sheet: {}',
+'Hoja original: ejemplo': 'Source sheet: sample',
+'Hoja original': 'Source sheet',
+
 /* ---- placeholders ---- */
 '@@PH@@Buscar en las observaciones…': '@@PH@@Search observations…',
 '@@PH@@Sin meta cargada': '@@PH@@No target set',

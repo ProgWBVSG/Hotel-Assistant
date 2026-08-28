@@ -52,10 +52,15 @@ function pintar() {
               enviar:vistaEnviar, equipos:vistaEquipos,
               cargar:vistaCargar, datos:vistaDatos })[VISTA] || vistaResumen;
   cont.innerHTML = (typeof sonDatosDeEjemplo === 'function' && sonDatosDeEjemplo() && VISTA !== 'datos'
-    ? '<div class="caja mal" style="margin-bottom:16px">' +
-      '<strong>Estos números son de ejemplo, no son del hotel.</strong> ' +
-      'Antes de cargar días reales hay que vaciar el sistema: ' +
-      '<span class="link" onclick="ir(\'datos\')">ir a Los datos</span>.</div>'
+    ? (enIngles()
+        ? '<div class="caja mal" style="margin-bottom:16px">' +
+          '<strong>These figures are samples, not the real ones.</strong> ' +
+          'Before entering real days the system must be emptied: ' +
+          '<span class="link" onclick="ir(\'datos\')">go to Your data</span>.</div>'
+        : '<div class="caja mal" style="margin-bottom:16px">' +
+          '<strong>Estos números son de ejemplo, no son del hotel.</strong> ' +
+          'Antes de cargar días reales hay que vaciar el sistema: ' +
+          '<span class="link" onclick="ir(\'datos\')">ir a Los datos</span>.</div>')
     : '') + fn();
   if (typeof traducirPantalla === 'function') traducirPantalla();
   window.scrollTo(0, 0);
