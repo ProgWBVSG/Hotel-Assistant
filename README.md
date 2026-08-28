@@ -119,6 +119,31 @@ computadora, la aplicación lo usa en lugar de los de ejemplo; si no existe, no 
 
 ---
 
+## Publicarlo en la web
+
+El repositorio trae `vercel.json`, que le dice a Vercel que la aplicación está en `app/`.
+Con eso alcanza: importar el repositorio y darle **Deploy**, sin tocar nada más.
+
+- **No** hay que poner nada en *Build Command*.
+- **No** hay que cambiar *Root Directory* — dejarlo en la raíz. Si se pone `app` ahí **y** además
+  está el `vercel.json`, queda apuntando a `app/app` y da 404.
+
+Si igual aparece un **404: NOT_FOUND**, es que está buscando el `index.html` en el lugar
+equivocado. Se arregla de una de las dos formas, nunca las dos juntas:
+
+| | Qué hacer |
+|---|---|
+| **A** *(la que trae el repo)* | Dejar `vercel.json` y *Root Directory* vacío |
+| **B** | Borrar `vercel.json` y poner *Root Directory* = `app` en Settings → General |
+
+Después de cambiarlo hay que volver a desplegar: **Deployments → … → Redeploy**.
+
+> Publicado así, **entra cualquiera que tenga el link**. Los datos siguen guardándose en cada
+> navegador, así que no se filtra nada del hotel, pero conviene poner login antes de conectar
+> Supabase.
+
+---
+
 ## Estado
 
 Funciona y se puede usar. Lo que **todavía no tiene**:
