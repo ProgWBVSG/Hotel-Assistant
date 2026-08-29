@@ -220,7 +220,8 @@ function vistaCargarDia() {
     'Evitá poner números de habitación.</div></div>';
 
   /* --- turnos --- */
-  h += '<div class="titulo-seccion">Quién trabajó</div>';
+  h += '<div class="titulo-seccion">' +
+    (enIngles() ? 'Who worked at ' : 'Quién trabajó en ') + FORM.area + '</div>';
   h += grillaTurnos();
 
   /* --- guardar abajo también --- */
@@ -357,78 +358,8 @@ function refrescarTotales() {
 
 /* ---------------------------------------------------------- turnos ----- */
 
-function grillaTurnos() {
-  var h = '<div class="marco"><table><thead><tr>' +
-    '<th style="min-width:130px">Nombre</th><th style="width:110px">Entrada</th>' +
-    '<th style="width:110px">Salida</th><th style="width:120px">Descanso</th>' +
-    '<th class="num">Horas</th><th style="width:60px"></th></tr></thead><tbody>';
+/* grillaTurnos() vive en turnos-area.js: los turnos son por área */
 
-  if (!FORM.turnos.length) {
-    h += '<tr><td colspan="6" style="text-align:center;color:var(--tinta-suave);padding:18px">' +
-      'Todavía no cargaste ningún turno.</td></tr>';
-  }
-
-  FORM.turnos.forEach(function (t, i) {
-    h += '<tr><td><input class="celda" style="text-align:left" list="nombres-staff" ' +
-      'value="' + esc(t.quien || '') + '" ' +
-      'placeholder="Nombre" oninput="FORM.turnos[' + i + '].quien=this.value"></td>' +
-      '<td><input type="time" class="celda" value="' + horaTexto(t.desde || 0) + '" ' +
-      'onchange="setHoraTurno(' + i + ',\'desde\',this.value)"></td>' +
-      '<td><input type="time" class="celda" value="' + horaTexto(t.hasta || 0) + '" ' +
-      'onchange="setHoraTurno(' + i + ',\'hasta\',this.value)"></td>' +
-      '<td><select class="celda" onchange="FORM.turnos[' + i + '].descanso=+this.value;recalcTurno(' + i + ')">' +
-      [0, 30, 60, 90].map(function (m) {
-        return '<option value="' + m + '"' + ((t.descanso || 0) === m ? ' selected' : '') + '>' +
-          (m ? m + ' min' : 'sin descanso') + '</option>';
-      }).join('') + '</select></td>' +
-      '<td class="num calc" id="hrs-' + i + '">' + (t.horas || 0) + ' h</td>' +
-      '<td><button class="boton chico" onclick="FORM.turnos.splice(' + i + ',1);pintar()">✕</button></td></tr>';
-  });
-
-  var totalH = FORM.turnos.reduce(function (a, t) { return a + (t.horas || 0); }, 0);
-  if (FORM.turnos.length) {
-    h += '<tr class="total"><td colspan="4">' + FORM.turnos.length + ' personas</td>' +
-      '<td class="num">' + Math.round(totalH * 10) / 10 + ' h</td>' +
-      '<td>' + (E.valorHora ? '' : '') + '</td></tr>';
-  }
-  h += '</tbody></table></div>';
-
-  h += '<datalist id="nombres-staff">' +
-    nombresConocidos().map(function (n) { return '<option value="' + esc(n) + '">'; }).join('') +
-    '</datalist>';
-
-  h += '<div class="acciones" style="border:none;margin-top:11px">' +
-    '<button class="boton" onclick="agregarTurno()">+ Agregar persona</button>';
-  plantillasTurno().forEach(function (p, i) {
-    h += '<button class="boton chico" title="Se repite ' + p.veces + ' veces en el histórico" ' +
-      'onclick="agregarTurnoPlantilla(' + i + ')">+ ' + p.nombre + '</button>';
-  });
-  var ref = diaReferencia(FORM.fecha);
-  if (ref && (ref.turnos || []).length && !FORM.turnos.length) {
-    h += '<button class="boton" onclick="copiarTurnos(\'' + ref.fecha + '\')">' +
-      'Copiar los del ' + fechaCorta(ref.fecha) + ' (' + ref.turnos.length + ' personas)</button>';
-  }
-  h += '<span class="sep"></span>';
-  if (hayValores() && totalH) {
-    var costoF = FORM.turnos.reduce(function (a, t) { return a + costoTurno(t); }, 0);
-    h += '<span style="font-size:12.5px;color:var(--tinta-media)">Costo estimado: <strong>' +
-      E.moneda + ' ' + plata(costoF) + '</strong></span>';
-  }
-  h += '</div>';
-  return h;
-}
-
-function agregarTurno() {
-  FORM.turnos.push({ quien:'', desde:9 * 60, hasta:17 * 60, descanso:30, horas:7.5 });
-  pintar();
-}
-function copiarTurnos(fecha) {
-  var d = dia(fecha);
-  if (!d) return;
-  FORM.turnos = JSON.parse(JSON.stringify(d.turnos || []));
-  pintar();
-  decir('Copiados ' + FORM.turnos.length + ' turnos. Ajustá lo que haga falta.', 'ok');
-}
 function setHoraTurno(i, cual, valor) {
   var p = String(valor).split(':');
   if (p.length < 2) return;

@@ -510,6 +510,14 @@ var FRASES = {
 'Hoja original: ejemplo': 'Source sheet: sample',
 'Hoja original': 'Source sheet',
 
+/* turnos por area */
+'Quién trabajó en {}': 'Who worked at {}',
+'Ese día no tiene turnos de': 'That day has no shifts for',
+'turnos traídos': 'shifts copied',
+'Turnos por área:': 'Shifts by area:',
+'sin área:': 'no area:',
+'suele estar en': 'usually works at',
+
 /* ---- placeholders ---- */
 '@@PH@@Buscar en las observaciones…': '@@PH@@Search observations…',
 '@@PH@@Sin meta cargada': '@@PH@@No target set',

@@ -26,6 +26,7 @@ var CLAVE_G = 'reporte_diario_v2';
 /* ------------------------------------------------------------ guardado -- */
 
 function guardarTodo() {
+  if (typeof olvidarAreas === 'function') olvidarAreas();
   try {
     localStorage.setItem(CLAVE_G, JSON.stringify({
       dias:E.dias, meta:E.meta, eventos:E.eventos, marcados:E.marcados,

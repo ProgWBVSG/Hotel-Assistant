@@ -22,7 +22,7 @@ Todo se guarda en el navegador de esa computadora. No sale nada a ningún servid
 
 | Pantalla | Para qué |
 |---|---|
-| **Cargar día** | Registrar lo vendido. Solo se tipea cubiertos, comida, bebida y descuentos; el total y el ticket promedio se calculan solos. |
+| **Cargar día** | Registrar lo vendido. Solo se tipea cubiertos, comida, bebida y descuentos; el total y el ticket promedio se calculan solos. Los turnos se cargan por área. |
 | **Resumen del mes** | Cómo se fue juntando el mes día a día, y un calendario con semáforo contra el objetivo diario. |
 | **Día** | El detalle de una jornada, con comparación contra días parecidos. |
 | **Proyección** | Cuánto se espera cerrar el mes, con el cálculo a la vista. |
@@ -55,6 +55,11 @@ se marca aparte, porque si se toma como referencia las cuentas del mes salen inf
 
 **El mail no se manda solo.** El botón abre el programa de correo con todo escrito; lo revisa una
 persona y le da enviar. El día que un número salga mal, mejor verlo antes de que lo lea el jefe.
+
+**Los turnos son de cada área, no del día.** En un restaurante no trabaja la misma gente que en
+room service. Cada área tiene su propia lista, y el sistema aprende del histórico quién suele
+trabajar dónde: sugiere primero a esa gente, propone los horarios habituales de esa área y avisa
+si se carga a alguien que normalmente está en otro lado.
 
 **No se guardan datos de huéspedes.** Los comentarios del reporte a veces mencionan números de
 habitación; la aplicación avisa que no conviene escribirlos.
@@ -90,6 +95,7 @@ app/                 la aplicación (se abre con doble clic)
     analisis.js      objetivo diario, horarios y personal
     sueldos.js       valor hora por equipo y por persona
     carga-dia.js     la pantalla de carga
+    turnos-area.js   turnos por área y aprendizaje de quién trabaja dónde
     atajos.js        pegar de Excel, cuentas, filtros de tecleo
     idioma.js        traducción de la pantalla
     idioma2.js       diccionario
