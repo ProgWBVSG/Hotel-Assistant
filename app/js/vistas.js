@@ -3,6 +3,7 @@
    ========================================================================== */
 
 var VISTA = 'resumen';
+var _ULTIMA_VISTA = null;
 var MES = null;
 var DIA_SEL = null;
 
@@ -46,6 +47,7 @@ function pintar() {
   }).join('');
 
   var cont = document.getElementById('principal');
+  var _SCROLL_ANTES = window.scrollY || window.pageYOffset || 0;
   var fn = ({ cargardia:vistaCargarDia, resumen:vistaResumen, dia:vistaDia, proyeccion:vistaProyeccion,
               horarios:vistaHorarios, personal:vistaPersonal,
               presentacion:vistaPresentacion, comentarios:vistaComentarios,
@@ -63,7 +65,16 @@ function pintar() {
           '<span class="link" onclick="ir(\'datos\')">ir a Los datos</span>.</div>')
     : '') + fn();
   if (typeof traducirPantalla === 'function') traducirPantalla();
-  window.scrollTo(0, 0);
+
+  /* Al cambiar de pantalla se arranca desde arriba. Pero si es la MISMA
+     pantalla (se agregó un turno, se cambió de área, se tipeó algo), hay que
+     quedarse donde estaba: si no, cada tecla te manda al tope. */
+  if (VISTA !== _ULTIMA_VISTA) {
+    window.scrollTo(0, 0);
+  } else {
+    window.scrollTo(0, _SCROLL_ANTES);
+  }
+  _ULTIMA_VISTA = VISTA;
 }
 
 function cambiarMes(m) {

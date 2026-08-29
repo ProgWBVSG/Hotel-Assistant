@@ -106,7 +106,11 @@ function teclaEnGrilla(e, area, servIdx, campoIdx) {
 function moverFoco(area, servIdx, campoIdx) {
   var id = 'c-' + servIdx + '-' + campoIdx;
   var el = document.getElementById(id);
-  if (el) { el.focus(); el.select(); }
+  if (!el) return;
+  /* preventScroll evita el salto; después se acerca lo justo si quedó fuera */
+  try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); }
+  el.select();
+  acercarSiHaceFalta(el);
 }
 
 /* Al salir del casillero, si escribió una cuenta la resuelve. */
@@ -180,7 +184,11 @@ function agregarTurnoPlantilla(i) {
   pintar();
   setTimeout(function () {
     var inputs = document.querySelectorAll('input[list="nombres-staff"]');
-    if (inputs.length) inputs[inputs.length - 1].focus();
+    if (inputs.length) {
+      var ul = inputs[inputs.length - 1];
+      try { ul.focus({ preventScroll: true }); } catch (e) { ul.focus(); }
+      acercarSiHaceFalta(ul);
+    }
   }, 60);
 }
 
@@ -259,4 +267,14 @@ function limpiarSiSobra(el) {
     return true;
   }
   return false;
+}
+
+
+/* Solo mueve la pantalla si el casillero quedó fuera de la vista, y lo mínimo. */
+function acercarSiHaceFalta(el) {
+  var r = el.getBoundingClientRect();
+  var alto = window.innerHeight || document.documentElement.clientHeight;
+  if (r.top < 70 || r.bottom > alto - 20) {
+    el.scrollIntoView({ block: 'nearest', behavior: 'auto' });
+  }
 }

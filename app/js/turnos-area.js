@@ -140,7 +140,11 @@ function agregarConocido(quien) {
 function enfocarUltimoNombre() {
   setTimeout(function () {
     var i = document.querySelectorAll('input.nombre-turno');
-    if (i.length) { i[i.length - 1].focus(); }
+    if (i.length) {
+      var ul = i[i.length - 1];
+      try { ul.focus({ preventScroll: true }); } catch (e) { ul.focus(); }
+      if (typeof acercarSiHaceFalta === 'function') acercarSiHaceFalta(ul);
+    }
   }, 60);
 }
 
