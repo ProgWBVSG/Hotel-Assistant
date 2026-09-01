@@ -33,6 +33,13 @@ var CLAVE_G = 'reporte_diario_v2';
 /* ------------------------------------------------------------ guardado -- */
 
 function guardarTodo() {
+  guardarLocal();
+  /* y después, si hay sesión, se manda a la nube: primero local, siempre */
+  if (typeof sincronizar === 'function') sincronizar();
+}
+
+/* Escribir en este navegador. Es lo único que tiene que ser instantáneo. */
+function guardarLocal() {
   if (typeof olvidarAreas === 'function') olvidarAreas();
   try {
     /* Se guarda todo lo que tenga E. Antes era una lista escrita a mano y
@@ -68,6 +75,9 @@ function cargarDatosReales() {
 function anotar(que, detalle) {
   E.historial.unshift({ cuando:new Date().toISOString(), que:que, detalle:detalle || '' });
   if (E.historial.length > 200) E.historial.length = 200;
+  if (typeof encolar === 'function' && typeof haySesion === 'function' && haySesion()) {
+    encolar('historial', { que:que, detalle:detalle || '' });
+  }
 }
 
 /* --------------------------------------------------------------- días -- */

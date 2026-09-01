@@ -9,6 +9,25 @@ var DIA_SEL = null;
 
 function iniciar() {
   cargarTodo();
+  if (typeof recuperarSesion === 'function') {
+    recuperarSesion();
+    recuperarCola();
+    try { MODO_LOCAL = localStorage.getItem(CLAVE_LOCAL) === '1'; } catch (e) {}
+    /* con sesión guardada se baja lo de la nube antes de mostrar nada viejo */
+    if (haySesion()) {
+      NUBE_ESTADO = 'lista';
+      bajarTodo().then(function () {
+        var ms = mesesDisponibles();
+        if (ms.length) MES = ms[ms.length - 1];
+        pintar();
+        vaciarCola();
+      }).catch(function (e) {
+        /* sin red se sigue con lo local, que para eso está */
+        NUBE_ESTADO = navigator.onLine ? 'error' : 'sinRed';
+        pintar();
+      });
+    }
+  }
   var ms = mesesDisponibles();
   MES = ms.length ? ms[ms.length - 1] : null;
   if (MES) {
@@ -26,6 +45,17 @@ function ir(v) {
 }
 
 function pintar() {
+  /* Sin sesión no se muestra nada del hotel. */
+  if (typeof necesitaEntrar === 'function' && necesitaEntrar()) {
+    document.body.classList.add('sin-entrar');
+    document.getElementById('principal').innerHTML = vistaEntrar();
+    if (typeof traducirPantalla === 'function') traducirPantalla();
+    var mm = document.getElementById('e-mail');
+    if (mm && !ENTRANDO) mm.focus();
+    return;
+  }
+  document.body.classList.remove('sin-entrar');
+
   if (typeof pintarLateral === 'function') pintarLateral();
 
   /* El nombre de la pantalla, arriba: con la barra achicada es lo único que
@@ -76,6 +106,8 @@ function pintar() {
     window.scrollTo(0, _SCROLL_ANTES);
   }
   _ULTIMA_VISTA = VISTA;
+
+  if (typeof marcaNube === 'function') marcaNube();
 }
 
 function cambiarMes(m) {
