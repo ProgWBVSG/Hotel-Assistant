@@ -52,30 +52,25 @@ h1,h2,h3{ margin:0; font-weight:600; letter-spacing:-.012em; }
 
 /* ---------- barra ---------- */
 .barra{
-  display:flex; align-items:center; gap:16px;
-  background:var(--barra); color:#e8ebec; height:54px; padding:0 18px;
+  display:flex; align-items:center; gap:14px;
+  background:#fff; border-bottom:1px solid var(--linea);
+  height:54px; padding:0 22px; position:sticky; top:0; z-index:30;
 }
-.marca{ display:flex; align-items:baseline; gap:9px; }
-.marca b{ font-size:14.5px; font-weight:700; color:#fff; }
-.marca span{ font-size:11.5px; color:#93a5ad; }
+.barra-titulo{
+  font-size:14px; font-weight:600; color:var(--tinta); letter-spacing:-.01em;
+}
 .barra-der{ margin-left:auto; display:flex; align-items:center; gap:10px; }
 
-.tabs{ display:flex; gap:2px; margin-left:14px; }
-.tabs a{
-  padding:7px 14px; color:#a9bcc4; text-decoration:none;
-  font-size:12.5px; font-weight:500; border-radius:var(--radio);
-}
-.tabs a:hover{ background:#263a44; color:#e8ebec; }
-.tabs a.activo{ background:var(--acento); color:#fff; font-weight:600; }
 
-select.sel-barra{
-  height:30px; padding:0 8px; background:#16242b; color:#e8ebec;
-  border:1px solid #33474f; border-radius:var(--radio);
-  font-family:inherit; font-size:12px;
+select.sel-barra, select.sel-idioma{
+  height:31px; padding:0 9px; background:#fff; color:var(--tinta);
+  border:1px solid var(--linea-fuerte); border-radius:var(--radio);
+  font-family:inherit; font-size:12px; cursor:pointer;
 }
+select.sel-barra:hover, select.sel-idioma:hover{ border-color:var(--acento); }
 
 /* ---------- estructura ---------- */
-.principal{ max-width:1180px; margin:0 auto; padding:24px 22px 70px; }
+.principal{ max-width:1180px; margin:0 auto; padding:24px 22px 70px; width:100%; }
 
 .cabecera{ text-align:center; margin-bottom:22px; }
 .cabecera h1{ font-size:22px; font-weight:700; }
@@ -381,11 +376,6 @@ table input.celda[type=number]{ -moz-appearance:textfield; }
 
 /* ---------- carga rápida ---------- */
 table input.celda.sospechoso{ border-color:var(--aviso); background:#fdf8e8; }
-.sel-idioma{
-  height:30px; padding:0 7px; background:#16242b; color:#e8ebec;
-  border:1px solid #33474f; border-radius:var(--radio);
-  font-family:inherit; font-size:11.5px;
-}
 
 /* ==========================================================================
    Arreglos de estructura
@@ -439,10 +429,6 @@ tbody tr:has(select.celda) td{ padding-top:8px; padding-bottom:8px; }
 
 /* Barra de pestañas: que no se corte ni se superponga */
 .barra{ gap:12px; }
-.tabs{ flex:1; overflow-x:auto; overflow-y:hidden; scrollbar-width:thin; }
-.tabs::-webkit-scrollbar{ height:4px; }
-.tabs::-webkit-scrollbar-thumb{ background:#3a5058; border-radius:2px; }
-.tabs a{ white-space:nowrap; flex-shrink:0; }
 .barra-der{ flex-shrink:0; }
 
 /* Etiquetas de estado: que no se partan */
@@ -507,18 +493,6 @@ table.hoja-staff .rec{ color:var(--aviso); font-weight:700; margin-left:2px; }
   .hoja-seccion{ break-inside:avoid; }
 }
 
-/* ---------- barra de pestañas ----------
-   Con trece pestañas el scroll horizontal esconde las últimas y no se nota
-   que están: en pantalla ancha se acomodan en dos filas y quedan todas a la
-   vista. El scroll queda solo para pantallas chicas, donde ya se espera. */
-@media (min-width: 900px){
-  .barra{ align-items:flex-start; }
-  .tabs{
-    flex-wrap:wrap; overflow:visible;
-    row-gap:2px; padding-bottom:4px;
-  }
-  .barra-der{ margin-top:1px; }
-}
 
 /* ---------- quién es casual ---------- */
 .chip-casual{
@@ -540,4 +514,136 @@ table.hoja-staff .rec{ color:var(--aviso); font-weight:700; margin-left:2px; }
   table.hoja-staff{ min-width:330px; }
   .calendario{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
   .hoja-staff-total{ flex-direction:column; gap:4px; }
+}
+
+/* ==========================================================================
+   Barra lateral
+
+   Trece pantallas en una fila arriba no entran y no dicen nada del orden del
+   trabajo. Al costado entran todas, agrupadas por el momento del día en que
+   se usan. Se puede achicar a solo íconos, y en el teléfono se abre encima.
+   ========================================================================== */
+
+.app{ display:flex; min-height:100vh; align-items:stretch; }
+.cuerpo{ flex:1; min-width:0; display:flex; flex-direction:column; }
+
+.lateral{
+  width:236px; flex-shrink:0;
+  background:var(--barra); color:#c4d2d8;
+  display:flex; flex-direction:column;
+  padding-bottom:20px;
+  position:sticky; top:0; height:100vh; overflow-y:auto;
+  transition:width .16s ease;
+  scrollbar-width:thin; scrollbar-color:#3a5058 transparent;
+}
+.lateral::-webkit-scrollbar{ width:5px; }
+.lateral::-webkit-scrollbar-thumb{ background:#3a5058; border-radius:3px; }
+
+/* ---------- cabecera de la barra ---------- */
+.lat-cabeza{
+  display:flex; align-items:center; gap:10px;
+  height:54px; padding:0 12px 0 16px; flex-shrink:0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  position:sticky; top:0; background:var(--barra); z-index:2;
+}
+.lat-marca{ display:flex; align-items:center; gap:9px; min-width:0; }
+.lat-logo{
+  width:26px; height:26px; flex-shrink:0; border-radius:6px;
+  background:var(--acento); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:14px; font-weight:700;
+}
+.lat-nombre{ display:flex; flex-direction:column; line-height:1.25; min-width:0; }
+.lat-nombre b{ font-size:13px; font-weight:700; color:#fff; white-space:nowrap; }
+.lat-nombre em{ font-size:10.5px; font-style:normal; color:#8fa3ab; white-space:nowrap; }
+
+.lat-plegar{
+  margin-left:auto; flex-shrink:0;
+  width:29px; height:29px; padding:0; border:none; border-radius:6px;
+  background:transparent; color:#8fa3ab; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+}
+.lat-plegar svg{ width:16px; height:16px; }
+.lat-plegar:hover{ background:#263a44; color:#e8ebec; }
+
+/* ---------- grupos ---------- */
+.lat-grupo{ padding:0 9px; margin-top:15px; }
+.lat-titulo{
+  display:flex; align-items:center; width:100%;
+  padding:4px 7px 5px; border:none; background:transparent; cursor:pointer;
+  font-family:inherit; font-size:9.5px; font-weight:700;
+  text-transform:uppercase; letter-spacing:.09em; color:#7d919a;
+  text-align:left;
+}
+.lat-titulo:hover{ color:#b6c6cd; }
+.lat-titulo svg{
+  width:13px; height:13px; margin-left:auto; flex-shrink:0;
+  transition:transform .16s ease;
+}
+.lat-grupo.cerrado .lat-titulo svg{ transform:rotate(-90deg); }
+.lat-grupo.cerrado .lat-items{ display:none; }
+
+.lat-items{ display:flex; flex-direction:column; gap:1px; margin-top:2px; }
+.lat-item{
+  display:flex; align-items:center; gap:10px;
+  padding:7px 9px; border-radius:6px;
+  color:#b6c6cd; text-decoration:none;
+  font-size:12.5px; font-weight:500; line-height:1.3;
+}
+.lat-item svg{ width:16px; height:16px; flex-shrink:0; opacity:.72; }
+.lat-item span{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.lat-item:hover{ background:#263a44; color:#e8ebec; }
+.lat-item:hover svg{ opacity:1; }
+.lat-item.activo{
+  background:var(--acento); color:#fff; font-weight:600;
+}
+.lat-item.activo svg{ opacity:1; }
+
+/* ---------- achicada a solo íconos ---------- */
+.lateral.mini{ width:60px; }
+/* Achicada queda solo el botón: si se escondiera, no habría con qué
+   volver a abrirla. */
+.lateral.mini .lat-marca{ display:none; }
+.lateral.mini .lat-cabeza{ padding:0; justify-content:center; }
+.lateral.mini .lat-plegar{ margin:0; }
+.lateral.mini .lat-grupo{ padding:0 8px; margin-top:9px; }
+.lateral.mini .lat-grupo + .lat-grupo{
+  border-top:1px solid rgba(255,255,255,.07); padding-top:9px;
+}
+.lateral.mini .lat-item{ justify-content:center; padding:9px 0; gap:0; }
+.lateral.mini .lat-item span{ display:none; }
+
+/* ---------- botón de la barra de arriba (solo teléfono) ---------- */
+.abrir-menu{
+  display:none; width:32px; height:32px; padding:0; flex-shrink:0;
+  border:1px solid var(--linea-fuerte); border-radius:var(--radio);
+  background:#fff; color:var(--tinta-media); cursor:pointer;
+  align-items:center; justify-content:center;
+}
+.abrir-menu svg{ width:17px; height:17px; }
+.abrir-menu:hover{ border-color:var(--acento); color:var(--acento); }
+
+.lat-capa{ display:none; }
+
+/* ---------- teléfono y tablet angosta ---------- */
+@media (max-width: 900px){
+  .lateral{
+    position:fixed; top:0; left:0; z-index:60;
+    transform:translateX(-100%); transition:transform .18s ease;
+    box-shadow:2px 0 18px rgba(0,0,0,.22);
+  }
+  .lateral.abierta{ transform:translateX(0); }
+  .abrir-menu{ display:flex; }
+  .lat-capa.puesta{
+    display:block; position:fixed; inset:0; z-index:55;
+    background:rgba(20,28,32,.45);
+  }
+  .barra-titulo{ font-size:13px; }
+  .principal{ padding:20px 16px 60px; }
+}
+
+/* En el papel la barra no va. */
+@media print{
+  .lateral, .barra, .lat-capa, .franja, .flotantes{ display:none !important; }
+  .app{ display:block; }
 }

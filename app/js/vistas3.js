@@ -70,7 +70,8 @@ function leyendaCalendario(mes, corte) {
 
   return '<div style="margin-top:14px;padding-top:13px;border-top:1px solid var(--linea)">' +
     '<div style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center;font-size:11.5px;align-items:center">' +
-    '<span><span class="punto sem-verde"></span> Llegó al objetivo</span>' +
+    '<span><span class="punto sem-verde"></span> ' +
+      (enIngles() ? 'On target' : 'Llegó al objetivo') + '</span>' +
     '<span><span class="punto sem-rojo"></span> No llegó</span>' +
     '<span><span class="punto sem-amarillo"></span> Se pasó bastante</span>' +
     '<span><span class="punto sem-sin"></span> Sin datos</span>' +

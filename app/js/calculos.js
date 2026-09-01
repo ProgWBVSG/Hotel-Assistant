@@ -18,8 +18,15 @@ var E = {
   equipos: [],
   personas: {},
   mail: {},
-  historial: []
+  historial: [],
+  metaArea: {},       /* "2026-08" -> { "Penny Blue": monto, ... } */
+  reglasPago: null,   /* multiplicadores, recargos y feriados */
+  ui: {}              /* barra achicada, grupos cerrados */
 };
+
+/* Lo que NO se borra al vaciar el sistema: es cómo trabaja la persona,
+   no datos del hotel. */
+var CLAVES_DE_CONFIG = ['reglasPago', 'ui', 'idioma', 'equipos', 'personas', 'mail'];
 
 var CLAVE_G = 'reporte_diario_v2';
 
@@ -28,12 +35,12 @@ var CLAVE_G = 'reporte_diario_v2';
 function guardarTodo() {
   if (typeof olvidarAreas === 'function') olvidarAreas();
   try {
-    localStorage.setItem(CLAVE_G, JSON.stringify({
-      dias:E.dias, meta:E.meta, eventos:E.eventos, marcados:E.marcados,
-      moneda:E.moneda, valorHora:E.valorHora, notasPersonal:E.notasPersonal,
-      idioma:E.idioma, equipos:E.equipos, personas:E.personas, mail:E.mail,
-      historial:E.historial.slice(0, 200)
-    }));
+    /* Se guarda todo lo que tenga E. Antes era una lista escrita a mano y
+       cada cosa nueva que se agregaba se perdía al cerrar. */
+    var g = {};
+    for (var k in E) if (E.hasOwnProperty(k)) g[k] = E[k];
+    g.historial = (E.historial || []).slice(0, 200);
+    localStorage.setItem(CLAVE_G, JSON.stringify(g));
   } catch (e) {}
 }
 
@@ -53,7 +60,7 @@ function cargarTodo() {
 function cargarDatosReales() {
   E.dias = JSON.parse(JSON.stringify(typeof DATOS_REALES !== 'undefined' ? DATOS_REALES : []));
   E.dias.sort(function (a, b) { return a.fecha < b.fecha ? -1 : 1; });
-  E.meta = {}; E.eventos = {}; E.marcados = {};
+  E.meta = {}; E.metaArea = {}; E.eventos = {}; E.marcados = {};
   E.notasPersonal = {}; E.historial = [];
   guardarTodo();
 }

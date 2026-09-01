@@ -37,7 +37,7 @@ function empezarVacio() {
   if (!confirm(aviso)) return;
 
   E.dias = [];
-  E.meta = {}; E.eventos = {}; E.marcados = {}; E.notasPersonal = {};
+  E.meta = {}; E.metaArea = {}; E.eventos = {}; E.marcados = {}; E.notasPersonal = {};
   anotar('Empezó de cero', '');
   guardarTodo();
   MES = new Date().toISOString().slice(0, 7);

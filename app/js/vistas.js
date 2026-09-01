@@ -18,26 +18,26 @@ function iniciar() {
   pintar();
 }
 
-function ir(v) { VISTA = v; pintar(); }
+function ir(v) {
+  VISTA = v;
+  if (typeof abrirGrupoDe === 'function') abrirGrupoDe(v);
+  if (typeof cerrarLateralSiTelefono === 'function') cerrarLateralSiTelefono();
+  pintar();
+}
 
 function pintar() {
-  document.getElementById('tabs').innerHTML = [
-    ['cargardia', '+ Cargar día'],
-    ['resumen', 'Resumen del mes'],
-    ['dia', 'Día'],
-    ['proyeccion', 'Proyección'],
-    ['horarios', 'Horarios'],
-    ['personal', 'Personal'],
-    ['presentacion', 'Presentación'],
-    ['comentarios', 'Comentarios'],
-    ['enviar', 'Enviar'],
-    ['cargar', 'Cargar Excel'],
-    ['datos', 'Los datos'],
-    ['equipos', 'Equipos y sueldos'],
-    ['pagos', 'Reglas de pago']
-  ].map(function (t) {
-    return '<a href="javascript:ir(\'' + t[0] + '\')" class="' + (VISTA === t[0] ? 'activo' : '') + '">' + t[1] + '</a>';
-  }).join('');
+  if (typeof pintarLateral === 'function') pintarLateral();
+
+  /* El nombre de la pantalla, arriba: con la barra achicada es lo único que
+     dice dónde está parado uno. */
+  var bt = document.getElementById('barra-titulo');
+  if (bt && typeof MENU === 'function') {
+    var nom = '';
+    MENU().forEach(function (g) {
+      g.items.forEach(function (i) { if (i[0] === VISTA) nom = i[1]; });
+    });
+    bt.textContent = nom;
+  }
 
   var si = document.getElementById('sel-idioma');
   if (si) si.value = E.idioma || 'es';
@@ -246,7 +246,8 @@ function calendarioMes(mes, corte) {
       var ev = esEvento(d, corte);
       var sem = semaforoDia(d, mes);
       var tit = fechaLegible(f) + ' - ' + plata(t) +
-                (sem.obj ? '  |  objetivo ' + plata(sem.obj) + ' (' + sem.pct + '%) - ' + sem.texto : '');
+                (sem.obj ? '  |  ' + (enIngles() ? 'target ' : 'objetivo ') +
+                  plata(sem.obj) + ' (' + sem.pct + '%) - ' + sem.texto : '');
       h += '<div class="cal-dia sem-' + sem.color + (ev ? ' evento' : '') + (f === hoy ? ' hoy' : '') +
            '" onclick="verDia(\'' + f + '\')" title="' + esc(tit) + '">' +
            '<div class="cal-num">' + n + (ev ? ' <span style="color:#a8862f">&#9670;</span>' : '') + '</div>' +

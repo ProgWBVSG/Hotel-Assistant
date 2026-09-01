@@ -249,6 +249,12 @@ function ajustarFranja() {
       'Everything is stored only on this computer · ' +
       'Review with IT and legal before using it as an official source'
     : FRANJA_ES;
+
+  /* El título de la pestaña del navegador y el idioma de la página: no se
+     ven dentro de la aplicación, pero son parte de estar en un idioma. */
+  var en = (E.idioma || 'es') === 'en';
+  document.title = en ? 'Daily Revenue Report' : 'Reporte Diario de Ingresos';
+  document.documentElement.lang = en ? 'en' : 'es';
 }
 
 function traducirZona(raiz) {

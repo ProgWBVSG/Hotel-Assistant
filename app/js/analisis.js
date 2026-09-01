@@ -86,9 +86,13 @@ function semaforoDia(d, mes) {
   var pct = Math.round((t / obj) * 100);
   var dif = Math.round(t - obj);
 
-  if (pct >= 120) return { color:'amarillo', texto:'Muy por encima', obj:obj, dif:dif, pct:pct, evento:ev };
-  if (pct >= 95)  return { color:'verde',    texto:'En objetivo',    obj:obj, dif:dif, pct:pct, evento:ev };
-  return { color:'rojo', texto:'Abajo del objetivo', obj:obj, dif:dif, pct:pct, evento:ev };
+  var EN = enIngles();
+  if (pct >= 120) return { color:'amarillo', obj:obj, dif:dif, pct:pct, evento:ev,
+    texto: EN ? 'Well above' : 'Muy por encima' };
+  if (pct >= 95)  return { color:'verde', obj:obj, dif:dif, pct:pct, evento:ev,
+    texto: EN ? 'On target' : 'En objetivo' };
+  return { color:'rojo', obj:obj, dif:dif, pct:pct, evento:ev,
+    texto: EN ? 'Below target' : 'Abajo del objetivo' };
 }
 
 /* ------------------------------------------------------- HORARIOS ------ */
