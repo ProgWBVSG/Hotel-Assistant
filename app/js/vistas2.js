@@ -46,7 +46,9 @@ function vistaHorarios() {
   /* --- tabla por franja --- */
   h += '<div class="titulo-seccion">Franja por franja</div>';
   h += '<div class="marco"><table><thead><tr>' +
-    '<th>Franja</th><th>Horario</th><th class="num">Días</th>' +
+    '<th>' + (enIngles() ? 'Slot' : 'Franja') + '</th>' +
+    '<th>' + (enIngles() ? 'Time' : 'Horario') + '</th>' +
+    '<th class="num">' + (enIngles() ? 'Days' : 'Días') + '</th>' +
     '<th class="num">Total del mes</th><th class="num">Promedio por día</th>' +
     '<th class="num">Peso</th><th class="num">Cubiertos</th><th class="num">Ticket</th>' +
     '</tr></thead><tbody>';
@@ -84,7 +86,8 @@ function vistaHorarios() {
       '<strong>cuánta plata genera cada hora que se paga</strong>. Cuando es bajo, o sobra gente ' +
       'o falta venta en ese momento.</div>';
 
-    h += '<div class="marco"><table><thead><tr><th>Franja</th>' +
+    h += '<div class="marco"><table><thead><tr><th>' +
+      (enIngles() ? 'Slot' : 'Franja') + '</th>' +
       '<th class="num">Ingresos</th><th class="num">Horas pagadas</th>' +
       '<th class="num">Costo estimado</th><th class="num">Costo sobre venta</th>' +
       '<th class="num">Genera por hora</th><th></th></tr></thead><tbody>';

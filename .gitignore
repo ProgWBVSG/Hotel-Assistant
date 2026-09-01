@@ -32,3 +32,5 @@ fuente/integrar_v2.py
 fuente/pantalla_pagos.py
 fuente/idioma_final*.py
 fuente/barra_lateral.py
+fuente/reglas_sin_recargo.py
+fuente/pantalla_franjas.py

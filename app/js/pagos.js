@@ -1,66 +1,64 @@
 /* ==========================================================================
-   Cómo se paga una hora en Australia.
+   Cómo se paga una hora.
 
-   En hotelería el sueldo no es "horas × valor". La misma hora vale distinto
-   según cuándo se trabajó. El convenio del sector (Hospitality Industry
-   (General) Award, MA000009) combina dos cosas:
+   No hay una sola respuesta: cada hotel liquida distinto. El convenio del
+   sector (Hospitality Industry (General) Award, MA000009) es el piso legal,
+   pero muchos hoteles grandes tienen un acuerdo propio que paga una tarifa
+   más alta y plana, sin recargos por día. Cuál de los dos aplica lo sabe
+   quien liquida los sueldos, no este sistema.
 
-     1. Un MULTIPLICADOR según el día. Y no es el mismo para un empleado
-        permanente que para un casual: el casual tiene su propia columna,
-        que YA incluye el 25% de casual loading. No se multiplica una cosa
-        por la otra — ese es el error que más plata mal liquidada genera
-        en el rubro.
+   Por eso el sistema arranca SIN NINGÚN RECARGO: una hora vale lo mismo
+   cualquier día y a cualquier hora. Es lo que informó el hotel. Todo lo
+   demás se prende desde la pantalla "Reglas de pago", donde además está el
+   botón para cargar de una los valores del convenio, por si algún día
+   hacen falta.
 
-                        permanente     casual
-          entre semana      ×1,00      ×1,25
-          sábado            ×1,25      ×1,50
-          domingo           ×1,50      ×1,75
-          feriado           ×2,25      ×2,50
+   Lo que se puede configurar:
 
-     2. Un RECARGO FIJO POR HORA en la noche, que se SUMA al de arriba y
-        NO es un porcentaje:
+     1. Un MULTIPLICADOR según el día (entre semana, sábado, domingo,
+        feriado), con columna aparte para el contrato casual. La columna del
+        casual ya incluye su recargo: nunca se multiplica una por la otra.
 
-          19:00 a 00:00 (lunes a viernes)   + AUD 2,95 la hora
-          00:00 a 07:00 (lunes a viernes)   + AUD 4,42 la hora
+     2. FRANJAS HORARIAS con un monto fijo por hora, que se SUMA al
+        multiplicador. Se pueden agregar, borrar y elegir en qué días
+        aplican. No son porcentajes.
 
-   Los dos se aplican juntos: un sábado a las 22:00 se cobra el valor base
-   por 1,25 más el recargo nocturno de esa franja.
-
-   Los valores cargados son los del período que arranca el 1 de julio de
-   2026 (Fair Work los revisa cada julio). Están para cambiar desde la
-   pantalla "Reglas de pago": si el hotel liquida distinto, o el convenio
-   se actualiza, se corrigen ahí y todo el sistema recalcula.
-
-   ⚠️ Antes de usar esto para liquidar, hay que confirmarlo contra un
-   recibo de sueldo real. El nivel de cada persona (Level 1 a 6) cambia el
-   valor hora, y eso el sistema no lo puede adivinar.
+   El turno se recorre minuto a minuto, así un sábado de 17:00 a 01:00 se
+   parte solo entre sábado y domingo y entre las franjas que correspondan.
    ========================================================================== */
 
+/* Sube cuando cambian los valores que vienen de fábrica. Sirve para corregir
+   las reglas de quien ya abrió el sistema con los valores anteriores. */
+var VERSION_REGLAS = 2;
+
+var TIPOS_DIA = ['semana', 'sabado', 'domingo', 'feriado'];
+
+/* Lo que trae el sistema de fábrica: nada. Una hora vale lo mismo siempre. */
 var REGLAS_BASE = {
-  /* multiplicador del día, para empleado permanente */
-  dias: {
-    semana:  1.00,
-    sabado:  1.25,
-    domingo: 1.50,
-    feriado: 2.25
-  },
-  /* la columna del casual: ya trae adentro el 25% de casual loading */
-  diasCasual: {
-    semana:  1.25,
-    sabado:  1.50,
-    domingo: 1.75,
-    feriado: 2.50
-  },
-  /* recargo fijo por hora, se suma al multiplicador */
-  nocturno: [
-    { id:'tarde', nombre:'19:00 a 00:00', desde:19*60, hasta:24*60, valor:2.95 },
-    { id:'noche', nombre:'00:00 a 07:00', desde:0,     hasta:7*60,  valor:4.42 },
-  ],
+  version: VERSION_REGLAS,
+  dias:       { semana:1, sabado:1, domingo:1, feriado:1 },
+  diasCasual: { semana:1, sabado:1, domingo:1, feriado:1 },
+  /* franjas horarias con monto fijo por hora; se pueden agregar y borrar */
+  nocturno: [],
   /* quiénes están contratados como casual (por nombre) */
   casuales: [],
   /* si el descanso se paga o se descuenta */
   descansoPago: false,
   feriados: []      /* fechas 'YYYY-MM-DD' */
+};
+
+/* Los valores del convenio, para el botón que los carga de una. Quedan acá
+   escritos aunque el hotel no los use: si mañana cambian de acuerdo, están.
+   Período que arranca el 1 de julio de 2026. */
+var REGLAS_CONVENIO = {
+  dias:       { semana:1.00, sabado:1.25, domingo:1.50, feriado:2.25 },
+  diasCasual: { semana:1.25, sabado:1.50, domingo:1.75, feriado:2.50 },
+  nocturno: [
+    { id:'tarde', nombre:'19:00 a 00:00', desde:19*60, hasta:24*60, valor:2.95,
+      dias:['semana','sabado','domingo','feriado'] },
+    { id:'noche', nombre:'00:00 a 07:00', desde:0, hasta:7*60, valor:4.42,
+      dias:['semana','sabado','domingo','feriado'] }
+  ]
 };
 
 function reglas() {
@@ -72,7 +70,40 @@ function reglas() {
   if (!r.feriados) r.feriados = [];
   if (!r.diasCasual) r.diasCasual = JSON.parse(JSON.stringify(REGLAS_BASE.diasCasual));
   if (!r.casuales) r.casuales = [];
+
+  /* Las franjas viejas no decían en qué días aplican: aplicaban en todos. */
+  r.nocturno.forEach(function (b) {
+    if (!b.dias) b.dias = TIPOS_DIA.slice();
+    if (!b.id) b.id = 'f' + Math.random().toString(36).slice(2, 8);
+  });
+
+  /* Corrección: hasta la versión 1 el sistema venía con los recargos del
+     convenio puestos de fábrica. El hotel informó que no se pagan, así que
+     se apagan una sola vez. Si alguien los había cambiado a mano, se
+     respeta lo que puso. */
+  if ((r.version || 1) < 2) {
+    if (sonLosValoresDelConvenio(r)) {
+      r.dias = JSON.parse(JSON.stringify(REGLAS_BASE.dias));
+      r.diasCasual = JSON.parse(JSON.stringify(REGLAS_BASE.diasCasual));
+      r.nocturno = [];
+    }
+    r.version = VERSION_REGLAS;
+  }
   return r;
+}
+
+/* ¿Las reglas guardadas son exactamente las que traía el sistema antes?
+   Si alguien las tocó, no se pisan. */
+function sonLosValoresDelConvenio(r) {
+  var c = REGLAS_CONVENIO;
+  var igual = TIPOS_DIA.every(function (t) {
+    return r.dias[t] === c.dias[t] && r.diasCasual[t] === c.diasCasual[t];
+  });
+  if (!igual) return false;
+  if ((r.nocturno || []).length !== 2) return false;
+  return r.nocturno.every(function (b, i) {
+    return b.valor === c.nocturno[i].valor && b.desde === c.nocturno[i].desde;
+  });
 }
 
 function tipoDeDia(fecha) {
@@ -89,13 +120,23 @@ function nombreTipoDia(t) {
   return (typeof enIngles === 'function' && enIngles()) ? en[t] : es[t];
 }
 
-/* ¿Cuánto recargo nocturno corresponde a este minuto del día? */
-function recargoNocturnoEn(minuto) {
+/* La abreviatura del tipo de día, para los recuadros chicos de la tabla. */
+function abrevTipoDia(t) {
+  var es = { semana:'L-V', sabado:'Sáb', domingo:'Dom', feriado:'Fer' };
+  var en = { semana:'M-F', sabado:'Sat', domingo:'Sun', feriado:'Hol' };
+  return (typeof enIngles === 'function' && enIngles()) ? en[t] : es[t];
+}
+
+/* Cuánto recargo por hora corresponde a este minuto, en un día de este tipo.
+   Una franja puede valer solo los domingos, o solo los feriados. */
+function recargoNocturnoEn(minuto, tipoDia) {
   var m = ((minuto % 1440) + 1440) % 1440;
   var r = reglas();
   for (var i = 0; i < r.nocturno.length; i++) {
     var b = r.nocturno[i];
-    if (m >= b.desde && m < b.hasta) return b.valor || 0;
+    if (m < b.desde || m >= b.hasta) continue;
+    if (tipoDia && b.dias && b.dias.indexOf(tipoDia) === -1) continue;
+    return b.valor || 0;
   }
   return 0;
 }
@@ -137,7 +178,7 @@ function calcularPagoTurno(t, fecha, valorHora) {
   var acc = {};
   for (var m = desde; m < hasta; m++) {
     var tipo = (m >= 1440) ? tipoManana : tipoHoy;
-    var rec = recargoNocturnoEn(m);
+    var rec = recargoNocturnoEn(m, tipo);
     var k = tipo + '|' + rec;
     acc[k] = acc[k] || { tipo: tipo, recargo: rec, minutos: 0, desde: m, hasta: m };
     acc[k].minutos++;
@@ -277,6 +318,64 @@ function setHoraBanda(id, cual, valor) {
   b.nombre = horaTexto(b.desde) + ' a ' + horaTexto(b.hasta === 1440 ? 0 : b.hasta);
   guardarTodo(); pintar();
 }
+/* Agregar una franja nueva. Arranca sin monto y aplicando todos los días:
+   así se ve enseguida y se ajusta desde la tabla. */
+function agregarBanda() {
+  var r = reglas();
+  r.nocturno.push({
+    id: 'f' + Math.random().toString(36).slice(2, 8),
+    nombre: '00:00 a 00:00', desde: 0, hasta: 0, valor: 0,
+    dias: TIPOS_DIA.slice()
+  });
+  anotar('Agregó una franja de recargo', '');
+  guardarTodo(); pintar();
+}
+
+function quitarBanda(id) {
+  var r = reglas();
+  var b = r.nocturno.filter(function (x) { return x.id === id; })[0];
+  r.nocturno = r.nocturno.filter(function (x) { return x.id !== id; });
+  anotar('Quitó una franja de recargo', b ? b.nombre : '');
+  guardarTodo(); pintar();
+}
+
+/* En qué días vale una franja. */
+function alternarDiaBanda(id, tipo) {
+  var b = reglas().nocturno.filter(function (x) { return x.id === id; })[0];
+  if (!b) return;
+  if (!b.dias) b.dias = TIPOS_DIA.slice();
+  var i = b.dias.indexOf(tipo);
+  if (i === -1) b.dias.push(tipo); else b.dias.splice(i, 1);
+  guardarTodo(); pintar();
+}
+
+function setNombreBanda(id, v) {
+  var b = reglas().nocturno.filter(function (x) { return x.id === id; })[0];
+  if (b) b.nombre = String(v).slice(0, 40) || b.nombre;
+  guardarTodo(); pintar();
+}
+
+/* Los dos atajos: dejar todo plano, o cargar los valores del convenio. */
+function ponerSinRecargos() {
+  var r = reglas();
+  r.dias = JSON.parse(JSON.stringify(REGLAS_BASE.dias));
+  r.diasCasual = JSON.parse(JSON.stringify(REGLAS_BASE.diasCasual));
+  r.nocturno = [];
+  anotar('Dejó las horas sin recargo', '');
+  guardarTodo(); pintar();
+  decir(T('Listo: una hora vale lo mismo cualquier día y a cualquier hora'), 'ok');
+}
+
+function ponerReglasConvenio() {
+  var r = reglas();
+  r.dias = JSON.parse(JSON.stringify(REGLAS_CONVENIO.dias));
+  r.diasCasual = JSON.parse(JSON.stringify(REGLAS_CONVENIO.diasCasual));
+  r.nocturno = JSON.parse(JSON.stringify(REGLAS_CONVENIO.nocturno));
+  anotar('Cargó los valores del convenio', 'MA000009');
+  guardarTodo(); pintar();
+  decir(T('Cargados los valores del convenio. Confirmalos con un recibo real.'), 'ok');
+}
+
 function setMultDiaCasual(tipo, v) {
   var r = reglas();
   r.diasCasual[tipo] = parseFloat(String(v).replace(',', '.')) || 1;
@@ -301,8 +400,10 @@ function quitarFeriado(f) {
   guardarTodo(); pintar();
 }
 function restaurarReglas() {
-  if (!confirm(T('¿Volver a los valores de arranque?'))) return;
+  if (!confirm(T('¿Volver a los valores de arranque? Se borran los feriados y las franjas.'))) return;
+  var casuales = (reglas().casuales || []).slice();
   E.reglasPago = JSON.parse(JSON.stringify(REGLAS_BASE));
+  E.reglasPago.casuales = casuales;   /* quién es casual no es una regla de pago */
   guardarTodo(); pintar();
   decir(T('Reglas restauradas'), 'ok');
 }

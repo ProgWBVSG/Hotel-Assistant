@@ -113,30 +113,42 @@ function vistaPagos() {
     EN ? 'How an hour is paid depending on when it was worked'
        : 'Cuánto vale una hora según cuándo se trabajó');
 
-  h += '<div class="caja aviso"><strong>' +
-    (EN ? 'Loaded with the Hospitality Award (MA000009) values for the period starting 1 July 2026.'
-        : 'Vienen cargados los valores del convenio de hotelería (MA000009) del período que ' +
-          'arranca el 1 de julio de 2026.') + '</strong> ' +
+  var plano = !hayRecargos();
+  h += '<div class="caja ' + (plano ? 'gris' : 'aviso') + '"><strong>' +
+    (plano
+      ? (EN ? 'Right now an hour is worth the same any day and at any time.'
+            : 'Ahora mismo una hora vale lo mismo cualquier día y a cualquier hora.')
+      : (EN ? 'There are loadings loaded: some hours are worth more than others.'
+            : 'Hay recargos cargados: algunas horas valen más que otras.')) + '</strong> ' +
     (EN
-      ? 'Fair Work reviews them every July, and the hourly rate also changes with each level. ' +
-        'Before using this to pay anyone, check it against a real payslip. Everything on this ' +
-        'screen can be corrected, and the whole system recalculates.'
-      : 'Fair Work los revisa cada julio, y el valor hora además cambia según el nivel de cada ' +
-        'persona. Antes de usar esto para liquidar, comparalo con un recibo de sueldo real. Todo ' +
-        'lo de esta pantalla se puede corregir y el sistema recalcula solo.') + '</div>';
+      ? 'That is what the hotel reported. If it turns out that a night, a Sunday or a public ' +
+        'holiday is paid differently, it gets set up here and the whole system recalculates &mdash; ' +
+        'the days already loaded included. Nothing has to be entered again.'
+      : 'Es lo que informó el hotel. Si resulta que una noche, un domingo o un feriado se paga ' +
+        'distinto, se configura acá y el sistema recalcula todo &mdash; también los días que ya ' +
+        'están cargados. No hay que volver a cargar nada.') + '</div>';
+
+  h += '<div class="acciones" style="border:none;margin:0 0 20px">' +
+    '<button class="boton' + (plano ? ' primario' : '') + '" onclick="ponerSinRecargos()">' +
+    (EN ? 'No loadings' : 'Sin recargos') + '</button>' +
+    '<button class="boton" onclick="ponerReglasConvenio()">' +
+    (EN ? 'Load the award values' : 'Cargar los valores del convenio') + '</button>' +
+    '<span style="font-size:11.5px;color:var(--tinta-suave)">' +
+    (EN ? 'the award is the legal floor; many hotels have their own agreement'
+        : 'el convenio es el piso legal; muchos hoteles tienen su propio acuerdo') + '</span></div>';
 
   /* --- multiplicador por día --- */
   h += '<div class="titulo-seccion">' + (EN ? 'By day of the week' : 'Según el día') + '</div>';
   h += '<div class="caja gris">' +
     (EN
-      ? 'A multiplier on the base rate: 1.25 means the hour is worth 25% more. A casual has a ' +
-        '<strong>separate column</strong>, which already includes the 25% casual loading &mdash; ' +
-        'the two are never multiplied together. Getting that wrong is the most common ' +
-        'underpayment in hospitality.'
-      : 'Un multiplicador sobre el valor base: 1,25 quiere decir que la hora vale un 25% más. ' +
-        'El casual tiene <strong>su propia columna</strong>, que ya trae adentro el 25% de casual ' +
-        'loading: nunca se multiplica una cosa por la otra. Equivocarse en eso es el error que ' +
-        'más sueldos mal liquidados genera en el rubro.') + '</div>';
+      ? 'A multiplier on the base rate: 1 means the hour is worth the normal rate, 1.25 that it ' +
+        'is worth 25% more. A casual has a <strong>separate column</strong>: if used, it already ' +
+        'includes its own loading and the two are never multiplied together. Getting that wrong ' +
+        'is the most common underpayment in hospitality.'
+      : 'Un multiplicador sobre el valor base: 1 quiere decir que la hora vale lo normal, y 1,25 ' +
+        'que vale un 25% más. El casual tiene <strong>su propia columna</strong>: si se usa, ya ' +
+        'trae adentro su recargo y nunca se multiplica una cosa por la otra. Equivocarse en eso ' +
+        'es el error que más sueldos mal liquidados genera en el rubro.') + '</div>';
   var vh0 = E.valorHora || 30;
   h += '<div class="marco tabla-ancha"><table><thead><tr><th>' + (EN ? 'Day' : 'Día') + '</th>' +
     '<th class="num" style="width:120px">' + (EN ? 'Permanent' : 'Permanente') + '</th>' +
@@ -161,32 +173,63 @@ function vistaPagos() {
   });
   h += '</tbody></table></div>';
 
-  /* --- recargo nocturno --- */
-  h += '<div class="titulo-seccion">' + (EN ? 'Night loading' : 'Recargo nocturno') + '</div>';
+  /* --- franjas horarias --- */
+  h += '<div class="titulo-seccion">' +
+    (EN ? 'Loadings by time of day' : 'Recargos por franja horaria') + '</div>';
   h += '<div class="caja gris">' +
     (EN
-      ? 'A fixed amount per hour that is <strong>added on top</strong> of the day multiplier. ' +
-        'A Saturday at 22:00 pays the base × 1.25 <em>plus</em> the night loading.'
-      : 'Un monto fijo por hora que se <strong>suma</strong> al multiplicador del día. ' +
-        'Un sábado a las 22:00 se paga la base × 1,25 <em>más</em> el recargo nocturno.') + '</div>';
-  h += '<div class="marco"><table><thead><tr>' +
-    '<th>' + (EN ? 'Band' : 'Franja') + '</th>' +
-    '<th style="width:120px">' + (EN ? 'From' : 'Desde') + '</th>' +
-    '<th style="width:120px">' + (EN ? 'To' : 'Hasta') + '</th>' +
-    '<th class="num" style="width:160px">' + (EN ? 'Extra per hour' : 'Extra por hora') +
-    ' (' + E.moneda + ')</th></tr></thead><tbody>';
-  r.nocturno.forEach(function (b) {
-    h += '<tr><td><strong>' + esc(b.nombre) + '</strong></td>' +
-      '<td><input type="time" class="celda" value="' + horaTexto(b.desde) + '" ' +
-      'onchange="setHoraBanda(\'' + b.id + '\',\'desde\',this.value)"></td>' +
-      '<td><input type="time" class="celda" value="' + horaTexto(b.hasta === 1440 ? 0 : b.hasta) + '" ' +
-      'onchange="setHoraBanda(\'' + b.id + '\',\'hasta\',this.value)"></td>' +
-      '<td class="num"><input type="text" inputmode="decimal" class="celda" ' +
-      'value="' + (b.valor || '') + '" placeholder="0" ' +
-      'onkeypress="soloNumeros(event)" oninput="limpiarSiSobra(this)" ' +
-      'onchange="setRecargoNoche(\'' + b.id + '\',this.value)"></td></tr>';
-  });
-  h += '</tbody></table></div>';
+      ? 'A <strong>fixed amount per hour</strong> &mdash; not a percentage &mdash; that is added ' +
+        'on top of the day multiplier. Add the ones the hotel actually pays, and choose which ' +
+        'days each one applies to: a loading can be worth only on Sundays, or only on holidays.'
+      : 'Un <strong>monto fijo por hora</strong> &mdash; no un porcentaje &mdash; que se suma al ' +
+        'multiplicador del día. Agregá las que el hotel realmente paga y elegí en qué días vale ' +
+        'cada una: un recargo puede valer solo los domingos, o solo los feriados.') + '</div>';
+
+  if (!r.nocturno.length) {
+    h += '<div class="marco" style="padding:20px 18px;text-align:center">' +
+      '<div style="font-size:12.5px;color:var(--tinta-suave);margin-bottom:12px">' +
+      (EN ? 'No loading by time of day. Every hour of the shift is paid the same.'
+          : 'No hay recargo por franja horaria. Todas las horas del turno se pagan igual.') +
+      '</div><button class="boton" onclick="agregarBanda()">' +
+      (EN ? '+ Add a band' : '+ Agregar una franja') + '</button></div>';
+  } else {
+    h += '<div class="marco tabla-ancha"><table><thead><tr>' +
+      '<th>' + (EN ? 'What it is called' : 'Cómo se llama') + '</th>' +
+      '<th style="width:110px">' + (EN ? 'From' : 'Desde') + '</th>' +
+      '<th style="width:110px">' + (EN ? 'To' : 'Hasta') + '</th>' +
+      '<th class="num" style="width:130px">' + (EN ? 'Extra per hour' : 'Extra por hora') +
+      ' (' + E.moneda + ')</th>' +
+      '<th style="width:230px">' + (EN ? 'Which days' : 'Qué días') + '</th>' +
+      '<th style="width:40px"></th></tr></thead><tbody>';
+
+    r.nocturno.forEach(function (b) {
+      h += '<tr><td><input type="text" class="celda" value="' + esc(b.nombre) + '" ' +
+        'onchange="setNombreBanda(\'' + b.id + '\',this.value)"></td>' +
+        '<td><input type="time" class="celda" value="' + horaTexto(b.desde) + '" ' +
+        'onchange="setHoraBanda(\'' + b.id + '\',\'desde\',this.value)"></td>' +
+        '<td><input type="time" class="celda" value="' + horaTexto(b.hasta === 1440 ? 0 : b.hasta) + '" ' +
+        'onchange="setHoraBanda(\'' + b.id + '\',\'hasta\',this.value)"></td>' +
+        '<td class="num"><input type="text" inputmode="decimal" class="celda" ' +
+        'value="' + (b.valor || '') + '" placeholder="0" ' +
+        'onkeypress="soloNumeros(event)" oninput="limpiarSiSobra(this)" ' +
+        'onchange="setRecargoNoche(\'' + b.id + '\',this.value)"></td><td>';
+      TIPOS_DIA.forEach(function (t) {
+        var puesto = !b.dias || b.dias.indexOf(t) !== -1;
+        h += '<label class="chip-dia' + (puesto ? ' puesto' : '') + '" title="' +
+          esc(nombreTipoDia(t)) + '">' +
+          '<input type="checkbox"' + (puesto ? ' checked' : '') + ' ' +
+          'onchange="alternarDiaBanda(\'' + b.id + '\',\'' + t + '\')"> ' +
+          esc(abrevTipoDia(t)) + '</label>';
+      });
+      h += '</td><td><button class="boton chico" title="' +
+        (EN ? 'Remove this band' : 'Quitar esta franja') + '" ' +
+        'onclick="quitarBanda(\'' + b.id + '\')">&times;</button></td></tr>';
+    });
+    h += '</tbody></table></div>';
+    h += '<div class="acciones" style="border:none;margin-top:10px">' +
+      '<button class="boton" onclick="agregarBanda()">' +
+      (EN ? '+ Add a band' : '+ Agregar una franja') + '</button></div>';
+  }
 
   /* --- otros --- */
   h += '<div class="titulo-seccion">' + (EN ? 'Other' : 'Otros') + '</div>';

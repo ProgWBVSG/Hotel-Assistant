@@ -647,3 +647,21 @@ table.hoja-staff .rec{ color:var(--aviso); font-weight:700; margin-left:2px; }
   .lateral, .barra, .lat-capa, .franja, .flotantes{ display:none !important; }
   .app{ display:block; }
 }
+
+/* ---------- en qué días vale una franja ---------- */
+.chip-dia{
+  display:inline-flex; align-items:center; gap:4px;
+  padding:3px 8px; margin:2px 3px 2px 0;
+  border:1px solid var(--linea-fuerte); border-radius:14px;
+  font-size:11px; cursor:pointer; background:#fff;
+  color:var(--tinta-suave); user-select:none;
+}
+.chip-dia:hover{ border-color:var(--acento); }
+.chip-dia.puesto{
+  background:var(--acento); border-color:var(--acento); color:#fff; font-weight:600;
+}
+.chip-dia input{ margin:0; width:11px; height:11px; cursor:pointer; }
+
+.boton.chico{
+  padding:3px 9px; font-size:15px; line-height:1.1; min-width:0;
+}

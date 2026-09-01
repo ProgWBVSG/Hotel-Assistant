@@ -31,6 +31,18 @@ var FRASES = {
 'Bajó una copia': 'Downloaded a backup',
 'Cambió el multiplicador del día': 'Changed the day multiplier',
 'Cambió el recargo nocturno': 'Changed the night loading',
+'Agregó una franja de recargo': 'Added a loading band',
+'Quitó una franja de recargo': 'Removed a loading band',
+'Dejó las horas sin recargo': 'Set the hours with no loading',
+'Cargó los valores del convenio': 'Loaded the award values',
+'Cambió el tipo de contrato': 'Changed the contract type',
+'Listo: una hora vale lo mismo cualquier día y a cualquier hora':
+  'Done: an hour is worth the same any day and at any time',
+'Cargados los valores del convenio. Confirmalos con un recibo real.':
+  'Award values loaded. Check them against a real payslip.',
+'¿Volver a los valores de arranque? Se borran los feriados y las franjas.':
+  'Reset to the starting values? Public holidays and bands are cleared.',
+'Reglas restauradas': 'Rules reset',
 'Marcó como casual': 'Marked as casual',
 'Marcó como permanente': 'Marked as permanent',
 'Cambió el multiplicador del día (casual)': 'Changed the day multiplier (casual)',
