@@ -13,6 +13,46 @@
 
 var FRASES = {
 
+/* ---- pestaña y pantalla de reglas de pago ---- */
+'Reglas de pago': 'Pay rules',
+'contra días parecidos': 'vs similar days',
+'contra el promedio de {} días parecidos': 'vs the average of {} similar days',
+'vs. días parecidos': 'vs similar days',
+'% costo': '% cost',
+
+/* ---- registro de movimientos ---- */
+'Últimos movimientos': 'Latest activity',
+'Abrió WhatsApp con el reporte': 'Opened WhatsApp with the report',
+'Abrió el mail del reporte': 'Opened the report email',
+'Agregó un feriado': 'Added a public holiday',
+'Anotó sobre el personal': 'Added a staffing note',
+'Asignó equipo': 'Assigned a team',
+'Bajó el resumen': 'Downloaded the summary',
+'Bajó una copia': 'Downloaded a backup',
+'Cambió el multiplicador del día': 'Changed the day multiplier',
+'Cambió el recargo nocturno': 'Changed the night loading',
+'Marcó como casual': 'Marked as casual',
+'Marcó como permanente': 'Marked as permanent',
+'Cambió el multiplicador del día (casual)': 'Changed the day multiplier (casual)',
+'Cambió el valor hora de un equipo': 'Changed a team hourly rate',
+'Cambió el valor hora de una persona': 'Changed a person hourly rate',
+'Cambió la meta': 'Changed the target',
+'Cargó un Excel': 'Imported an Excel file',
+'Cargó un día a mano': 'Entered a day by hand',
+'Corrigió un día': 'Corrected a day',
+'Empezó de cero': 'Started from scratch',
+'Marcó un día': 'Flagged a day',
+'Repartió la meta del mes': 'Split the month target',
+'Restauró una copia': 'Restored a backup',
+'Quitó un feriado': 'Removed a public holiday',
+'Volvió a las reglas de fábrica': 'Reset the rules to default',
+'Meta repartida según lo que aporta cada área':
+  'Target split according to what each area usually brings in',
+'El mensaje es largo. Lo copié: pegalo en el chat.':
+  'The message is long. I copied it: paste it into the chat.',
+'Mensaje copiado': 'Message copied',
+'Número guardado': 'Number saved',
+
 /* ---- barra, pestañas, encabezados ---- */
 'Reporte diario de ingresos · Alimentos y Bebidas':
   'Daily revenue report · Food & Beverage',

@@ -170,14 +170,38 @@ function vistaEnviar() {
     'onchange="guardarMail(\'para\',this.value)">' +
     '<div class="pista">Separá con comas. Se guarda para la próxima.</div></div></div>';
 
-  /* --- vista previa --- */
+  /* --- numero de whatsapp --- */
+  h += '<div class="marco" style="padding:16px 18px;margin-bottom:18px">' +
+    '<div class="campo" style="margin:0"><label>' +
+    (enIngles() ? 'WhatsApp number' : 'Número de WhatsApp') + '</label>' +
+    '<input type="text" value="' + esc(numeroWaLegible()) + '" ' +
+    'onchange="guardarNumeroWa(this.value)">' +
+    '<div class="pista">' +
+    (enIngles() ? 'Opens WhatsApp with the message already written. You send it.'
+                : 'Abre WhatsApp con el mensaje ya escrito. Lo mandás vos.') + '</div></div></div>';
+
+  /* --- vista previa de WhatsApp --- */
+  h += '<div class="titulo-seccion">' +
+    (enIngles() ? 'The WhatsApp message' : 'El mensaje de WhatsApp') + '</div>';
+  h += '<div class="marco vista-wa"><pre>' + esc(armarTextoWhatsapp(f)) + '</pre></div>';
+  h += '<div style="font-size:11.5px;color:var(--tinta-suave);margin-top:8px;text-align:center">' +
+    (enIngles() ? 'What goes between asterisks arrives in bold on WhatsApp.'
+                : 'Lo que va entre asteriscos llega en negrita en WhatsApp.') + '</div>';
+
+  /* --- vista previa del mail --- */
   var texto = armarTextoReporte(f);
-  h += '<div class="titulo-seccion">Así va a llegar</div>';
+  h += '<div class="titulo-seccion">' +
+    (enIngles() ? 'The email' : 'El mail') + '</div>';
   h += '<div class="marco" style="padding:16px 18px">' +
     '<pre style="white-space:pre-wrap;font-family:inherit;font-size:12.5px;line-height:1.6;margin:0">' +
     esc(texto) + '</pre></div>';
 
   h += '<div class="acciones" style="border:none;margin-top:18px">' +
+    '<button class="boton wa" onclick="abrirWhatsapp(\'' + f + '\')">' +
+      (enIngles() ? 'Send by WhatsApp' : 'Mandar por WhatsApp') + '</button>' +
+    '<button class="boton" onclick="copiarWhatsapp(\'' + f + '\')">' +
+      (enIngles() ? 'Copy the message' : 'Copiar el mensaje') + '</button>' +
+    '<span class="sep"></span>' +
     '<button class="boton primario" onclick="abrirMail(\'' + f + '\')">Abrir el mail</button>' +
     '<button class="boton" onclick="copiarReporte(\'' + f + '\')">Copiar el texto</button>' +
     '<button class="boton" onclick="bajarJson(\'' + f + '\')">Bajar en JSON</button>' +
@@ -255,18 +279,18 @@ function armarTextoReporte(f) {
   L.push(fechaLegible(f));
   L.push('');
   L.push(R.res);
-  L.push('  ' + pad(R.total, 24) + ' ' + M + ' ' + plata(cmp.total));
+  L.push('  ' + pad(R.total, 24) + ' ' + AUD(cmp.total));
   if (cmp.variacionComparables !== null) {
     L.push('  ' + pad(R.comp, 24) + ' ' + plata(cmp.variacionComparables, true) +
            ' (' + cmp.comparables + ' ' + (EN ? 'days' : 'días') + ')');
   }
-  L.push('  ' + pad(R.acum, 24) + ' ' + M + ' ' + plata(ac.total) +
+  L.push('  ' + pad(R.acum, 24) + ' ' + AUD(ac.total) +
          '   (' + ac.dias + ' ' + R.dias + ' ' + cantidadDiasMes(MES) + ')');
   if (p.ok) {
-    L.push('  ' + pad(R.proy, 24) + ' ' + M + ' ' + plata(p.cierre) +
+    L.push('  ' + pad(R.proy, 24) + ' ' + AUD(p.cierre) +
            '   (' + R.entre + ' ' + plata(p.piso) + ' y ' + plata(p.techo) + ')');
     if (p.meta) {
-      L.push('  ' + pad(R.meta, 24) + ' ' + M + ' ' + plata(p.meta) +
+      L.push('  ' + pad(R.meta, 24) + ' ' + AUD(p.meta) +
              '   → ' + (p.diferencia >= 0 ? R.arriba : R.abajo) + plata(Math.abs(p.diferencia)));
     }
   }
@@ -306,8 +330,10 @@ function armarTextoReporte(f) {
   if (!ap.sinDatos) {
     L.push('');
     L.push(R.per);
-    L.push('  ' + ap.personas + ' ' + R.personas + ' · ' + Math.round(ap.horas) + ' horas' +
-      (hayValores() ? ' · ' + R.costo + ' ' + M + ' ' + plata(costoPersonalReal(d)) +
+    var costoMail = (typeof costoDiaConReglas === 'function' && hayRecargos())
+      ? costoDiaConReglas(d) : costoPersonalReal(d);
+    L.push('  ' + ap.personas + ' ' + R.personas + ' · ' + Math.round(ap.horas) + ' ' + R.horas +
+      (hayValores() ? ' · ' + R.costo + ' ' + AUD(costoMail) +
         (ap.pesoCosto !== null ? ' (' + ap.pesoCosto + '% ' + R.deVenta + ')' : '') : ''));
     if (ap.estado !== 'normal') L.push('  ' + ap.mensaje);
   }

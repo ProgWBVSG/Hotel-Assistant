@@ -33,7 +33,8 @@ function pintar() {
     ['enviar', 'Enviar'],
     ['cargar', 'Cargar Excel'],
     ['datos', 'Los datos'],
-    ['equipos', 'Equipos y sueldos']
+    ['equipos', 'Equipos y sueldos'],
+    ['pagos', 'Reglas de pago']
   ].map(function (t) {
     return '<a href="javascript:ir(\'' + t[0] + '\')" class="' + (VISTA === t[0] ? 'activo' : '') + '">' + t[1] + '</a>';
   }).join('');
@@ -52,7 +53,7 @@ function pintar() {
               horarios:vistaHorarios, personal:vistaPersonal,
               presentacion:vistaPresentacion, comentarios:vistaComentarios,
               enviar:vistaEnviar, equipos:vistaEquipos,
-              cargar:vistaCargar, datos:vistaDatos })[VISTA] || vistaResumen;
+              cargar:vistaCargar, datos:vistaDatos, pagos:vistaPagos })[VISTA] || vistaResumen;
   cont.innerHTML = (typeof sonDatosDeEjemplo === 'function' && sonDatosDeEjemplo() && VISTA !== 'datos'
     ? (enIngles()
         ? '<div class="caja mal" style="margin-bottom:16px">' +
@@ -125,7 +126,8 @@ function vistaResumen() {
     h += tarjeta('', 'Último día cargado — ' + fechaCorta(ult.fecha), totalDia(ult), '',
       cmp && cmp.variacionComparables !== null
         ? (cmp.variacionComparables >= 0 ? '<b style="color:var(--ok)">' : '<b style="color:var(--mal)">') +
-          plata(cmp.variacionComparables, true) + '</b> contra días parecidos'
+          plata(cmp.variacionComparables, true) + '</b> ' +
+          (enIngles() ? 'vs similar days' : 'contra días parecidos')
         : diaSemana(ult.fecha));
   }
 
@@ -295,8 +297,10 @@ function vistaDia() {
   h += tarjeta('acento', 'Total del día', cmp.total, 'grande',
     cmp.variacionComparables !== null
       ? (cmp.variacionComparables >= 0 ? '<b style="color:var(--ok)">' : '<b style="color:var(--mal)">') +
-        plata(cmp.variacionComparables, true) + '</b> contra el promedio de ' + cmp.comparables + ' días parecidos'
-      : 'Sin días comparables todavía');
+        plata(cmp.variacionComparables, true) + '</b> ' +
+        (enIngles() ? 'vs the average of ' + cmp.comparables + ' similar days'
+                    : 'contra el promedio de ' + cmp.comparables + ' días parecidos')
+      : (enIngles() ? 'No comparable days yet' : 'Sin días comparables todavía'));
   h += tarjeta('', 'Cubiertos', cmp.cubiertos, '',
     cmp.cubiertos ? 'Consumo promedio <b>' + plata(cmp.total / cmp.cubiertos) + '</b> por persona' : '');
   h += tarjeta('', 'Comida / Bebida', '', '',
@@ -440,7 +444,7 @@ function vistaProyeccion() {
   });
 
   h += '<div class="calculo-total"><span>Cierre proyectado</span><span>' +
-    E.moneda + ' ' + plata(p.cierre) + '</span></div>';
+    AUD(p.cierre) + '</span></div>';
   h += '</div>';
 
   /* explicación en palabras */
@@ -466,6 +470,8 @@ function vistaProyeccion() {
     '<strong>Lo que esto NO es:</strong> una proyección estadística sobre lo ya facturado. ' +
     '<strong>No incluye reservas tomadas para los días que faltan</strong>, porque el sistema no las ve. ' +
     'Si hay eventos grandes ya confirmados, cargalos arriba y el número mejora bastante.</p></div>';
+
+    if (typeof bloqueMetas === 'function') h += bloqueMetas(MES);
 
   return h;
 }
@@ -511,7 +517,7 @@ function vistaPresentacion() {
   /* resumen ejecutivo en dos líneas */
   var EN = enIngles();
   var frase = (EN ? 'The day closed at <strong>' : 'El día cerró en <strong>') +
-    E.moneda + ' ' + plata(cmp.total) + '</strong>';
+    AUD(cmp.total) + '</strong>';
   if (cmp.variacionComparables !== null) {
     var arriba = cmp.variacionComparables >= 0;
     var monto = plata(Math.abs(cmp.variacionComparables));
@@ -520,14 +526,14 @@ function vistaPresentacion() {
       : ', <strong>' + monto + (arriba ? ' por encima' : ' por debajo') + '</strong> del promedio de días parecidos';
   }
   frase += EN
-    ? '. Month to date is <strong>' + E.moneda + ' ' + plata(acum.total) + '</strong> across ' +
+    ? '. Month to date is <strong>' + AUD(acum.total) + '</strong> across ' +
       acum.dias + ' days entered'
-    : '. El acumulado del mes es de <strong>' + E.moneda + ' ' + plata(acum.total) + '</strong> sobre ' +
+    : '. El acumulado del mes es de <strong>' + AUD(acum.total) + '</strong> sobre ' +
       acum.dias + ' días cargados';
   if (p.ok) {
     frase += EN
-      ? ', and the forecast close is <strong>' + E.moneda + ' ' + plata(p.cierre) + '</strong>'
-      : ', y la proyección de cierre está en <strong>' + E.moneda + ' ' + plata(p.cierre) + '</strong>';
+      ? ', and the forecast close is <strong>' + AUD(p.cierre) + '</strong>'
+      : ', y la proyección de cierre está en <strong>' + AUD(p.cierre) + '</strong>';
     if (p.meta) {
       frase += p.diferencia >= 0
         ? (EN ? ', <strong>above target</strong>' : ', <strong>por encima de la meta</strong>')
@@ -539,12 +545,13 @@ function vistaPresentacion() {
 
   /* KPIs */
   h += '<div class="hoja-kpis">';
-  h += kpiHoja('Total del día', E.moneda + ' ' + plata(cmp.total),
+  h += kpiHoja('Total del día', AUD(cmp.total),
     cmp.variacionComparables !== null
       ? '<span style="color:' + (cmp.variacionComparables >= 0 ? 'var(--ok)' : 'var(--mal)') + '">' +
-        plata(cmp.variacionComparables, true) + ' vs. días parecidos</span>' : '');
-  h += kpiHoja('Acumulado del mes', E.moneda + ' ' + plata(acum.total), acum.dias + ' días cargados');
-  h += kpiHoja('Proyección de cierre', p.ok ? E.moneda + ' ' + plata(p.cierre) : '—',
+        plata(cmp.variacionComparables, true) + ' ' +
+        (enIngles() ? 'vs similar days' : 'vs. días parecidos') + '</span>' : '');
+  h += kpiHoja('Acumulado del mes', AUD(acum.total), acum.dias + ' días cargados');
+  h += kpiHoja('Proyección de cierre', p.ok ? AUD(p.cierre) : '—',
     p.ok ? plata(p.piso) + ' a ' + plata(p.techo) : '');
   h += kpiHoja('Contra la meta',
     p.meta ? (p.diferencia >= 0 ? '+' : '−') + ' ' + plata(Math.abs(p.diferencia)) : 'sin meta',
@@ -579,6 +586,8 @@ function vistaPresentacion() {
   if (falt.length) h += '<div class="caja mal">Día incompleto: no reportó <strong>' + falt.join(', ') + '</strong>.</div>';
   if (ev) h += '<div class="caja aviso">Día de evento en Penny Blue.</div>';
 
+  if (typeof bloqueStaffPresentacion === 'function') h += bloqueStaffPresentacion(d);
+
   /* comentarios */
   if (d.comentarios && d.comentarios.length) {
     h += '<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;' +
@@ -589,6 +598,7 @@ function vistaPresentacion() {
         (c.area ? '<strong>' + esc(c.area) + ':</strong> ' : '') + esc(c.texto) + '</div>';
     });
   }
+
 
   h += '<div class="hoja-nota">' +
     'Acumulado calculado sobre ' + acum.dias + ' días cargados de ' + cantidadDiasMes(MES) + '. ' +

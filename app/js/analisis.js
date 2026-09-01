@@ -33,7 +33,7 @@ function serieAcumulada(mes) {
    normal no dice nada.
 */
 function objetivoDiario(mes, esDeEvento) {
-  var meta = E.meta[mes];
+  var meta = (typeof metaTotal === 'function') ? metaTotal(mes) : E.meta[mes];
   var corte = corteEvento(mes);
   var ds = diasDelMes(mes);
 
@@ -167,7 +167,12 @@ function horasTrabajadas(d, area) {
 }
 
 function costoPersonal(d, area) {
-  /* si hay valores por equipo o por persona, se usa el cálculo fino */
+  /* con recargos cargados se usa el cálculo del convenio (noche, fin de
+     semana, feriado); si no, el valor por persona; si no, el general */
+  if (typeof costoDiaConReglas === 'function' && typeof hayRecargos === 'function' &&
+      typeof hayValores === 'function' && hayValores() && hayRecargos()) {
+    return costoDiaConReglas(d, area);
+  }
   if (typeof costoPersonalReal === 'function' && typeof hayValores === 'function' && hayValores()) {
     return costoPersonalReal(d, area);
   }

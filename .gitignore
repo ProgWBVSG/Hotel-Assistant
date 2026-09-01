@@ -26,3 +26,8 @@ fuente/limpiar_docs.py
 fuente/faltan.txt
 fuente/completar_idioma*.py
 fuente/limpiar_docs.py
+
+# scripts de integracion de un solo uso
+fuente/integrar_v2.py
+fuente/pantalla_pagos.py
+fuente/idioma_final*.py

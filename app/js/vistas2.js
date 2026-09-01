@@ -245,7 +245,8 @@ function vistaPersonal() {
 
   h += '<div class="marco tabla-muy-ancha"><table><thead><tr>' +
     '<th>Fecha</th><th class="num">Personas</th><th class="num">Horas</th>' +
-    '<th class="num">Costo</th><th class="num">Venta</th><th class="num">% costo</th>' +
+    '<th class="num">Costo</th><th class="num">Venta</th><th class="num">' +
+    (enIngles() ? '% cost' : '% costo') + '</th>' +
     '<th class="num">Por hora</th><th>Dotación</th><th>Tu nota</th></tr></thead><tbody>';
 
   ds.forEach(function (d) {

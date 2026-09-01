@@ -283,7 +283,7 @@ function proyectar(mes) {
   }
 
   var cierre = acum.total + proyBase;
-  var meta = E.meta[mes] || null;
+  var meta = (typeof metaTotal === 'function' ? metaTotal(mes) : (E.meta[mes] || 0)) || null;
 
   return {
     ok: true, mes: mes,
@@ -365,6 +365,26 @@ function plata(n, conSigno) {
   var s = Math.abs(Math.round(n)).toLocaleString('es-AR');
   var signo = conSigno ? (n > 0 ? '+' : n < 0 ? '−' : '') : (n < 0 ? '−' : '');
   return signo + ' ' + s;
+}
+/* El monto con la moneda adelante, para texto corrido.
+   plata() deja un espacio reservado para el signo, que en una tabla alinea
+   bien pero en una frase se lee como un error de tipeo. */
+function AUD(n) {
+  var v = plata(n);
+  if (v === '—') return v;
+  return E.moneda + ' ' + v.replace(/^([+−]?)\s*/, '$1');
+}
+/* "1 personas" queda mal en una hoja que se le muestra al gerente. */
+/* Con centavos. En la pantalla de reglas la diferencia entre 27,08 y 27
+   es justamente lo que se está configurando. */
+function AUDc(n) {
+  if (n === null || n === undefined || isNaN(n)) return '—';
+  return E.moneda + ' ' + (n < 0 ? '−' : '') +
+    Math.abs(n).toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+function personas(n) {
+  if (enIngles()) return n + (n === 1 ? ' person' : ' people');
+  return n + (n === 1 ? ' persona' : ' personas');
 }
 function fechaLegible(f) {
   var d = new Date(f + 'T00:00:00Z');

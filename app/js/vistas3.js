@@ -66,7 +66,7 @@ function cuadranteAcumulado(mes) {
 function leyendaCalendario(mes, corte) {
   var objN = objetivoDiario(mes, false);
   var objE = objetivoDiario(mes, true);
-  var hayMeta = !!E.meta[mes];
+  var hayMeta = !!((typeof metaTotal === 'function') ? metaTotal(mes) : E.meta[mes]);
 
   return '<div style="margin-top:14px;padding-top:13px;border-top:1px solid var(--linea)">' +
     '<div style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center;font-size:11.5px;align-items:center">' +

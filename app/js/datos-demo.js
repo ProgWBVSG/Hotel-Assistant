@@ -120,54 +120,236 @@ var DATOS_DEMO = [
 },
 "comentarios":[
 {
-"texto":"A table raised a concern about the wait between courses. The kitchen was informed and a dessert was offered.",
+"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
 "area":"Penny Blue"
 },
 {
-"texto":"Several breakfast orders arrived within the same fifteen minutes, causing a short delay.",
+"texto":"An order was delayed due to an incorrect room number. Corrected and delivered with an apology.",
 "area":"In Room Dining"
 }
 ],
 "turnos":[
 {
-"quien":"Riley",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Drew",
+"quien":"Sam",
 "desde":360,
 "hasta":840,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Penny Blue"
+},
+{
+"quien":"Reese",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
 },
 {
 "quien":"Quinn",
-"desde":960,
-"hasta":1470,
+"desde":840,
+"hasta":1320,
 "descanso":30,
-"horas":8.0,
-"area":null
+"horas":7.5,
+"area":"Exchange Lane"
 },
 {
 "quien":"Avery",
-"desde":660,
-"hasta":1230,
+"desde":960,
+"hasta":30,
 "descanso":30,
-"horas":9.0,
-"area":null
+"horas":8.0,
+"area":"Exchange Lane"
 },
 {
-"quien":"Quinn",
+"quien":"Casey",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-06-02",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":56,
+"Food":1979.15,
+"Beverage":152.45,
+"Total":2131.6,
+"AV Check":38.06
+},
+"Lunch":{
+"Covers":26,
+"Food":271.65,
+"Beverage":365.11,
+"Total":636.76,
+"AV Check":24.49,
+"Discounts":25.99
+},
+"Dinner":{
+"Covers":103,
+"Food":6214.61,
+"Beverage":3134.23,
+"Misc/Banquets":691.26,
+"Total":10040.1,
+"AV Check":97.48,
+"Discounts":528.33
+},
+"All Day":{
+"Covers":185,
+"Food":8465.41,
+"Beverage":3651.79,
+"Discounts":554.32,
+"Misc/Banquets":691.26,
+"Total":12808.46,
+"AV Check":69.23
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":168,
+"Food":1494.36,
+"Beverage":39.88,
+"Total":1534.24,
+"AV Check":9.13
+},
+"Lunch":{
+"Covers":98,
+"Food":799.56,
+"Beverage":191.88,
+"Total":991.44,
+"AV Check":10.12,
+"Discounts":127.94
+},
+"Dinner":{
+"Covers":51,
+"Food":1090.29,
+"Beverage":1630.56,
+"Total":2720.85,
+"AV Check":53.35,
+"Discounts":315.82
+},
+"All Day":{
+"Covers":317,
+"Food":3384.21,
+"Beverage":1862.32,
+"Discounts":443.76,
+"Total":5246.53,
+"AV Check":16.55
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":5,
+"Food":81.3,
+"Beverage":17.43,
+"Delivery Charge":18.78,
+"Total":117.51,
+"AV Check":23.5
+},
+"Lunch":{
+"Covers":11,
+"Food":345.74,
+"Beverage":55.65,
+"Delivery Charge":52.94,
+"Total":454.33,
+"AV Check":41.3,
+"Discounts":25.27
+},
+"Dinner":{
+"Covers":25,
+"Food":1569.35,
+"Beverage":176.98,
+"Delivery Charge":190.28,
+"Total":1936.61,
+"AV Check":77.46
+},
+"Overnight":{
+"Covers":1,
+"Food":33.99,
+"Beverage":5.27,
+"Delivery Charge":15.25,
+"Total":54.51,
+"AV Check":54.51
+},
+"All Day":{
+"Covers":42,
+"Food":2030.38,
+"Beverage":255.33,
+"Delivery Charge":277.25,
+"Discounts":25.27,
+"Total":2562.96,
+"AV Check":61.02
+}
+}
+},
+"comentarios":[
+{
+"texto":"Steady lunch service. A guest asked about gluten free options; the kitchen adjusted the dish.",
+"area":"Exchange Lane"
+}
+],
+"turnos":[
+{
+"quien":"Sam",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Robin",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Casey",
 "desde":1080,
-"hasta":1440,
+"hasta":0,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Drew",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
@@ -177,618 +359,116 @@ var DATOS_DEMO = [
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":61,
-"Food":1836.84,
-"Beverage":93.59,
-"Total":1930.43,
-"AV Check":31.65,
-"Discounts":68.87
+"Covers":46,
+"Food":2168.44,
+"Beverage":55.11,
+"Total":2223.55,
+"AV Check":48.34
 },
 "Lunch":{
-"Covers":16,
-"Food":287.49,
-"Beverage":214.9,
-"Total":502.39,
-"AV Check":31.4
-},
-"Dinner":{
-"Covers":22,
-"Food":1282.58,
-"Beverage":907.88,
-"Total":2190.46,
-"AV Check":99.57
-},
-"All Day":{
-"Covers":99,
-"Food":3406.91,
-"Beverage":1216.37,
-"Discounts":68.87,
-"Total":4623.28,
-"AV Check":46.7
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":136,
-"Food":1277.56,
-"Beverage":13.18,
-"Total":1290.74,
-"AV Check":9.49,
-"Discounts":117.18
-},
-"Lunch":{
-"Covers":74,
-"Food":1045.08,
-"Beverage":270.68,
-"Total":1315.76,
-"AV Check":17.78
-},
-"Dinner":{
-"Covers":71,
-"Food":1567.33,
-"Beverage":1818.18,
-"Total":3385.51,
-"AV Check":47.68
-},
-"All Day":{
-"Covers":281,
-"Food":3889.97,
-"Beverage":2102.04,
-"Discounts":117.18,
-"Total":5992.01,
-"AV Check":21.32
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":5,
-"Food":19.86,
-"Beverage":15.02,
-"Delivery Charge":9.55,
-"Total":44.43,
-"AV Check":8.89
-},
-"Lunch":{
-"Covers":11,
-"Food":369.33,
-"Beverage":22.94,
-"Delivery Charge":43.69,
-"Total":435.96,
-"AV Check":39.63,
-"Discounts":49.08
-},
-"Dinner":{
-"Covers":33,
-"Food":1440.66,
-"Beverage":142.62,
-"Delivery Charge":222.87,
-"Total":1806.15,
-"AV Check":54.73
-},
-"Overnight":{
 "Covers":0,
-"Food":38.99,
-"Beverage":4.46,
-"Delivery Charge":6.7,
-"Total":50.15,
-"Discounts":4.49
-},
-"All Day":{
-"Covers":49,
-"Food":1868.84,
-"Beverage":185.04,
-"Delivery Charge":282.81,
-"Discounts":53.57,
-"Total":2336.69,
-"AV Check":47.69
-}
-}
-},
-"comentarios":[
-{
-"texto":"Busy evening across the restaurant. Two large tables extended past closing and service ran smoothly.",
-"area":"Penny Blue"
-}
-],
-"turnos":[
-{
-"quien":"Skyler",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Riley",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Riley",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Blake",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Quinn",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-06-06",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":62,
-"Food":2153.17,
-"Beverage":128.66,
-"Total":2281.83,
-"AV Check":36.8,
-"Discounts":238.09
-},
-"Lunch":{
-"Covers":19,
-"Food":356.99,
-"Beverage":141.03,
-"Total":498.02,
-"AV Check":26.21
+"Food":75.97,
+"Beverage":150.6,
+"Total":226.57,
+"Discounts":32.64
 },
 "Dinner":{
-"Covers":20,
-"Food":1927.2,
-"Beverage":1368.82,
-"Total":3296.02,
-"AV Check":164.8,
-"Discounts":394.82
+"Covers":41,
+"Food":1539.83,
+"Beverage":1062.8,
+"Total":2602.63,
+"AV Check":63.48
 },
 "All Day":{
-"Covers":101,
-"Food":4437.36,
-"Beverage":1638.51,
-"Discounts":632.91,
-"Total":6075.87,
-"AV Check":60.16
+"Covers":87,
+"Food":3784.24,
+"Beverage":1268.51,
+"Discounts":32.64,
+"Total":5052.75,
+"AV Check":58.08
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":155,
-"Food":1593.17,
-"Beverage":14.49,
-"Total":1607.66,
-"AV Check":10.37
+"Covers":146,
+"Food":1423.69,
+"Beverage":43.14,
+"Total":1466.83,
+"AV Check":10.05,
+"Discounts":201.67
 },
 "Lunch":{
-"Covers":105,
-"Food":1004.68,
-"Beverage":175.45,
-"Total":1180.13,
-"AV Check":11.24,
-"Discounts":112.62
+"Covers":68,
+"Food":1038.85,
+"Beverage":265.8,
+"Total":1304.65,
+"AV Check":19.19
 },
 "Dinner":{
-"Covers":84,
-"Food":1357.6,
-"Beverage":1708.94,
-"Total":3066.54,
-"AV Check":36.51
+"Covers":89,
+"Food":1267.73,
+"Beverage":1328.82,
+"Total":2596.55,
+"AV Check":29.17
 },
 "All Day":{
-"Covers":344,
-"Food":3955.45,
-"Beverage":1898.88,
-"Discounts":112.62,
-"Total":5854.33,
-"AV Check":17.02
+"Covers":303,
+"Food":3730.27,
+"Beverage":1637.76,
+"Discounts":201.67,
+"Total":5368.03,
+"AV Check":17.72
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":1,
-"Food":42.12,
-"Beverage":3.95,
-"Delivery Charge":16.95,
-"Total":63.02,
-"AV Check":63.02,
-"Discounts":2.87
-},
-"Lunch":{
-"Covers":10,
-"Food":416.0,
-"Beverage":58.81,
-"Delivery Charge":31.74,
-"Total":506.55,
-"AV Check":50.66,
-"Discounts":65.03
-},
-"Dinner":{
-"Covers":22,
-"Food":1390.84,
-"Beverage":106.67,
-"Delivery Charge":199.37,
-"Total":1696.88,
-"AV Check":77.13
-},
-"Overnight":{
 "Covers":2,
-"Food":76.8,
-"Beverage":13.06,
-"Delivery Charge":9.4,
-"Total":99.26,
-"AV Check":49.63
-},
-"All Day":{
-"Covers":35,
-"Food":1925.76,
-"Beverage":182.49,
-"Delivery Charge":257.46,
-"Discounts":67.9,
-"Total":2365.71,
-"AV Check":67.59
-}
-}
-},
-"comentarios":[
-{
-"texto":"Busy evening across the restaurant. Two large tables extended past closing and service ran smoothly.",
-"area":"Penny Blue"
-},
-{
-"texto":"A group arrived after a nearby event, which created a busy period for about an hour.",
-"area":"Exchange Lane"
-}
-],
-"turnos":[
-{
-"quien":"Reese",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Quinn",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Quinn",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-06-12",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":50,
-"Food":2130.04,
-"Beverage":134.57,
-"Total":2264.61,
-"AV Check":45.29
-},
-"Lunch":{
-"Covers":17,
-"Food":209.02,
-"Beverage":53.04,
-"Total":262.06,
-"AV Check":15.42,
-"Discounts":20.91
-},
-"Dinner":{
-"Covers":26,
-"Food":1991.86,
-"Beverage":856.33,
-"Total":2848.19,
-"AV Check":109.55,
-"Discounts":283.12
-},
-"All Day":{
-"Covers":93,
-"Food":4330.92,
-"Beverage":1043.94,
-"Discounts":304.03,
-"Total":5374.86,
-"AV Check":57.79
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":119,
-"Food":1580.99,
-"Beverage":47.7,
-"Total":1628.69,
-"AV Check":13.69
-},
-"Lunch":{
-"Covers":118,
-"Food":941.74,
-"Beverage":379.05,
-"Total":1320.79,
-"AV Check":11.19,
-"Discounts":174.71
-},
-"Dinner":{
-"Covers":45,
-"Food":1308.78,
-"Beverage":1901.75,
-"Total":3210.53,
-"AV Check":71.35,
-"Discounts":423.7
-},
-"All Day":{
-"Covers":282,
-"Food":3831.51,
-"Beverage":2328.5,
-"Discounts":598.41,
-"Total":6160.01,
-"AV Check":21.84
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":6,
-"Food":98.59,
-"Beverage":3.52,
-"Delivery Charge":11.55,
-"Total":113.66,
-"AV Check":18.94
+"Food":75.77,
+"Beverage":9.61,
+"Delivery Charge":15.92,
+"Total":101.3,
+"AV Check":50.65
 },
 "Lunch":{
 "Covers":8,
-"Food":318.97,
-"Beverage":10.54,
-"Delivery Charge":37.74,
-"Total":367.25,
-"AV Check":45.91,
-"Discounts":41.53
+"Food":359.45,
+"Beverage":62.49,
+"Delivery Charge":38.39,
+"Total":460.33,
+"AV Check":57.54
 },
 "Dinner":{
-"Covers":39,
-"Food":905.66,
-"Beverage":34.8,
-"Delivery Charge":251.42,
-"Total":1191.88,
-"AV Check":30.56
+"Covers":20,
+"Food":1597.86,
+"Beverage":158.93,
+"Delivery Charge":222.01,
+"Total":1978.8,
+"AV Check":98.94
 },
 "Overnight":{
-"Covers":2,
-"Food":48.86,
-"Beverage":13.17,
-"Delivery Charge":6.39,
-"Total":68.42,
-"AV Check":34.21
+"Covers":0,
+"Food":69.35,
+"Beverage":9.12,
+"Delivery Charge":13.85,
+"Total":92.32,
+"Discounts":14.21
 },
 "All Day":{
-"Covers":55,
-"Food":1372.08,
-"Beverage":62.03,
-"Delivery Charge":307.1,
-"Discounts":41.53,
-"Total":1741.21,
-"AV Check":31.66
+"Covers":30,
+"Food":2102.43,
+"Beverage":240.15,
+"Delivery Charge":290.17,
+"Discounts":14.21,
+"Total":2632.75,
+"AV Check":87.76
 }
 }
 },
 "comentarios":[
 {
-"texto":"A table raised a concern about the wait between courses. The kitchen was informed and a dessert was offered.",
+"texto":"Busy evening across the restaurant. Two large tables extended past closing and service ran smoothly.",
 "area":"Penny Blue"
 },
-{
-"texto":"A group arrived after a nearby event, which created a busy period for about an hour.",
-"area":"Exchange Lane"
-}
-],
-"turnos":[
-{
-"quien":"Skyler",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Riley",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Riley",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Quinn",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Drew",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Alex",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-06-13",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":61,
-"Food":2193.87,
-"Beverage":73.39,
-"Total":2267.26,
-"AV Check":37.17,
-"Discounts":164.94
-},
-"Lunch":{
-"Covers":15,
-"Food":526.74,
-"Beverage":352.91,
-"Total":879.65,
-"AV Check":58.64
-},
-"Dinner":{
-"Covers":105,
-"Food":7224.97,
-"Beverage":4380.35,
-"Misc/Banquets":1086.17,
-"Total":12691.49,
-"AV Check":120.87,
-"Discounts":1410.57
-},
-"All Day":{
-"Covers":181,
-"Food":9945.58,
-"Beverage":4806.65,
-"Discounts":1575.51,
-"Misc/Banquets":1086.17,
-"Total":15838.4,
-"AV Check":87.5
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":170,
-"Food":1551.83,
-"Beverage":15.54,
-"Total":1567.37,
-"AV Check":9.22,
-"Discounts":232.72
-},
-"Lunch":{
-"Covers":109,
-"Food":851.78,
-"Beverage":222.09,
-"Total":1073.87,
-"AV Check":9.85
-},
-"Dinner":{
-"Covers":84,
-"Food":1782.17,
-"Beverage":1605.16,
-"Total":3387.33,
-"AV Check":40.33,
-"Discounts":312.26
-},
-"All Day":{
-"Covers":363,
-"Food":4185.78,
-"Beverage":1842.79,
-"Discounts":544.98,
-"Total":6028.57,
-"AV Check":16.61
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":2,
-"Food":91.78,
-"Beverage":8.84,
-"Delivery Charge":22.14,
-"Total":122.76,
-"AV Check":61.38,
-"Discounts":16.18
-},
-"Lunch":{
-"Covers":11,
-"Food":219.07,
-"Beverage":63.35,
-"Delivery Charge":46.74,
-"Total":329.16,
-"AV Check":29.92
-},
-"Dinner":{
-"Covers":31,
-"Food":1564.87,
-"Beverage":42.19,
-"Delivery Charge":190.08,
-"Total":1797.14,
-"AV Check":57.97,
-"Discounts":271.18
-},
-"Overnight":{
-"Covers":3,
-"Food":14.11,
-"Beverage":6.93,
-"Delivery Charge":9.08,
-"Total":30.12,
-"AV Check":10.04,
-"Discounts":2.63
-},
-"All Day":{
-"Covers":47,
-"Food":1889.83,
-"Beverage":121.31,
-"Delivery Charge":268.04,
-"Discounts":289.99,
-"Total":2279.18,
-"AV Check":48.49
-}
-}
-},
-"comentarios":[
 {
 "texto":"An order was delayed due to an incorrect room number. Corrected and delivered with an apology.",
 "area":"In Room Dining"
@@ -796,20 +476,20 @@ var DATOS_DEMO = [
 ],
 "turnos":[
 {
-"quien":"Reese",
-"desde":840,
-"hasta":1320,
+"quien":"Morgan",
+"desde":1020,
+"hasta":1380,
 "descanso":30,
-"horas":7.5,
-"area":null
+"horas":5.5,
+"area":"Penny Blue"
 },
 {
-"quien":"Robin",
-"desde":840,
-"hasta":1320,
+"quien":"Jordan",
+"desde":1080,
+"hasta":0,
 "descanso":30,
-"horas":7.5,
-"area":null
+"horas":5.5,
+"area":"Penny Blue"
 },
 {
 "quien":"Sam",
@@ -817,350 +497,361 @@ var DATOS_DEMO = [
 "hasta":1230,
 "descanso":30,
 "horas":9.0,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Reese",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Sam",
-"desde":660,
-"hasta":1230,
+"quien":"Riley",
+"desde":840,
+"hasta":1320,
 "descanso":30,
-"horas":9.0,
-"area":null
+"horas":7.5,
+"area":"Exchange Lane"
 },
 {
-"quien":"Morgan",
+"quien":"Quinn",
 "desde":360,
 "hasta":840,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
 "quien":"Drew",
-"desde":660,
-"hasta":1230,
+"desde":1320,
+"hasta":360,
 "descanso":30,
-"horas":9.0,
-"area":null
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Taylor",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-06-14",
+"fecha":"2026-06-04",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":50,
-"Food":2059.73,
-"Beverage":152.81,
-"Total":2212.54,
-"AV Check":44.25,
-"Discounts":312.03
+"Covers":63,
+"Food":1991.16,
+"Beverage":104.94,
+"Total":2096.1,
+"AV Check":33.27
 },
 "Lunch":{
-"Covers":30,
-"Food":465.61,
-"Beverage":478.19,
-"Total":943.8,
-"AV Check":31.46,
-"Discounts":99.05
+"Covers":18,
+"Food":528.89,
+"Beverage":91.17,
+"Total":620.06,
+"AV Check":34.45,
+"Discounts":94.91
 },
 "Dinner":{
-"Covers":105,
-"Food":7596.53,
-"Beverage":4137.7,
-"Misc/Banquets":1304.32,
-"Total":13038.55,
-"AV Check":124.18
+"Covers":38,
+"Food":1998.95,
+"Beverage":752.71,
+"Total":2751.66,
+"AV Check":72.41,
+"Discounts":352.5
 },
 "All Day":{
-"Covers":185,
-"Food":10121.87,
-"Beverage":4768.7,
-"Discounts":411.08,
-"Misc/Banquets":1304.32,
-"Total":16194.89,
-"AV Check":87.54
+"Covers":119,
+"Food":4519.0,
+"Beverage":948.82,
+"Discounts":447.41,
+"Total":5467.82,
+"AV Check":45.95
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":174,
-"Food":1381.13,
-"Beverage":12.96,
-"Total":1394.09,
-"AV Check":8.01,
-"Discounts":50.61
+"Covers":166,
+"Food":1136.22,
+"Beverage":16.66,
+"Total":1152.88,
+"AV Check":6.95
 },
 "Lunch":{
-"Covers":75,
-"Food":1003.48,
-"Beverage":191.64,
-"Total":1195.12,
-"AV Check":15.93
+"Covers":79,
+"Food":942.67,
+"Beverage":176.88,
+"Total":1119.55,
+"AV Check":14.17,
+"Discounts":106.36
 },
 "Dinner":{
-"Covers":65,
-"Food":1648.06,
-"Beverage":2018.14,
-"Total":3666.2,
-"AV Check":56.4
+"Covers":87,
+"Food":1341.23,
+"Beverage":1153.64,
+"Total":2494.87,
+"AV Check":28.68,
+"Discounts":374.22
 },
 "All Day":{
-"Covers":314,
-"Food":4032.67,
-"Beverage":2222.74,
-"Discounts":50.61,
-"Total":6255.41,
-"AV Check":19.92
+"Covers":332,
+"Food":3420.12,
+"Beverage":1347.18,
+"Discounts":480.58,
+"Total":4767.3,
+"AV Check":14.36
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":6,
-"Food":75.74,
-"Beverage":8.29,
-"Delivery Charge":17.04,
-"Total":101.07,
-"AV Check":16.84,
-"Discounts":6.53
+"Covers":5,
+"Food":81.12,
+"Beverage":8.75,
+"Delivery Charge":21.74,
+"Total":111.61,
+"AV Check":22.32,
+"Discounts":15.04
 },
 "Lunch":{
-"Covers":12,
-"Food":242.34,
-"Beverage":26.54,
-"Delivery Charge":33.92,
-"Total":302.8,
-"AV Check":25.23
+"Covers":8,
+"Food":180.28,
+"Beverage":55.54,
+"Delivery Charge":33.66,
+"Total":269.48,
+"AV Check":33.69,
+"Discounts":29.0
 },
 "Dinner":{
-"Covers":30,
-"Food":1586.4,
-"Beverage":161.3,
-"Delivery Charge":199.42,
-"Total":1947.12,
-"AV Check":64.9
+"Covers":22,
+"Food":889.0,
+"Beverage":67.11,
+"Delivery Charge":183.19,
+"Total":1139.3,
+"AV Check":51.79
 },
 "Overnight":{
 "Covers":2,
-"Food":43.98,
-"Beverage":1.69,
-"Delivery Charge":15.59,
-"Total":61.26,
-"AV Check":30.63,
-"Discounts":3.99
+"Food":68.61,
+"Beverage":8.54,
+"Delivery Charge":5.33,
+"Total":82.48,
+"AV Check":41.24
 },
 "All Day":{
-"Covers":50,
-"Food":1948.46,
-"Beverage":197.82,
-"Delivery Charge":265.97,
-"Discounts":10.52,
-"Total":2412.25,
-"AV Check":48.24
+"Covers":37,
+"Food":1219.01,
+"Beverage":139.94,
+"Delivery Charge":243.92,
+"Discounts":44.04,
+"Total":1602.87,
+"AV Check":43.32
 }
 }
 },
 "comentarios":[
 {
-"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
+"texto":"Slow start to the evening. Stock count completed during the quiet period.",
 "area":"Exchange Lane"
-},
-{
-"texto":"Quiet overnight service. Breakfast preparation completed ahead of schedule.",
-"area":"In Room Dining"
 }
 ],
 "turnos":[
 {
-"quien":"Morgan",
+"quien":"Robin",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
-},
-{
-"quien":"Casey",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Jordan",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Blake",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Blake",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Morgan",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Quinn",
-"desde":1020,
-"hasta":1380,
+"quien":"Alex",
+"desde":1080,
+"hasta":0,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Morgan",
-"desde":960,
-"hasta":1470,
+"quien":"Reese",
+"desde":840,
+"hasta":1320,
 "descanso":30,
-"horas":8.0,
-"area":null
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Riley",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Avery",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Taylor",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-06-15",
+"fecha":"2026-06-05",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":52,
-"Food":2050.96,
-"Beverage":102.84,
-"Total":2153.8,
-"AV Check":41.42
+"Covers":59,
+"Food":2250.81,
+"Beverage":110.44,
+"Total":2361.25,
+"AV Check":40.02,
+"Discounts":217.67
 },
 "Lunch":{
-"Covers":0,
-"Food":75.2,
-"Beverage":70.76,
-"Total":145.96,
-"Discounts":17.6
+"Covers":24,
+"Food":367.72,
+"Beverage":390.57,
+"Total":758.29,
+"AV Check":31.6
 },
 "Dinner":{
-"Covers":39,
-"Food":1909.26,
-"Beverage":709.53,
-"Total":2618.79,
-"AV Check":67.15
+"Covers":103,
+"Food":5952.62,
+"Beverage":4367.66,
+"Misc/Banquets":847.08,
+"Total":11167.36,
+"AV Check":108.42,
+"Discounts":725.0
 },
 "All Day":{
-"Covers":91,
-"Food":4035.42,
-"Beverage":883.13,
-"Discounts":17.6,
-"Total":4918.55,
-"AV Check":54.05
+"Covers":186,
+"Food":8571.15,
+"Beverage":4868.67,
+"Discounts":942.67,
+"Misc/Banquets":847.08,
+"Total":14286.9,
+"AV Check":76.81
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":183,
-"Food":1421.27,
-"Beverage":38.59,
-"Total":1459.86,
-"AV Check":7.98,
-"Discounts":61.31
+"Covers":138,
+"Food":1444.17,
+"Beverage":26.41,
+"Total":1470.58,
+"AV Check":10.66
 },
 "Lunch":{
-"Covers":62,
-"Food":959.29,
-"Beverage":279.74,
-"Total":1239.03,
-"AV Check":19.98,
-"Discounts":46.15
+"Covers":110,
+"Food":855.36,
+"Beverage":254.35,
+"Total":1109.71,
+"AV Check":10.09
 },
 "Dinner":{
-"Covers":57,
-"Food":1666.56,
-"Beverage":1728.32,
-"Total":3394.88,
-"AV Check":59.56,
-"Discounts":421.92
+"Covers":71,
+"Food":1081.76,
+"Beverage":1611.54,
+"Total":2693.3,
+"AV Check":37.93,
+"Discounts":77.64
 },
 "All Day":{
-"Covers":302,
-"Food":4047.12,
-"Beverage":2046.65,
-"Discounts":529.38,
-"Total":6093.77,
-"AV Check":20.18
+"Covers":319,
+"Food":3381.29,
+"Beverage":1892.3,
+"Discounts":77.64,
+"Total":5273.59,
+"AV Check":16.53
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":3,
-"Food":70.72,
-"Beverage":15.35,
-"Delivery Charge":8.71,
-"Total":94.78,
-"AV Check":31.59,
-"Discounts":7.68
+"Covers":4,
+"Food":81.62,
+"Beverage":14.49,
+"Delivery Charge":18.33,
+"Total":114.44,
+"AV Check":28.61
 },
 "Lunch":{
-"Covers":12,
-"Food":191.99,
-"Beverage":69.78,
-"Delivery Charge":25.14,
-"Total":286.91,
-"AV Check":23.91,
-"Discounts":39.57
+"Covers":5,
+"Food":406.96,
+"Beverage":61.43,
+"Delivery Charge":48.35,
+"Total":516.74,
+"AV Check":103.35,
+"Discounts":52.6
 },
 "Dinner":{
-"Covers":36,
-"Food":1234.85,
-"Beverage":164.69,
-"Delivery Charge":245.45,
-"Total":1644.99,
-"AV Check":45.69,
-"Discounts":36.57
+"Covers":26,
+"Food":1588.34,
+"Beverage":173.09,
+"Delivery Charge":231.01,
+"Total":1992.44,
+"AV Check":76.63,
+"Discounts":77.96
 },
 "Overnight":{
-"Covers":5,
-"Food":22.68,
-"Beverage":10.82,
-"Delivery Charge":8.73,
-"Total":42.23,
-"AV Check":8.45,
-"Discounts":1.06
+"Covers":4,
+"Food":14.79,
+"Beverage":5.72,
+"Delivery Charge":7.7,
+"Total":28.21,
+"AV Check":7.05
 },
 "All Day":{
-"Covers":56,
-"Food":1520.24,
-"Beverage":260.64,
-"Delivery Charge":288.03,
-"Discounts":84.88,
-"Total":2068.91,
-"AV Check":36.94
+"Covers":39,
+"Food":2091.71,
+"Beverage":254.73,
+"Delivery Charge":305.39,
+"Discounts":130.56,
+"Total":2651.83,
+"AV Check":68.0
 }
 }
 },
@@ -1172,665 +863,382 @@ var DATOS_DEMO = [
 ],
 "turnos":[
 {
-"quien":"Morgan",
-"desde":1020,
-"hasta":1380,
+"quien":"Reese",
+"desde":660,
+"hasta":1230,
 "descanso":30,
-"horas":5.5,
-"area":null
+"horas":9.0,
+"area":"Penny Blue"
 },
 {
 "quien":"Jordan",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-06-17",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":45,
-"Food":1764.47,
-"Beverage":177.27,
-"Total":1941.74,
-"AV Check":43.15
-},
-"Lunch":{
-"Covers":26,
-"Food":266.57,
-"Beverage":381.45,
-"Total":648.02,
-"AV Check":24.92
-},
-"Dinner":{
-"Covers":105,
-"Food":5346.21,
-"Beverage":4409.78,
-"Misc/Banquets":1036.23,
-"Total":10792.22,
-"AV Check":102.78,
-"Discounts":438.07
-},
-"All Day":{
-"Covers":176,
-"Food":7377.25,
-"Beverage":4968.5,
-"Discounts":438.07,
-"Misc/Banquets":1036.23,
-"Total":13381.98,
-"AV Check":76.03
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":168,
-"Food":1232.96,
-"Beverage":36.86,
-"Total":1269.82,
-"AV Check":7.56,
-"Discounts":119.59
-},
-"Lunch":{
-"Covers":113,
-"Food":1033.5,
-"Beverage":389.12,
-"Total":1422.62,
-"AV Check":12.59,
-"Discounts":50.92
-},
-"Dinner":{
-"Covers":72,
-"Food":1193.29,
-"Beverage":2271.4,
-"Total":3464.69,
-"AV Check":48.12,
-"Discounts":126.83
-},
-"All Day":{
-"Covers":353,
-"Food":3459.75,
-"Beverage":2697.38,
-"Discounts":297.34,
-"Total":6157.13,
-"AV Check":17.44
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":6,
-"Food":95.37,
-"Beverage":6.66,
-"Delivery Charge":21.2,
-"Total":123.23,
-"AV Check":20.54
-},
-"Lunch":{
-"Covers":5,
-"Food":339.84,
-"Beverage":69.63,
-"Delivery Charge":26.12,
-"Total":435.59,
-"AV Check":87.12,
-"Discounts":16.81
-},
-"Dinner":{
-"Covers":26,
-"Food":951.47,
-"Beverage":57.47,
-"Delivery Charge":202.28,
-"Total":1211.22,
-"AV Check":46.59
-},
-"Overnight":{
-"Covers":3,
-"Food":35.3,
-"Beverage":9.79,
-"Delivery Charge":10.1,
-"Total":55.19,
-"AV Check":18.4
-},
-"All Day":{
-"Covers":40,
-"Food":1421.98,
-"Beverage":143.55,
-"Delivery Charge":259.7,
-"Discounts":16.81,
-"Total":1825.23,
-"AV Check":45.63
-}
-}
-},
-"comentarios":[],
-"turnos":[
-{
-"quien":"Robin",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Alex",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Drew",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Reese",
 "desde":360,
 "hasta":840,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Sam",
+"quien":"Alex",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Avery",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Quinn",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
 "desde":1020,
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Exchange Lane"
+},
+{
+"quien":"Drew",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-06-18",
+"fecha":"2026-06-09",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":51,
-"Food":2004.8,
-"Beverage":82.55,
-"Total":2087.35,
-"AV Check":40.93
+"Covers":56,
+"Food":1712.1,
+"Beverage":98.22,
+"Total":1810.32,
+"AV Check":32.33
 },
 "Lunch":{
-"Covers":16,
-"Food":300.73,
-"Beverage":161.64,
-"Total":462.37,
-"AV Check":28.9,
-"Discounts":20.55
+"Covers":8,
+"Food":918.9,
+"Beverage":451.05,
+"Total":1369.95,
+"AV Check":171.24,
+"Discounts":41.04
 },
 "Dinner":{
-"Covers":29,
-"Food":1542.33,
-"Beverage":712.68,
-"Total":2255.01,
-"AV Check":77.76
+"Covers":115,
+"Food":6488.61,
+"Beverage":4628.61,
+"Misc/Banquets":778.24,
+"Total":11895.46,
+"AV Check":103.44
 },
 "All Day":{
-"Covers":96,
-"Food":3847.86,
-"Beverage":956.87,
-"Discounts":20.55,
-"Total":4804.73,
-"AV Check":50.05
+"Covers":179,
+"Food":9119.61,
+"Beverage":5177.88,
+"Discounts":41.04,
+"Misc/Banquets":778.24,
+"Total":15075.73,
+"AV Check":84.22
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":151,
-"Food":1499.36,
-"Beverage":24.46,
-"Total":1523.82,
-"AV Check":10.09
+"Covers":127,
+"Food":1626.59,
+"Beverage":11.76,
+"Total":1638.35,
+"AV Check":12.9,
+"Discounts":174.91
 },
 "Lunch":{
 "Covers":81,
-"Food":984.3,
-"Beverage":212.01,
-"Total":1196.31,
-"AV Check":14.77,
-"Discounts":114.93
+"Food":891.11,
+"Beverage":182.79,
+"Total":1073.9,
+"AV Check":13.26,
+"Discounts":88.82
 },
 "Dinner":{
-"Covers":45,
-"Food":1437.84,
-"Beverage":1604.95,
-"Total":3042.79,
-"AV Check":67.62,
-"Discounts":68.05
+"Covers":68,
+"Food":1361.42,
+"Beverage":1918.28,
+"Total":3279.7,
+"AV Check":48.23,
+"Discounts":462.35
 },
 "All Day":{
-"Covers":277,
-"Food":3921.5,
-"Beverage":1841.42,
-"Discounts":182.98,
-"Total":5762.92,
-"AV Check":20.8
+"Covers":276,
+"Food":3879.12,
+"Beverage":2112.83,
+"Discounts":726.08,
+"Total":5991.95,
+"AV Check":21.71
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":2,
-"Food":43.09,
-"Beverage":11.87,
-"Delivery Charge":8.67,
-"Total":63.63,
-"AV Check":31.82,
-"Discounts":4.06
+"Covers":1,
+"Food":23.46,
+"Beverage":8.96,
+"Delivery Charge":8.3,
+"Total":40.72,
+"AV Check":40.72,
+"Discounts":3.87
 },
 "Lunch":{
-"Covers":13,
-"Food":288.84,
-"Beverage":48.81,
-"Delivery Charge":45.13,
-"Total":382.78,
-"AV Check":29.44,
-"Discounts":22.73
+"Covers":14,
+"Food":328.54,
+"Beverage":60.67,
+"Delivery Charge":55.45,
+"Total":444.66,
+"AV Check":31.76,
+"Discounts":16.87
 },
 "Dinner":{
-"Covers":23,
-"Food":1243.7,
-"Beverage":128.22,
-"Delivery Charge":160.17,
-"Total":1532.09,
-"AV Check":66.61,
-"Discounts":93.51
+"Covers":40,
+"Food":1220.81,
+"Beverage":143.66,
+"Delivery Charge":258.64,
+"Total":1623.11,
+"AV Check":40.58
 },
 "Overnight":{
-"Covers":4,
-"Food":31.63,
-"Beverage":9.57,
-"Delivery Charge":5.04,
-"Total":46.24,
-"AV Check":11.56,
-"Discounts":6.41
+"Covers":5,
+"Food":37.63,
+"Beverage":9.04,
+"Delivery Charge":15.97,
+"Total":62.64,
+"AV Check":12.53
 },
 "All Day":{
-"Covers":42,
-"Food":1607.26,
-"Beverage":198.47,
-"Delivery Charge":219.01,
-"Discounts":126.71,
-"Total":2024.74,
-"AV Check":48.21
+"Covers":60,
+"Food":1610.44,
+"Beverage":222.33,
+"Delivery Charge":338.36,
+"Discounts":20.74,
+"Total":2171.13,
+"AV Check":36.19
 }
 }
 },
 "comentarios":[
 {
-"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
-"area":"Exchange Lane"
+"texto":"A table raised a concern about the wait between courses. The kitchen was informed and a dessert was offered.",
+"area":"Penny Blue"
+},
+{
+"texto":"Quiet overnight service. Breakfast preparation completed ahead of schedule.",
+"area":"In Room Dining"
 }
 ],
 "turnos":[
 {
-"quien":"Taylor",
-"desde":840,
-"hasta":1320,
+"quien":"Jordan",
+"desde":1080,
+"hasta":0,
 "descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Casey",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
+"horas":5.5,
+"area":"Penny Blue"
 },
 {
 "quien":"Robin",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Blake",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Taylor",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Blake",
 "desde":1020,
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
-}
-]
+"area":"Penny Blue"
 },
 {
-"fecha":"2026-06-20",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":60,
-"Food":1946.94,
-"Beverage":125.28,
-"Total":2072.22,
-"AV Check":34.54
+"quien":"Morgan",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
 },
-"Lunch":{
-"Covers":21,
-"Food":895.79,
-"Beverage":301.65,
-"Total":1197.44,
-"AV Check":57.02
-},
-"Dinner":{
-"Covers":129,
-"Food":5331.58,
-"Beverage":3875.87,
-"Misc/Banquets":766.05,
-"Total":9973.5,
-"AV Check":77.31
-},
-"All Day":{
-"Covers":210,
-"Food":8174.31,
-"Beverage":4302.8,
-"Misc/Banquets":766.05,
-"Total":13243.16,
-"AV Check":63.06
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":113,
-"Food":1072.92,
-"Beverage":52.72,
-"Total":1125.64,
-"AV Check":9.96
-},
-"Lunch":{
-"Covers":88,
-"Food":1150.16,
-"Beverage":233.2,
-"Total":1383.36,
-"AV Check":15.72
-},
-"Dinner":{
-"Covers":86,
-"Food":1707.95,
-"Beverage":1890.71,
-"Total":3598.66,
-"AV Check":41.84
-},
-"All Day":{
-"Covers":287,
-"Food":3931.03,
-"Beverage":2176.63,
-"Total":6107.66,
-"AV Check":21.28
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":5,
-"Food":96.94,
-"Beverage":15.95,
-"Delivery Charge":10.09,
-"Total":122.98,
-"AV Check":24.6,
-"Discounts":8.54
-},
-"Lunch":{
-"Covers":10,
-"Food":361.05,
-"Beverage":68.83,
-"Delivery Charge":31.8,
-"Total":461.68,
-"AV Check":46.17
-},
-"Dinner":{
-"Covers":24,
-"Food":1201.92,
-"Beverage":111.48,
-"Delivery Charge":217.67,
-"Total":1531.07,
-"AV Check":63.79
-},
-"Overnight":{
-"Covers":1,
-"Food":93.09,
-"Beverage":14.67,
-"Delivery Charge":14.28,
-"Total":122.04,
-"AV Check":122.04,
-"Discounts":14.36
-},
-"All Day":{
-"Covers":40,
-"Food":1753.0,
-"Beverage":210.93,
-"Delivery Charge":273.84,
-"Discounts":22.9,
-"Total":2237.77,
-"AV Check":55.94
-}
-}
-},
-"comentarios":[],
-"turnos":[
 {
-"quien":"Sam",
+"quien":"Alex",
 "desde":360,
 "hasta":840,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Drew",
+"quien":"Avery",
 "desde":840,
 "hasta":1320,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
-"quien":"Robin",
+"quien":"Casey",
 "desde":1020,
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
-"quien":"Morgan",
-"desde":960,
-"hasta":1470,
+"quien":"Riley",
+"desde":660,
+"hasta":1230,
 "descanso":30,
-"horas":8.0,
-"area":null
+"horas":9.0,
+"area":"Exchange Lane"
 },
 {
-"quien":"Reese",
-"desde":1020,
-"hasta":1380,
+"quien":"Drew",
+"desde":1320,
+"hasta":360,
 "descanso":30,
-"horas":5.5,
-"area":null
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-06-21",
+"fecha":"2026-06-11",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":35,
-"Food":1485.64,
-"Beverage":104.21,
-"Total":1589.85,
-"AV Check":45.42,
-"Discounts":94.59
+"Covers":53,
+"Food":2294.38,
+"Beverage":65.99,
+"Total":2360.37,
+"AV Check":44.54
 },
 "Lunch":{
-"Covers":4,
-"Food":240.68,
-"Beverage":82.77,
-"Total":323.45,
-"AV Check":80.86
+"Covers":1,
+"Food":671.59,
+"Beverage":347.93,
+"Total":1019.52,
+"AV Check":1019.52
 },
 "Dinner":{
-"Covers":22,
-"Food":1539.84,
-"Beverage":1048.5,
-"Total":2588.34,
-"AV Check":117.65
+"Covers":120,
+"Food":5412.92,
+"Beverage":4099.91,
+"Misc/Banquets":1334.42,
+"Total":10847.25,
+"AV Check":90.39,
+"Discounts":1114.87
 },
 "All Day":{
-"Covers":61,
-"Food":3266.16,
-"Beverage":1235.48,
-"Discounts":94.59,
-"Total":4501.64,
-"AV Check":73.8
+"Covers":174,
+"Food":8378.89,
+"Beverage":4513.83,
+"Discounts":1114.87,
+"Misc/Banquets":1334.42,
+"Total":14227.14,
+"AV Check":81.77
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":149,
-"Food":1519.62,
-"Beverage":53.33,
-"Total":1572.95,
-"AV Check":10.56,
-"Discounts":178.36
+"Covers":126,
+"Food":1053.51,
+"Beverage":30.11,
+"Total":1083.62,
+"AV Check":8.6
 },
 "Lunch":{
-"Covers":73,
-"Food":1065.57,
-"Beverage":171.32,
-"Total":1236.89,
-"AV Check":16.94
+"Covers":118,
+"Food":649.48,
+"Beverage":328.56,
+"Total":978.04,
+"AV Check":8.29,
+"Discounts":63.57
 },
 "Dinner":{
-"Covers":86,
-"Food":1882.36,
-"Beverage":1193.18,
-"Total":3075.54,
-"AV Check":35.76,
-"Discounts":77.43
+"Covers":57,
+"Food":1353.24,
+"Beverage":1548.86,
+"Total":2902.1,
+"AV Check":50.91,
+"Discounts":346.05
 },
 "All Day":{
-"Covers":308,
-"Food":4467.55,
-"Beverage":1417.83,
-"Discounts":255.79,
-"Total":5885.38,
-"AV Check":19.11
+"Covers":301,
+"Food":3056.23,
+"Beverage":1907.53,
+"Discounts":409.62,
+"Total":4963.76,
+"AV Check":16.49
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":3,
-"Food":77.37,
-"Beverage":16.77,
-"Delivery Charge":18.57,
-"Total":112.71,
-"AV Check":37.57
+"Covers":2,
+"Food":76.72,
+"Beverage":6.98,
+"Delivery Charge":12.51,
+"Total":96.21,
+"AV Check":48.11,
+"Discounts":4.8
 },
 "Lunch":{
-"Covers":14,
-"Food":418.58,
-"Beverage":46.25,
-"Delivery Charge":33.78,
-"Total":498.61,
-"AV Check":35.62
+"Covers":13,
+"Food":397.1,
+"Beverage":60.5,
+"Delivery Charge":37.65,
+"Total":495.25,
+"AV Check":38.1,
+"Discounts":74.1
 },
 "Dinner":{
-"Covers":39,
-"Food":1415.63,
-"Beverage":181.21,
-"Delivery Charge":162.11,
-"Total":1758.95,
-"AV Check":45.1
+"Covers":18,
+"Food":1116.26,
+"Beverage":142.52,
+"Delivery Charge":154.39,
+"Total":1413.17,
+"AV Check":78.51,
+"Discounts":93.41
 },
 "Overnight":{
-"Covers":5,
-"Food":83.06,
-"Beverage":1.92,
-"Delivery Charge":11.65,
-"Total":96.63,
-"AV Check":19.33,
-"Discounts":12.72
+"Covers":2,
+"Food":80.54,
+"Beverage":14.82,
+"Delivery Charge":5.51,
+"Total":100.87,
+"AV Check":50.44,
+"Discounts":12.57
 },
 "All Day":{
-"Covers":61,
-"Food":1994.64,
-"Beverage":246.15,
-"Delivery Charge":226.11,
-"Discounts":12.72,
-"Total":2466.9,
-"AV Check":40.44
+"Covers":35,
+"Food":1670.62,
+"Beverage":224.82,
+"Delivery Charge":210.06,
+"Discounts":184.88,
+"Total":2105.5,
+"AV Check":60.16
 }
 }
 },
@@ -1842,196 +1250,708 @@ var DATOS_DEMO = [
 ],
 "turnos":[
 {
-"quien":"Avery",
-"desde":1020,
-"hasta":1380,
+"quien":"Robin",
+"desde":1080,
+"hasta":0,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Quinn",
+"quien":"Sam",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Quinn",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Drew",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Jordan",
 "desde":660,
 "hasta":1230,
 "descanso":30,
 "horas":9.0,
-"area":null
+"area":"Exchange Lane"
 },
 {
-"quien":"Alex",
-"desde":1080,
-"hasta":1440,
+"quien":"Taylor",
+"desde":900,
+"hasta":1380,
 "descanso":30,
-"horas":5.5,
-"area":null
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-06-23",
+"fecha":"2026-06-13",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":60,
-"Food":1532.16,
-"Beverage":102.59,
-"Total":1634.75,
-"AV Check":27.25,
-"Discounts":200.32
+"Covers":69,
+"Food":1653.1,
+"Beverage":116.71,
+"Total":1769.81,
+"AV Check":25.65,
+"Discounts":274.2
 },
 "Lunch":{
-"Covers":6,
-"Food":493.35,
-"Beverage":223.84,
-"Total":717.19,
-"AV Check":119.53,
-"Discounts":85.35
+"Covers":8,
+"Food":313.41,
+"Beverage":177.2,
+"Total":490.61,
+"AV Check":61.33,
+"Discounts":65.87
 },
 "Dinner":{
-"Covers":44,
-"Food":1869.12,
-"Beverage":1388.72,
-"Total":3257.84,
-"AV Check":74.04,
-"Discounts":89.79
+"Covers":120,
+"Food":5976.09,
+"Beverage":4036.63,
+"Misc/Banquets":907.48,
+"Total":10920.2,
+"AV Check":91.0
 },
 "All Day":{
-"Covers":110,
-"Food":3894.63,
-"Beverage":1715.15,
-"Discounts":375.46,
-"Total":5609.78,
-"AV Check":51.0
+"Covers":197,
+"Food":7942.6,
+"Beverage":4330.54,
+"Discounts":340.07,
+"Misc/Banquets":907.48,
+"Total":13180.62,
+"AV Check":66.91
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":143,
-"Food":1271.95,
-"Beverage":21.61,
-"Total":1293.56,
-"AV Check":9.05
+"Covers":176,
+"Food":1551.45,
+"Beverage":31.49,
+"Total":1582.94,
+"AV Check":8.99,
+"Discounts":238.95
 },
 "Lunch":{
-"Covers":63,
-"Food":862.61,
-"Beverage":387.51,
-"Total":1250.12,
-"AV Check":19.84
+"Covers":118,
+"Food":933.94,
+"Beverage":180.72,
+"Total":1114.66,
+"AV Check":9.45,
+"Discounts":130.25
 },
 "Dinner":{
-"Covers":63,
-"Food":1423.47,
-"Beverage":1982.55,
-"Total":3406.02,
-"AV Check":54.06,
-"Discounts":124.88
+"Covers":79,
+"Food":1860.38,
+"Beverage":1205.49,
+"Total":3065.87,
+"AV Check":38.81
 },
 "All Day":{
-"Covers":269,
-"Food":3558.03,
-"Beverage":2391.67,
-"Discounts":124.88,
-"Total":5949.7,
-"AV Check":22.12
+"Covers":373,
+"Food":4345.77,
+"Beverage":1417.7,
+"Discounts":369.2,
+"Total":5763.47,
+"AV Check":15.45
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":4,
-"Food":21.51,
-"Beverage":17.34,
-"Delivery Charge":20.95,
-"Total":59.8,
-"AV Check":14.95,
-"Discounts":7.63
+"Covers":6,
+"Food":28.86,
+"Beverage":3.23,
+"Delivery Charge":14.97,
+"Total":47.06,
+"AV Check":7.84
 },
 "Lunch":{
-"Covers":11,
-"Food":283.03,
-"Beverage":56.9,
-"Delivery Charge":38.62,
-"Total":378.55,
-"AV Check":34.41
+"Covers":5,
+"Food":283.44,
+"Beverage":49.2,
+"Delivery Charge":54.84,
+"Total":387.48,
+"AV Check":77.5,
+"Discounts":37.5
 },
 "Dinner":{
-"Covers":32,
-"Food":1157.49,
-"Beverage":149.71,
-"Delivery Charge":162.16,
-"Total":1469.36,
-"AV Check":45.92
+"Covers":26,
+"Food":1591.8,
+"Beverage":171.21,
+"Delivery Charge":158.39,
+"Total":1921.4,
+"AV Check":73.9
 },
 "Overnight":{
-"Covers":3,
-"Food":68.07,
-"Beverage":2.37,
-"Delivery Charge":4.05,
-"Total":74.49,
-"AV Check":24.83,
-"Discounts":2.49
+"Covers":5,
+"Food":39.63,
+"Beverage":6.86,
+"Delivery Charge":4.6,
+"Total":51.09,
+"AV Check":10.22
 },
 "All Day":{
-"Covers":50,
-"Food":1530.1,
-"Beverage":226.32,
-"Delivery Charge":225.78,
-"Discounts":10.12,
-"Total":1982.2,
-"AV Check":39.64
+"Covers":42,
+"Food":1943.73,
+"Beverage":230.5,
+"Delivery Charge":232.8,
+"Discounts":37.5,
+"Total":2407.03,
+"AV Check":57.31
+}
+}
+},
+"comentarios":[
+{
+"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
+"area":"Exchange Lane"
+},
+{
+"texto":"Several breakfast orders arrived within the same fifteen minutes, causing a short delay.",
+"area":"In Room Dining"
+}
+],
+"turnos":[
+{
+"quien":"Sam",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Reese",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Robin",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Casey",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Taylor",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Drew",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-06-14",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":35,
+"Food":1779.78,
+"Beverage":66.37,
+"Total":1846.15,
+"AV Check":52.75,
+"Discounts":229.53
+},
+"Lunch":{
+"Covers":5,
+"Food":393.72,
+"Beverage":248.28,
+"Total":642.0,
+"AV Check":128.4,
+"Discounts":33.91
+},
+"Dinner":{
+"Covers":25,
+"Food":2364.37,
+"Beverage":1351.44,
+"Total":3715.81,
+"AV Check":148.63,
+"Discounts":419.83
+},
+"All Day":{
+"Covers":65,
+"Food":4537.87,
+"Beverage":1666.09,
+"Discounts":683.27,
+"Total":6203.96,
+"AV Check":95.45
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":134,
+"Food":1212.53,
+"Beverage":18.61,
+"Total":1231.14,
+"AV Check":9.19,
+"Discounts":89.41
+},
+"Lunch":{
+"Covers":88,
+"Food":971.7,
+"Beverage":190.77,
+"Total":1162.47,
+"AV Check":13.21
+},
+"Dinner":{
+"Covers":45,
+"Food":1791.42,
+"Beverage":1934.69,
+"Total":3726.11,
+"AV Check":82.8,
+"Discounts":109.69
+},
+"All Day":{
+"Covers":267,
+"Food":3975.65,
+"Beverage":2144.07,
+"Discounts":199.1,
+"Total":6119.72,
+"AV Check":22.92
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":6,
+"Food":54.43,
+"Beverage":10.79,
+"Delivery Charge":18.04,
+"Total":83.26,
+"AV Check":13.88
+},
+"Lunch":{
+"Covers":14,
+"Food":301.1,
+"Beverage":47.67,
+"Delivery Charge":43.61,
+"Total":392.38,
+"AV Check":28.03
+},
+"Dinner":{
+"Covers":29,
+"Food":951.85,
+"Beverage":76.63,
+"Delivery Charge":144.02,
+"Total":1172.5,
+"AV Check":40.43
+},
+"Overnight":{
+"Covers":2,
+"Food":49.66,
+"Beverage":7.07,
+"Delivery Charge":5.03,
+"Total":61.76,
+"AV Check":30.88,
+"Discounts":7.56
+},
+"All Day":{
+"Covers":51,
+"Food":1357.04,
+"Beverage":142.16,
+"Delivery Charge":210.7,
+"Discounts":7.56,
+"Total":1709.9,
+"AV Check":33.53
+}
+}
+},
+"comentarios":[
+{
+"texto":"An order was delayed due to an incorrect room number. Corrected and delivered with an apology.",
+"area":"In Room Dining"
+}
+],
+"turnos":[
+{
+"quien":"Sam",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Reese",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Alex",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Avery",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Drew",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Taylor",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-06-15",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":35,
+"Food":2172.81,
+"Beverage":78.81,
+"Total":2251.62,
+"AV Check":64.33,
+"Discounts":290.68
+},
+"Lunch":{
+"Covers":20,
+"Food":453.96,
+"Beverage":153.39,
+"Total":607.35,
+"AV Check":30.37
+},
+"Dinner":{
+"Covers":21,
+"Food":1435.45,
+"Beverage":1215.76,
+"Total":2651.21,
+"AV Check":126.25,
+"Discounts":157.74
+},
+"All Day":{
+"Covers":76,
+"Food":4062.22,
+"Beverage":1447.96,
+"Discounts":448.42,
+"Total":5510.18,
+"AV Check":72.5
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":128,
+"Food":1276.59,
+"Beverage":16.55,
+"Total":1293.14,
+"AV Check":10.1
+},
+"Lunch":{
+"Covers":62,
+"Food":753.77,
+"Beverage":266.89,
+"Total":1020.66,
+"AV Check":16.46
+},
+"Dinner":{
+"Covers":64,
+"Food":1757.0,
+"Beverage":2278.34,
+"Total":4035.34,
+"AV Check":63.05,
+"Discounts":457.58
+},
+"All Day":{
+"Covers":254,
+"Food":3787.36,
+"Beverage":2561.78,
+"Discounts":457.58,
+"Total":6349.14,
+"AV Check":25.0
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":2,
+"Food":85.76,
+"Beverage":1.27,
+"Delivery Charge":23.26,
+"Total":110.29,
+"AV Check":55.15
+},
+"Lunch":{
+"Covers":5,
+"Food":188.91,
+"Beverage":39.46,
+"Delivery Charge":31.17,
+"Total":259.54,
+"AV Check":51.91
+},
+"Dinner":{
+"Covers":21,
+"Food":1370.3,
+"Beverage":152.52,
+"Delivery Charge":241.81,
+"Total":1764.63,
+"AV Check":84.03
+},
+"Overnight":{
+"Covers":4,
+"Food":42.82,
+"Beverage":4.74,
+"Delivery Charge":8.35,
+"Total":55.91,
+"AV Check":13.98
+},
+"All Day":{
+"Covers":32,
+"Food":1687.79,
+"Beverage":197.99,
+"Delivery Charge":304.59,
+"Total":2190.37,
+"AV Check":68.45
 }
 }
 },
 "comentarios":[],
 "turnos":[
 {
-"quien":"Riley",
-"desde":1080,
-"hasta":1440,
+"quien":"Jordan",
+"desde":840,
+"hasta":1320,
 "descanso":30,
-"horas":5.5,
-"area":null
+"horas":7.5,
+"area":"Penny Blue"
 },
 {
-"quien":"Skyler",
-"desde":1020,
-"hasta":1380,
+"quien":"Sam",
+"desde":360,
+"hasta":840,
 "descanso":30,
-"horas":5.5,
-"area":null
+"horas":7.5,
+"area":"Penny Blue"
 },
 {
-"quien":"Blake",
+"quien":"Quinn",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Drew",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-06-19",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":61,
+"Food":1490.73,
+"Beverage":75.04,
+"Total":1565.77,
+"AV Check":25.67,
+"Discounts":149.41
+},
+"Lunch":{
+"Covers":11,
+"Food":445.84,
+"Beverage":205.11,
+"Total":650.95,
+"AV Check":59.18,
+"Discounts":28.25
+},
+"Dinner":{
+"Covers":39,
+"Food":1508.95,
+"Beverage":828.14,
+"Total":2337.09,
+"AV Check":59.93,
+"Discounts":62.98
+},
+"All Day":{
+"Covers":111,
+"Food":3445.52,
+"Beverage":1108.29,
+"Discounts":240.64,
+"Total":4553.81,
+"AV Check":41.03
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":158,
+"Food":1336.21,
+"Beverage":45.75,
+"Total":1381.96,
+"AV Check":8.75,
+"Discounts":38.09
+},
+"Lunch":{
+"Covers":112,
+"Food":1085.39,
+"Beverage":250.57,
+"Total":1335.96,
+"AV Check":11.93,
+"Discounts":161.28
+},
+"Dinner":{
+"Covers":48,
+"Food":1437.69,
+"Beverage":2271.14,
+"Total":3708.83,
+"AV Check":77.27
+},
+"All Day":{
+"Covers":318,
+"Food":3859.29,
+"Beverage":2567.46,
+"Discounts":199.37,
+"Total":6426.75,
+"AV Check":20.21
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":3,
+"Food":52.86,
+"Beverage":14.27,
+"Delivery Charge":15.67,
+"Total":82.8,
+"AV Check":27.6,
+"Discounts":6.26
+},
+"Lunch":{
+"Covers":10,
+"Food":397.88,
+"Beverage":59.8,
+"Delivery Charge":27.04,
+"Total":484.72,
+"AV Check":48.47
+},
+"Dinner":{
+"Covers":32,
+"Food":1196.97,
+"Beverage":150.67,
+"Delivery Charge":194.81,
+"Total":1542.45,
+"AV Check":48.2
+},
+"Overnight":{
+"Covers":3,
+"Food":44.15,
+"Beverage":11.71,
+"Delivery Charge":6.22,
+"Total":62.08,
+"AV Check":20.69
+},
+"All Day":{
+"Covers":48,
+"Food":1691.86,
+"Beverage":236.45,
+"Delivery Charge":243.74,
+"Discounts":6.26,
+"Total":2172.05,
+"AV Check":45.25
+}
+}
+},
+"comentarios":[
+{
+"texto":"An order was delayed due to an incorrect room number. Corrected and delivered with an apology.",
+"area":"In Room Dining"
+}
+],
+"turnos":[
+{
+"quien":"Sam",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Robin",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Jordan",
 "desde":1080,
-"hasta":1440,
+"hasta":0,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Quinn",
@@ -2039,12 +1959,20 @@ var DATOS_DEMO = [
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-06-25",
+"fecha":"2026-06-23",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
@@ -2161,42 +2089,38 @@ var DATOS_DEMO = [
 },
 "comentarios":[
 {
-"texto":"Busy evening across the restaurant. Two large tables extended past closing and service ran smoothly.",
+"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
 "area":"Penny Blue"
+},
+{
+"texto":"Quiet overnight service. Breakfast preparation completed ahead of schedule.",
+"area":"In Room Dining"
 }
 ],
 "turnos":[
 {
-"quien":"Sam",
-"desde":960,
-"hasta":1470,
+"quien":"Alex",
+"desde":660,
+"hasta":1230,
 "descanso":30,
-"horas":8.0,
-"area":null
+"horas":9.0,
+"area":"Penny Blue"
 },
 {
-"quien":"Riley",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Jordan",
+"quien":"Robin",
 "desde":840,
 "hasta":1320,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Casey",
-"desde":1020,
-"hasta":1380,
+"quien":"Morgan",
+"desde":1080,
+"hasta":0,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Riley",
@@ -2204,60 +2128,58 @@ var DATOS_DEMO = [
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
-"quien":"Robin",
-"desde":360,
-"hasta":840,
+"quien":"Drew",
+"desde":1140,
+"hasta":180,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"In Room Dining"
 },
 {
-"quien":"Reese",
-"desde":1080,
-"hasta":1440,
+"quien":"Taylor",
+"desde":1320,
+"hasta":360,
 "descanso":30,
-"horas":5.5,
-"area":null
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-06-26",
+"fecha":"2026-06-24",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":44,
-"Food":2111.37,
-"Beverage":104.48,
-"Total":2215.85,
-"AV Check":50.36
+"Covers":38,
+"Food":2181.71,
+"Beverage":134.97,
+"Total":2316.68,
+"AV Check":60.97
 },
 "Lunch":{
 "Covers":9,
-"Food":208.14,
-"Beverage":75.43,
-"Total":283.57,
-"AV Check":31.51
+"Food":197.11,
+"Beverage":85.44,
+"Total":282.55,
+"AV Check":31.39
 },
 "Dinner":{
-"Covers":32,
-"Food":2560.21,
-"Beverage":1071.04,
-"Total":3631.25,
-"AV Check":113.48,
-"Discounts":491.08
+"Covers":50,
+"Food":1856.23,
+"Beverage":965.09,
+"Total":2821.32,
+"AV Check":56.43
 },
 "All Day":{
-"Covers":85,
-"Food":4879.72,
-"Beverage":1250.95,
-"Discounts":491.08,
-"Total":6130.67,
-"AV Check":72.13
+"Covers":97,
+"Food":4235.05,
+"Beverage":1185.5,
+"Total":5420.55,
+"AV Check":55.88
 }
 },
 "Exchange Lane":{
@@ -2341,7 +2263,7 @@ var DATOS_DEMO = [
 },
 "comentarios":[
 {
-"texto":"Quiet service overall. Good opportunity to run through the new menu with the floor team.",
+"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
 "area":"Penny Blue"
 },
 {
@@ -2349,137 +2271,119 @@ var DATOS_DEMO = [
 "area":"Exchange Lane"
 },
 {
-"texto":"Several breakfast orders arrived within the same fifteen minutes, causing a short delay.",
+"texto":"Orders peaked at the same time as the bar. Guests were kept informed about waiting times.",
 "area":"In Room Dining"
 }
 ],
 "turnos":[
 {
-"quien":"Jordan",
-"desde":840,
-"hasta":1320,
+"quien":"Sam",
+"desde":660,
+"hasta":1230,
 "descanso":30,
-"horas":7.5,
-"area":null
+"horas":9.0,
+"area":"Penny Blue"
 },
 {
 "quien":"Morgan",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Reese",
 "desde":360,
 "hasta":840,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Penny Blue"
+},
+{
+"quien":"Quinn",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
 },
 {
 "quien":"Taylor",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Sam",
-"desde":360,
-"hasta":840,
+"desde":1320,
+"hasta":360,
 "descanso":30,
 "horas":7.5,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Drew",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-06-27",
+"fecha":"2026-06-25",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":46,
-"Food":2216.04,
-"Beverage":129.92,
-"Total":2345.96,
-"AV Check":51.0
+"Covers":61,
+"Food":2162.6,
+"Beverage":106.22,
+"Total":2268.82,
+"AV Check":37.19
 },
 "Lunch":{
-"Covers":12,
-"Food":395.96,
-"Beverage":159.15,
-"Total":555.11,
-"AV Check":46.26,
-"Discounts":48.76
+"Covers":22,
+"Food":508.65,
+"Beverage":294.43,
+"Total":803.08,
+"AV Check":36.5
 },
 "Dinner":{
-"Covers":31,
-"Food":1652.03,
-"Beverage":1329.86,
-"Total":2981.89,
-"AV Check":96.19
+"Covers":110,
+"Food":7173.77,
+"Beverage":2913.29,
+"Misc/Banquets":538.63,
+"Total":10625.69,
+"AV Check":96.6
 },
 "All Day":{
-"Covers":89,
-"Food":4264.03,
-"Beverage":1618.93,
-"Discounts":48.76,
-"Total":5882.96,
-"AV Check":66.1
+"Covers":193,
+"Food":9845.02,
+"Beverage":3313.94,
+"Misc/Banquets":538.63,
+"Total":13697.59,
+"AV Check":70.97
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":183,
-"Food":1125.28,
-"Beverage":41.69,
-"Total":1166.97,
-"AV Check":6.38,
-"Discounts":37.12
+"Covers":160,
+"Food":1258.53,
+"Beverage":10.05,
+"Total":1268.58,
+"AV Check":7.93,
+"Discounts":61.24
 },
 "Lunch":{
-"Covers":90,
-"Food":674.99,
-"Beverage":302.85,
-"Total":977.84,
-"AV Check":10.86,
-"Discounts":40.59
+"Covers":91,
+"Food":746.31,
+"Beverage":202.41,
+"Total":948.72,
+"AV Check":10.43
 },
 "Dinner":{
-"Covers":84,
-"Food":1799.39,
-"Beverage":1885.26,
-"Total":3684.65,
-"AV Check":43.86,
-"Discounts":437.51
+"Covers":60,
+"Food":1640.12,
+"Beverage":1337.06,
+"Total":2977.18,
+"AV Check":49.62
 },
 "All Day":{
-"Covers":357,
-"Food":3599.66,
-"Beverage":2229.8,
-"Discounts":515.22,
-"Total":5829.46,
-"AV Check":16.33
+"Covers":311,
+"Food":3644.96,
+"Beverage":1549.52,
+"Discounts":61.24,
+"Total":5194.48,
+"AV Check":16.7
 }
 },
 "In Room Dining":{
@@ -2535,28 +2439,12 @@ var DATOS_DEMO = [
 ],
 "turnos":[
 {
-"quien":"Robin",
+"quien":"Morgan",
 "desde":1080,
-"hasta":1440,
+"hasta":0,
 "descanso":30,
 "horas":5.5,
-"area":null
-},
-{
-"quien":"Skyler",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Blake",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Jordan",
@@ -2564,20 +2452,28 @@ var DATOS_DEMO = [
 "hasta":1320,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Blake",
-"desde":660,
-"hasta":1230,
+"quien":"Avery",
+"desde":840,
+"hasta":1320,
 "descanso":30,
-"horas":9.0,
-"area":null
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-06-29",
+"fecha":"2026-06-27",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
@@ -2695,11 +2591,11 @@ var DATOS_DEMO = [
 },
 "comentarios":[
 {
-"texto":"A table raised a concern about the wait between courses. The kitchen was informed and a dessert was offered.",
+"texto":"Busy evening across the restaurant. Two large tables extended past closing and service ran smoothly.",
 "area":"Penny Blue"
 },
 {
-"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
+"texto":"Slow start to the evening. Stock count completed during the quiet period.",
 "area":"Exchange Lane"
 },
 {
@@ -2709,60 +2605,60 @@ var DATOS_DEMO = [
 ],
 "turnos":[
 {
-"quien":"Casey",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Skyler",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
 "quien":"Morgan",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Sam",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Penny Blue"
+},
+{
+"quien":"Robin",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Quinn",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
 },
 {
 "quien":"Casey",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Riley",
 "desde":660,
 "hasta":1230,
 "descanso":30,
 "horas":9.0,
-"area":null
+"area":"Exchange Lane"
 },
 {
-"quien":"Riley",
-"desde":960,
-"hasta":1470,
+"quien":"Jamie",
+"desde":900,
+"hasta":1380,
 "descanso":30,
-"horas":8.0,
-"area":null
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Drew",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
@@ -2772,637 +2668,113 @@ var DATOS_DEMO = [
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":48,
-"Food":2159.19,
-"Beverage":125.1,
-"Total":2284.29,
-"AV Check":47.59,
-"Discounts":319.68
-},
-"Lunch":{
-"Covers":0,
-"Food":380.48,
-"Beverage":173.03,
-"Total":553.51
-},
-"Dinner":{
-"Covers":32,
-"Food":2085.99,
-"Beverage":1211.46,
-"Total":3297.45,
-"AV Check":103.05,
-"Discounts":356.99
-},
-"All Day":{
-"Covers":80,
-"Food":4625.66,
-"Beverage":1509.59,
-"Discounts":676.67,
-"Total":6135.25,
-"AV Check":76.69
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":134,
-"Food":1469.14,
-"Beverage":14.42,
-"Total":1483.56,
-"AV Check":11.07,
-"Discounts":126.34
-},
-"Lunch":{
-"Covers":95,
-"Food":919.8,
-"Beverage":368.49,
-"Total":1288.29,
-"AV Check":13.56,
-"Discounts":140.83
-},
-"Dinner":{
-"Covers":48,
-"Food":1718.54,
-"Beverage":1581.53,
-"Total":3300.07,
-"AV Check":68.75
-},
-"All Day":{
-"Covers":277,
-"Food":4107.48,
-"Beverage":1964.44,
-"Discounts":267.17,
-"Total":6071.92,
-"AV Check":21.92
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":5,
-"Food":20.58,
-"Beverage":16.41,
-"Delivery Charge":10.4,
-"Total":47.39,
-"AV Check":9.48
-},
-"Lunch":{
-"Covers":5,
-"Food":217.25,
-"Beverage":59.24,
-"Delivery Charge":32.33,
-"Total":308.82,
-"AV Check":61.76,
-"Discounts":12.55
-},
-"Dinner":{
-"Covers":35,
-"Food":916.14,
-"Beverage":38.08,
-"Delivery Charge":178.62,
-"Total":1132.84,
-"AV Check":32.37
-},
-"Overnight":{
-"Covers":4,
-"Food":19.73,
-"Beverage":6.36,
-"Delivery Charge":9.55,
-"Total":35.64,
-"AV Check":8.91
-},
-"All Day":{
-"Covers":49,
-"Food":1173.7,
-"Beverage":120.09,
-"Delivery Charge":230.9,
-"Discounts":12.55,
-"Total":1524.69,
-"AV Check":31.12
-}
-}
-},
-"comentarios":[
-{
-"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
-"area":"Exchange Lane"
-}
-],
-"turnos":[
-{
-"quien":"Drew",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Alex",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Alex",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Quinn",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Casey",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Taylor",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-07-01",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":49,
-"Food":1644.56,
-"Beverage":36.35,
-"Total":1680.91,
-"AV Check":34.3,
-"Discounts":147.15
-},
-"Lunch":{
-"Covers":17,
-"Food":114.86,
-"Beverage":192.22,
-"Total":307.08,
-"AV Check":18.06
-},
-"Dinner":{
-"Covers":43,
-"Food":2492.19,
-"Beverage":908.07,
-"Total":3400.26,
-"AV Check":79.08,
-"Discounts":113.43
-},
-"All Day":{
-"Covers":109,
-"Food":4251.61,
-"Beverage":1136.64,
-"Discounts":260.58,
-"Total":5388.25,
-"AV Check":49.43
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":167,
-"Food":1309.16,
-"Beverage":16.54,
-"Total":1325.7,
-"AV Check":7.94,
-"Discounts":157.88
-},
-"Lunch":{
-"Covers":75,
-"Food":672.52,
-"Beverage":284.03,
-"Total":956.55,
-"AV Check":12.75
-},
-"Dinner":{
-"Covers":76,
-"Food":1674.08,
-"Beverage":1192.5,
-"Total":2866.58,
-"AV Check":37.72,
-"Discounts":280.89
-},
-"All Day":{
-"Covers":318,
-"Food":3655.76,
-"Beverage":1493.07,
-"Discounts":438.77,
-"Total":5148.83,
-"AV Check":16.19
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":2,
-"Food":30.39,
-"Beverage":16.12,
-"Delivery Charge":23.56,
-"Total":70.07,
-"AV Check":35.04
-},
-"Lunch":{
-"Covers":14,
-"Food":326.39,
-"Beverage":53.98,
-"Delivery Charge":25.3,
-"Total":405.67,
-"AV Check":28.98
-},
-"Dinner":{
-"Covers":37,
-"Food":1486.35,
-"Beverage":126.84,
-"Delivery Charge":228.54,
-"Total":1841.73,
-"AV Check":49.78
-},
-"Overnight":{
-"Covers":5,
-"Food":38.36,
-"Beverage":12.37,
-"Delivery Charge":6.87,
-"Total":57.6,
-"AV Check":11.52,
-"Discounts":4.48
-},
-"All Day":{
-"Covers":58,
-"Food":1881.49,
-"Beverage":209.31,
-"Delivery Charge":284.27,
-"Discounts":4.48,
-"Total":2375.07,
-"AV Check":40.95
-}
-}
-},
-"comentarios":[
-{
-"texto":"Quiet service overall. Good opportunity to run through the new menu with the floor team.",
-"area":"Penny Blue"
-},
-{
-"texto":"Steady lunch service. A guest asked about gluten free options; the kitchen adjusted the dish.",
-"area":"Exchange Lane"
-}
-],
-"turnos":[
-{
-"quien":"Morgan",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Skyler",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Casey",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Drew",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Alex",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-07-02",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":48,
-"Food":2225.06,
-"Beverage":83.0,
-"Total":2308.06,
-"AV Check":48.08,
-"Discounts":85.83
+"Covers":63,
+"Food":1356.26,
+"Beverage":94.9,
+"Total":1451.16,
+"AV Check":23.03,
+"Discounts":199.39
 },
 "Lunch":{
 "Covers":6,
-"Food":664.0,
-"Beverage":393.91,
-"Total":1057.91,
-"AV Check":176.32,
-"Discounts":143.48
+"Food":367.12,
+"Beverage":180.4,
+"Total":547.52,
+"AV Check":91.25,
+"Discounts":59.28
 },
 "Dinner":{
-"Covers":101,
-"Food":5706.39,
-"Beverage":4528.43,
-"Misc/Banquets":1330.91,
-"Total":11565.73,
-"AV Check":114.51,
-"Discounts":1234.11
+"Covers":32,
+"Food":2166.76,
+"Beverage":814.34,
+"Total":2981.1,
+"AV Check":93.16,
+"Discounts":253.88
 },
 "All Day":{
-"Covers":155,
-"Food":8595.45,
-"Beverage":5005.34,
-"Discounts":1463.42,
-"Misc/Banquets":1330.91,
-"Total":14931.7,
-"AV Check":96.33
+"Covers":101,
+"Food":3890.14,
+"Beverage":1089.64,
+"Discounts":512.55,
+"Total":4979.78,
+"AV Check":49.3
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":185,
-"Food":1384.5,
-"Beverage":27.18,
-"Total":1411.68,
-"AV Check":7.63
+"Covers":180,
+"Food":1371.79,
+"Beverage":48.96,
+"Total":1420.75,
+"AV Check":7.89,
+"Discounts":155.3
 },
 "Lunch":{
-"Covers":85,
-"Food":1002.55,
-"Beverage":291.48,
-"Total":1294.03,
-"AV Check":15.22,
-"Discounts":119.19
+"Covers":63,
+"Food":1031.13,
+"Beverage":257.7,
+"Total":1288.83,
+"AV Check":20.46
 },
 "Dinner":{
-"Covers":62,
-"Food":1535.5,
-"Beverage":2080.22,
-"Total":3615.72,
-"AV Check":58.32,
-"Discounts":434.58
+"Covers":80,
+"Food":1077.62,
+"Beverage":2123.75,
+"Total":3201.37,
+"AV Check":40.02,
+"Discounts":315.03
 },
 "All Day":{
-"Covers":332,
-"Food":3922.55,
-"Beverage":2398.88,
-"Discounts":553.77,
-"Total":6321.43,
-"AV Check":19.04
+"Covers":323,
+"Food":3480.54,
+"Beverage":2430.41,
+"Discounts":470.33,
+"Total":5910.95,
+"AV Check":18.3
 }
 },
 "In Room Dining":{
 "Breakfast":{
 "Covers":1,
-"Food":99.19,
-"Beverage":16.86,
-"Delivery Charge":9.26,
-"Total":125.31,
-"AV Check":125.31,
-"Discounts":11.72
-},
-"Lunch":{
-"Covers":8,
-"Food":207.58,
-"Beverage":36.69,
-"Delivery Charge":46.53,
-"Total":290.8,
-"AV Check":36.35,
-"Discounts":34.57
-},
-"Dinner":{
-"Covers":21,
-"Food":1311.42,
-"Beverage":174.02,
-"Delivery Charge":201.5,
-"Total":1686.94,
-"AV Check":80.33
-},
-"Overnight":{
-"Covers":1,
-"Food":77.93,
-"Beverage":14.91,
-"Delivery Charge":14.14,
-"Total":106.98,
-"AV Check":106.98
-},
-"All Day":{
-"Covers":31,
-"Food":1696.12,
-"Beverage":242.48,
-"Delivery Charge":271.43,
-"Discounts":46.29,
-"Total":2210.03,
-"AV Check":71.29
-}
-}
-},
-"comentarios":[],
-"turnos":[
-{
-"quien":"Robin",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Robin",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Riley",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Alex",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Jordan",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Jordan",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-07-04",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":48,
-"Food":2159.12,
-"Beverage":131.01,
-"Total":2290.13,
-"AV Check":47.71
+"Food":31.04,
+"Beverage":15.41,
+"Delivery Charge":12.16,
+"Total":58.61,
+"AV Check":58.61,
+"Discounts":2.38
 },
 "Lunch":{
 "Covers":12,
-"Food":97.89,
-"Beverage":268.72,
-"Total":366.61,
-"AV Check":30.55
+"Food":193.17,
+"Beverage":10.11,
+"Delivery Charge":34.3,
+"Total":237.58,
+"AV Check":19.8
 },
 "Dinner":{
-"Covers":42,
-"Food":1837.99,
-"Beverage":1132.4,
-"Total":2970.39,
-"AV Check":70.72,
-"Discounts":181.33
-},
-"All Day":{
-"Covers":102,
-"Food":4095.0,
-"Beverage":1532.13,
-"Discounts":181.33,
-"Total":5627.13,
-"AV Check":55.17
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":175,
-"Food":1540.22,
-"Beverage":46.1,
-"Total":1586.32,
-"AV Check":9.06
-},
-"Lunch":{
-"Covers":86,
-"Food":748.43,
-"Beverage":232.91,
-"Total":981.34,
-"AV Check":11.41,
-"Discounts":69.44
-},
-"Dinner":{
-"Covers":72,
-"Food":1072.87,
-"Beverage":2274.86,
-"Total":3347.73,
-"AV Check":46.5,
-"Discounts":371.21
-},
-"All Day":{
-"Covers":333,
-"Food":3361.52,
-"Beverage":2553.87,
-"Discounts":440.65,
-"Total":5915.39,
-"AV Check":17.76
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":5,
-"Food":63.36,
-"Beverage":9.5,
-"Delivery Charge":19.55,
-"Total":92.41,
-"AV Check":18.48,
-"Discounts":13.84
-},
-"Lunch":{
-"Covers":7,
-"Food":234.46,
-"Beverage":62.28,
-"Delivery Charge":43.24,
-"Total":339.98,
-"AV Check":48.57,
-"Discounts":14.57
-},
-"Dinner":{
-"Covers":20,
-"Food":1610.92,
-"Beverage":117.02,
-"Delivery Charge":181.63,
-"Total":1909.57,
-"AV Check":95.48
+"Covers":35,
+"Food":949.39,
+"Beverage":92.45,
+"Delivery Charge":195.45,
+"Total":1237.29,
+"AV Check":35.35
 },
 "Overnight":{
-"Covers":0,
-"Food":16.7,
-"Beverage":2.54,
-"Delivery Charge":12.53,
-"Total":31.77
+"Covers":4,
+"Food":93.78,
+"Beverage":11.93,
+"Delivery Charge":4.38,
+"Total":110.09,
+"AV Check":27.52
 },
 "All Day":{
-"Covers":32,
-"Food":1925.44,
-"Beverage":191.34,
-"Delivery Charge":256.95,
-"Discounts":28.41,
-"Total":2373.73,
-"AV Check":74.18
+"Covers":52,
+"Food":1267.38,
+"Beverage":129.9,
+"Delivery Charge":246.29,
+"Discounts":2.38,
+"Total":1643.57,
+"AV Check":31.61
 }
 }
 },
@@ -3412,771 +2784,218 @@ var DATOS_DEMO = [
 "area":"Penny Blue"
 },
 {
-"texto":"Orders peaked at the same time as the bar. Guests were kept informed about waiting times.",
-"area":"In Room Dining"
+"texto":"Slow start to the evening. Stock count completed during the quiet period.",
+"area":"Exchange Lane"
 }
 ],
 "turnos":[
-{
-"quien":"Sam",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Quinn",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Sam",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
 {
 "quien":"Robin",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Riley",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-07-06",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":62,
-"Food":1838.14,
-"Beverage":114.47,
-"Total":1952.61,
-"AV Check":31.49
-},
-"Lunch":{
-"Covers":0,
-"Food":60.18,
-"Beverage":81.22,
-"Total":141.4
-},
-"Dinner":{
-"Covers":46,
-"Food":2291.4,
-"Beverage":953.41,
-"Total":3244.81,
-"AV Check":70.54,
-"Discounts":293.3
-},
-"All Day":{
-"Covers":108,
-"Food":4189.72,
-"Beverage":1149.1,
-"Discounts":293.3,
-"Total":5338.82,
-"AV Check":49.43
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":181,
-"Food":1451.85,
-"Beverage":47.15,
-"Total":1499.0,
-"AV Check":8.28
-},
-"Lunch":{
-"Covers":63,
-"Food":908.63,
-"Beverage":390.83,
-"Total":1299.46,
-"AV Check":20.63
-},
-"Dinner":{
-"Covers":88,
-"Food":1265.37,
-"Beverage":1984.77,
-"Total":3250.14,
-"AV Check":36.93
-},
-"All Day":{
-"Covers":332,
-"Food":3625.85,
-"Beverage":2422.75,
-"Total":6048.6,
-"AV Check":18.22
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":3,
-"Food":21.31,
-"Beverage":9.56,
-"Delivery Charge":13.9,
-"Total":44.77,
-"AV Check":14.92
-},
-"Lunch":{
-"Covers":14,
-"Food":373.17,
-"Beverage":33.67,
-"Delivery Charge":32.24,
-"Total":439.08,
-"AV Check":31.36
-},
-"Dinner":{
-"Covers":30,
-"Food":1465.62,
-"Beverage":123.02,
-"Delivery Charge":201.95,
-"Total":1790.59,
-"AV Check":59.69,
-"Discounts":158.97
-},
-"Overnight":{
-"Covers":0,
-"Food":18.97,
-"Beverage":12.2,
-"Delivery Charge":8.34,
-"Total":39.51,
-"Discounts":2.05
-},
-"All Day":{
-"Covers":47,
-"Food":1879.07,
-"Beverage":178.45,
-"Delivery Charge":256.43,
-"Discounts":161.02,
-"Total":2313.95,
-"AV Check":49.23
-}
-}
-},
-"comentarios":[
-{
-"texto":"Quiet overnight service. Breakfast preparation completed ahead of schedule.",
-"area":"In Room Dining"
-}
-],
-"turnos":[
-{
-"quien":"Taylor",
 "desde":1080,
-"hasta":1440,
+"hasta":0,
 "descanso":30,
 "horas":5.5,
-"area":null
-},
-{
-"quien":"Alex",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Reese",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Skyler",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-07-07",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":46,
-"Food":2125.86,
-"Beverage":167.22,
-"Total":2293.08,
-"AV Check":49.85
-},
-"Lunch":{
-"Covers":13,
-"Food":872.81,
-"Beverage":189.44,
-"Total":1062.25,
-"AV Check":81.71,
-"Discounts":96.89
-},
-"Dinner":{
-"Covers":109,
-"Food":6095.3,
-"Beverage":3352.75,
-"Misc/Banquets":1008.73,
-"Total":10456.78,
-"AV Check":95.93,
-"Discounts":919.97
-},
-"All Day":{
-"Covers":168,
-"Food":9093.97,
-"Beverage":3709.41,
-"Discounts":1016.86,
-"Misc/Banquets":1008.73,
-"Total":13812.11,
-"AV Check":82.21
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":159,
-"Food":1247.64,
-"Beverage":16.16,
-"Total":1263.8,
-"AV Check":7.95
-},
-"Lunch":{
-"Covers":99,
-"Food":686.24,
-"Beverage":387.23,
-"Total":1073.47,
-"AV Check":10.84
-},
-"Dinner":{
-"Covers":57,
-"Food":1890.46,
-"Beverage":1718.05,
-"Total":3608.51,
-"AV Check":63.31
-},
-"All Day":{
-"Covers":315,
-"Food":3824.34,
-"Beverage":2121.44,
-"Total":5945.78,
-"AV Check":18.88
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":1,
-"Food":21.15,
-"Beverage":17.95,
-"Delivery Charge":21.94,
-"Total":61.04,
-"AV Check":61.04,
-"Discounts":3.98
-},
-"Lunch":{
-"Covers":9,
-"Food":324.16,
-"Beverage":25.45,
-"Delivery Charge":35.12,
-"Total":384.73,
-"AV Check":42.75
-},
-"Dinner":{
-"Covers":20,
-"Food":1222.53,
-"Beverage":145.76,
-"Delivery Charge":204.03,
-"Total":1572.32,
-"AV Check":78.62,
-"Discounts":74.4
-},
-"Overnight":{
-"Covers":0,
-"Food":97.84,
-"Beverage":10.47,
-"Delivery Charge":10.92,
-"Total":119.23
-},
-"All Day":{
-"Covers":30,
-"Food":1665.68,
-"Beverage":199.63,
-"Delivery Charge":272.01,
-"Discounts":78.38,
-"Total":2137.32,
-"AV Check":71.24
-}
-}
-},
-"comentarios":[
-{
-"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
 "area":"Penny Blue"
 },
 {
-"texto":"Slow start to the evening. Stock count completed during the quiet period.",
-"area":"Exchange Lane"
-}
-],
-"turnos":[
-{
-"quien":"Avery",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
 "quien":"Jordan",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Skyler",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Alex",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Robin",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Drew",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-07-08",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":37,
-"Food":1436.24,
-"Beverage":86.4,
-"Total":1522.64,
-"AV Check":41.15
-},
-"Lunch":{
-"Covers":13,
-"Food":388.53,
-"Beverage":251.59,
-"Total":640.12,
-"AV Check":49.24
-},
-"Dinner":{
-"Covers":31,
-"Food":2311.77,
-"Beverage":1132.58,
-"Total":3444.35,
-"AV Check":111.11,
-"Discounts":526.03
-},
-"All Day":{
-"Covers":81,
-"Food":4136.54,
-"Beverage":1470.57,
-"Discounts":526.03,
-"Total":5607.11,
-"AV Check":69.22
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":131,
-"Food":1430.03,
-"Beverage":16.72,
-"Total":1446.75,
-"AV Check":11.04,
-"Discounts":166.69
-},
-"Lunch":{
-"Covers":106,
-"Food":1069.44,
-"Beverage":200.6,
-"Total":1270.04,
-"AV Check":11.98,
-"Discounts":31.59
-},
-"Dinner":{
-"Covers":75,
-"Food":1941.35,
-"Beverage":1523.01,
-"Total":3464.36,
-"AV Check":46.19
-},
-"All Day":{
-"Covers":312,
-"Food":4440.82,
-"Beverage":1740.33,
-"Discounts":198.28,
-"Total":6181.15,
-"AV Check":19.81
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":3,
-"Food":37.35,
-"Beverage":17.88,
-"Delivery Charge":15.49,
-"Total":70.72,
-"AV Check":23.57
-},
-"Lunch":{
-"Covers":14,
-"Food":196.63,
-"Beverage":55.19,
-"Delivery Charge":53.42,
-"Total":305.24,
-"AV Check":21.8
-},
-"Dinner":{
-"Covers":20,
-"Food":1349.02,
-"Beverage":74.7,
-"Delivery Charge":243.17,
-"Total":1666.89,
-"AV Check":83.34,
-"Discounts":47.26
-},
-"Overnight":{
-"Covers":0,
-"Food":29.64,
-"Beverage":4.3,
-"Delivery Charge":12.22,
-"Total":46.16,
-"Discounts":3.24
-},
-"All Day":{
-"Covers":37,
-"Food":1612.64,
-"Beverage":152.07,
-"Delivery Charge":324.3,
-"Discounts":50.5,
-"Total":2089.01,
-"AV Check":56.46
-}
-}
-},
-"comentarios":[
-{
-"texto":"Slow start to the evening. Stock count completed during the quiet period.",
-"area":"Exchange Lane"
-},
-{
-"texto":"Quiet overnight service. Breakfast preparation completed ahead of schedule.",
-"area":"In Room Dining"
-}
-],
-"turnos":[
-{
-"quien":"Drew",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Riley",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Riley",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Blake",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Reese",
 "desde":840,
 "hasta":1320,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Jordan",
+"quien":"Morgan",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Penny Blue"
+},
+{
+"quien":"Avery",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Taylor",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-07-09",
+"fecha":"2026-07-01",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":45,
-"Food":1870.18,
-"Beverage":103.24,
-"Total":1973.42,
-"AV Check":43.85,
-"Discounts":137.56
+"Covers":61,
+"Food":1436.66,
+"Beverage":46.31,
+"Total":1482.97,
+"AV Check":24.31
 },
 "Lunch":{
-"Covers":4,
-"Food":556.24,
-"Beverage":259.43,
-"Total":815.67,
-"AV Check":203.92
+"Covers":13,
+"Food":370.98,
+"Beverage":34.95,
+"Total":405.93,
+"AV Check":31.23,
+"Discounts":55.11
 },
 "Dinner":{
-"Covers":123,
-"Food":6171.09,
-"Beverage":2894.33,
-"Misc/Banquets":805.85,
-"Total":9871.27,
-"AV Check":80.25,
-"Discounts":1381.38
+"Covers":25,
+"Food":2051.18,
+"Beverage":991.23,
+"Total":3042.41,
+"AV Check":121.7
 },
 "All Day":{
-"Covers":172,
-"Food":8597.51,
-"Beverage":3257.0,
-"Discounts":1518.94,
-"Misc/Banquets":805.85,
-"Total":12660.36,
-"AV Check":73.61
+"Covers":99,
+"Food":3858.82,
+"Beverage":1072.49,
+"Discounts":55.11,
+"Total":4931.31,
+"AV Check":49.81
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":118,
-"Food":1421.74,
-"Beverage":13.04,
-"Total":1434.78,
-"AV Check":12.16
+"Covers":172,
+"Food":1464.89,
+"Beverage":9.53,
+"Total":1474.42,
+"AV Check":8.57,
+"Discounts":144.47
 },
 "Lunch":{
-"Covers":66,
-"Food":1137.9,
-"Beverage":194.43,
-"Total":1332.33,
-"AV Check":20.19,
-"Discounts":162.97
+"Covers":115,
+"Food":712.25,
+"Beverage":273.57,
+"Total":985.82,
+"AV Check":8.57,
+"Discounts":113.92
 },
 "Dinner":{
-"Covers":78,
-"Food":1185.89,
-"Beverage":1959.85,
-"Total":3145.74,
-"AV Check":40.33,
-"Discounts":83.77
+"Covers":64,
+"Food":1853.62,
+"Beverage":1830.86,
+"Total":3684.48,
+"AV Check":57.57
 },
 "All Day":{
-"Covers":262,
-"Food":3745.53,
-"Beverage":2167.32,
-"Discounts":246.74,
-"Total":5912.85,
-"AV Check":22.57
+"Covers":351,
+"Food":4030.76,
+"Beverage":2113.96,
+"Discounts":258.39,
+"Total":6144.72,
+"AV Check":17.51
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":4,
-"Food":61.66,
-"Beverage":7.26,
-"Delivery Charge":12.46,
-"Total":81.38,
-"AV Check":20.34,
-"Discounts":7.47
+"Covers":1,
+"Food":98.61,
+"Beverage":9.38,
+"Delivery Charge":21.04,
+"Total":129.03,
+"AV Check":129.03
 },
 "Lunch":{
 "Covers":12,
-"Food":269.08,
-"Beverage":51.16,
-"Delivery Charge":50.3,
-"Total":370.54,
-"AV Check":30.88,
-"Discounts":25.32
+"Food":372.31,
+"Beverage":53.19,
+"Delivery Charge":53.68,
+"Total":479.18,
+"AV Check":39.93,
+"Discounts":19.64
 },
 "Dinner":{
-"Covers":36,
-"Food":1524.04,
-"Beverage":47.97,
-"Delivery Charge":228.97,
-"Total":1800.98,
-"AV Check":50.03
+"Covers":34,
+"Food":1184.94,
+"Beverage":66.93,
+"Delivery Charge":177.8,
+"Total":1429.67,
+"AV Check":42.05
 },
 "Overnight":{
-"Covers":4,
-"Food":91.41,
-"Beverage":6.1,
-"Delivery Charge":9.32,
-"Total":106.83,
-"AV Check":26.71,
-"Discounts":8.26
+"Covers":1,
+"Food":81.13,
+"Beverage":7.15,
+"Delivery Charge":13.45,
+"Total":101.73,
+"AV Check":101.73,
+"Discounts":11.13
 },
 "All Day":{
-"Covers":56,
-"Food":1946.19,
-"Beverage":112.49,
-"Delivery Charge":301.05,
-"Discounts":41.05,
-"Total":2359.73,
-"AV Check":42.14
+"Covers":48,
+"Food":1736.99,
+"Beverage":136.65,
+"Delivery Charge":265.97,
+"Discounts":30.77,
+"Total":2139.61,
+"AV Check":44.58
 }
 }
 },
 "comentarios":[
 {
-"texto":"Slow start to the evening. Stock count completed during the quiet period.",
-"area":"Exchange Lane"
+"texto":"A table raised a concern about the wait between courses. The kitchen was informed and a dessert was offered.",
+"area":"Penny Blue"
 },
 {
-"texto":"Orders peaked at the same time as the bar. Guests were kept informed about waiting times.",
-"area":"In Room Dining"
+"texto":"Steady lunch service. A guest asked about gluten free options; the kitchen adjusted the dish.",
+"area":"Exchange Lane"
 }
 ],
 "turnos":[
 {
-"quien":"Drew",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Jordan",
+"quien":"Morgan",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Reese",
+"quien":"Alex",
 "desde":1020,
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
-},
-{
-"quien":"Taylor",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Sam",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Quinn",
@@ -4184,128 +3003,145 @@ var DATOS_DEMO = [
 "hasta":840,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
-"quien":"Skyler",
-"desde":1080,
-"hasta":1440,
+"quien":"Casey",
+"desde":1020,
+"hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-07-13",
+"fecha":"2026-07-02",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":58,
-"Food":2027.38,
-"Beverage":87.73,
-"Total":2115.11,
-"AV Check":36.47,
-"Discounts":252.53
+"Covers":38,
+"Food":2143.34,
+"Beverage":79.73,
+"Total":2223.07,
+"AV Check":58.5,
+"Discounts":106.24
 },
 "Lunch":{
-"Covers":2,
-"Food":218.77,
-"Beverage":50.53,
-"Total":269.3,
-"AV Check":134.65,
-"Discounts":11.9
+"Covers":16,
+"Food":308.87,
+"Beverage":262.73,
+"Total":571.6,
+"AV Check":35.73,
+"Discounts":77.01
 },
 "Dinner":{
-"Covers":40,
-"Food":2030.61,
-"Beverage":1252.99,
-"Total":3283.6,
-"AV Check":82.09,
-"Discounts":368.55
+"Covers":29,
+"Food":1588.5,
+"Beverage":1416.12,
+"Total":3004.62,
+"AV Check":103.61
 },
 "All Day":{
-"Covers":100,
-"Food":4276.76,
-"Beverage":1391.25,
-"Discounts":632.98,
-"Total":5668.01,
-"AV Check":56.68
+"Covers":83,
+"Food":4040.71,
+"Beverage":1758.58,
+"Discounts":183.25,
+"Total":5799.29,
+"AV Check":69.87
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":134,
-"Food":1506.95,
-"Beverage":11.73,
-"Total":1518.68,
-"AV Check":11.33
+"Covers":120,
+"Food":1512.04,
+"Beverage":21.48,
+"Total":1533.52,
+"AV Check":12.78
 },
 "Lunch":{
-"Covers":63,
-"Food":937.19,
-"Beverage":293.43,
-"Total":1230.62,
-"AV Check":19.53
+"Covers":79,
+"Food":692.07,
+"Beverage":268.42,
+"Total":960.49,
+"AV Check":12.16
 },
 "Dinner":{
 "Covers":67,
-"Food":1479.94,
-"Beverage":1825.63,
-"Total":3305.57,
-"AV Check":49.34
+"Food":1599.26,
+"Beverage":1851.91,
+"Total":3451.17,
+"AV Check":51.51
 },
 "All Day":{
-"Covers":264,
-"Food":3924.08,
-"Beverage":2130.79,
-"Total":6054.87,
-"AV Check":22.94
+"Covers":266,
+"Food":3803.37,
+"Beverage":2141.81,
+"Total":5945.18,
+"AV Check":22.35
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":1,
-"Food":40.12,
-"Beverage":17.87,
-"Delivery Charge":19.1,
-"Total":77.09,
-"AV Check":77.09
+"Covers":6,
+"Food":61.05,
+"Beverage":12.27,
+"Delivery Charge":10.58,
+"Total":83.9,
+"AV Check":13.98,
+"Discounts":3.73
 },
 "Lunch":{
-"Covers":14,
-"Food":299.83,
-"Beverage":16.69,
-"Delivery Charge":30.04,
-"Total":346.56,
-"AV Check":24.75,
-"Discounts":41.71
+"Covers":5,
+"Food":320.66,
+"Beverage":30.21,
+"Delivery Charge":40.32,
+"Total":391.19,
+"AV Check":78.24,
+"Discounts":22.78
 },
 "Dinner":{
 "Covers":19,
-"Food":1238.5,
-"Beverage":165.09,
-"Delivery Charge":141.06,
-"Total":1544.65,
-"AV Check":81.3
+"Food":1064.51,
+"Beverage":57.46,
+"Delivery Charge":219.53,
+"Total":1341.5,
+"AV Check":70.61
 },
 "Overnight":{
-"Covers":3,
-"Food":58.92,
-"Beverage":12.14,
-"Delivery Charge":5.6,
-"Total":76.66,
-"AV Check":25.55
+"Covers":4,
+"Food":59.46,
+"Beverage":12.76,
+"Delivery Charge":15.82,
+"Total":88.04,
+"AV Check":22.01,
+"Discounts":12.84
 },
 "All Day":{
-"Covers":37,
-"Food":1637.37,
-"Beverage":211.79,
-"Delivery Charge":195.8,
-"Discounts":41.71,
-"Total":2044.96,
-"AV Check":55.27
+"Covers":34,
+"Food":1505.68,
+"Beverage":112.7,
+"Delivery Charge":286.25,
+"Discounts":39.35,
+"Total":1904.63,
+"AV Check":56.02
 }
 }
 },
@@ -4319,42 +3155,34 @@ var DATOS_DEMO = [
 "area":"Exchange Lane"
 },
 {
-"texto":"Several breakfast orders arrived within the same fifteen minutes, causing a short delay.",
+"texto":"Orders peaked at the same time as the bar. Guests were kept informed about waiting times.",
 "area":"In Room Dining"
 }
 ],
 "turnos":[
 {
-"quien":"Sam",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Taylor",
+"quien":"Alex",
 "desde":660,
 "hasta":1230,
 "descanso":30,
 "horas":9.0,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Quinn",
-"desde":960,
-"hasta":1470,
+"quien":"Robin",
+"desde":660,
+"hasta":1230,
 "descanso":30,
-"horas":8.0,
-"area":null
+"horas":9.0,
+"area":"Penny Blue"
 },
 {
-"quien":"Drew",
+"quien":"Jordan",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Reese",
@@ -4362,139 +3190,709 @@ var DATOS_DEMO = [
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Skyler",
-"desde":1020,
-"hasta":1380,
+"quien":"Quinn",
+"desde":840,
+"hasta":1320,
 "descanso":30,
-"horas":5.5,
-"area":null
+"horas":7.5,
+"area":"Exchange Lane"
 },
 {
-"quien":"Alex",
-"desde":960,
-"hasta":1470,
+"quien":"Casey",
+"desde":360,
+"hasta":840,
 "descanso":30,
-"horas":8.0,
-"area":null
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-07-15",
+"fecha":"2026-07-03",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":62,
-"Food":1600.44,
-"Beverage":111.96,
-"Total":1712.4,
-"AV Check":27.62
+"Covers":55,
+"Food":2119.35,
+"Beverage":123.83,
+"Total":2243.18,
+"AV Check":40.79
 },
 "Lunch":{
-"Covers":22,
-"Food":302.03,
-"Beverage":286.01,
-"Total":588.04,
-"AV Check":26.73
+"Covers":10,
+"Food":759.67,
+"Beverage":204.83,
+"Total":964.5,
+"AV Check":96.45
 },
 "Dinner":{
-"Covers":94,
-"Food":6678.27,
-"Beverage":4401.18,
-"Misc/Banquets":709.23,
-"Total":11788.68,
-"AV Check":125.41,
-"Discounts":377.67
+"Covers":103,
+"Food":5860.98,
+"Beverage":4461.38,
+"Misc/Banquets":991.02,
+"Total":11313.38,
+"AV Check":109.84,
+"Discounts":484.86
 },
 "All Day":{
-"Covers":178,
-"Food":8580.74,
-"Beverage":4799.15,
-"Discounts":377.67,
-"Misc/Banquets":709.23,
-"Total":14089.12,
-"AV Check":79.15
+"Covers":168,
+"Food":8740.0,
+"Beverage":4790.04,
+"Discounts":484.86,
+"Misc/Banquets":991.02,
+"Total":14521.06,
+"AV Check":86.43
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":137,
-"Food":1476.23,
-"Beverage":47.56,
-"Total":1523.79,
-"AV Check":11.12
+"Covers":120,
+"Food":1635.85,
+"Beverage":32.19,
+"Total":1668.04,
+"AV Check":13.9,
+"Discounts":193.22
 },
 "Lunch":{
-"Covers":111,
-"Food":928.48,
-"Beverage":312.84,
-"Total":1241.32,
-"AV Check":11.18
+"Covers":63,
+"Food":664.99,
+"Beverage":195.03,
+"Total":860.02,
+"AV Check":13.65
 },
 "Dinner":{
-"Covers":70,
-"Food":1245.49,
-"Beverage":1996.91,
-"Total":3242.4,
-"AV Check":46.32,
-"Discounts":378.42
+"Covers":50,
+"Food":1383.53,
+"Beverage":1861.77,
+"Total":3245.3,
+"AV Check":64.91,
+"Discounts":169.46
 },
 "All Day":{
-"Covers":318,
-"Food":3650.2,
-"Beverage":2357.31,
-"Discounts":378.42,
-"Total":6007.51,
-"AV Check":18.89
+"Covers":233,
+"Food":3684.37,
+"Beverage":2088.99,
+"Discounts":362.68,
+"Total":5773.36,
+"AV Check":24.78
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":3,
-"Food":83.47,
-"Beverage":4.87,
-"Delivery Charge":19.79,
-"Total":108.13,
-"AV Check":36.04
+"Covers":1,
+"Food":61.43,
+"Beverage":11.58,
+"Delivery Charge":12.01,
+"Total":85.02,
+"AV Check":85.02,
+"Discounts":2.23
+},
+"Lunch":{
+"Covers":5,
+"Food":406.27,
+"Beverage":60.78,
+"Delivery Charge":24.02,
+"Total":491.07,
+"AV Check":98.21
+},
+"Dinner":{
+"Covers":28,
+"Food":1217.08,
+"Beverage":163.53,
+"Delivery Charge":140.84,
+"Total":1521.45,
+"AV Check":54.34,
+"Discounts":164.28
+},
+"Overnight":{
+"Covers":0,
+"Food":32.72,
+"Beverage":6.4,
+"Delivery Charge":7.73,
+"Total":46.85,
+"Discounts":6.63
+},
+"All Day":{
+"Covers":34,
+"Food":1717.5,
+"Beverage":242.29,
+"Delivery Charge":184.6,
+"Discounts":173.14,
+"Total":2144.39,
+"AV Check":63.07
+}
+}
+},
+"comentarios":[
+{
+"texto":"Quiet service overall. Good opportunity to run through the new menu with the floor team.",
+"area":"Penny Blue"
+},
+{
+"texto":"Slow start to the evening. Stock count completed during the quiet period.",
+"area":"Exchange Lane"
+}
+],
+"turnos":[
+{
+"quien":"Jordan",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Sam",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Avery",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Quinn",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Drew",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-04",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":65,
+"Food":2102.49,
+"Beverage":102.52,
+"Total":2205.01,
+"AV Check":33.92
+},
+"Lunch":{
+"Covers":20,
+"Food":869.8,
+"Beverage":403.5,
+"Total":1273.3,
+"AV Check":63.66
+},
+"Dinner":{
+"Covers":123,
+"Food":7045.0,
+"Beverage":4418.3,
+"Misc/Banquets":1267.29,
+"Total":12730.59,
+"AV Check":103.5,
+"Discounts":1665.57
+},
+"All Day":{
+"Covers":208,
+"Food":10017.29,
+"Beverage":4924.32,
+"Discounts":1665.57,
+"Misc/Banquets":1267.29,
+"Total":16208.9,
+"AV Check":77.93
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":156,
+"Food":1350.85,
+"Beverage":23.89,
+"Total":1374.74,
+"AV Check":8.81,
+"Discounts":193.67
+},
+"Lunch":{
+"Covers":72,
+"Food":837.63,
+"Beverage":168.64,
+"Total":1006.27,
+"AV Check":13.98
+},
+"Dinner":{
+"Covers":87,
+"Food":1803.41,
+"Beverage":1874.16,
+"Total":3677.57,
+"AV Check":42.27
+},
+"All Day":{
+"Covers":315,
+"Food":3991.89,
+"Beverage":2066.69,
+"Discounts":193.67,
+"Total":6058.58,
+"AV Check":19.23
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":6,
+"Food":97.29,
+"Beverage":14.41,
+"Delivery Charge":20.41,
+"Total":132.11,
+"AV Check":22.02,
+"Discounts":8.21
 },
 "Lunch":{
 "Covers":13,
-"Food":314.56,
-"Beverage":36.28,
-"Delivery Charge":37.23,
-"Total":388.07,
-"AV Check":29.85,
-"Discounts":33.84
+"Food":232.62,
+"Beverage":21.69,
+"Delivery Charge":33.45,
+"Total":287.76,
+"AV Check":22.14
 },
 "Dinner":{
-"Covers":31,
-"Food":1370.32,
-"Beverage":69.42,
-"Delivery Charge":171.08,
-"Total":1610.82,
-"AV Check":51.96
+"Covers":19,
+"Food":1182.76,
+"Beverage":153.6,
+"Delivery Charge":186.2,
+"Total":1522.56,
+"AV Check":80.13
 },
 "Overnight":{
 "Covers":2,
-"Food":35.81,
-"Beverage":6.25,
-"Delivery Charge":15.44,
-"Total":57.5,
-"AV Check":28.75,
-"Discounts":8.31
+"Food":39.78,
+"Beverage":4.61,
+"Delivery Charge":11.45,
+"Total":55.84,
+"AV Check":27.92,
+"Discounts":4.91
 },
 "All Day":{
-"Covers":49,
-"Food":1804.16,
-"Beverage":116.82,
-"Delivery Charge":243.54,
-"Discounts":42.15,
-"Total":2164.52,
-"AV Check":44.17
+"Covers":40,
+"Food":1552.45,
+"Beverage":194.31,
+"Delivery Charge":251.51,
+"Discounts":13.12,
+"Total":1998.27,
+"AV Check":49.96
+}
+}
+},
+"comentarios":[
+{
+"texto":"Quiet overnight service. Breakfast preparation completed ahead of schedule.",
+"area":"In Room Dining"
+}
+],
+"turnos":[
+{
+"quien":"Reese",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Sam",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Riley",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Taylor",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-06",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":51,
+"Food":2203.25,
+"Beverage":106.46,
+"Total":2309.71,
+"AV Check":45.29,
+"Discounts":282.96
+},
+"Lunch":{
+"Covers":17,
+"Food":471.98,
+"Beverage":178.88,
+"Total":650.86,
+"AV Check":38.29,
+"Discounts":102.93
+},
+"Dinner":{
+"Covers":132,
+"Food":5539.65,
+"Beverage":3278.84,
+"Misc/Banquets":883.55,
+"Total":9702.04,
+"AV Check":73.5,
+"Discounts":979.96
+},
+"All Day":{
+"Covers":200,
+"Food":8214.88,
+"Beverage":3564.18,
+"Discounts":1365.85,
+"Misc/Banquets":883.55,
+"Total":12662.61,
+"AV Check":63.31
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":126,
+"Food":1317.39,
+"Beverage":25.28,
+"Total":1342.67,
+"AV Check":10.66,
+"Discounts":80.38
+},
+"Lunch":{
+"Covers":92,
+"Food":824.15,
+"Beverage":332.3,
+"Total":1156.45,
+"AV Check":12.57,
+"Discounts":93.2
+},
+"Dinner":{
+"Covers":82,
+"Food":1789.09,
+"Beverage":2106.69,
+"Total":3895.78,
+"AV Check":47.51
+},
+"All Day":{
+"Covers":300,
+"Food":3930.63,
+"Beverage":2464.27,
+"Discounts":173.58,
+"Total":6394.9,
+"AV Check":21.32
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":1,
+"Food":46.4,
+"Beverage":9.69,
+"Delivery Charge":9.61,
+"Total":65.7,
+"AV Check":65.7,
+"Discounts":5.47
+},
+"Lunch":{
+"Covers":12,
+"Food":359.71,
+"Beverage":53.5,
+"Delivery Charge":49.91,
+"Total":463.12,
+"AV Check":38.59,
+"Discounts":27.84
+},
+"Dinner":{
+"Covers":23,
+"Food":1001.24,
+"Beverage":68.49,
+"Delivery Charge":258.5,
+"Total":1328.23,
+"AV Check":57.75,
+"Discounts":63.54
+},
+"Overnight":{
+"Covers":5,
+"Food":23.81,
+"Beverage":3.82,
+"Delivery Charge":4.42,
+"Total":32.05,
+"AV Check":6.41
+},
+"All Day":{
+"Covers":41,
+"Food":1431.16,
+"Beverage":135.5,
+"Delivery Charge":322.44,
+"Discounts":96.85,
+"Total":1889.1,
+"AV Check":46.08
+}
+}
+},
+"comentarios":[
+{
+"texto":"A table raised a concern about the wait between courses. The kitchen was informed and a dessert was offered.",
+"area":"Penny Blue"
+},
+{
+"texto":"Slow start to the evening. Stock count completed during the quiet period.",
+"area":"Exchange Lane"
+},
+{
+"texto":"Quiet overnight service. Breakfast preparation completed ahead of schedule.",
+"area":"In Room Dining"
+}
+],
+"turnos":[
+{
+"quien":"Reese",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Sam",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Alex",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Casey",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Quinn",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Taylor",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-07",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":60,
+"Food":1863.49,
+"Beverage":121.49,
+"Total":1984.98,
+"AV Check":33.08,
+"Discounts":115.74
+},
+"Lunch":{
+"Covers":10,
+"Food":70.15,
+"Beverage":81.01,
+"Total":151.16,
+"AV Check":15.12
+},
+"Dinner":{
+"Covers":50,
+"Food":1408.55,
+"Beverage":986.84,
+"Total":2395.39,
+"AV Check":47.91
+},
+"All Day":{
+"Covers":120,
+"Food":3342.19,
+"Beverage":1189.34,
+"Discounts":115.74,
+"Total":4531.53,
+"AV Check":37.76
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":164,
+"Food":1245.07,
+"Beverage":21.11,
+"Total":1266.18,
+"AV Check":7.72,
+"Discounts":188.92
+},
+"Lunch":{
+"Covers":81,
+"Food":663.36,
+"Beverage":345.74,
+"Total":1009.1,
+"AV Check":12.46,
+"Discounts":87.2
+},
+"Dinner":{
+"Covers":73,
+"Food":1113.19,
+"Beverage":1421.4,
+"Total":2534.59,
+"AV Check":34.72,
+"Discounts":178.24
+},
+"All Day":{
+"Covers":318,
+"Food":3021.62,
+"Beverage":1788.25,
+"Discounts":454.36,
+"Total":4809.87,
+"AV Check":15.13
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":1,
+"Food":75.61,
+"Beverage":11.57,
+"Delivery Charge":13.71,
+"Total":100.89,
+"AV Check":100.89,
+"Discounts":2.94
+},
+"Lunch":{
+"Covers":6,
+"Food":218.22,
+"Beverage":46.5,
+"Delivery Charge":54.1,
+"Total":318.82,
+"AV Check":53.14,
+"Discounts":7.15
+},
+"Dinner":{
+"Covers":18,
+"Food":1268.08,
+"Beverage":179.09,
+"Delivery Charge":198.99,
+"Total":1646.16,
+"AV Check":91.45,
+"Discounts":49.01
+},
+"Overnight":{
+"Covers":4,
+"Food":55.0,
+"Beverage":4.55,
+"Delivery Charge":13.26,
+"Total":72.81,
+"AV Check":18.2,
+"Discounts":10.78
+},
+"All Day":{
+"Covers":29,
+"Food":1616.91,
+"Beverage":241.71,
+"Delivery Charge":280.06,
+"Discounts":69.88,
+"Total":2138.68,
+"AV Check":73.75
 }
 }
 },
@@ -4506,208 +3904,229 @@ var DATOS_DEMO = [
 {
 "texto":"Steady lunch service. A guest asked about gluten free options; the kitchen adjusted the dish.",
 "area":"Exchange Lane"
-},
-{
-"texto":"Quiet overnight service. Breakfast preparation completed ahead of schedule.",
-"area":"In Room Dining"
 }
 ],
 "turnos":[
 {
-"quien":"Taylor",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Blake",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Robin",
+"quien":"Reese",
 "desde":360,
 "hasta":840,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Morgan",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Blake",
+"quien":"Jordan",
 "desde":1020,
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Reese",
+"quien":"Sam",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Robin",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Avery",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Quinn",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Drew",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Jamie",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-07-16",
+"fecha":"2026-07-08",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":52,
-"Food":2286.34,
-"Beverage":92.67,
-"Total":2379.01,
-"AV Check":45.75
+"Covers":47,
+"Food":1877.46,
+"Beverage":125.05,
+"Total":2002.51,
+"AV Check":42.61
 },
 "Lunch":{
-"Covers":1,
-"Food":408.13,
-"Beverage":296.54,
-"Total":704.67,
-"AV Check":704.67
+"Covers":9,
+"Food":112.59,
+"Beverage":247.18,
+"Total":359.77,
+"AV Check":39.97
 },
 "Dinner":{
-"Covers":128,
-"Food":5354.44,
-"Beverage":4029.45,
-"Misc/Banquets":963.59,
-"Total":10347.48,
-"AV Check":80.84,
-"Discounts":593.35
+"Covers":50,
+"Food":1391.14,
+"Beverage":1490.8,
+"Total":2881.94,
+"AV Check":57.64
 },
 "All Day":{
-"Covers":181,
-"Food":8048.91,
-"Beverage":4418.66,
-"Discounts":593.35,
-"Misc/Banquets":963.59,
-"Total":13431.16,
-"AV Check":74.21
+"Covers":106,
+"Food":3381.19,
+"Beverage":1863.03,
+"Total":5244.22,
+"AV Check":49.47
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":190,
-"Food":1394.74,
-"Beverage":40.01,
-"Total":1434.75,
-"AV Check":7.55,
-"Discounts":199.77
+"Covers":152,
+"Food":1519.47,
+"Beverage":32.49,
+"Total":1551.96,
+"AV Check":10.21,
+"Discounts":185.82
 },
 "Lunch":{
-"Covers":60,
-"Food":741.38,
-"Beverage":381.65,
-"Total":1123.03,
-"AV Check":18.72,
-"Discounts":39.55
+"Covers":106,
+"Food":800.95,
+"Beverage":356.76,
+"Total":1157.71,
+"AV Check":10.92
 },
 "Dinner":{
-"Covers":75,
-"Food":1067.7,
-"Beverage":2151.0,
-"Total":3218.7,
-"AV Check":42.92
+"Covers":88,
+"Food":1642.98,
+"Beverage":2039.63,
+"Total":3682.61,
+"AV Check":41.85
 },
 "All Day":{
-"Covers":325,
-"Food":3203.82,
-"Beverage":2572.66,
-"Discounts":239.32,
-"Total":5776.48,
-"AV Check":17.77
+"Covers":346,
+"Food":3963.4,
+"Beverage":2428.88,
+"Discounts":185.82,
+"Total":6392.28,
+"AV Check":18.47
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":2,
-"Food":22.89,
-"Beverage":14.2,
-"Delivery Charge":11.43,
-"Total":48.52,
-"AV Check":24.26
+"Covers":6,
+"Food":34.17,
+"Beverage":6.9,
+"Delivery Charge":9.51,
+"Total":50.58,
+"AV Check":8.43
 },
 "Lunch":{
-"Covers":7,
-"Food":305.76,
-"Beverage":46.5,
-"Delivery Charge":40.99,
-"Total":393.25,
-"AV Check":56.18,
-"Discounts":12.18
+"Covers":13,
+"Food":394.98,
+"Beverage":14.1,
+"Delivery Charge":48.7,
+"Total":457.78,
+"AV Check":35.21,
+"Discounts":47.97
 },
 "Dinner":{
-"Covers":38,
-"Food":1078.28,
-"Beverage":137.25,
-"Delivery Charge":209.7,
-"Total":1425.23,
-"AV Check":37.51
+"Covers":31,
+"Food":878.36,
+"Beverage":164.33,
+"Delivery Charge":162.62,
+"Total":1205.31,
+"AV Check":38.88,
+"Discounts":148.03
 },
 "Overnight":{
-"Covers":0,
-"Food":87.63,
-"Beverage":13.75,
-"Delivery Charge":6.14,
-"Total":107.52
+"Covers":3,
+"Food":45.27,
+"Beverage":3.33,
+"Delivery Charge":14.07,
+"Total":62.67,
+"AV Check":20.89,
+"Discounts":6.65
 },
 "All Day":{
-"Covers":47,
-"Food":1494.56,
-"Beverage":211.7,
-"Delivery Charge":268.26,
-"Discounts":12.18,
-"Total":1974.52,
-"AV Check":42.01
+"Covers":53,
+"Food":1352.78,
+"Beverage":188.66,
+"Delivery Charge":234.9,
+"Discounts":202.65,
+"Total":1776.34,
+"AV Check":33.52
 }
 }
 },
-"comentarios":[
-{
-"texto":"A group arrived after a nearby event, which created a busy period for about an hour.",
-"area":"Exchange Lane"
-}
-],
+"comentarios":[],
 "turnos":[
 {
-"quien":"Blake",
-"desde":360,
-"hasta":840,
+"quien":"Sam",
+"desde":840,
+"hasta":1320,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Blake",
+"quien":"Robin",
 "desde":1020,
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Morgan",
+"quien":"Alex",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Penny Blue"
+},
+{
+"quien":"Riley",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Exchange Lane"
 },
 {
 "quien":"Casey",
@@ -4715,28 +4134,390 @@ var DATOS_DEMO = [
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
-"quien":"Morgan",
-"desde":840,
-"hasta":1320,
+"quien":"Quinn",
+"desde":1020,
+"hasta":1380,
 "descanso":30,
-"horas":7.5,
-"area":null
+"horas":5.5,
+"area":"Exchange Lane"
 },
 {
-"quien":"Reese",
-"desde":840,
-"hasta":1320,
+"quien":"Jamie",
+"desde":900,
+"hasta":1380,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"In Room Dining"
+},
+{
+"quien":"Drew",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-07-18",
+"fecha":"2026-07-10",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":48,
+"Food":1804.39,
+"Beverage":69.21,
+"Total":1873.6,
+"AV Check":39.03
+},
+"Lunch":{
+"Covers":12,
+"Food":398.32,
+"Beverage":65.38,
+"Total":463.7,
+"AV Check":38.64,
+"Discounts":54.19
+},
+"Dinner":{
+"Covers":47,
+"Food":1581.74,
+"Beverage":1183.28,
+"Total":2765.02,
+"AV Check":58.83,
+"Discounts":233.8
+},
+"All Day":{
+"Covers":107,
+"Food":3784.45,
+"Beverage":1317.87,
+"Discounts":287.99,
+"Total":5102.32,
+"AV Check":47.69
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":182,
+"Food":1446.57,
+"Beverage":33.66,
+"Total":1480.23,
+"AV Check":8.13
+},
+"Lunch":{
+"Covers":78,
+"Food":662.08,
+"Beverage":270.54,
+"Total":932.62,
+"AV Check":11.96
+},
+"Dinner":{
+"Covers":90,
+"Food":1086.12,
+"Beverage":1130.24,
+"Total":2216.36,
+"AV Check":24.63
+},
+"All Day":{
+"Covers":350,
+"Food":3194.77,
+"Beverage":1434.44,
+"Total":4629.21,
+"AV Check":13.23
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":5,
+"Food":36.19,
+"Beverage":15.77,
+"Delivery Charge":22.57,
+"Total":74.53,
+"AV Check":14.91,
+"Discounts":11.3
+},
+"Lunch":{
+"Covers":12,
+"Food":203.89,
+"Beverage":54.11,
+"Delivery Charge":48.94,
+"Total":306.94,
+"AV Check":25.58,
+"Discounts":37.81
+},
+"Dinner":{
+"Covers":40,
+"Food":1463.46,
+"Beverage":119.35,
+"Delivery Charge":193.03,
+"Total":1775.84,
+"AV Check":44.4,
+"Discounts":165.74
+},
+"Overnight":{
+"Covers":3,
+"Food":27.35,
+"Beverage":10.31,
+"Delivery Charge":6.84,
+"Total":44.5,
+"AV Check":14.83,
+"Discounts":6.42
+},
+"All Day":{
+"Covers":60,
+"Food":1730.89,
+"Beverage":199.54,
+"Delivery Charge":271.38,
+"Discounts":221.27,
+"Total":2201.81,
+"AV Check":36.7
+}
+}
+},
+"comentarios":[
+{
+"texto":"An order was delayed due to an incorrect room number. Corrected and delivered with an apology.",
+"area":"In Room Dining"
+}
+],
+"turnos":[
+{
+"quien":"Reese",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Jordan",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Alex",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Quinn",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Avery",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Taylor",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-11",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":39,
+"Food":1795.66,
+"Beverage":49.38,
+"Total":1845.04,
+"AV Check":47.31
+},
+"Lunch":{
+"Covers":8,
+"Food":425.38,
+"Beverage":31.33,
+"Total":456.71,
+"AV Check":57.09,
+"Discounts":40.49
+},
+"Dinner":{
+"Covers":20,
+"Food":1625.51,
+"Beverage":841.62,
+"Total":2467.13,
+"AV Check":123.36
+},
+"All Day":{
+"Covers":67,
+"Food":3846.55,
+"Beverage":922.33,
+"Discounts":40.49,
+"Total":4768.88,
+"AV Check":71.18
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":144,
+"Food":1292.13,
+"Beverage":50.2,
+"Total":1342.33,
+"AV Check":9.32
+},
+"Lunch":{
+"Covers":105,
+"Food":881.87,
+"Beverage":205.56,
+"Total":1087.43,
+"AV Check":10.36
+},
+"Dinner":{
+"Covers":58,
+"Food":1304.43,
+"Beverage":1611.15,
+"Total":2915.58,
+"AV Check":50.27,
+"Discounts":187.76
+},
+"All Day":{
+"Covers":307,
+"Food":3478.43,
+"Beverage":1866.91,
+"Discounts":187.76,
+"Total":5345.34,
+"AV Check":17.41
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":4,
+"Food":19.65,
+"Beverage":16.82,
+"Delivery Charge":20.81,
+"Total":57.28,
+"AV Check":14.32
+},
+"Lunch":{
+"Covers":7,
+"Food":193.97,
+"Beverage":54.92,
+"Delivery Charge":30.85,
+"Total":279.74,
+"AV Check":39.96
+},
+"Dinner":{
+"Covers":25,
+"Food":1267.99,
+"Beverage":125.63,
+"Delivery Charge":203.72,
+"Total":1597.34,
+"AV Check":63.89,
+"Discounts":49.47
+},
+"Overnight":{
+"Covers":5,
+"Food":34.85,
+"Beverage":10.55,
+"Delivery Charge":10.97,
+"Total":56.37,
+"AV Check":11.27
+},
+"All Day":{
+"Covers":41,
+"Food":1516.46,
+"Beverage":207.92,
+"Delivery Charge":266.35,
+"Discounts":49.47,
+"Total":1990.73,
+"AV Check":48.55
+}
+}
+},
+"comentarios":[
+{
+"texto":"A table raised a concern about the wait between courses. The kitchen was informed and a dessert was offered.",
+"area":"Penny Blue"
+},
+{
+"texto":"A group arrived after a nearby event, which created a busy period for about an hour.",
+"area":"Exchange Lane"
+}
+],
+"turnos":[
+{
+"quien":"Alex",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Casey",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Taylor",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-13",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
@@ -4855,126 +4636,130 @@ var DATOS_DEMO = [
 },
 "comentarios":[
 {
-"texto":"A group arrived after a nearby event, which created a busy period for about an hour.",
-"area":"Exchange Lane"
-},
-{
 "texto":"Quiet overnight service. Breakfast preparation completed ahead of schedule.",
 "area":"In Room Dining"
 }
 ],
 "turnos":[
 {
-"quien":"Skyler",
-"desde":660,
-"hasta":1230,
+"quien":"Reese",
+"desde":960,
+"hasta":30,
 "descanso":30,
-"horas":9.0,
-"area":null
+"horas":8.0,
+"area":"Penny Blue"
 },
 {
-"quien":"Drew",
-"desde":840,
-"hasta":1320,
+"quien":"Jordan",
+"desde":1020,
+"hasta":1380,
 "descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Skyler",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Blake",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
+"horas":5.5,
+"area":"Penny Blue"
 },
 {
 "quien":"Alex",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Skyler",
+"quien":"Riley",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Exchange Lane"
+},
+{
+"quien":"Avery",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
 },
 {
 "quien":"Taylor",
-"desde":1080,
-"hasta":1440,
+"desde":900,
+"hasta":1380,
 "descanso":30,
-"horas":5.5,
-"area":null
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Drew",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-07-25",
+"fecha":"2026-07-14",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":45,
-"Food":2147.42,
-"Beverage":68.38,
-"Total":2215.8,
-"AV Check":49.24
+"Covers":70,
+"Food":2157.26,
+"Beverage":152.7,
+"Total":2309.96,
+"AV Check":33.0,
+"Discounts":347.47
 },
 "Lunch":{
-"Covers":10,
-"Food":95.2,
-"Beverage":67.62,
-"Total":162.82,
-"AV Check":16.28,
-"Discounts":18.12
+"Covers":29,
+"Food":507.0,
+"Beverage":354.74,
+"Total":861.74,
+"AV Check":29.72,
+"Discounts":136.08
 },
 "Dinner":{
-"Covers":34,
-"Food":1927.82,
-"Beverage":684.28,
-"Total":2612.1,
-"AV Check":76.83,
-"Discounts":367.45
+"Covers":114,
+"Food":6202.55,
+"Beverage":4487.69,
+"Misc/Banquets":1082.82,
+"Total":11773.06,
+"AV Check":103.27
 },
 "All Day":{
-"Covers":89,
-"Food":4170.44,
-"Beverage":820.28,
-"Discounts":385.57,
-"Total":4990.72,
-"AV Check":56.08
+"Covers":213,
+"Food":8866.81,
+"Beverage":4995.13,
+"Discounts":483.55,
+"Misc/Banquets":1082.82,
+"Total":14944.76,
+"AV Check":70.16
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":143,
-"Food":1618.32,
-"Beverage":39.36,
-"Total":1657.68,
-"AV Check":11.59,
-"Discounts":157.8
+"Covers":154,
+"Food":1338.19,
+"Beverage":31.78,
+"Total":1369.97,
+"AV Check":8.9
 },
 "Lunch":{
-"Covers":111,
-"Food":990.11,
-"Beverage":301.31,
-"Total":1291.42,
-"AV Check":11.63,
-"Discounts":185.56
+"Covers":65,
+"Food":951.38,
+"Beverage":242.16,
+"Total":1193.54,
+"AV Check":18.36
 },
 "Dinner":{
 "Covers":69,
@@ -4985,12 +4770,12 @@ var DATOS_DEMO = [
 "Discounts":465.77
 },
 "All Day":{
-"Covers":323,
-"Food":4533.11,
-"Beverage":2574.62,
-"Discounts":809.13,
-"Total":7107.73,
-"AV Check":22.01
+"Covers":288,
+"Food":4214.25,
+"Beverage":2507.89,
+"Discounts":465.77,
+"Total":6722.14,
+"AV Check":23.34
 }
 },
 "In Room Dining":{
@@ -5042,12 +4827,8 @@ var DATOS_DEMO = [
 },
 "comentarios":[
 {
-"texto":"Busy evening across the restaurant. Two large tables extended past closing and service ran smoothly.",
+"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
 "area":"Penny Blue"
-},
-{
-"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
-"area":"Exchange Lane"
 },
 {
 "texto":"Quiet overnight service. Breakfast preparation completed ahead of schedule.",
@@ -5056,173 +4837,1740 @@ var DATOS_DEMO = [
 ],
 "turnos":[
 {
-"quien":"Blake",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
 "quien":"Sam",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Jordan",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Drew",
+"quien":"Alex",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Robin",
 "desde":840,
 "hasta":1320,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Penny Blue"
+},
+{
+"quien":"Riley",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
 },
 {
 "quien":"Casey",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Exchange Lane"
 },
+{
+"quien":"Taylor",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-15",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":59,
+"Food":2138.42,
+"Beverage":55.95,
+"Total":2194.37,
+"AV Check":37.19,
+"Discounts":215.95
+},
+"Lunch":{
+"Covers":15,
+"Food":381.38,
+"Beverage":238.64,
+"Total":620.02,
+"AV Check":41.33,
+"Discounts":92.84
+},
+"Dinner":{
+"Covers":35,
+"Food":2297.25,
+"Beverage":1063.55,
+"Total":3360.8,
+"AV Check":96.02,
+"Discounts":403.21
+},
+"All Day":{
+"Covers":109,
+"Food":4817.05,
+"Beverage":1358.14,
+"Discounts":712.0,
+"Total":6175.19,
+"AV Check":56.65
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":167,
+"Food":1077.78,
+"Beverage":9.97,
+"Total":1087.75,
+"AV Check":6.51,
+"Discounts":60.52
+},
+"Lunch":{
+"Covers":87,
+"Food":683.44,
+"Beverage":223.17,
+"Total":906.61,
+"AV Check":10.42,
+"Discounts":121.12
+},
+"Dinner":{
+"Covers":80,
+"Food":1807.61,
+"Beverage":1398.89,
+"Total":3206.5,
+"AV Check":40.08,
+"Discounts":482.31
+},
+"All Day":{
+"Covers":334,
+"Food":3568.83,
+"Beverage":1632.03,
+"Discounts":663.95,
+"Total":5200.86,
+"AV Check":15.57
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":6,
+"Food":100.12,
+"Beverage":11.47,
+"Delivery Charge":17.48,
+"Total":129.07,
+"AV Check":21.51,
+"Discounts":17.83
+},
+"Lunch":{
+"Covers":5,
+"Food":411.72,
+"Beverage":40.79,
+"Delivery Charge":25.05,
+"Total":477.56,
+"AV Check":95.51,
+"Discounts":10.91
+},
+"Dinner":{
+"Covers":25,
+"Food":1518.16,
+"Beverage":105.08,
+"Delivery Charge":179.46,
+"Total":1802.7,
+"AV Check":72.11
+},
+"Overnight":{
+"Covers":4,
+"Food":28.04,
+"Beverage":2.91,
+"Delivery Charge":5.51,
+"Total":36.46,
+"AV Check":9.12,
+"Discounts":1.46
+},
+"All Day":{
+"Covers":40,
+"Food":2058.04,
+"Beverage":160.25,
+"Delivery Charge":227.5,
+"Discounts":30.2,
+"Total":2445.79,
+"AV Check":61.14
+}
+}
+},
+"comentarios":[
+{
+"texto":"Quiet service overall. Good opportunity to run through the new menu with the floor team.",
+"area":"Penny Blue"
+}
+],
+"turnos":[
+{
+"quien":"Jordan",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Robin",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Riley",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Drew",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-16",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":51,
+"Food":1864.16,
+"Beverage":57.04,
+"Total":1921.2,
+"AV Check":37.67,
+"Discounts":158.01
+},
+"Lunch":{
+"Covers":13,
+"Food":106.2,
+"Beverage":165.23,
+"Total":271.43,
+"AV Check":20.88,
+"Discounts":24.31
+},
+"Dinner":{
+"Covers":30,
+"Food":1389.35,
+"Beverage":922.39,
+"Total":2311.74,
+"AV Check":77.06,
+"Discounts":95.38
+},
+"All Day":{
+"Covers":94,
+"Food":3359.71,
+"Beverage":1144.66,
+"Discounts":277.7,
+"Total":4504.37,
+"AV Check":47.92
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":178,
+"Food":1472.52,
+"Beverage":25.76,
+"Total":1498.28,
+"AV Check":8.42,
+"Discounts":236.14
+},
+"Lunch":{
+"Covers":92,
+"Food":786.14,
+"Beverage":187.84,
+"Total":973.98,
+"AV Check":10.59
+},
+"Dinner":{
+"Covers":65,
+"Food":1075.27,
+"Beverage":2043.95,
+"Total":3119.22,
+"AV Check":47.99,
+"Discounts":202.19
+},
+"All Day":{
+"Covers":335,
+"Food":3333.93,
+"Beverage":2257.55,
+"Discounts":438.33,
+"Total":5591.48,
+"AV Check":16.69
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":2,
+"Food":35.3,
+"Beverage":18.3,
+"Delivery Charge":10.73,
+"Total":64.33,
+"AV Check":32.16,
+"Discounts":1.31
+},
+"Lunch":{
+"Covers":9,
+"Food":253.93,
+"Beverage":14.59,
+"Delivery Charge":43.42,
+"Total":311.94,
+"AV Check":34.66
+},
+"Dinner":{
+"Covers":26,
+"Food":1497.97,
+"Beverage":38.28,
+"Delivery Charge":164.92,
+"Total":1701.17,
+"AV Check":65.43,
+"Discounts":73.61
+},
+"Overnight":{
+"Covers":3,
+"Food":22.36,
+"Beverage":10.41,
+"Delivery Charge":7.3,
+"Total":40.07,
+"AV Check":13.36,
+"Discounts":1.72
+},
+"All Day":{
+"Covers":40,
+"Food":1809.56,
+"Beverage":81.58,
+"Delivery Charge":226.37,
+"Discounts":76.64,
+"Total":2117.51,
+"AV Check":52.94
+}
+}
+},
+"comentarios":[
+{
+"texto":"Orders peaked at the same time as the bar. Guests were kept informed about waiting times.",
+"area":"In Room Dining"
+}
+],
+"turnos":[
+{
+"quien":"Alex",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Jordan",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Casey",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Taylor",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-17",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":64,
+"Food":1568.87,
+"Beverage":94.54,
+"Total":1663.41,
+"AV Check":25.99,
+"Discounts":174.2
+},
+"Lunch":{
+"Covers":7,
+"Food":243.87,
+"Beverage":96.49,
+"Total":340.36,
+"AV Check":48.62,
+"Discounts":37.4
+},
+"Dinner":{
+"Covers":23,
+"Food":1625.82,
+"Beverage":926.05,
+"Total":2551.87,
+"AV Check":110.95
+},
+"All Day":{
+"Covers":94,
+"Food":3438.56,
+"Beverage":1117.08,
+"Discounts":211.6,
+"Total":4555.64,
+"AV Check":48.46
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":117,
+"Food":1292.94,
+"Beverage":21.27,
+"Total":1314.21,
+"AV Check":11.23,
+"Discounts":94.88
+},
+"Lunch":{
+"Covers":94,
+"Food":954.55,
+"Beverage":187.37,
+"Total":1141.92,
+"AV Check":12.15,
+"Discounts":59.48
+},
+"Dinner":{
+"Covers":89,
+"Food":1495.56,
+"Beverage":1835.98,
+"Total":3331.54,
+"AV Check":37.43,
+"Discounts":211.04
+},
+"All Day":{
+"Covers":300,
+"Food":3743.05,
+"Beverage":2044.62,
+"Discounts":365.4,
+"Total":5787.67,
+"AV Check":19.29
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":5,
+"Food":59.55,
+"Beverage":2.86,
+"Delivery Charge":17.45,
+"Total":79.86,
+"AV Check":15.97
+},
+"Lunch":{
+"Covers":11,
+"Food":232.05,
+"Beverage":50.9,
+"Delivery Charge":41.86,
+"Total":324.81,
+"AV Check":29.53,
+"Discounts":32.3
+},
+"Dinner":{
+"Covers":27,
+"Food":977.05,
+"Beverage":132.48,
+"Delivery Charge":200.48,
+"Total":1310.01,
+"AV Check":48.52
+},
+"Overnight":{
+"Covers":3,
+"Food":38.2,
+"Beverage":8.36,
+"Delivery Charge":9.32,
+"Total":55.88,
+"AV Check":18.63,
+"Discounts":1.42
+},
+"All Day":{
+"Covers":46,
+"Food":1306.85,
+"Beverage":194.6,
+"Delivery Charge":269.11,
+"Discounts":33.72,
+"Total":1770.56,
+"AV Check":38.49
+}
+}
+},
+"comentarios":[
+{
+"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
+"area":"Penny Blue"
+},
+{
+"texto":"Quiet overnight service. Breakfast preparation completed ahead of schedule.",
+"area":"In Room Dining"
+}
+],
+"turnos":[
+{
+"quien":"Morgan",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Alex",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Robin",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Riley",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-18",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":35,
+"Food":1738.04,
+"Beverage":78.37,
+"Total":1816.41,
+"AV Check":51.9,
+"Discounts":78.16
+},
+"Lunch":{
+"Covers":20,
+"Food":73.15,
+"Beverage":102.4,
+"Total":175.55,
+"AV Check":8.78
+},
+"Dinner":{
+"Covers":48,
+"Food":1725.98,
+"Beverage":1507.69,
+"Total":3233.67,
+"AV Check":67.37
+},
+"All Day":{
+"Covers":103,
+"Food":3537.17,
+"Beverage":1688.46,
+"Discounts":78.16,
+"Total":5225.63,
+"AV Check":50.73
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":185,
+"Food":1615.11,
+"Beverage":23.81,
+"Total":1638.92,
+"AV Check":8.86,
+"Discounts":133.85
+},
+"Lunch":{
+"Covers":100,
+"Food":799.63,
+"Beverage":184.63,
+"Total":984.26,
+"AV Check":9.84
+},
+"Dinner":{
+"Covers":48,
+"Food":1546.66,
+"Beverage":1712.99,
+"Total":3259.65,
+"AV Check":67.91
+},
+"All Day":{
+"Covers":333,
+"Food":3961.4,
+"Beverage":1921.43,
+"Discounts":133.85,
+"Total":5882.83,
+"AV Check":17.67
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":3,
+"Food":22.04,
+"Beverage":10.4,
+"Delivery Charge":19.98,
+"Total":52.42,
+"AV Check":17.47,
+"Discounts":6.49
+},
+"Lunch":{
+"Covers":10,
+"Food":371.19,
+"Beverage":13.72,
+"Delivery Charge":55.93,
+"Total":440.84,
+"AV Check":44.08,
+"Discounts":42.57
+},
+"Dinner":{
+"Covers":18,
+"Food":1236.91,
+"Beverage":102.51,
+"Delivery Charge":249.68,
+"Total":1589.1,
+"AV Check":88.28,
+"Discounts":52.63
+},
+"Overnight":{
+"Covers":5,
+"Food":70.47,
+"Beverage":6.34,
+"Delivery Charge":4.11,
+"Total":80.92,
+"AV Check":16.18,
+"Discounts":8.29
+},
+"All Day":{
+"Covers":36,
+"Food":1700.61,
+"Beverage":132.97,
+"Delivery Charge":329.7,
+"Discounts":109.98,
+"Total":2163.28,
+"AV Check":60.09
+}
+}
+},
+"comentarios":[
+{
+"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
+"area":"Penny Blue"
+}
+],
+"turnos":[
+{
+"quien":"Alex",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Jordan",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Riley",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Avery",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Drew",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Taylor",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-19",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":47,
+"Food":1490.54,
+"Beverage":82.18,
+"Total":1572.72,
+"AV Check":33.46,
+"Discounts":77.27
+},
+"Lunch":{
+"Covers":10,
+"Food":430.91,
+"Beverage":188.6,
+"Total":619.51,
+"AV Check":61.95,
+"Discounts":68.18
+},
+"Dinner":{
+"Covers":53,
+"Food":2495.37,
+"Beverage":1106.34,
+"Total":3601.71,
+"AV Check":67.96,
+"Discounts":365.29
+},
+"All Day":{
+"Covers":110,
+"Food":4416.82,
+"Beverage":1377.12,
+"Discounts":510.74,
+"Total":5793.94,
+"AV Check":52.67
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":155,
+"Food":1538.84,
+"Beverage":50.88,
+"Total":1589.72,
+"AV Check":10.26,
+"Discounts":127.77
+},
+"Lunch":{
+"Covers":91,
+"Food":633.98,
+"Beverage":334.46,
+"Total":968.44,
+"AV Check":10.64,
+"Discounts":153.36
+},
+"Dinner":{
+"Covers":73,
+"Food":1119.12,
+"Beverage":1474.93,
+"Total":2594.05,
+"AV Check":35.53,
+"Discounts":324.14
+},
+"All Day":{
+"Covers":319,
+"Food":3291.94,
+"Beverage":1860.27,
+"Discounts":605.27,
+"Total":5152.21,
+"AV Check":16.15
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":2,
+"Food":87.88,
+"Beverage":12.53,
+"Delivery Charge":11.56,
+"Total":111.97,
+"AV Check":55.98,
+"Discounts":9.45
+},
+"Lunch":{
+"Covers":7,
+"Food":325.05,
+"Beverage":17.6,
+"Delivery Charge":33.96,
+"Total":376.61,
+"AV Check":53.8
+},
+"Dinner":{
+"Covers":35,
+"Food":1623.94,
+"Beverage":90.11,
+"Delivery Charge":219.97,
+"Total":1934.02,
+"AV Check":55.26
+},
+"Overnight":{
+"Covers":2,
+"Food":22.54,
+"Beverage":9.97,
+"Delivery Charge":13.24,
+"Total":45.75,
+"AV Check":22.88
+},
+"All Day":{
+"Covers":46,
+"Food":2059.41,
+"Beverage":130.21,
+"Delivery Charge":278.73,
+"Discounts":9.45,
+"Total":2468.35,
+"AV Check":53.66
+}
+}
+},
+"comentarios":[
+{
+"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
+"area":"Penny Blue"
+},
+{
+"texto":"Orders peaked at the same time as the bar. Guests were kept informed about waiting times.",
+"area":"In Room Dining"
+}
+],
+"turnos":[
+{
+"quien":"Alex",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Reese",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Robin",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Sam",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Casey",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-20",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":55,
+"Food":2107.0,
+"Beverage":85.33,
+"Total":2192.33,
+"AV Check":39.86
+},
+"Lunch":{
+"Covers":8,
+"Food":398.08,
+"Beverage":307.98,
+"Total":706.06,
+"AV Check":88.26
+},
+"Dinner":{
+"Covers":104,
+"Food":6796.65,
+"Beverage":4544.52,
+"Misc/Banquets":1276.34,
+"Total":12617.51,
+"AV Check":121.32,
+"Discounts":1090.29
+},
+"All Day":{
+"Covers":167,
+"Food":9301.73,
+"Beverage":4937.83,
+"Discounts":1090.29,
+"Misc/Banquets":1276.34,
+"Total":15515.9,
+"AV Check":92.91
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":130,
+"Food":1599.73,
+"Beverage":8.84,
+"Total":1608.57,
+"AV Check":12.37
+},
+"Lunch":{
+"Covers":106,
+"Food":891.68,
+"Beverage":255.49,
+"Total":1147.17,
+"AV Check":10.82
+},
+"Dinner":{
+"Covers":56,
+"Food":1397.05,
+"Beverage":1630.12,
+"Total":3027.17,
+"AV Check":54.06
+},
+"All Day":{
+"Covers":292,
+"Food":3888.46,
+"Beverage":1894.45,
+"Total":5782.91,
+"AV Check":19.8
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":3,
+"Food":92.43,
+"Beverage":5.3,
+"Delivery Charge":15.72,
+"Total":113.45,
+"AV Check":37.82,
+"Discounts":7.18
+},
+"Lunch":{
+"Covers":13,
+"Food":279.26,
+"Beverage":29.97,
+"Delivery Charge":39.88,
+"Total":349.11,
+"AV Check":26.85
+},
+"Dinner":{
+"Covers":33,
+"Food":1391.32,
+"Beverage":79.4,
+"Delivery Charge":177.47,
+"Total":1648.19,
+"AV Check":49.95,
+"Discounts":250.3
+},
+"Overnight":{
+"Covers":2,
+"Food":88.1,
+"Beverage":8.57,
+"Delivery Charge":12.0,
+"Total":108.67,
+"AV Check":54.33,
+"Discounts":16.82
+},
+"All Day":{
+"Covers":51,
+"Food":1851.11,
+"Beverage":123.24,
+"Delivery Charge":245.07,
+"Discounts":274.3,
+"Total":2219.42,
+"AV Check":43.52
+}
+}
+},
+"comentarios":[
+{
+"texto":"Quiet service overall. Good opportunity to run through the new menu with the floor team.",
+"area":"Penny Blue"
+},
+{
+"texto":"A group arrived after a nearby event, which created a busy period for about an hour.",
+"area":"Exchange Lane"
+}
+],
+"turnos":[
+{
+"quien":"Jordan",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Reese",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Quinn",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Taylor",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Jamie",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-21",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":52,
+"Food":1803.36,
+"Beverage":148.92,
+"Total":1952.28,
+"AV Check":37.54
+},
+"Lunch":{
+"Covers":14,
+"Food":696.92,
+"Beverage":431.95,
+"Total":1128.87,
+"AV Check":80.63,
+"Discounts":24.63
+},
+"Dinner":{
+"Covers":98,
+"Food":6744.94,
+"Beverage":3190.35,
+"Misc/Banquets":1195.15,
+"Total":11130.44,
+"AV Check":113.58
+},
+"All Day":{
+"Covers":164,
+"Food":9245.22,
+"Beverage":3771.22,
+"Discounts":24.63,
+"Misc/Banquets":1195.15,
+"Total":14211.59,
+"AV Check":86.66
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":126,
+"Food":1623.78,
+"Beverage":37.67,
+"Total":1661.45,
+"AV Check":13.19
+},
+"Lunch":{
+"Covers":84,
+"Food":808.65,
+"Beverage":219.47,
+"Total":1028.12,
+"AV Check":12.24,
+"Discounts":39.51
+},
+"Dinner":{
+"Covers":48,
+"Food":1827.24,
+"Beverage":1820.83,
+"Total":3648.07,
+"AV Check":76.0
+},
+"All Day":{
+"Covers":258,
+"Food":4259.67,
+"Beverage":2077.97,
+"Discounts":39.51,
+"Total":6337.64,
+"AV Check":24.56
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":6,
+"Food":101.49,
+"Beverage":6.09,
+"Delivery Charge":10.16,
+"Total":117.74,
+"AV Check":19.62
+},
+"Lunch":{
+"Covers":7,
+"Food":254.88,
+"Beverage":70.32,
+"Delivery Charge":35.38,
+"Total":360.58,
+"AV Check":51.51
+},
+"Dinner":{
+"Covers":22,
+"Food":1220.46,
+"Beverage":100.53,
+"Delivery Charge":219.51,
+"Total":1540.5,
+"AV Check":70.02
+},
+"Overnight":{
+"Covers":3,
+"Food":40.92,
+"Beverage":6.58,
+"Delivery Charge":13.66,
+"Total":61.16,
+"AV Check":20.39
+},
+"All Day":{
+"Covers":38,
+"Food":1617.75,
+"Beverage":183.52,
+"Delivery Charge":278.71,
+"Total":2079.98,
+"AV Check":54.74
+}
+}
+},
+"comentarios":[
+{
+"texto":"Busy evening across the restaurant. Two large tables extended past closing and service ran smoothly.",
+"area":"Penny Blue"
+}
+],
+"turnos":[
+{
+"quien":"Morgan",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Alex",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Jordan",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Avery",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Drew",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-22",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":61,
+"Food":1683.86,
+"Beverage":54.91,
+"Total":1738.77,
+"AV Check":28.5,
+"Discounts":153.1
+},
+"Lunch":{
+"Covers":10,
+"Food":127.68,
+"Beverage":47.0,
+"Total":174.68,
+"AV Check":17.47
+},
+"Dinner":{
+"Covers":31,
+"Food":1811.07,
+"Beverage":1361.13,
+"Total":3172.2,
+"AV Check":102.33,
+"Discounts":400.43
+},
+"All Day":{
+"Covers":102,
+"Food":3622.61,
+"Beverage":1463.04,
+"Discounts":553.53,
+"Total":5085.65,
+"AV Check":49.86
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":117,
+"Food":1152.98,
+"Beverage":28.3,
+"Total":1181.28,
+"AV Check":10.1,
+"Discounts":94.56
+},
+"Lunch":{
+"Covers":67,
+"Food":910.04,
+"Beverage":271.24,
+"Total":1181.28,
+"AV Check":17.63,
+"Discounts":97.63
+},
+"Dinner":{
+"Covers":79,
+"Food":1706.7,
+"Beverage":1359.98,
+"Total":3066.68,
+"AV Check":38.82,
+"Discounts":128.57
+},
+"All Day":{
+"Covers":263,
+"Food":3769.72,
+"Beverage":1659.52,
+"Discounts":320.76,
+"Total":5429.24,
+"AV Check":20.64
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":3,
+"Food":40.64,
+"Beverage":7.27,
+"Delivery Charge":17.08,
+"Total":64.99,
+"AV Check":21.66,
+"Discounts":6.39
+},
+"Lunch":{
+"Covers":12,
+"Food":263.39,
+"Beverage":55.49,
+"Delivery Charge":38.02,
+"Total":356.9,
+"AV Check":29.74,
+"Discounts":44.96
+},
+"Dinner":{
+"Covers":40,
+"Food":1568.43,
+"Beverage":90.33,
+"Delivery Charge":242.6,
+"Total":1901.36,
+"AV Check":47.53,
+"Discounts":260.4
+},
+"Overnight":{
+"Covers":2,
+"Food":43.13,
+"Beverage":9.6,
+"Delivery Charge":15.0,
+"Total":67.73,
+"AV Check":33.87
+},
+"All Day":{
+"Covers":57,
+"Food":1915.59,
+"Beverage":162.69,
+"Delivery Charge":312.7,
+"Discounts":311.75,
+"Total":2390.98,
+"AV Check":41.95
+}
+}
+},
+"comentarios":[
+{
+"texto":"Several breakfast orders arrived within the same fifteen minutes, causing a short delay.",
+"area":"In Room Dining"
+}
+],
+"turnos":[
 {
 "quien":"Alex",
 "desde":1020,
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Casey",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Taylor",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-07-26",
+"fecha":"2026-07-23",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":45,
-"Food":2229.92,
-"Beverage":130.61,
-"Total":2360.53,
-"AV Check":52.46,
-"Discounts":69.26
+"Covers":42,
+"Food":1633.48,
+"Beverage":97.26,
+"Total":1730.74,
+"AV Check":41.21
 },
 "Lunch":{
-"Covers":17,
-"Food":61.33,
-"Beverage":149.66,
-"Total":210.99,
-"AV Check":12.41,
-"Discounts":10.48
+"Covers":3,
+"Food":286.61,
+"Beverage":237.31,
+"Total":523.92,
+"AV Check":174.64,
+"Discounts":11.95
 },
 "Dinner":{
-"Covers":31,
-"Food":2467.43,
-"Beverage":872.63,
-"Total":3340.06,
-"AV Check":107.74
+"Covers":21,
+"Food":2279.33,
+"Beverage":1495.32,
+"Total":3774.65,
+"AV Check":179.75
 },
 "All Day":{
-"Covers":93,
-"Food":4758.68,
-"Beverage":1152.9,
-"Discounts":79.74,
-"Total":5911.58,
-"AV Check":63.57
+"Covers":66,
+"Food":4199.42,
+"Beverage":1829.89,
+"Discounts":11.95,
+"Total":6029.31,
+"AV Check":91.35
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":179,
-"Food":1185.34,
-"Beverage":40.28,
-"Total":1225.62,
-"AV Check":6.85,
-"Discounts":109.01
+"Covers":139,
+"Food":1376.25,
+"Beverage":45.37,
+"Total":1421.62,
+"AV Check":10.23,
+"Discounts":147.39
 },
 "Lunch":{
-"Covers":80,
-"Food":787.21,
-"Beverage":225.01,
-"Total":1012.22,
-"AV Check":12.65,
-"Discounts":124.88
+"Covers":82,
+"Food":897.73,
+"Beverage":260.28,
+"Total":1158.01,
+"AV Check":14.12
 },
 "Dinner":{
-"Covers":64,
-"Food":1243.88,
-"Beverage":2070.59,
-"Total":3314.47,
-"AV Check":51.79
+"Covers":65,
+"Food":1843.43,
+"Beverage":1688.52,
+"Total":3531.95,
+"AV Check":54.34,
+"Discounts":176.04
 },
 "All Day":{
-"Covers":323,
-"Food":3216.43,
-"Beverage":2335.88,
-"Discounts":233.89,
-"Total":5552.31,
-"AV Check":17.19
+"Covers":286,
+"Food":4117.41,
+"Beverage":1994.17,
+"Discounts":323.43,
+"Total":6111.58,
+"AV Check":21.37
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":3,
-"Food":38.75,
-"Beverage":10.73,
-"Delivery Charge":22.9,
-"Total":72.38,
-"AV Check":24.13
+"Covers":1,
+"Food":29.42,
+"Beverage":16.69,
+"Delivery Charge":8.69,
+"Total":54.8,
+"AV Check":54.8
 },
 "Lunch":{
-"Covers":13,
-"Food":250.05,
-"Beverage":15.92,
-"Delivery Charge":42.28,
-"Total":308.25,
-"AV Check":23.71
+"Covers":11,
+"Food":395.15,
+"Beverage":47.04,
+"Delivery Charge":46.22,
+"Total":488.41,
+"AV Check":44.4,
+"Discounts":63.67
 },
 "Dinner":{
-"Covers":21,
-"Food":1599.13,
-"Beverage":111.9,
-"Delivery Charge":143.95,
-"Total":1854.98,
-"AV Check":88.33,
-"Discounts":42.38
+"Covers":24,
+"Food":1505.09,
+"Beverage":45.02,
+"Delivery Charge":222.49,
+"Total":1772.6,
+"AV Check":73.86
 },
 "Overnight":{
-"Covers":1,
-"Food":86.46,
-"Beverage":7.54,
-"Delivery Charge":7.95,
-"Total":101.95,
-"AV Check":101.95
+"Covers":4,
+"Food":33.26,
+"Beverage":2.59,
+"Delivery Charge":15.43,
+"Total":51.28,
+"AV Check":12.82,
+"Discounts":7.04
 },
 "All Day":{
-"Covers":38,
-"Food":1974.39,
-"Beverage":146.09,
-"Delivery Charge":217.08,
-"Discounts":42.38,
-"Total":2337.56,
-"AV Check":61.51
+"Covers":40,
+"Food":1962.92,
+"Beverage":111.34,
+"Delivery Charge":292.83,
+"Discounts":70.71,
+"Total":2367.09,
+"AV Check":59.18
+}
+}
+},
+"comentarios":[],
+"turnos":[
+{
+"quien":"Morgan",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Jordan",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Alex",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Casey",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Taylor",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-25",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":37,
+"Food":2206.02,
+"Beverage":53.97,
+"Total":2259.99,
+"AV Check":61.08
+},
+"Lunch":{
+"Covers":1,
+"Food":326.57,
+"Beverage":234.42,
+"Total":560.99,
+"AV Check":560.99
+},
+"Dinner":{
+"Covers":51,
+"Food":1630.69,
+"Beverage":1356.66,
+"Total":2987.35,
+"AV Check":58.58,
+"Discounts":411.71
+},
+"All Day":{
+"Covers":89,
+"Food":4163.28,
+"Beverage":1645.05,
+"Discounts":411.71,
+"Total":5808.33,
+"AV Check":65.26
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":156,
+"Food":1082.76,
+"Beverage":28.55,
+"Total":1111.31,
+"AV Check":7.12
+},
+"Lunch":{
+"Covers":66,
+"Food":719.64,
+"Beverage":203.51,
+"Total":923.15,
+"AV Check":13.99
+},
+"Dinner":{
+"Covers":83,
+"Food":1557.64,
+"Beverage":1566.67,
+"Total":3124.31,
+"AV Check":37.64,
+"Discounts":386.7
+},
+"All Day":{
+"Covers":305,
+"Food":3360.04,
+"Beverage":1798.73,
+"Discounts":386.7,
+"Total":5158.77,
+"AV Check":16.91
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":1,
+"Food":69.27,
+"Beverage":16.6,
+"Delivery Charge":9.8,
+"Total":95.67,
+"AV Check":95.67
+},
+"Lunch":{
+"Covers":6,
+"Food":318.83,
+"Beverage":56.07,
+"Delivery Charge":54.93,
+"Total":429.83,
+"AV Check":71.64
+},
+"Dinner":{
+"Covers":28,
+"Food":1057.22,
+"Beverage":185.39,
+"Delivery Charge":209.09,
+"Total":1451.7,
+"AV Check":51.85,
+"Discounts":62.55
+},
+"Overnight":{
+"Covers":2,
+"Food":65.11,
+"Beverage":1.59,
+"Delivery Charge":14.22,
+"Total":80.92,
+"AV Check":40.46,
+"Discounts":2.08
+},
+"All Day":{
+"Covers":37,
+"Food":1510.43,
+"Beverage":259.65,
+"Delivery Charge":288.04,
+"Discounts":64.63,
+"Total":2058.12,
+"AV Check":55.62
 }
 }
 },
 "comentarios":[
 {
-"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
+"texto":"Slow start to the evening. Stock count completed during the quiet period.",
 "area":"Exchange Lane"
 },
 {
@@ -5232,52 +6580,20 @@ var DATOS_DEMO = [
 ],
 "turnos":[
 {
-"quien":"Drew",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Casey",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Sam",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
 "quien":"Robin",
-"desde":660,
-"hasta":1230,
+"desde":1080,
+"hasta":0,
 "descanso":30,
-"horas":9.0,
-"area":null
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Jordan",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
 },
 {
 "quien":"Avery",
@@ -5285,7 +6601,7 @@ var DATOS_DEMO = [
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
 "quien":"Casey",
@@ -5293,7 +6609,222 @@ var DATOS_DEMO = [
 "hasta":1320,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Exchange Lane"
+},
+{
+"quien":"Quinn",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Taylor",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Jamie",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-07-26",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":39,
+"Food":2139.47,
+"Beverage":36.77,
+"Total":2176.24,
+"AV Check":55.8,
+"Discounts":313.58
+},
+"Lunch":{
+"Covers":7,
+"Food":86.47,
+"Beverage":266.62,
+"Total":353.09,
+"AV Check":50.44,
+"Discounts":27.08
+},
+"Dinner":{
+"Covers":26,
+"Food":2160.31,
+"Beverage":948.31,
+"Total":3108.62,
+"AV Check":119.56,
+"Discounts":452.52
+},
+"All Day":{
+"Covers":72,
+"Food":4386.25,
+"Beverage":1251.7,
+"Discounts":793.18,
+"Total":5637.95,
+"AV Check":78.3
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":155,
+"Food":1530.4,
+"Beverage":46.52,
+"Total":1576.92,
+"AV Check":10.17,
+"Discounts":55.86
+},
+"Lunch":{
+"Covers":67,
+"Food":873.24,
+"Beverage":187.19,
+"Total":1060.43,
+"AV Check":15.83
+},
+"Dinner":{
+"Covers":50,
+"Food":1890.12,
+"Beverage":2031.93,
+"Total":3922.05,
+"AV Check":78.44
+},
+"All Day":{
+"Covers":272,
+"Food":4293.76,
+"Beverage":2265.64,
+"Discounts":55.86,
+"Total":6559.4,
+"AV Check":24.12
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":3,
+"Food":75.54,
+"Beverage":15.89,
+"Delivery Charge":23.06,
+"Total":114.49,
+"AV Check":38.16
+},
+"Lunch":{
+"Covers":12,
+"Food":214.54,
+"Beverage":39.57,
+"Delivery Charge":32.44,
+"Total":286.55,
+"AV Check":23.88
+},
+"Dinner":{
+"Covers":20,
+"Food":1198.42,
+"Beverage":93.71,
+"Delivery Charge":175.91,
+"Total":1468.04,
+"AV Check":73.4
+},
+"Overnight":{
+"Covers":0,
+"Food":72.7,
+"Beverage":12.51,
+"Delivery Charge":4.31,
+"Total":89.52,
+"Discounts":9.1
+},
+"All Day":{
+"Covers":35,
+"Food":1561.2,
+"Beverage":161.68,
+"Delivery Charge":235.72,
+"Discounts":9.1,
+"Total":1958.6,
+"AV Check":55.96
+}
+}
+},
+"comentarios":[
+{
+"texto":"Quiet service overall. Good opportunity to run through the new menu with the floor team.",
+"area":"Penny Blue"
+},
+{
+"texto":"A group arrived after a nearby event, which created a busy period for about an hour.",
+"area":"Exchange Lane"
+}
+],
+"turnos":[
+{
+"quien":"Sam",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Reese",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Jordan",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Robin",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Avery",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Taylor",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Jamie",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
@@ -5303,502 +6834,124 @@ var DATOS_DEMO = [
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":62,
-"Food":1959.54,
-"Beverage":138.59,
-"Total":2098.13,
-"AV Check":33.84,
-"Discounts":204.46
+"Covers":45,
+"Food":1664.51,
+"Beverage":117.89,
+"Total":1782.4,
+"AV Check":39.61
 },
 "Lunch":{
-"Covers":18,
-"Food":533.92,
-"Beverage":171.04,
-"Total":704.96,
-"AV Check":39.16,
-"Discounts":73.38
+"Covers":13,
+"Food":191.24,
+"Beverage":178.05,
+"Total":369.29,
+"AV Check":28.41,
+"Discounts":52.25
 },
 "Dinner":{
-"Covers":96,
-"Food":5827.41,
-"Beverage":4232.64,
-"Misc/Banquets":1023.93,
-"Total":11083.98,
-"AV Check":115.46
+"Covers":38,
+"Food":2072.42,
+"Beverage":1131.49,
+"Total":3203.91,
+"AV Check":84.31,
+"Discounts":333.75
 },
 "All Day":{
-"Covers":176,
-"Food":8320.87,
-"Beverage":4542.27,
-"Discounts":277.84,
-"Misc/Banquets":1023.93,
-"Total":13887.07,
-"AV Check":78.9
+"Covers":96,
+"Food":3928.17,
+"Beverage":1427.43,
+"Discounts":386.0,
+"Total":5355.6,
+"AV Check":55.79
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":124,
-"Food":1335.89,
-"Beverage":12.11,
-"Total":1348.0,
-"AV Check":10.87
+"Covers":133,
+"Food":1416.77,
+"Beverage":42.01,
+"Total":1458.78,
+"AV Check":10.97,
+"Discounts":192.08
 },
 "Lunch":{
-"Covers":118,
-"Food":917.34,
-"Beverage":373.58,
-"Total":1290.92,
-"AV Check":10.94,
-"Discounts":147.98
+"Covers":60,
+"Food":779.68,
+"Beverage":232.73,
+"Total":1012.41,
+"AV Check":16.87,
+"Discounts":136.71
 },
 "Dinner":{
-"Covers":77,
-"Food":1310.24,
-"Beverage":1210.41,
-"Total":2520.65,
-"AV Check":32.74
+"Covers":51,
+"Food":1758.8,
+"Beverage":2029.15,
+"Total":3787.95,
+"AV Check":74.27,
+"Discounts":226.75
 },
 "All Day":{
-"Covers":319,
-"Food":3563.47,
-"Beverage":1596.1,
-"Discounts":147.98,
-"Total":5159.57,
-"AV Check":16.17
+"Covers":244,
+"Food":3955.25,
+"Beverage":2303.89,
+"Discounts":555.54,
+"Total":6259.14,
+"AV Check":25.65
 }
 },
 "In Room Dining":{
 "Breakfast":{
 "Covers":3,
-"Food":20.36,
-"Beverage":15.2,
-"Delivery Charge":15.4,
-"Total":50.96,
-"AV Check":16.99,
-"Discounts":7.23
+"Food":84.48,
+"Beverage":17.71,
+"Delivery Charge":16.58,
+"Total":118.77,
+"AV Check":39.59,
+"Discounts":8.85
 },
 "Lunch":{
-"Covers":6,
-"Food":229.42,
-"Beverage":69.5,
-"Delivery Charge":29.46,
-"Total":328.38,
-"AV Check":54.73,
-"Discounts":6.7
+"Covers":12,
+"Food":220.89,
+"Beverage":67.12,
+"Delivery Charge":26.45,
+"Total":314.46,
+"AV Check":26.2
 },
 "Dinner":{
-"Covers":28,
-"Food":1106.03,
-"Beverage":48.85,
-"Delivery Charge":212.82,
-"Total":1367.7,
-"AV Check":48.85
+"Covers":37,
+"Food":1550.36,
+"Beverage":68.38,
+"Delivery Charge":226.12,
+"Total":1844.86,
+"AV Check":49.86,
+"Discounts":121.32
 },
 "Overnight":{
-"Covers":2,
-"Food":84.1,
-"Beverage":1.29,
-"Delivery Charge":6.49,
-"Total":91.88,
-"AV Check":45.94,
-"Discounts":3.98
+"Covers":3,
+"Food":93.15,
+"Beverage":8.47,
+"Delivery Charge":15.58,
+"Total":117.2,
+"AV Check":39.07
 },
 "All Day":{
-"Covers":39,
-"Food":1439.91,
-"Beverage":134.84,
-"Delivery Charge":264.17,
-"Discounts":17.91,
-"Total":1838.92,
-"AV Check":47.15
+"Covers":55,
+"Food":1948.88,
+"Beverage":161.68,
+"Delivery Charge":284.73,
+"Discounts":130.17,
+"Total":2395.29,
+"AV Check":43.55
 }
 }
 },
 "comentarios":[
 {
-"texto":"Quiet overnight service. Breakfast preparation completed ahead of schedule.",
-"area":"In Room Dining"
-}
-],
-"turnos":[
-{
-"quien":"Avery",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Riley",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Taylor",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Sam",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Blake",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Blake",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-07-29",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":58,
-"Food":1714.48,
-"Beverage":60.05,
-"Total":1774.53,
-"AV Check":30.6,
-"Discounts":170.38
-},
-"Lunch":{
-"Covers":6,
-"Food":497.94,
-"Beverage":392.71,
-"Total":890.65,
-"AV Check":148.44,
-"Discounts":85.4
-},
-"Dinner":{
-"Covers":120,
-"Food":5638.66,
-"Beverage":4558.5,
-"Misc/Banquets":664.43,
-"Total":10861.59,
-"AV Check":90.51
-},
-"All Day":{
-"Covers":184,
-"Food":7851.08,
-"Beverage":5011.26,
-"Discounts":255.78,
-"Misc/Banquets":664.43,
-"Total":13526.77,
-"AV Check":73.52
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":111,
-"Food":1248.71,
-"Beverage":36.82,
-"Total":1285.53,
-"AV Check":11.58
-},
-"Lunch":{
-"Covers":78,
-"Food":883.69,
-"Beverage":175.28,
-"Total":1058.97,
-"AV Check":13.58,
-"Discounts":30.26
-},
-"Dinner":{
-"Covers":65,
-"Food":1199.38,
-"Beverage":1518.65,
-"Total":2718.03,
-"AV Check":41.82,
-"Discounts":283.06
-},
-"All Day":{
-"Covers":254,
-"Food":3331.78,
-"Beverage":1730.75,
-"Discounts":313.32,
-"Total":5062.53,
-"AV Check":19.93
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":1,
-"Food":42.94,
-"Beverage":2.83,
-"Delivery Charge":11.58,
-"Total":57.35,
-"AV Check":57.35
-},
-"Lunch":{
-"Covers":7,
-"Food":327.43,
-"Beverage":30.51,
-"Delivery Charge":33.91,
-"Total":391.85,
-"AV Check":55.98,
-"Discounts":25.29
-},
-"Dinner":{
-"Covers":27,
-"Food":1317.98,
-"Beverage":118.2,
-"Delivery Charge":198.34,
-"Total":1634.52,
-"AV Check":60.54,
-"Discounts":217.19
-},
-"Overnight":{
-"Covers":5,
-"Food":20.14,
-"Beverage":8.97,
-"Delivery Charge":7.57,
-"Total":36.68,
-"AV Check":7.34
-},
-"All Day":{
-"Covers":40,
-"Food":1708.49,
-"Beverage":160.51,
-"Delivery Charge":251.4,
-"Discounts":242.48,
-"Total":2120.4,
-"AV Check":53.01
-}
-}
-},
-"comentarios":[
-{
-"texto":"Busy evening across the restaurant. Two large tables extended past closing and service ran smoothly.",
+"texto":"Quiet service overall. Good opportunity to run through the new menu with the floor team.",
 "area":"Penny Blue"
 },
 {
-"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
-"area":"Exchange Lane"
-}
-],
-"turnos":[
-{
-"quien":"Sam",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Reese",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Riley",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Robin",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Blake",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Riley",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Casey",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Jordan",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-07-30",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":70,
-"Food":2247.52,
-"Beverage":69.96,
-"Total":2317.48,
-"AV Check":33.11,
-"Discounts":249.58
-},
-"Lunch":{
-"Covers":19,
-"Food":617.48,
-"Beverage":312.76,
-"Total":930.24,
-"AV Check":48.96
-},
-"Dinner":{
-"Covers":90,
-"Food":6338.9,
-"Beverage":3595.42,
-"Misc/Banquets":899.23,
-"Total":10833.55,
-"AV Check":120.37,
-"Discounts":1208.55
-},
-"All Day":{
-"Covers":179,
-"Food":9203.9,
-"Beverage":3978.14,
-"Discounts":1458.13,
-"Misc/Banquets":899.23,
-"Total":14081.27,
-"AV Check":78.67
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":148,
-"Food":1219.16,
-"Beverage":25.85,
-"Total":1245.01,
-"AV Check":8.41,
-"Discounts":155.55
-},
-"Lunch":{
-"Covers":66,
-"Food":953.07,
-"Beverage":300.74,
-"Total":1253.81,
-"AV Check":19.0
-},
-"Dinner":{
-"Covers":58,
-"Food":1220.86,
-"Beverage":1629.21,
-"Total":2850.07,
-"AV Check":49.14
-},
-"All Day":{
-"Covers":272,
-"Food":3393.09,
-"Beverage":1955.8,
-"Discounts":155.55,
-"Total":5348.89,
-"AV Check":19.67
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":4,
-"Food":24.24,
-"Beverage":12.36,
-"Delivery Charge":8.86,
-"Total":45.46,
-"AV Check":11.36
-},
-"Lunch":{
-"Covers":8,
-"Food":191.54,
-"Beverage":41.43,
-"Delivery Charge":47.96,
-"Total":280.93,
-"AV Check":35.12,
-"Discounts":34.76
-},
-"Dinner":{
-"Covers":31,
-"Food":1472.48,
-"Beverage":46.76,
-"Delivery Charge":259.73,
-"Total":1778.97,
-"AV Check":57.39,
-"Discounts":171.78
-},
-"Overnight":{
-"Covers":0,
-"Food":53.46,
-"Beverage":7.3,
-"Delivery Charge":14.97,
-"Total":75.73,
-"Discounts":2.51
-},
-"All Day":{
-"Covers":43,
-"Food":1741.72,
-"Beverage":107.85,
-"Delivery Charge":331.52,
-"Discounts":209.05,
-"Total":2181.09,
-"AV Check":50.72
-}
-}
-},
-"comentarios":[
-{
-"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
-"area":"Penny Blue"
-},
-{
-"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
+"texto":"Steady lunch service. A guest asked about gluten free options; the kitchen adjusted the dish.",
 "area":"Exchange Lane"
 }
 ],
@@ -5809,169 +6962,187 @@ var DATOS_DEMO = [
 "hasta":1230,
 "descanso":30,
 "horas":9.0,
-"area":null
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Reese",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Jordan",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
 },
 {
 "quien":"Riley",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
 "desde":1020,
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
-"quien":"Taylor",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Blake",
+"quien":"Quinn",
 "desde":1080,
-"hasta":1440,
+"hasta":0,
 "descanso":30,
 "horas":5.5,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
 "quien":"Taylor",
-"desde":840,
-"hasta":1320,
+"desde":900,
+"hasta":1380,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"In Room Dining"
 },
 {
-"quien":"Casey",
-"desde":360,
-"hasta":840,
+"quien":"Drew",
+"desde":1140,
+"hasta":180,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-08-01",
+"fecha":"2026-07-30",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":45,
-"Food":1579.99,
-"Beverage":98.16,
-"Total":1678.15,
-"AV Check":37.29
+"Covers":54,
+"Food":1673.69,
+"Beverage":104.52,
+"Total":1778.21,
+"AV Check":32.93
 },
 "Lunch":{
 "Covers":6,
-"Food":484.04,
-"Beverage":92.36,
-"Total":576.4,
-"AV Check":96.07,
-"Discounts":46.03
+"Food":396.76,
+"Beverage":247.87,
+"Total":644.63,
+"AV Check":107.44
 },
 "Dinner":{
-"Covers":21,
-"Food":2495.81,
-"Beverage":726.04,
-"Total":3221.85,
-"AV Check":153.42
+"Covers":54,
+"Food":1820.89,
+"Beverage":1480.31,
+"Total":3301.2,
+"AV Check":61.13,
+"Discounts":322.6
 },
 "All Day":{
-"Covers":72,
-"Food":4559.84,
-"Beverage":916.56,
-"Discounts":46.03,
-"Total":5476.4,
-"AV Check":76.06
+"Covers":114,
+"Food":3891.34,
+"Beverage":1832.7,
+"Discounts":322.6,
+"Total":5724.04,
+"AV Check":50.21
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":117,
-"Food":1057.09,
-"Beverage":38.42,
-"Total":1095.51,
-"AV Check":9.36
+"Covers":150,
+"Food":1435.19,
+"Beverage":19.94,
+"Total":1455.13,
+"AV Check":9.7,
+"Discounts":68.71
 },
 "Lunch":{
-"Covers":92,
-"Food":660.8,
-"Beverage":283.19,
-"Total":943.99,
-"AV Check":10.26,
-"Discounts":66.13
+"Covers":97,
+"Food":940.51,
+"Beverage":230.09,
+"Total":1170.6,
+"AV Check":12.07
 },
 "Dinner":{
-"Covers":67,
-"Food":1460.79,
-"Beverage":1618.15,
-"Total":3078.94,
-"AV Check":45.95,
-"Discounts":491.67
+"Covers":55,
+"Food":1861.02,
+"Beverage":1181.26,
+"Total":3042.28,
+"AV Check":55.31,
+"Discounts":118.64
 },
 "All Day":{
-"Covers":276,
-"Food":3178.68,
-"Beverage":1939.76,
-"Discounts":557.8,
-"Total":5118.44,
-"AV Check":18.55
+"Covers":302,
+"Food":4236.72,
+"Beverage":1431.29,
+"Discounts":187.35,
+"Total":5668.01,
+"AV Check":18.77
 }
 },
 "In Room Dining":{
 "Breakfast":{
 "Covers":3,
-"Food":54.14,
-"Beverage":18.79,
-"Delivery Charge":15.22,
-"Total":88.15,
-"AV Check":29.38,
-"Discounts":5.6
+"Food":63.54,
+"Beverage":9.59,
+"Delivery Charge":13.19,
+"Total":86.32,
+"AV Check":28.77,
+"Discounts":13.42
 },
 "Lunch":{
-"Covers":7,
-"Food":359.92,
-"Beverage":23.39,
-"Delivery Charge":29.17,
-"Total":412.48,
-"AV Check":58.93
+"Covers":5,
+"Food":410.14,
+"Beverage":34.89,
+"Delivery Charge":32.43,
+"Total":477.46,
+"AV Check":95.49,
+"Discounts":28.18
 },
 "Dinner":{
-"Covers":38,
-"Food":1233.17,
-"Beverage":103.85,
-"Delivery Charge":246.02,
-"Total":1583.04,
-"AV Check":41.66
+"Covers":18,
+"Food":1329.72,
+"Beverage":138.35,
+"Delivery Charge":141.22,
+"Total":1609.29,
+"AV Check":89.41
 },
 "Overnight":{
-"Covers":4,
-"Food":19.46,
-"Beverage":5.73,
-"Delivery Charge":15.15,
-"Total":40.34,
-"AV Check":10.09
+"Covers":3,
+"Food":50.01,
+"Beverage":14.04,
+"Delivery Charge":13.28,
+"Total":77.33,
+"AV Check":25.78,
+"Discounts":6.88
 },
 "All Day":{
-"Covers":52,
-"Food":1666.69,
-"Beverage":151.76,
-"Delivery Charge":305.56,
-"Discounts":5.6,
-"Total":2124.01,
-"AV Check":40.85
+"Covers":29,
+"Food":1853.41,
+"Beverage":196.87,
+"Delivery Charge":200.12,
+"Discounts":48.48,
+"Total":2250.4,
+"AV Check":77.6
 }
 }
 },
@@ -5981,915 +7152,187 @@ var DATOS_DEMO = [
 "area":"Penny Blue"
 },
 {
-"texto":"Steady lunch service. A guest asked about gluten free options; the kitchen adjusted the dish.",
-"area":"Exchange Lane"
-},
-{
-"texto":"Several breakfast orders arrived within the same fifteen minutes, causing a short delay.",
+"texto":"An order was delayed due to an incorrect room number. Corrected and delivered with an apology.",
 "area":"In Room Dining"
 }
 ],
 "turnos":[
-{
-"quien":"Quinn",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Quinn",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Jordan",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Quinn",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Drew",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Quinn",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-08-03",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":69,
-"Food":1789.39,
-"Beverage":135.43,
-"Total":1924.82,
-"AV Check":27.9
-},
-"Lunch":{
-"Covers":0,
-"Food":826.33,
-"Beverage":472.41,
-"Total":1298.74
-},
-"Dinner":{
-"Covers":99,
-"Food":5685.91,
-"Beverage":4337.2,
-"Misc/Banquets":1020.38,
-"Total":11043.49,
-"AV Check":111.55,
-"Discounts":1249.8
-},
-"All Day":{
-"Covers":168,
-"Food":8301.63,
-"Beverage":4945.04,
-"Discounts":1249.8,
-"Misc/Banquets":1020.38,
-"Total":14267.05,
-"AV Check":84.92
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":144,
-"Food":1183.42,
-"Beverage":31.06,
-"Total":1214.48,
-"AV Check":8.43
-},
-"Lunch":{
-"Covers":74,
-"Food":968.46,
-"Beverage":367.78,
-"Total":1336.24,
-"AV Check":18.06
-},
-"Dinner":{
-"Covers":76,
-"Food":1367.18,
-"Beverage":1910.8,
-"Total":3277.98,
-"AV Check":43.13
-},
-"All Day":{
-"Covers":294,
-"Food":3519.06,
-"Beverage":2309.64,
-"Total":5828.7,
-"AV Check":19.83
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":1,
-"Food":46.08,
-"Beverage":10.69,
-"Delivery Charge":15.75,
-"Total":72.52,
-"AV Check":72.52,
-"Discounts":7.97
-},
-"Lunch":{
-"Covers":6,
-"Food":272.55,
-"Beverage":36.24,
-"Delivery Charge":50.37,
-"Total":359.16,
-"AV Check":59.86
-},
-"Dinner":{
-"Covers":25,
-"Food":1054.35,
-"Beverage":107.28,
-"Delivery Charge":192.24,
-"Total":1353.87,
-"AV Check":54.15,
-"Discounts":193.73
-},
-"Overnight":{
-"Covers":4,
-"Food":47.39,
-"Beverage":5.74,
-"Delivery Charge":9.96,
-"Total":63.09,
-"AV Check":15.77
-},
-"All Day":{
-"Covers":36,
-"Food":1420.37,
-"Beverage":159.95,
-"Delivery Charge":268.32,
-"Discounts":201.7,
-"Total":1848.64,
-"AV Check":51.35
-}
-}
-},
-"comentarios":[
-{
-"texto":"Quiet service overall. Good opportunity to run through the new menu with the floor team.",
-"area":"Penny Blue"
-}
-],
-"turnos":[
-{
-"quien":"Robin",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Sam",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
 {
 "quien":"Reese",
 "desde":660,
 "hasta":1230,
 "descanso":30,
 "horas":9.0,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Robin",
-"desde":660,
-"hasta":1230,
+"desde":960,
+"hasta":30,
 "descanso":30,
-"horas":9.0,
-"area":null
+"horas":8.0,
+"area":"Penny Blue"
 },
 {
-"quien":"Quinn",
-"desde":1020,
-"hasta":1380,
+"quien":"Riley",
+"desde":1080,
+"hasta":0,
 "descanso":30,
 "horas":5.5,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-08-04",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":62,
-"Food":2013.28,
-"Beverage":139.34,
-"Total":2152.62,
-"AV Check":34.72,
-"Discounts":312.15
-},
-"Lunch":{
-"Covers":22,
-"Food":698.42,
-"Beverage":374.98,
-"Total":1073.4,
-"AV Check":48.79,
-"Discounts":100.24
-},
-"Dinner":{
-"Covers":125,
-"Food":6666.89,
-"Beverage":4145.06,
-"Misc/Banquets":749.75,
-"Total":11561.7,
-"AV Check":92.49,
-"Discounts":1383.51
-},
-"All Day":{
-"Covers":209,
-"Food":9378.59,
-"Beverage":4659.38,
-"Discounts":1795.9,
-"Misc/Banquets":749.75,
-"Total":14787.72,
-"AV Check":70.75
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":154,
-"Food":1622.46,
-"Beverage":19.06,
-"Total":1641.52,
-"AV Check":10.66,
-"Discounts":119.21
-},
-"Lunch":{
-"Covers":66,
-"Food":1030.15,
-"Beverage":308.61,
-"Total":1338.76,
-"AV Check":20.28,
-"Discounts":197.3
-},
-"Dinner":{
-"Covers":46,
-"Food":1849.76,
-"Beverage":1826.34,
-"Total":3676.1,
-"AV Check":79.92
-},
-"All Day":{
-"Covers":266,
-"Food":4502.37,
-"Beverage":2154.01,
-"Discounts":316.51,
-"Total":6656.38,
-"AV Check":25.02
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":2,
-"Food":99.98,
-"Beverage":18.4,
-"Delivery Charge":10.12,
-"Total":128.5,
-"AV Check":64.25
-},
-"Lunch":{
-"Covers":14,
-"Food":353.56,
-"Beverage":27.02,
-"Delivery Charge":34.59,
-"Total":415.17,
-"AV Check":29.65,
-"Discounts":17.73
-},
-"Dinner":{
-"Covers":22,
-"Food":1428.97,
-"Beverage":165.99,
-"Delivery Charge":212.18,
-"Total":1807.14,
-"AV Check":82.14
-},
-"Overnight":{
-"Covers":5,
-"Food":98.47,
-"Beverage":4.88,
-"Delivery Charge":5.62,
-"Total":108.97,
-"AV Check":21.79
-},
-"All Day":{
-"Covers":43,
-"Food":1980.98,
-"Beverage":216.29,
-"Delivery Charge":262.51,
-"Discounts":17.73,
-"Total":2459.78,
-"AV Check":57.2
-}
-}
-},
-"comentarios":[
-{
-"texto":"Several breakfast orders arrived within the same fifteen minutes, causing a short delay.",
-"area":"In Room Dining"
-}
-],
-"turnos":[
-{
-"quien":"Casey",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
 "quien":"Avery",
-"desde":360,
-"hasta":840,
+"desde":840,
+"hasta":1320,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
-"quien":"Blake",
+"quien":"Quinn",
 "desde":1080,
-"hasta":1440,
+"hasta":0,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
 "quien":"Drew",
-"desde":960,
-"hasta":1470,
+"desde":1320,
+"hasta":360,
 "descanso":30,
-"horas":8.0,
-"area":null
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Jamie",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-08-05",
+"fecha":"2026-08-01",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":51,
-"Food":1943.74,
-"Beverage":108.36,
-"Total":2052.1,
-"AV Check":40.24,
-"Discounts":259.1
+"Covers":38,
+"Food":1547.73,
+"Beverage":71.19,
+"Total":1618.92,
+"AV Check":42.6
 },
 "Lunch":{
-"Covers":27,
-"Food":786.56,
-"Beverage":319.47,
-"Total":1106.03,
-"AV Check":40.96,
-"Discounts":54.38
+"Covers":13,
+"Food":356.23,
+"Beverage":231.43,
+"Total":587.66,
+"AV Check":45.2,
+"Discounts":93.81
 },
 "Dinner":{
-"Covers":138,
-"Food":5343.63,
-"Beverage":3808.89,
-"Misc/Banquets":549.45,
-"Total":9701.97,
-"AV Check":70.3,
-"Discounts":1457.67
+"Covers":39,
+"Food":2126.6,
+"Beverage":1140.09,
+"Total":3266.69,
+"AV Check":83.76,
+"Discounts":516.16
 },
 "All Day":{
-"Covers":216,
-"Food":8073.93,
-"Beverage":4236.72,
-"Discounts":1771.15,
-"Misc/Banquets":549.45,
-"Total":12860.1,
-"AV Check":59.54
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":148,
-"Food":1442.5,
-"Beverage":17.74,
-"Total":1460.24,
-"AV Check":9.87,
-"Discounts":65.0
-},
-"Lunch":{
-"Covers":77,
-"Food":1034.35,
-"Beverage":307.13,
-"Total":1341.48,
-"AV Check":17.42,
-"Discounts":148.33
-},
-"Dinner":{
-"Covers":51,
-"Food":1795.79,
-"Beverage":1989.42,
-"Total":3785.21,
-"AV Check":74.22,
-"Discounts":497.92
-},
-"All Day":{
-"Covers":276,
-"Food":4272.64,
-"Beverage":2314.29,
-"Discounts":711.25,
-"Total":6586.93,
-"AV Check":23.87
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":5,
-"Food":27.59,
-"Beverage":12.01,
-"Delivery Charge":10.69,
-"Total":50.29,
-"AV Check":10.06,
-"Discounts":1.43
-},
-"Lunch":{
-"Covers":10,
-"Food":263.76,
-"Beverage":41.19,
-"Delivery Charge":38.75,
-"Total":343.7,
-"AV Check":34.37,
-"Discounts":28.4
-},
-"Dinner":{
-"Covers":35,
-"Food":1422.25,
-"Beverage":66.0,
-"Delivery Charge":193.46,
-"Total":1681.71,
-"AV Check":48.05,
-"Discounts":120.84
-},
-"Overnight":{
-"Covers":3,
-"Food":41.67,
-"Beverage":8.97,
-"Delivery Charge":9.31,
-"Total":59.95,
-"AV Check":19.98
-},
-"All Day":{
-"Covers":53,
-"Food":1755.27,
-"Beverage":128.17,
-"Delivery Charge":252.21,
-"Discounts":150.67,
-"Total":2135.65,
-"AV Check":40.3
-}
-}
-},
-"comentarios":[
-{
-"texto":"Quiet service overall. Good opportunity to run through the new menu with the floor team.",
-"area":"Penny Blue"
-},
-{
-"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
-"area":"Exchange Lane"
-}
-],
-"turnos":[
-{
-"quien":"Reese",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Skyler",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Casey",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Skyler",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Reese",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Robin",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-08-07",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":52,
-"Food":2359.89,
-"Beverage":132.03,
-"Total":2491.92,
-"AV Check":47.92,
-"Discounts":249.67
-},
-"Lunch":{
-"Covers":2,
-"Food":320.8,
-"Beverage":407.42,
-"Total":728.22,
-"AV Check":364.11
-},
-"Dinner":{
-"Covers":123,
-"Food":6578.57,
-"Beverage":3761.05,
-"Misc/Banquets":883.41,
-"Total":11223.03,
-"AV Check":91.24,
-"Discounts":719.37
-},
-"All Day":{
-"Covers":177,
-"Food":9259.26,
-"Beverage":4300.5,
-"Discounts":969.04,
-"Misc/Banquets":883.41,
-"Total":14443.17,
-"AV Check":81.6
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":182,
-"Food":1578.29,
-"Beverage":9.08,
-"Total":1587.37,
-"AV Check":8.72
-},
-"Lunch":{
 "Covers":90,
-"Food":737.2,
-"Beverage":354.56,
-"Total":1091.76,
-"AV Check":12.13,
-"Discounts":108.93
+"Food":4030.56,
+"Beverage":1442.71,
+"Discounts":609.97,
+"Total":5473.27,
+"AV Check":60.81
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":110,
+"Food":1559.96,
+"Beverage":13.59,
+"Total":1573.55,
+"AV Check":14.3
+},
+"Lunch":{
+"Covers":111,
+"Food":651.0,
+"Beverage":334.88,
+"Total":985.88,
+"AV Check":8.88,
+"Discounts":88.37
 },
 "Dinner":{
-"Covers":68,
-"Food":1904.3,
-"Beverage":1792.52,
-"Total":3696.82,
-"AV Check":54.36
+"Covers":74,
+"Food":1713.8,
+"Beverage":1147.25,
+"Total":2861.05,
+"AV Check":38.66,
+"Discounts":436.28
 },
 "All Day":{
-"Covers":340,
-"Food":4219.79,
-"Beverage":2156.16,
-"Discounts":108.93,
-"Total":6375.95,
-"AV Check":18.75
+"Covers":295,
+"Food":3924.76,
+"Beverage":1495.72,
+"Discounts":524.65,
+"Total":5420.48,
+"AV Check":18.37
 }
 },
 "In Room Dining":{
 "Breakfast":{
 "Covers":5,
-"Food":46.18,
-"Beverage":11.33,
-"Delivery Charge":11.24,
-"Total":68.75,
-"AV Check":13.75,
-"Discounts":4.71
+"Food":76.89,
+"Beverage":4.09,
+"Delivery Charge":8.44,
+"Total":89.42,
+"AV Check":17.88
 },
 "Lunch":{
 "Covers":9,
-"Food":278.87,
-"Beverage":59.57,
-"Delivery Charge":52.5,
-"Total":390.94,
-"AV Check":43.44
+"Food":284.8,
+"Beverage":70.56,
+"Delivery Charge":40.5,
+"Total":395.86,
+"AV Check":43.98,
+"Discounts":40.09
 },
 "Dinner":{
-"Covers":33,
-"Food":1370.11,
-"Beverage":87.36,
-"Delivery Charge":211.14,
-"Total":1668.61,
-"AV Check":50.56,
-"Discounts":236.96
+"Covers":21,
+"Food":1072.22,
+"Beverage":121.48,
+"Delivery Charge":259.22,
+"Total":1452.92,
+"AV Check":69.19,
+"Discounts":218.19
 },
 "Overnight":{
-"Covers":0,
-"Food":75.83,
-"Beverage":4.32,
-"Delivery Charge":14.76,
-"Total":94.91
+"Covers":3,
+"Food":88.21,
+"Beverage":8.09,
+"Delivery Charge":6.31,
+"Total":102.61,
+"AV Check":34.2,
+"Discounts":10.52
 },
 "All Day":{
-"Covers":47,
-"Food":1770.99,
-"Beverage":162.58,
-"Delivery Charge":289.64,
-"Discounts":241.67,
-"Total":2223.21,
-"AV Check":47.3
+"Covers":38,
+"Food":1522.12,
+"Beverage":204.22,
+"Delivery Charge":314.47,
+"Discounts":268.8,
+"Total":2040.81,
+"AV Check":53.71
 }
 }
 },
 "comentarios":[
-{
-"texto":"Busy evening across the restaurant. Two large tables extended past closing and service ran smoothly.",
-"area":"Penny Blue"
-},
-{
-"texto":"A group arrived after a nearby event, which created a busy period for about an hour.",
-"area":"Exchange Lane"
-},
-{
-"texto":"Several breakfast orders arrived within the same fifteen minutes, causing a short delay.",
-"area":"In Room Dining"
-}
-],
-"turnos":[
-{
-"quien":"Quinn",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Casey",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Sam",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Quinn",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Robin",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Blake",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-08-08",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":63,
-"Food":1615.3,
-"Beverage":71.58,
-"Total":1686.88,
-"AV Check":26.78,
-"Discounts":38.22
-},
-"Lunch":{
-"Covers":15,
-"Food":204.99,
-"Beverage":85.91,
-"Total":290.9,
-"AV Check":19.39,
-"Discounts":6.29
-},
-"Dinner":{
-"Covers":25,
-"Food":2180.4,
-"Beverage":1524.23,
-"Total":3704.63,
-"AV Check":148.19
-},
-"All Day":{
-"Covers":103,
-"Food":4000.69,
-"Beverage":1681.72,
-"Discounts":44.51,
-"Total":5682.41,
-"AV Check":55.17
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":151,
-"Food":1092.63,
-"Beverage":29.18,
-"Total":1121.81,
-"AV Check":7.43
-},
-"Lunch":{
-"Covers":65,
-"Food":654.07,
-"Beverage":181.64,
-"Total":835.71,
-"AV Check":12.86,
-"Discounts":67.92
-},
-"Dinner":{
-"Covers":81,
-"Food":1706.14,
-"Beverage":1459.04,
-"Total":3165.18,
-"AV Check":39.08
-},
-"All Day":{
-"Covers":297,
-"Food":3452.84,
-"Beverage":1669.86,
-"Discounts":67.92,
-"Total":5122.7,
-"AV Check":17.25
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":4,
-"Food":40.46,
-"Beverage":9.68,
-"Delivery Charge":13.82,
-"Total":63.96,
-"AV Check":15.99,
-"Discounts":7.93
-},
-"Lunch":{
-"Covers":5,
-"Food":205.64,
-"Beverage":60.01,
-"Delivery Charge":37.54,
-"Total":303.19,
-"AV Check":60.64
-},
-"Dinner":{
-"Covers":37,
-"Food":1298.03,
-"Beverage":92.75,
-"Delivery Charge":187.52,
-"Total":1578.3,
-"AV Check":42.66
-},
-"Overnight":{
-"Covers":0,
-"Food":64.71,
-"Beverage":13.28,
-"Delivery Charge":5.35,
-"Total":83.34
-},
-"All Day":{
-"Covers":46,
-"Food":1608.84,
-"Beverage":175.72,
-"Delivery Charge":244.23,
-"Discounts":7.93,
-"Total":2028.79,
-"AV Check":44.1
-}
-}
-},
-"comentarios":[
-{
-"texto":"A table raised a concern about the wait between courses. The kitchen was informed and a dessert was offered.",
-"area":"Penny Blue"
-},
 {
 "texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
 "area":"Exchange Lane"
@@ -6901,36 +7344,583 @@ var DATOS_DEMO = [
 ],
 "turnos":[
 {
-"quien":"Riley",
-"desde":360,
-"hasta":840,
+"quien":"Jordan",
+"desde":1080,
+"hasta":0,
 "descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Blake",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
+"horas":5.5,
+"area":"Penny Blue"
 },
 {
 "quien":"Morgan",
-"desde":960,
-"hasta":1470,
+"desde":1020,
+"hasta":1380,
 "descanso":30,
-"horas":8.0,
-"area":null
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Reese",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Avery",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Drew",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-08-02",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":45,
+"Food":1919.0,
+"Beverage":98.64,
+"Total":2017.64,
+"AV Check":44.84
+},
+"Lunch":{
+"Covers":12,
+"Food":138.33,
+"Beverage":107.9,
+"Total":246.23,
+"AV Check":20.52
+},
+"Dinner":{
+"Covers":44,
+"Food":2139.44,
+"Beverage":1318.93,
+"Total":3458.37,
+"AV Check":78.6
+},
+"All Day":{
+"Covers":101,
+"Food":4196.77,
+"Beverage":1525.47,
+"Total":5722.24,
+"AV Check":56.66
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":123,
+"Food":1184.72,
+"Beverage":6.82,
+"Total":1191.54,
+"AV Check":9.69,
+"Discounts":188.4
+},
+"Lunch":{
+"Covers":108,
+"Food":1128.29,
+"Beverage":296.84,
+"Total":1425.13,
+"AV Check":13.2
+},
+"Dinner":{
+"Covers":89,
+"Food":1667.15,
+"Beverage":2088.0,
+"Total":3755.15,
+"AV Check":42.19,
+"Discounts":549.15
+},
+"All Day":{
+"Covers":320,
+"Food":3980.16,
+"Beverage":2391.66,
+"Discounts":737.55,
+"Total":6371.82,
+"AV Check":19.91
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":4,
+"Food":21.53,
+"Beverage":8.0,
+"Delivery Charge":23.58,
+"Total":53.11,
+"AV Check":13.28,
+"Discounts":7.74
+},
+"Lunch":{
+"Covers":9,
+"Food":286.05,
+"Beverage":18.48,
+"Delivery Charge":41.28,
+"Total":345.81,
+"AV Check":38.42,
+"Discounts":19.7
+},
+"Dinner":{
+"Covers":36,
+"Food":1020.74,
+"Beverage":136.29,
+"Delivery Charge":165.99,
+"Total":1323.02,
+"AV Check":36.75,
+"Discounts":38.65
+},
+"Overnight":{
+"Covers":1,
+"Food":24.76,
+"Beverage":14.92,
+"Delivery Charge":5.06,
+"Total":44.74,
+"AV Check":44.74
+},
+"All Day":{
+"Covers":50,
+"Food":1353.08,
+"Beverage":177.69,
+"Delivery Charge":235.91,
+"Discounts":66.09,
+"Total":1766.68,
+"AV Check":35.33
+}
+}
+},
+"comentarios":[
+{
+"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
+"area":"Penny Blue"
+},
+{
+"texto":"Steady lunch service. A guest asked about gluten free options; the kitchen adjusted the dish.",
+"area":"Exchange Lane"
+}
+],
+"turnos":[
+{
+"quien":"Morgan",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Jordan",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Sam",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Alex",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Casey",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
 },
 {
 "quien":"Quinn",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Avery",
 "desde":1080,
-"hasta":1440,
+"hasta":0,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Drew",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-08-03",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":36,
+"Food":2113.03,
+"Beverage":132.89,
+"Total":2245.92,
+"AV Check":62.39
+},
+"Lunch":{
+"Covers":6,
+"Food":249.79,
+"Beverage":253.63,
+"Total":503.42,
+"AV Check":83.9,
+"Discounts":17.75
+},
+"Dinner":{
+"Covers":23,
+"Food":1938.33,
+"Beverage":950.12,
+"Total":2888.45,
+"AV Check":125.58,
+"Discounts":397.49
+},
+"All Day":{
+"Covers":65,
+"Food":4301.15,
+"Beverage":1336.64,
+"Discounts":415.24,
+"Total":5637.79,
+"AV Check":86.74
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":118,
+"Food":1239.27,
+"Beverage":8.25,
+"Total":1247.52,
+"AV Check":10.57
+},
+"Lunch":{
+"Covers":81,
+"Food":709.62,
+"Beverage":235.32,
+"Total":944.94,
+"AV Check":11.67,
+"Discounts":136.62
+},
+"Dinner":{
+"Covers":79,
+"Food":1174.03,
+"Beverage":1912.6,
+"Total":3086.63,
+"AV Check":39.07
+},
+"All Day":{
+"Covers":278,
+"Food":3122.92,
+"Beverage":2156.17,
+"Discounts":136.62,
+"Total":5279.09,
+"AV Check":18.99
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":3,
+"Food":90.0,
+"Beverage":10.62,
+"Delivery Charge":8.41,
+"Total":109.03,
+"AV Check":36.34
+},
+"Lunch":{
+"Covers":10,
+"Food":278.93,
+"Beverage":49.69,
+"Delivery Charge":41.97,
+"Total":370.59,
+"AV Check":37.06
+},
+"Dinner":{
+"Covers":33,
+"Food":1038.21,
+"Beverage":87.28,
+"Delivery Charge":172.11,
+"Total":1297.6,
+"AV Check":39.32
+},
+"Overnight":{
+"Covers":4,
+"Food":79.23,
+"Beverage":3.04,
+"Delivery Charge":4.95,
+"Total":87.22,
+"AV Check":21.81,
+"Discounts":2.28
+},
+"All Day":{
+"Covers":50,
+"Food":1486.37,
+"Beverage":150.63,
+"Delivery Charge":227.44,
+"Discounts":2.28,
+"Total":1864.44,
+"AV Check":37.29
+}
+}
+},
+"comentarios":[
+{
+"texto":"A table raised a concern about the wait between courses. The kitchen was informed and a dessert was offered.",
+"area":"Penny Blue"
+},
+{
+"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
+"area":"Exchange Lane"
+},
+{
+"texto":"Orders peaked at the same time as the bar. Guests were kept informed about waiting times.",
+"area":"In Room Dining"
+}
+],
+"turnos":[
+{
+"quien":"Robin",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Quinn",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Avery",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Taylor",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Drew",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-08-04",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":60,
+"Food":1424.52,
+"Beverage":115.2,
+"Total":1539.72,
+"AV Check":25.66
+},
+"Lunch":{
+"Covers":3,
+"Food":182.64,
+"Beverage":193.32,
+"Total":375.96,
+"AV Check":125.32
+},
+"Dinner":{
+"Covers":28,
+"Food":1479.25,
+"Beverage":1108.87,
+"Total":2588.12,
+"AV Check":92.43
+},
+"All Day":{
+"Covers":91,
+"Food":3086.41,
+"Beverage":1417.39,
+"Total":4503.8,
+"AV Check":49.49
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":172,
+"Food":1622.35,
+"Beverage":37.03,
+"Total":1659.38,
+"AV Check":9.65
+},
+"Lunch":{
+"Covers":84,
+"Food":1026.27,
+"Beverage":361.4,
+"Total":1387.67,
+"AV Check":16.52,
+"Discounts":133.15
+},
+"Dinner":{
+"Covers":47,
+"Food":1247.31,
+"Beverage":1569.16,
+"Total":2816.47,
+"AV Check":59.92
+},
+"All Day":{
+"Covers":303,
+"Food":3895.93,
+"Beverage":1967.59,
+"Discounts":133.15,
+"Total":5863.52,
+"AV Check":19.35
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":5,
+"Food":67.38,
+"Beverage":6.08,
+"Delivery Charge":19.7,
+"Total":93.16,
+"AV Check":18.63
+},
+"Lunch":{
+"Covers":11,
+"Food":297.73,
+"Beverage":58.75,
+"Delivery Charge":39.95,
+"Total":396.43,
+"AV Check":36.04,
+"Discounts":47.83
+},
+"Dinner":{
+"Covers":25,
+"Food":1444.27,
+"Beverage":65.15,
+"Delivery Charge":193.79,
+"Total":1703.21,
+"AV Check":68.13
+},
+"Overnight":{
+"Covers":4,
+"Food":24.12,
+"Beverage":1.97,
+"Delivery Charge":14.58,
+"Total":40.67,
+"AV Check":10.17,
+"Discounts":4.0
+},
+"All Day":{
+"Covers":45,
+"Food":1833.5,
+"Beverage":131.95,
+"Delivery Charge":268.02,
+"Discounts":51.83,
+"Total":2233.47,
+"AV Check":49.63
+}
+}
+},
+"comentarios":[
+{
+"texto":"A group arrived after a nearby event, which created a busy period for about an hour.",
+"area":"Exchange Lane"
+}
+],
+"turnos":[
+{
+"quien":"Reese",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Alex",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Penny Blue"
 },
 {
 "quien":"Avery",
@@ -6938,7 +7928,606 @@ var DATOS_DEMO = [
 "hasta":1320,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Drew",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-08-06",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":62,
+"Food":2282.26,
+"Beverage":178.56,
+"Total":2460.82,
+"AV Check":39.69,
+"Discounts":318.13
+},
+"Lunch":{
+"Covers":5,
+"Food":618.55,
+"Beverage":477.1,
+"Total":1095.65,
+"AV Check":219.13,
+"Discounts":140.84
+},
+"Dinner":{
+"Covers":107,
+"Food":7114.52,
+"Beverage":3337.39,
+"Misc/Banquets":574.08,
+"Total":11025.99,
+"AV Check":103.05,
+"Discounts":1002.02
+},
+"All Day":{
+"Covers":174,
+"Food":10015.33,
+"Beverage":3993.05,
+"Discounts":1460.99,
+"Misc/Banquets":574.08,
+"Total":14582.46,
+"AV Check":83.81
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":127,
+"Food":1607.67,
+"Beverage":53.78,
+"Total":1661.45,
+"AV Check":13.08,
+"Discounts":189.95
+},
+"Lunch":{
+"Covers":66,
+"Food":782.16,
+"Beverage":312.57,
+"Total":1094.73,
+"AV Check":16.59,
+"Discounts":37.28
+},
+"Dinner":{
+"Covers":47,
+"Food":1070.37,
+"Beverage":1906.83,
+"Total":2977.2,
+"AV Check":63.34,
+"Discounts":220.22
+},
+"All Day":{
+"Covers":240,
+"Food":3460.2,
+"Beverage":2273.18,
+"Discounts":447.45,
+"Total":5733.38,
+"AV Check":23.89
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":2,
+"Food":70.22,
+"Beverage":2.27,
+"Delivery Charge":13.18,
+"Total":85.67,
+"AV Check":42.83,
+"Discounts":11.74
+},
+"Lunch":{
+"Covers":14,
+"Food":227.44,
+"Beverage":41.8,
+"Delivery Charge":39.62,
+"Total":308.86,
+"AV Check":22.06,
+"Discounts":28.83
+},
+"Dinner":{
+"Covers":22,
+"Food":1091.56,
+"Beverage":143.18,
+"Delivery Charge":157.59,
+"Total":1392.33,
+"AV Check":63.29
+},
+"Overnight":{
+"Covers":0,
+"Food":40.82,
+"Beverage":13.4,
+"Delivery Charge":11.59,
+"Total":65.81,
+"Discounts":3.71
+},
+"All Day":{
+"Covers":38,
+"Food":1430.04,
+"Beverage":200.65,
+"Delivery Charge":221.98,
+"Discounts":44.28,
+"Total":1852.67,
+"AV Check":48.75
+}
+}
+},
+"comentarios":[
+{
+"texto":"An order was delayed due to an incorrect room number. Corrected and delivered with an apology.",
+"area":"In Room Dining"
+}
+],
+"turnos":[
+{
+"quien":"Sam",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Jordan",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Robin",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Quinn",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Avery",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Drew",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-08-07",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":59,
+"Food":1906.77,
+"Beverage":108.13,
+"Total":2014.9,
+"AV Check":34.15
+},
+"Lunch":{
+"Covers":26,
+"Food":908.66,
+"Beverage":264.26,
+"Total":1172.92,
+"AV Check":45.11
+},
+"Dinner":{
+"Covers":135,
+"Food":6521.99,
+"Beverage":3916.52,
+"Misc/Banquets":1149.58,
+"Total":11588.09,
+"AV Check":85.84
+},
+"All Day":{
+"Covers":220,
+"Food":9337.42,
+"Beverage":4288.91,
+"Misc/Banquets":1149.58,
+"Total":14775.91,
+"AV Check":67.16
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":161,
+"Food":1303.12,
+"Beverage":6.6,
+"Total":1309.72,
+"AV Check":8.13,
+"Discounts":67.11
+},
+"Lunch":{
+"Covers":83,
+"Food":1033.76,
+"Beverage":171.14,
+"Total":1204.9,
+"AV Check":14.52
+},
+"Dinner":{
+"Covers":47,
+"Food":1242.03,
+"Beverage":1588.36,
+"Total":2830.39,
+"AV Check":60.22
+},
+"All Day":{
+"Covers":291,
+"Food":3578.91,
+"Beverage":1766.1,
+"Discounts":67.11,
+"Total":5345.01,
+"AV Check":18.37
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":5,
+"Food":98.76,
+"Beverage":16.26,
+"Delivery Charge":20.5,
+"Total":135.52,
+"AV Check":27.1
+},
+"Lunch":{
+"Covers":10,
+"Food":320.4,
+"Beverage":28.68,
+"Delivery Charge":48.41,
+"Total":397.49,
+"AV Check":39.75
+},
+"Dinner":{
+"Covers":23,
+"Food":1158.26,
+"Beverage":92.59,
+"Delivery Charge":242.01,
+"Total":1492.86,
+"AV Check":64.91,
+"Discounts":121.98
+},
+"Overnight":{
+"Covers":3,
+"Food":59.77,
+"Beverage":13.42,
+"Delivery Charge":5.46,
+"Total":78.65,
+"AV Check":26.22
+},
+"All Day":{
+"Covers":41,
+"Food":1637.19,
+"Beverage":150.95,
+"Delivery Charge":316.38,
+"Discounts":121.98,
+"Total":2104.52,
+"AV Check":51.33
+}
+}
+},
+"comentarios":[
+{
+"texto":"A table raised a concern about the wait between courses. The kitchen was informed and a dessert was offered.",
+"area":"Penny Blue"
+},
+{
+"texto":"Orders peaked at the same time as the bar. Guests were kept informed about waiting times.",
+"area":"In Room Dining"
+}
+],
+"turnos":[
+{
+"quien":"Robin",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Sam",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Avery",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Quinn",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-08-08",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":60,
+"Food":2240.94,
+"Beverage":89.09,
+"Total":2330.03,
+"AV Check":38.83,
+"Discounts":127.04
+},
+"Lunch":{
+"Covers":11,
+"Food":863.06,
+"Beverage":133.55,
+"Total":996.61,
+"AV Check":90.6,
+"Discounts":136.2
+},
+"Dinner":{
+"Covers":93,
+"Food":7563.99,
+"Beverage":3877.76,
+"Misc/Banquets":829.68,
+"Total":12271.43,
+"AV Check":131.95
+},
+"All Day":{
+"Covers":164,
+"Food":10667.99,
+"Beverage":4100.4,
+"Discounts":263.24,
+"Misc/Banquets":829.68,
+"Total":15598.07,
+"AV Check":95.11
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":117,
+"Food":1477.02,
+"Beverage":32.3,
+"Total":1509.32,
+"AV Check":12.9,
+"Discounts":177.2
+},
+"Lunch":{
+"Covers":68,
+"Food":1097.93,
+"Beverage":247.94,
+"Total":1345.87,
+"AV Check":19.79,
+"Discounts":78.41
+},
+"Dinner":{
+"Covers":62,
+"Food":1856.21,
+"Beverage":1836.8,
+"Total":3693.01,
+"AV Check":59.56
+},
+"All Day":{
+"Covers":247,
+"Food":4431.16,
+"Beverage":2117.04,
+"Discounts":255.61,
+"Total":6548.2,
+"AV Check":26.51
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":4,
+"Food":56.95,
+"Beverage":1.95,
+"Delivery Charge":22.49,
+"Total":81.39,
+"AV Check":20.35,
+"Discounts":7.16
+},
+"Lunch":{
+"Covers":6,
+"Food":214.99,
+"Beverage":62.26,
+"Delivery Charge":43.57,
+"Total":320.82,
+"AV Check":53.47,
+"Discounts":36.59
+},
+"Dinner":{
+"Covers":25,
+"Food":1364.16,
+"Beverage":47.31,
+"Delivery Charge":211.18,
+"Total":1622.65,
+"AV Check":64.91,
+"Discounts":167.98
+},
+"Overnight":{
+"Covers":1,
+"Food":55.47,
+"Beverage":9.06,
+"Delivery Charge":10.6,
+"Total":75.13,
+"AV Check":75.13
+},
+"All Day":{
+"Covers":36,
+"Food":1691.57,
+"Beverage":120.58,
+"Delivery Charge":287.84,
+"Discounts":211.73,
+"Total":2099.99,
+"AV Check":58.33
+}
+}
+},
+"comentarios":[
+{
+"texto":"Busy evening across the restaurant. Two large tables extended past closing and service ran smoothly.",
+"area":"Penny Blue"
+}
+],
+"turnos":[
+{
+"quien":"Morgan",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Reese",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Alex",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Jordan",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Quinn",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Taylor",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Drew",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
@@ -6948,112 +8537,477 @@ var DATOS_DEMO = [
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":52,
-"Food":1572.52,
-"Beverage":129.78,
-"Total":1702.3,
-"AV Check":32.74
+"Covers":54,
+"Food":1910.35,
+"Beverage":40.81,
+"Total":1951.16,
+"AV Check":36.13
 },
 "Lunch":{
-"Covers":20,
-"Food":273.16,
-"Beverage":189.57,
-"Total":462.73,
-"AV Check":23.14,
-"Discounts":64.16
+"Covers":13,
+"Food":290.28,
+"Beverage":246.56,
+"Total":536.84,
+"AV Check":41.3
 },
 "Dinner":{
-"Covers":36,
-"Food":2545.92,
-"Beverage":1246.07,
-"Total":3791.99,
-"AV Check":105.33
+"Covers":45,
+"Food":1628.33,
+"Beverage":762.24,
+"Total":2390.57,
+"AV Check":53.12
 },
 "All Day":{
-"Covers":108,
-"Food":4391.6,
-"Beverage":1565.42,
-"Discounts":64.16,
-"Total":5957.02,
-"AV Check":55.16
+"Covers":112,
+"Food":3828.96,
+"Beverage":1049.61,
+"Total":4878.57,
+"AV Check":43.56
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":189,
-"Food":1389.84,
-"Beverage":29.59,
-"Total":1419.43,
-"AV Check":7.51,
-"Discounts":147.27
+"Covers":111,
+"Food":1402.11,
+"Beverage":33.42,
+"Total":1435.53,
+"AV Check":12.93,
+"Discounts":82.5
 },
 "Lunch":{
-"Covers":74,
-"Food":1088.17,
-"Beverage":215.36,
-"Total":1303.53,
-"AV Check":17.62
+"Covers":83,
+"Food":1044.18,
+"Beverage":240.16,
+"Total":1284.34,
+"AV Check":15.47,
+"Discounts":118.74
 },
 "Dinner":{
-"Covers":45,
-"Food":1563.77,
-"Beverage":2230.64,
-"Total":3794.41,
-"AV Check":84.32,
-"Discounts":105.18
+"Covers":61,
+"Food":1647.55,
+"Beverage":1499.96,
+"Total":3147.51,
+"AV Check":51.6
 },
 "All Day":{
-"Covers":308,
-"Food":4041.78,
-"Beverage":2475.59,
-"Discounts":252.45,
-"Total":6517.37,
-"AV Check":21.16
+"Covers":255,
+"Food":4093.84,
+"Beverage":1773.54,
+"Discounts":201.24,
+"Total":5867.38,
+"AV Check":23.01
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":6,
-"Food":21.94,
-"Beverage":8.29,
-"Delivery Charge":9.71,
-"Total":39.94,
-"AV Check":6.66,
-"Discounts":5.36
+"Covers":1,
+"Food":62.28,
+"Beverage":6.02,
+"Delivery Charge":17.05,
+"Total":85.35,
+"AV Check":85.35,
+"Discounts":2.4
 },
 "Lunch":{
-"Covers":8,
-"Food":395.26,
-"Beverage":30.93,
-"Delivery Charge":42.22,
-"Total":468.41,
-"AV Check":58.55
+"Covers":14,
+"Food":200.93,
+"Beverage":63.88,
+"Delivery Charge":43.95,
+"Total":308.76,
+"AV Check":22.05,
+"Discounts":47.76
+},
+"Dinner":{
+"Covers":19,
+"Food":1023.03,
+"Beverage":108.58,
+"Delivery Charge":196.19,
+"Total":1327.8,
+"AV Check":69.88,
+"Discounts":82.75
+},
+"Overnight":{
+"Covers":5,
+"Food":30.84,
+"Beverage":12.61,
+"Delivery Charge":5.7,
+"Total":49.15,
+"AV Check":9.83
+},
+"All Day":{
+"Covers":39,
+"Food":1317.08,
+"Beverage":191.09,
+"Delivery Charge":262.89,
+"Discounts":132.91,
+"Total":1771.06,
+"AV Check":45.41
+}
+}
+},
+"comentarios":[
+{
+"texto":"Quiet service overall. Good opportunity to run through the new menu with the floor team.",
+"area":"Penny Blue"
+},
+{
+"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
+"area":"Exchange Lane"
+}
+],
+"turnos":[
+{
+"quien":"Robin",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Sam",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Reese",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Riley",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Avery",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-08-16",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":57,
+"Food":1436.28,
+"Beverage":65.33,
+"Total":1501.61,
+"AV Check":26.34,
+"Discounts":172.77
+},
+"Lunch":{
+"Covers":19,
+"Food":262.56,
+"Beverage":172.93,
+"Total":435.49,
+"AV Check":22.92,
+"Discounts":24.8
+},
+"Dinner":{
+"Covers":30,
+"Food":2126.77,
+"Beverage":1114.25,
+"Total":3241.02,
+"AV Check":108.03,
+"Discounts":348.77
+},
+"All Day":{
+"Covers":106,
+"Food":3825.61,
+"Beverage":1352.51,
+"Discounts":546.34,
+"Total":5178.12,
+"AV Check":48.85
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":174,
+"Food":1236.79,
+"Beverage":34.85,
+"Total":1271.64,
+"AV Check":7.31
+},
+"Lunch":{
+"Covers":62,
+"Food":835.29,
+"Beverage":344.87,
+"Total":1180.16,
+"AV Check":19.03,
+"Discounts":170.26
+},
+"Dinner":{
+"Covers":65,
+"Food":1371.3,
+"Beverage":1726.28,
+"Total":3097.58,
+"AV Check":47.66
+},
+"All Day":{
+"Covers":301,
+"Food":3443.38,
+"Beverage":2106.0,
+"Discounts":170.26,
+"Total":5549.38,
+"AV Check":18.44
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":4,
+"Food":59.92,
+"Beverage":8.32,
+"Delivery Charge":16.63,
+"Total":84.87,
+"AV Check":21.22,
+"Discounts":2.04
+},
+"Lunch":{
+"Covers":4,
+"Food":339.65,
+"Beverage":61.2,
+"Delivery Charge":36.69,
+"Total":437.54,
+"AV Check":109.38
+},
+"Dinner":{
+"Covers":19,
+"Food":899.2,
+"Beverage":119.28,
+"Delivery Charge":229.82,
+"Total":1248.3,
+"AV Check":65.7
+},
+"Overnight":{
+"Covers":2,
+"Food":73.25,
+"Beverage":6.35,
+"Delivery Charge":13.48,
+"Total":93.08,
+"AV Check":46.54,
+"Discounts":4.46
+},
+"All Day":{
+"Covers":29,
+"Food":1372.02,
+"Beverage":195.15,
+"Delivery Charge":296.62,
+"Discounts":6.5,
+"Total":1863.79,
+"AV Check":64.27
+}
+}
+},
+"comentarios":[
+{
+"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
+"area":"Penny Blue"
+}
+],
+"turnos":[
+{
+"quien":"Jordan",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Alex",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Robin",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Sam",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Riley",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Avery",
+"desde":660,
+"hasta":1230,
+"descanso":30,
+"horas":9.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+}
+]
+},
+{
+"fecha":"2026-08-17",
+"hoja":"ejemplo",
+"areas":{
+"Penny Blue":{
+"Breakfast":{
+"Covers":39,
+"Food":2212.68,
+"Beverage":125.48,
+"Total":2338.16,
+"AV Check":59.95,
+"Discounts":155.13
+},
+"Lunch":{
+"Covers":1,
+"Food":371.35,
+"Beverage":134.16,
+"Total":505.51,
+"AV Check":505.51,
+"Discounts":55.39
+},
+"Dinner":{
+"Covers":37,
+"Food":1615.08,
+"Beverage":929.25,
+"Total":2544.33,
+"AV Check":68.77
+},
+"All Day":{
+"Covers":77,
+"Food":4199.11,
+"Beverage":1188.89,
+"Discounts":210.52,
+"Total":5388.0,
+"AV Check":69.97
+}
+},
+"Exchange Lane":{
+"Breakfast":{
+"Covers":139,
+"Food":1108.48,
+"Beverage":38.99,
+"Total":1147.47,
+"AV Check":8.26,
+"Discounts":128.71
+},
+"Lunch":{
+"Covers":87,
+"Food":683.72,
+"Beverage":356.13,
+"Total":1039.85,
+"AV Check":11.95
+},
+"Dinner":{
+"Covers":82,
+"Food":1557.54,
+"Beverage":1280.64,
+"Total":2838.18,
+"AV Check":34.61
+},
+"All Day":{
+"Covers":308,
+"Food":3349.74,
+"Beverage":1675.76,
+"Discounts":128.71,
+"Total":5025.5,
+"AV Check":16.32
+}
+},
+"In Room Dining":{
+"Breakfast":{
+"Covers":2,
+"Food":66.65,
+"Beverage":18.63,
+"Delivery Charge":17.57,
+"Total":102.85,
+"AV Check":51.42,
+"Discounts":5.88
+},
+"Lunch":{
+"Covers":12,
+"Food":302.44,
+"Beverage":54.05,
+"Delivery Charge":51.73,
+"Total":408.22,
+"AV Check":34.02
 },
 "Dinner":{
 "Covers":39,
-"Food":957.63,
-"Beverage":50.5,
-"Delivery Charge":146.4,
-"Total":1154.53,
-"AV Check":29.6,
-"Discounts":105.63
+"Food":1442.79,
+"Beverage":168.03,
+"Delivery Charge":191.74,
+"Total":1802.56,
+"AV Check":46.22,
+"Discounts":36.27
 },
 "Overnight":{
-"Covers":0,
-"Food":79.55,
-"Beverage":12.01,
-"Delivery Charge":8.16,
-"Total":99.72,
-"Discounts":5.69
+"Covers":2,
+"Food":42.32,
+"Beverage":8.41,
+"Delivery Charge":8.76,
+"Total":59.49,
+"AV Check":29.75,
+"Discounts":1.95
 },
 "All Day":{
-"Covers":53,
-"Food":1454.38,
-"Beverage":101.73,
-"Delivery Charge":206.49,
-"Discounts":116.68,
-"Total":1762.6,
-"AV Check":33.26
+"Covers":55,
+"Food":1854.2,
+"Beverage":249.12,
+"Delivery Charge":269.8,
+"Discounts":44.1,
+"Total":2373.12,
+"AV Check":43.15
 }
 }
 },
@@ -7069,28 +9023,12 @@ var DATOS_DEMO = [
 ],
 "turnos":[
 {
-"quien":"Jordan",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Alex",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Jordan",
+"quien":"Morgan",
 "desde":660,
 "hasta":1230,
 "descanso":30,
 "horas":9.0,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Sam",
@@ -7098,126 +9036,181 @@ var DATOS_DEMO = [
 "hasta":1230,
 "descanso":30,
 "horas":9.0,
-"area":null
+"area":"Penny Blue"
+},
+{
+"quien":"Alex",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Robin",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Casey",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Quinn",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Avery",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-08-13",
+"fecha":"2026-08-18",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":58,
-"Food":1624.2,
-"Beverage":143.77,
-"Total":1767.97,
-"AV Check":30.48,
-"Discounts":45.33
+"Covers":56,
+"Food":2077.42,
+"Beverage":128.65,
+"Total":2206.07,
+"AV Check":39.39,
+"Discounts":68.34
 },
 "Lunch":{
-"Covers":24,
-"Food":302.66,
-"Beverage":425.81,
-"Total":728.47,
-"AV Check":30.35,
-"Discounts":116.39
+"Covers":19,
+"Food":115.45,
+"Beverage":131.08,
+"Total":246.53,
+"AV Check":12.98,
+"Discounts":36.28
 },
 "Dinner":{
-"Covers":114,
-"Food":7240.0,
-"Beverage":4568.84,
-"Misc/Banquets":736.71,
-"Total":12545.55,
-"AV Check":110.05,
-"Discounts":1284.02
+"Covers":55,
+"Food":2018.0,
+"Beverage":1258.05,
+"Total":3276.05,
+"AV Check":59.56,
+"Discounts":159.51
 },
 "All Day":{
-"Covers":196,
-"Food":9166.86,
-"Beverage":5138.42,
-"Discounts":1445.74,
-"Misc/Banquets":736.71,
-"Total":15041.99,
-"AV Check":76.74
+"Covers":130,
+"Food":4210.87,
+"Beverage":1517.78,
+"Discounts":264.13,
+"Total":5728.65,
+"AV Check":44.07
 }
 },
 "Exchange Lane":{
 "Breakfast":{
 "Covers":166,
-"Food":1612.43,
-"Beverage":51.83,
-"Total":1664.26,
-"AV Check":10.03
+"Food":1238.68,
+"Beverage":17.0,
+"Total":1255.68,
+"AV Check":7.56,
+"Discounts":99.56
 },
 "Lunch":{
-"Covers":89,
-"Food":887.96,
-"Beverage":286.96,
-"Total":1174.92,
-"AV Check":13.2,
-"Discounts":154.03
+"Covers":95,
+"Food":909.2,
+"Beverage":284.41,
+"Total":1193.61,
+"AV Check":12.56,
+"Discounts":42.48
 },
 "Dinner":{
-"Covers":81,
-"Food":1451.5,
-"Beverage":1742.85,
-"Total":3194.35,
-"AV Check":39.44
+"Covers":53,
+"Food":1175.43,
+"Beverage":1942.61,
+"Total":3118.04,
+"AV Check":58.83,
+"Discounts":232.38
 },
 "All Day":{
-"Covers":336,
-"Food":3951.89,
-"Beverage":2081.64,
-"Discounts":154.03,
-"Total":6033.53,
-"AV Check":17.96
+"Covers":314,
+"Food":3323.31,
+"Beverage":2244.02,
+"Discounts":374.42,
+"Total":5567.33,
+"AV Check":17.73
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":2,
-"Food":44.9,
-"Beverage":2.09,
-"Delivery Charge":17.52,
-"Total":64.51,
-"AV Check":32.25
+"Covers":6,
+"Food":31.81,
+"Beverage":2.72,
+"Delivery Charge":20.24,
+"Total":54.77,
+"AV Check":9.13
 },
 "Lunch":{
-"Covers":10,
-"Food":245.62,
-"Beverage":47.48,
-"Delivery Charge":29.01,
-"Total":322.11,
-"AV Check":32.21
+"Covers":6,
+"Food":256.67,
+"Beverage":62.1,
+"Delivery Charge":39.46,
+"Total":358.23,
+"AV Check":59.71
 },
 "Dinner":{
 "Covers":27,
-"Food":1347.23,
-"Beverage":115.51,
-"Delivery Charge":141.78,
-"Total":1604.52,
-"AV Check":59.43
+"Food":1506.67,
+"Beverage":36.67,
+"Delivery Charge":168.76,
+"Total":1712.1,
+"AV Check":63.41,
+"Discounts":123.87
 },
 "Overnight":{
-"Covers":1,
-"Food":64.89,
-"Beverage":11.6,
-"Delivery Charge":10.28,
-"Total":86.77,
-"AV Check":86.77
+"Covers":3,
+"Food":57.46,
+"Beverage":6.66,
+"Delivery Charge":10.94,
+"Total":75.06,
+"AV Check":25.02,
+"Discounts":2.42
 },
 "All Day":{
-"Covers":40,
-"Food":1702.64,
-"Beverage":176.68,
-"Delivery Charge":198.59,
-"Total":2077.91,
-"AV Check":51.95
+"Covers":42,
+"Food":1852.61,
+"Beverage":108.15,
+"Delivery Charge":239.4,
+"Discounts":126.29,
+"Total":2200.16,
+"AV Check":52.38
 }
 }
 },
 "comentarios":[
+{
+"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
+"area":"Penny Blue"
+},
 {
 "texto":"Quiet overnight service. Breakfast preparation completed ahead of schedule.",
 "area":"In Room Dining"
@@ -7225,215 +9218,36 @@ var DATOS_DEMO = [
 ],
 "turnos":[
 {
-"quien":"Alex",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Blake",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Reese",
-"desde":1080,
-"hasta":1440,
+"quien":"Morgan",
+"desde":1020,
+"hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
-},
-{
-"quien":"Sam",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-08-17",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":52,
-"Food":1657.32,
-"Beverage":80.44,
-"Total":1737.76,
-"AV Check":33.42
-},
-"Lunch":{
-"Covers":2,
-"Food":873.4,
-"Beverage":427.1,
-"Total":1300.5,
-"AV Check":650.25
-},
-"Dinner":{
-"Covers":139,
-"Food":5867.64,
-"Beverage":4213.5,
-"Misc/Banquets":734.98,
-"Total":10816.12,
-"AV Check":77.81,
-"Discounts":818.21
-},
-"All Day":{
-"Covers":193,
-"Food":8398.36,
-"Beverage":4721.04,
-"Discounts":818.21,
-"Misc/Banquets":734.98,
-"Total":13854.38,
-"AV Check":71.78
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":134,
-"Food":1369.34,
-"Beverage":52.31,
-"Total":1421.65,
-"AV Check":10.61
-},
-"Lunch":{
-"Covers":100,
-"Food":889.14,
-"Beverage":371.57,
-"Total":1260.71,
-"AV Check":12.61
-},
-"Dinner":{
-"Covers":61,
-"Food":1532.39,
-"Beverage":2226.8,
-"Total":3759.19,
-"AV Check":61.63,
-"Discounts":355.42
-},
-"All Day":{
-"Covers":295,
-"Food":3790.87,
-"Beverage":2650.68,
-"Discounts":355.42,
-"Total":6441.55,
-"AV Check":21.84
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":2,
-"Food":26.89,
-"Beverage":6.96,
-"Delivery Charge":11.81,
-"Total":45.66,
-"AV Check":22.83,
-"Discounts":5.32
-},
-"Lunch":{
-"Covers":7,
-"Food":189.03,
-"Beverage":31.6,
-"Delivery Charge":30.17,
-"Total":250.8,
-"AV Check":35.83,
-"Discounts":39.11
-},
-"Dinner":{
-"Covers":26,
-"Food":1505.21,
-"Beverage":124.99,
-"Delivery Charge":204.64,
-"Total":1834.84,
-"AV Check":70.57,
-"Discounts":283.59
-},
-"Overnight":{
-"Covers":1,
-"Food":72.74,
-"Beverage":13.87,
-"Delivery Charge":12.56,
-"Total":99.17,
-"AV Check":99.17,
-"Discounts":2.99
-},
-"All Day":{
-"Covers":36,
-"Food":1793.87,
-"Beverage":177.42,
-"Delivery Charge":259.18,
-"Discounts":331.01,
-"Total":2230.47,
-"AV Check":61.96
-}
-}
-},
-"comentarios":[
-{
-"texto":"A table raised a concern about the wait between courses. The kitchen was informed and a dessert was offered.",
 "area":"Penny Blue"
 },
 {
-"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
-"area":"Exchange Lane"
-}
-],
-"turnos":[
-{
-"quien":"Robin",
+"quien":"Jordan",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
-},
-{
-"quien":"Skyler",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Quinn",
-"desde":660,
-"hasta":1230,
+"desde":840,
+"hasta":1320,
 "descanso":30,
-"horas":9.0,
-"area":null
+"horas":7.5,
+"area":"Exchange Lane"
 },
 {
 "quien":"Riley",
-"desde":360,
-"hasta":840,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Robin",
-"desde":1080,
-"hasta":1440,
+"desde":1020,
+"hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
 "quien":"Avery",
@@ -7441,180 +9255,175 @@ var DATOS_DEMO = [
 "hasta":840,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
-"quien":"Riley",
-"desde":960,
-"hasta":1470,
+"quien":"Drew",
+"desde":1320,
+"hasta":360,
 "descanso":30,
-"horas":8.0,
-"area":null
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
 {
-"fecha":"2026-08-19",
+"fecha":"2026-08-20",
 "hoja":"ejemplo",
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":50,
-"Food":1433.7,
-"Beverage":59.15,
-"Total":1492.85,
-"AV Check":29.86,
-"Discounts":223.07
+"Covers":60,
+"Food":2199.03,
+"Beverage":124.77,
+"Total":2323.8,
+"AV Check":38.73,
+"Discounts":53.73
 },
 "Lunch":{
-"Covers":13,
-"Food":534.25,
-"Beverage":250.4,
-"Total":784.65,
-"AV Check":60.36,
-"Discounts":122.47
+"Covers":0,
+"Food":220.25,
+"Beverage":149.42,
+"Total":369.67
 },
 "Dinner":{
-"Covers":20,
-"Food":1606.12,
-"Beverage":705.3,
-"Total":2311.42,
-"AV Check":115.57,
-"Discounts":343.72
+"Covers":45,
+"Food":1272.81,
+"Beverage":1075.22,
+"Total":2348.03,
+"AV Check":52.18,
+"Discounts":336.17
 },
 "All Day":{
-"Covers":83,
-"Food":3574.07,
-"Beverage":1014.85,
-"Discounts":689.26,
-"Total":4588.92,
-"AV Check":55.29
+"Covers":105,
+"Food":3692.09,
+"Beverage":1349.41,
+"Discounts":389.9,
+"Total":5041.5,
+"AV Check":48.01
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":156,
-"Food":1171.37,
-"Beverage":23.63,
-"Total":1195.0,
-"AV Check":7.66
+"Covers":141,
+"Food":1463.11,
+"Beverage":53.43,
+"Total":1516.54,
+"AV Check":10.76,
+"Discounts":35.82
 },
 "Lunch":{
-"Covers":66,
-"Food":769.07,
-"Beverage":391.29,
-"Total":1160.36,
-"AV Check":17.58,
-"Discounts":53.84
+"Covers":105,
+"Food":1114.02,
+"Beverage":378.77,
+"Total":1492.79,
+"AV Check":14.22,
+"Discounts":184.51
 },
 "Dinner":{
-"Covers":66,
-"Food":1172.83,
-"Beverage":1315.71,
-"Total":2488.54,
-"AV Check":37.71,
-"Discounts":288.45
+"Covers":79,
+"Food":1928.51,
+"Beverage":1120.74,
+"Total":3049.25,
+"AV Check":38.6,
+"Discounts":270.61
 },
 "All Day":{
-"Covers":288,
-"Food":3113.27,
-"Beverage":1730.63,
-"Discounts":342.29,
-"Total":4843.9,
-"AV Check":16.82
+"Covers":325,
+"Food":4505.64,
+"Beverage":1552.94,
+"Discounts":490.94,
+"Total":6058.58,
+"AV Check":18.64
 }
 },
 "In Room Dining":{
 "Breakfast":{
 "Covers":4,
-"Food":52.73,
-"Beverage":8.79,
-"Delivery Charge":14.41,
-"Total":75.93,
-"AV Check":18.98
+"Food":78.95,
+"Beverage":1.06,
+"Delivery Charge":20.56,
+"Total":100.57,
+"AV Check":25.14,
+"Discounts":10.06
 },
 "Lunch":{
 "Covers":8,
-"Food":277.2,
-"Beverage":58.79,
-"Delivery Charge":41.05,
-"Total":377.04,
-"AV Check":47.13
+"Food":351.01,
+"Beverage":9.38,
+"Delivery Charge":50.27,
+"Total":410.66,
+"AV Check":51.33
 },
 "Dinner":{
-"Covers":21,
-"Food":1039.77,
-"Beverage":83.18,
-"Delivery Charge":253.77,
-"Total":1376.72,
-"AV Check":65.56,
-"Discounts":140.7
+"Covers":37,
+"Food":1593.69,
+"Beverage":160.13,
+"Delivery Charge":150.86,
+"Total":1904.68,
+"AV Check":51.48
 },
 "Overnight":{
-"Covers":5,
-"Food":45.65,
-"Beverage":15.16,
-"Delivery Charge":7.72,
-"Total":68.53,
-"AV Check":13.71
+"Covers":3,
+"Food":77.74,
+"Beverage":3.06,
+"Delivery Charge":11.79,
+"Total":92.59,
+"AV Check":30.86
 },
 "All Day":{
-"Covers":38,
-"Food":1415.35,
-"Beverage":165.92,
-"Delivery Charge":316.95,
-"Discounts":140.7,
-"Total":1898.22,
-"AV Check":49.95
+"Covers":52,
+"Food":2101.39,
+"Beverage":173.63,
+"Delivery Charge":233.48,
+"Discounts":10.06,
+"Total":2508.5,
+"AV Check":48.24
 }
 }
 },
 "comentarios":[
 {
-"texto":"Quiet service overall. Good opportunity to run through the new menu with the floor team.",
+"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
 "area":"Penny Blue"
 },
 {
 "texto":"Slow start to the evening. Stock count completed during the quiet period.",
 "area":"Exchange Lane"
-},
-{
-"texto":"Several breakfast orders arrived within the same fifteen minutes, causing a short delay.",
-"area":"In Room Dining"
 }
 ],
 "turnos":[
 {
-"quien":"Robin",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Reese",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
 "quien":"Jordan",
-"desde":660,
-"hasta":1230,
+"desde":840,
+"hasta":1320,
 "descanso":30,
-"horas":9.0,
-"area":null
+"horas":7.5,
+"area":"Penny Blue"
 },
 {
-"quien":"Drew",
+"quien":"Sam",
 "desde":960,
-"hasta":1470,
+"hasta":30,
 "descanso":30,
 "horas":8.0,
-"area":null
+"area":"Penny Blue"
+},
+{
+"quien":"Casey",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
@@ -7624,145 +9433,132 @@ var DATOS_DEMO = [
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":70,
-"Food":2153.18,
-"Beverage":144.13,
-"Total":2297.31,
-"AV Check":32.82,
-"Discounts":54.7
+"Covers":61,
+"Food":1972.79,
+"Beverage":108.75,
+"Total":2081.54,
+"AV Check":34.12,
+"Discounts":219.69
 },
 "Lunch":{
-"Covers":23,
-"Food":847.29,
-"Beverage":413.76,
-"Total":1261.05,
-"AV Check":54.83,
-"Discounts":197.78
+"Covers":9,
+"Food":442.44,
+"Beverage":100.58,
+"Total":543.02,
+"AV Check":60.34
 },
 "Dinner":{
-"Covers":122,
-"Food":6138.09,
-"Beverage":3945.04,
-"Misc/Banquets":1061.48,
-"Total":11144.61,
-"AV Check":91.35,
-"Discounts":1119.29
+"Covers":38,
+"Food":2337.4,
+"Beverage":900.97,
+"Total":3238.37,
+"AV Check":85.22
 },
 "All Day":{
-"Covers":215,
-"Food":9138.56,
-"Beverage":4502.93,
-"Discounts":1371.77,
-"Misc/Banquets":1061.48,
-"Total":14702.97,
-"AV Check":68.39
+"Covers":108,
+"Food":4752.63,
+"Beverage":1110.3,
+"Discounts":219.69,
+"Total":5862.93,
+"AV Check":54.29
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":173,
-"Food":1079.54,
-"Beverage":27.73,
-"Total":1107.27,
-"AV Check":6.4,
-"Discounts":91.63
+"Covers":165,
+"Food":1454.51,
+"Beverage":14.47,
+"Total":1468.98,
+"AV Check":8.9,
+"Discounts":196.76
 },
 "Lunch":{
-"Covers":67,
-"Food":733.73,
-"Beverage":267.45,
-"Total":1001.18,
-"AV Check":14.94
+"Covers":94,
+"Food":1152.14,
+"Beverage":231.06,
+"Total":1383.2,
+"AV Check":14.71,
+"Discounts":81.83
 },
 "Dinner":{
-"Covers":63,
-"Food":1539.84,
-"Beverage":1535.91,
-"Total":3075.75,
-"AV Check":48.82,
-"Discounts":123.79
+"Covers":73,
+"Food":1806.3,
+"Beverage":1147.18,
+"Total":2953.48,
+"AV Check":40.46
 },
 "All Day":{
-"Covers":303,
-"Food":3353.11,
-"Beverage":1831.09,
-"Discounts":215.42,
-"Total":5184.2,
-"AV Check":17.11
+"Covers":332,
+"Food":4412.95,
+"Beverage":1392.71,
+"Discounts":278.59,
+"Total":5805.66,
+"AV Check":17.49
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":4,
-"Food":46.1,
-"Beverage":8.28,
-"Delivery Charge":22.14,
-"Total":76.52,
-"AV Check":19.13,
-"Discounts":8.05
+"Covers":3,
+"Food":67.38,
+"Beverage":14.68,
+"Delivery Charge":15.69,
+"Total":97.75,
+"AV Check":32.58,
+"Discounts":14.32
 },
 "Lunch":{
-"Covers":13,
-"Food":242.8,
-"Beverage":11.68,
-"Delivery Charge":31.25,
-"Total":285.73,
-"AV Check":21.98,
-"Discounts":37.14
+"Covers":4,
+"Food":222.55,
+"Beverage":37.18,
+"Delivery Charge":54.35,
+"Total":314.08,
+"AV Check":78.52
 },
 "Dinner":{
-"Covers":28,
-"Food":1349.17,
-"Beverage":122.33,
-"Delivery Charge":212.25,
-"Total":1683.75,
-"AV Check":60.13,
-"Discounts":33.87
+"Covers":20,
+"Food":1107.29,
+"Beverage":101.15,
+"Delivery Charge":140.36,
+"Total":1348.8,
+"AV Check":67.44
 },
 "Overnight":{
-"Covers":0,
-"Food":96.45,
-"Beverage":6.31,
-"Delivery Charge":8.96,
-"Total":111.72,
-"Discounts":10.36
+"Covers":1,
+"Food":11.34,
+"Beverage":9.05,
+"Delivery Charge":7.86,
+"Total":28.25,
+"AV Check":28.25
 },
 "All Day":{
-"Covers":45,
-"Food":1734.52,
-"Beverage":148.6,
-"Delivery Charge":274.6,
-"Discounts":89.42,
-"Total":2157.72,
-"AV Check":47.95
+"Covers":28,
+"Food":1408.56,
+"Beverage":162.06,
+"Delivery Charge":218.26,
+"Discounts":14.32,
+"Total":1788.88,
+"AV Check":63.89
 }
 }
 },
-"comentarios":[],
+"comentarios":[
+{
+"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
+"area":"Exchange Lane"
+},
+{
+"texto":"Orders peaked at the same time as the bar. Guests were kept informed about waiting times.",
+"area":"In Room Dining"
+}
+],
 "turnos":[
 {
-"quien":"Quinn",
+"quien":"Alex",
 "desde":1080,
-"hasta":1440,
+"hasta":0,
 "descanso":30,
 "horas":5.5,
-"area":null
-},
-{
-"quien":"Riley",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Sam",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Reese",
@@ -7770,7 +9566,63 @@ var DATOS_DEMO = [
 "hasta":840,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Penny Blue"
+},
+{
+"quien":"Sam",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Morgan",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Penny Blue"
+},
+{
+"quien":"Quinn",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Avery",
+"desde":840,
+"hasta":1320,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Drew",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Jamie",
+"desde":1320,
+"hasta":360,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
@@ -7780,120 +9632,121 @@ var DATOS_DEMO = [
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":50,
-"Food":2212.92,
-"Beverage":89.21,
-"Total":2302.13,
-"AV Check":46.04,
-"Discounts":157.28
+"Covers":44,
+"Food":1926.97,
+"Beverage":106.1,
+"Total":2033.07,
+"AV Check":46.21
 },
 "Lunch":{
-"Covers":12,
-"Food":323.68,
-"Beverage":221.2,
-"Total":544.88,
-"AV Check":45.41,
-"Discounts":85.6
+"Covers":2,
+"Food":434.27,
+"Beverage":239.86,
+"Total":674.13,
+"AV Check":337.06
 },
 "Dinner":{
-"Covers":28,
-"Food":1953.4,
-"Beverage":691.74,
-"Total":2645.14,
-"AV Check":94.47,
-"Discounts":271.53
+"Covers":27,
+"Food":1648.6,
+"Beverage":1279.28,
+"Total":2927.88,
+"AV Check":108.44,
+"Discounts":288.63
 },
 "All Day":{
-"Covers":90,
-"Food":4490.0,
-"Beverage":1002.15,
-"Discounts":514.41,
-"Total":5492.15,
-"AV Check":61.02
+"Covers":73,
+"Food":4009.84,
+"Beverage":1625.24,
+"Discounts":288.63,
+"Total":5635.08,
+"AV Check":77.19
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":137,
-"Food":1126.62,
-"Beverage":53.91,
-"Total":1180.53,
-"AV Check":8.62,
-"Discounts":49.46
+"Covers":165,
+"Food":1395.84,
+"Beverage":31.89,
+"Total":1427.73,
+"AV Check":8.65
 },
 "Lunch":{
-"Covers":88,
-"Food":677.49,
-"Beverage":327.77,
-"Total":1005.26,
-"AV Check":11.42
+"Covers":90,
+"Food":778.24,
+"Beverage":255.44,
+"Total":1033.68,
+"AV Check":11.49
 },
 "Dinner":{
-"Covers":83,
-"Food":1647.62,
-"Beverage":1671.74,
-"Total":3319.36,
-"AV Check":39.99
+"Covers":48,
+"Food":1192.8,
+"Beverage":2213.67,
+"Total":3406.47,
+"AV Check":70.97
 },
 "All Day":{
-"Covers":308,
-"Food":3451.73,
-"Beverage":2053.42,
-"Discounts":49.46,
-"Total":5505.15,
-"AV Check":17.87
+"Covers":303,
+"Food":3366.88,
+"Beverage":2501.0,
+"Total":5867.88,
+"AV Check":19.37
 }
 },
 "In Room Dining":{
 "Breakfast":{
 "Covers":6,
-"Food":36.68,
-"Beverage":1.86,
-"Delivery Charge":18.14,
-"Total":56.68,
-"AV Check":9.45
+"Food":45.92,
+"Beverage":14.73,
+"Delivery Charge":21.13,
+"Total":81.78,
+"AV Check":13.63
 },
 "Lunch":{
-"Covers":6,
-"Food":256.19,
-"Beverage":59.99,
-"Delivery Charge":47.38,
-"Total":363.56,
-"AV Check":60.59,
-"Discounts":22.19
+"Covers":7,
+"Food":314.22,
+"Beverage":30.28,
+"Delivery Charge":54.57,
+"Total":399.07,
+"AV Check":57.01,
+"Discounts":58.31
 },
 "Dinner":{
-"Covers":18,
-"Food":1491.64,
-"Beverage":60.76,
-"Delivery Charge":212.89,
-"Total":1765.29,
-"AV Check":98.07,
-"Discounts":124.46
+"Covers":29,
+"Food":1519.05,
+"Beverage":120.03,
+"Delivery Charge":152.61,
+"Total":1791.69,
+"AV Check":61.78,
+"Discounts":224.73
 },
 "Overnight":{
-"Covers":3,
-"Food":92.81,
-"Beverage":1.03,
-"Delivery Charge":14.17,
-"Total":108.01,
-"AV Check":36.0
+"Covers":5,
+"Food":25.89,
+"Beverage":12.52,
+"Delivery Charge":4.45,
+"Total":42.86,
+"AV Check":8.57,
+"Discounts":5.81
 },
 "All Day":{
-"Covers":33,
-"Food":1877.32,
-"Beverage":123.64,
-"Delivery Charge":292.58,
-"Discounts":146.65,
-"Total":2293.54,
-"AV Check":69.5
+"Covers":47,
+"Food":1905.08,
+"Beverage":177.56,
+"Delivery Charge":232.76,
+"Discounts":288.85,
+"Total":2315.4,
+"AV Check":49.26
 }
 }
 },
 "comentarios":[
 {
-"texto":"Busy evening across the restaurant. Two large tables extended past closing and service ran smoothly.",
+"texto":"Private dining booking for 24 guests. Set menu ran on time and feedback was positive.",
 "area":"Penny Blue"
+},
+{
+"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
+"area":"Exchange Lane"
 },
 {
 "texto":"Orders peaked at the same time as the bar. Guests were kept informed about waiting times.",
@@ -7902,68 +9755,60 @@ var DATOS_DEMO = [
 ],
 "turnos":[
 {
-"quien":"Quinn",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Taylor",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Drew",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Jordan",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Quinn",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Robin",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
 "quien":"Jordan",
 "desde":360,
 "hasta":840,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Penny Blue"
+},
+{
+"quien":"Sam",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Quinn",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Riley",
+"desde":960,
+"hasta":30,
+"descanso":30,
+"horas":8.0,
+"area":"Exchange Lane"
+},
+{
+"quien":"Casey",
+"desde":360,
+"hasta":840,
+"descanso":30,
+"horas":7.5,
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
+},
+{
+"quien":"Taylor",
+"desde":900,
+"hasta":1380,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
@@ -7973,151 +9818,169 @@ var DATOS_DEMO = [
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":44,
-"Food":1936.52,
-"Beverage":122.29,
-"Total":2058.81,
-"AV Check":46.79
+"Covers":64,
+"Food":1973.22,
+"Beverage":125.56,
+"Total":2098.78,
+"AV Check":32.79,
+"Discounts":118.22
 },
 "Lunch":{
-"Covers":17,
-"Food":339.22,
-"Beverage":364.32,
-"Total":703.54,
-"AV Check":41.38
+"Covers":1,
+"Food":929.08,
+"Beverage":366.84,
+"Total":1295.92,
+"AV Check":1295.92
 },
 "Dinner":{
-"Covers":106,
-"Food":7335.78,
-"Beverage":3865.29,
-"Misc/Banquets":472.88,
-"Total":11673.95,
-"AV Check":110.13
+"Covers":97,
+"Food":7027.31,
+"Beverage":4459.86,
+"Misc/Banquets":1201.02,
+"Total":12688.19,
+"AV Check":130.81,
+"Discounts":1529.05
 },
 "All Day":{
-"Covers":167,
-"Food":9611.52,
-"Beverage":4351.9,
-"Misc/Banquets":472.88,
-"Total":14436.3,
-"AV Check":86.44
+"Covers":162,
+"Food":9929.61,
+"Beverage":4952.26,
+"Discounts":1647.27,
+"Misc/Banquets":1201.02,
+"Total":16082.89,
+"AV Check":99.28
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":165,
-"Food":1297.86,
-"Beverage":37.27,
-"Total":1335.13,
-"AV Check":8.09
+"Covers":116,
+"Food":1505.91,
+"Beverage":18.04,
+"Total":1523.95,
+"AV Check":13.14,
+"Discounts":144.87
 },
 "Lunch":{
-"Covers":96,
-"Food":885.96,
-"Beverage":319.0,
-"Total":1204.96,
-"AV Check":12.55
+"Covers":65,
+"Food":1086.63,
+"Beverage":322.84,
+"Total":1409.47,
+"AV Check":21.68,
+"Discounts":28.53
 },
 "Dinner":{
-"Covers":49,
-"Food":1844.69,
-"Beverage":1762.82,
-"Total":3607.51,
-"AV Check":73.62
+"Covers":51,
+"Food":1161.11,
+"Beverage":1843.8,
+"Total":3004.91,
+"AV Check":58.92
 },
 "All Day":{
-"Covers":310,
-"Food":4028.51,
-"Beverage":2119.09,
-"Total":6147.6,
-"AV Check":19.83
+"Covers":232,
+"Food":3753.65,
+"Beverage":2184.68,
+"Discounts":173.4,
+"Total":5938.33,
+"AV Check":25.6
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":1,
-"Food":24.67,
-"Beverage":3.61,
-"Delivery Charge":8.7,
-"Total":36.98,
-"AV Check":36.98,
-"Discounts":4.39
+"Covers":3,
+"Food":41.05,
+"Beverage":3.57,
+"Delivery Charge":11.3,
+"Total":55.92,
+"AV Check":18.64,
+"Discounts":3.68
 },
 "Lunch":{
-"Covers":5,
-"Food":346.76,
-"Beverage":53.25,
-"Delivery Charge":27.12,
-"Total":427.13,
-"AV Check":85.43
+"Covers":9,
+"Food":393.19,
+"Beverage":60.06,
+"Delivery Charge":25.52,
+"Total":478.77,
+"AV Check":53.2,
+"Discounts":51.94
 },
 "Dinner":{
-"Covers":28,
-"Food":1604.09,
-"Beverage":124.32,
-"Delivery Charge":193.33,
-"Total":1921.74,
-"AV Check":68.63,
-"Discounts":113.75
+"Covers":29,
+"Food":1285.71,
+"Beverage":104.66,
+"Delivery Charge":248.56,
+"Total":1638.93,
+"AV Check":56.51,
+"Discounts":242.04
 },
 "Overnight":{
-"Covers":2,
-"Food":31.19,
-"Beverage":2.95,
-"Delivery Charge":15.43,
-"Total":49.57,
-"AV Check":24.79,
-"Discounts":1.81
+"Covers":5,
+"Food":68.62,
+"Beverage":12.57,
+"Delivery Charge":12.13,
+"Total":93.32,
+"AV Check":18.66
 },
 "All Day":{
-"Covers":36,
-"Food":2006.71,
-"Beverage":184.13,
-"Delivery Charge":244.58,
-"Discounts":119.95,
-"Total":2435.42,
-"AV Check":67.65
+"Covers":46,
+"Food":1788.57,
+"Beverage":180.86,
+"Delivery Charge":297.51,
+"Discounts":297.66,
+"Total":2266.94,
+"AV Check":49.28
 }
 }
 },
 "comentarios":[
 {
-"texto":"Slow start to the evening. Stock count completed during the quiet period.",
+"texto":"Quiet service overall. Good opportunity to run through the new menu with the floor team.",
+"area":"Penny Blue"
+},
+{
+"texto":"Steady lunch service. A guest asked about gluten free options; the kitchen adjusted the dish.",
 "area":"Exchange Lane"
 }
 ],
 "turnos":[
 {
 "quien":"Robin",
-"desde":1080,
-"hasta":1440,
+"desde":960,
+"hasta":30,
 "descanso":30,
-"horas":5.5,
-"area":null
+"horas":8.0,
+"area":"Penny Blue"
 },
 {
-"quien":"Taylor",
-"desde":360,
-"hasta":840,
+"quien":"Morgan",
+"desde":960,
+"hasta":30,
 "descanso":30,
-"horas":7.5,
-"area":null
+"horas":8.0,
+"area":"Penny Blue"
 },
 {
-"quien":"Taylor",
-"desde":1020,
-"hasta":1380,
+"quien":"Jordan",
+"desde":660,
+"hasta":1230,
 "descanso":30,
-"horas":5.5,
-"area":null
+"horas":9.0,
+"area":"Penny Blue"
 },
 {
-"quien":"Taylor",
+"quien":"Avery",
 "desde":840,
 "hasta":1320,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Exchange Lane"
+},
+{
+"quien":"Taylor",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
@@ -8127,358 +9990,185 @@ var DATOS_DEMO = [
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":52,
-"Food":2008.07,
-"Beverage":168.4,
-"Total":2176.47,
-"AV Check":41.86
+"Covers":38,
+"Food":1632.15,
+"Beverage":63.43,
+"Total":1695.58,
+"AV Check":44.62
 },
 "Lunch":{
-"Covers":30,
-"Food":790.8,
-"Beverage":410.66,
-"Total":1201.46,
-"AV Check":40.05,
-"Discounts":147.46
+"Covers":10,
+"Food":415.91,
+"Beverage":190.17,
+"Total":606.08,
+"AV Check":60.61,
+"Discounts":61.13
 },
 "Dinner":{
-"Covers":137,
-"Food":5627.37,
-"Beverage":3880.82,
-"Misc/Banquets":1324.54,
-"Total":10832.73,
-"AV Check":79.07,
-"Discounts":808.2
+"Covers":22,
+"Food":1702.84,
+"Beverage":874.55,
+"Total":2577.39,
+"AV Check":117.15
 },
 "All Day":{
-"Covers":219,
-"Food":8426.24,
-"Beverage":4459.88,
-"Discounts":955.66,
-"Misc/Banquets":1324.54,
-"Total":14210.66,
-"AV Check":64.89
+"Covers":70,
+"Food":3750.9,
+"Beverage":1128.15,
+"Discounts":61.13,
+"Total":4879.05,
+"AV Check":69.7
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":187,
-"Food":1402.22,
-"Beverage":19.55,
-"Total":1421.77,
-"AV Check":7.6
+"Covers":112,
+"Food":1059.3,
+"Beverage":34.04,
+"Total":1093.34,
+"AV Check":9.76,
+"Discounts":83.81
 },
 "Lunch":{
 "Covers":100,
-"Food":925.45,
-"Beverage":269.25,
-"Total":1194.7,
-"AV Check":11.95
+"Food":832.03,
+"Beverage":349.79,
+"Total":1181.82,
+"AV Check":11.82
 },
 "Dinner":{
-"Covers":76,
-"Food":1351.88,
-"Beverage":2202.91,
-"Total":3554.79,
-"AV Check":46.77,
-"Discounts":448.84
+"Covers":86,
+"Food":1307.45,
+"Beverage":2027.2,
+"Total":3334.65,
+"AV Check":38.77,
+"Discounts":125.94
 },
 "All Day":{
-"Covers":363,
-"Food":3679.55,
-"Beverage":2491.71,
-"Discounts":448.84,
-"Total":6171.26,
-"AV Check":17.0
+"Covers":298,
+"Food":3198.78,
+"Beverage":2411.03,
+"Discounts":209.75,
+"Total":5609.81,
+"AV Check":18.82
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":2,
-"Food":51.03,
-"Beverage":17.15,
-"Delivery Charge":12.5,
-"Total":80.68,
-"AV Check":40.34,
-"Discounts":2.53
+"Covers":4,
+"Food":30.99,
+"Beverage":6.18,
+"Delivery Charge":9.13,
+"Total":46.3,
+"AV Check":11.58,
+"Discounts":6.51
 },
 "Lunch":{
-"Covers":9,
-"Food":184.22,
-"Beverage":43.79,
-"Delivery Charge":36.79,
-"Total":264.8,
-"AV Check":29.42
+"Covers":10,
+"Food":329.53,
+"Beverage":57.53,
+"Delivery Charge":24.46,
+"Total":411.52,
+"AV Check":41.15
 },
 "Dinner":{
-"Covers":33,
-"Food":1024.32,
-"Beverage":136.12,
-"Delivery Charge":183.42,
-"Total":1343.86,
-"AV Check":40.72
+"Covers":21,
+"Food":1461.04,
+"Beverage":65.8,
+"Delivery Charge":197.24,
+"Total":1724.08,
+"AV Check":82.1,
+"Discounts":219.19
 },
 "Overnight":{
-"Covers":5,
-"Food":72.1,
-"Beverage":7.73,
-"Delivery Charge":11.9,
-"Total":91.73,
-"AV Check":18.35
+"Covers":3,
+"Food":84.5,
+"Beverage":2.62,
+"Delivery Charge":10.05,
+"Total":97.17,
+"AV Check":32.39
 },
 "All Day":{
-"Covers":49,
-"Food":1331.67,
-"Beverage":204.79,
-"Delivery Charge":244.61,
-"Discounts":2.53,
-"Total":1781.07,
-"AV Check":36.35
+"Covers":38,
+"Food":1906.06,
+"Beverage":132.13,
+"Delivery Charge":240.88,
+"Discounts":225.7,
+"Total":2279.07,
+"AV Check":59.98
 }
 }
 },
-"comentarios":[],
+"comentarios":[
+{
+"texto":"Quiet service overall. Good opportunity to run through the new menu with the floor team.",
+"area":"Penny Blue"
+},
+{
+"texto":"The bar filled up between 18:00 and 21:00 with several small groups. Mostly in-house guests.",
+"area":"Exchange Lane"
+},
+{
+"texto":"Several breakfast orders arrived within the same fifteen minutes, causing a short delay.",
+"area":"In Room Dining"
+}
+],
 "turnos":[
 {
-"quien":"Sam",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Casey",
+"quien":"Jordan",
 "desde":660,
 "hasta":1230,
 "descanso":30,
 "horas":9.0,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Robin",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Avery",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Reese",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-}
-]
-},
-{
-"fecha":"2026-08-25",
-"hoja":"ejemplo",
-"areas":{
-"Penny Blue":{
-"Breakfast":{
-"Covers":56,
-"Food":1742.22,
-"Beverage":119.73,
-"Total":1861.95,
-"AV Check":33.25,
-"Discounts":291.44
-},
-"Lunch":{
-"Covers":17,
-"Food":126.18,
-"Beverage":117.67,
-"Total":243.85,
-"AV Check":14.34,
-"Discounts":30.35
-},
-"Dinner":{
-"Covers":24,
-"Food":2154.28,
-"Beverage":1153.83,
-"Total":3308.11,
-"AV Check":137.84,
-"Discounts":365.08
-},
-"All Day":{
-"Covers":97,
-"Food":4022.68,
-"Beverage":1391.23,
-"Discounts":686.87,
-"Total":5413.91,
-"AV Check":55.81
-}
-},
-"Exchange Lane":{
-"Breakfast":{
-"Covers":143,
-"Food":1576.54,
-"Beverage":35.57,
-"Total":1612.11,
-"AV Check":11.27,
-"Discounts":184.32
-},
-"Lunch":{
-"Covers":77,
-"Food":662.24,
-"Beverage":285.25,
-"Total":947.49,
-"AV Check":12.31
-},
-"Dinner":{
-"Covers":49,
-"Food":1660.36,
-"Beverage":1250.83,
-"Total":2911.19,
-"AV Check":59.41,
-"Discounts":460.32
-},
-"All Day":{
-"Covers":269,
-"Food":3899.14,
-"Beverage":1571.65,
-"Discounts":644.64,
-"Total":5470.79,
-"AV Check":20.34
-}
-},
-"In Room Dining":{
-"Breakfast":{
-"Covers":6,
-"Food":34.6,
-"Beverage":10.51,
-"Delivery Charge":15.81,
-"Total":60.92,
-"AV Check":10.15,
-"Discounts":5.69
-},
-"Lunch":{
-"Covers":6,
-"Food":249.3,
-"Beverage":53.79,
-"Delivery Charge":28.69,
-"Total":331.78,
-"AV Check":55.3
-},
-"Dinner":{
-"Covers":19,
-"Food":1129.13,
-"Beverage":167.73,
-"Delivery Charge":215.88,
-"Total":1512.74,
-"AV Check":79.62,
-"Discounts":85.35
-},
-"Overnight":{
-"Covers":5,
-"Food":70.6,
-"Beverage":9.21,
-"Delivery Charge":4.88,
-"Total":84.69,
-"AV Check":16.94
-},
-"All Day":{
-"Covers":36,
-"Food":1483.63,
-"Beverage":241.24,
-"Delivery Charge":265.26,
-"Discounts":91.04,
-"Total":1990.13,
-"AV Check":55.28
-}
-}
-},
-"comentarios":[],
-"turnos":[
-{
-"quien":"Skyler",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Quinn",
-"desde":660,
-"hasta":1230,
-"descanso":30,
-"horas":9.0,
-"area":null
-},
-{
-"quien":"Reese",
 "desde":360,
 "hasta":840,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Penny Blue"
 },
 {
-"quien":"Robin",
+"quien":"Casey",
 "desde":1080,
-"hasta":1440,
+"hasta":0,
 "descanso":30,
 "horas":5.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
-"quien":"Blake",
-"desde":960,
-"hasta":1470,
+"quien":"Quinn",
+"desde":360,
+"hasta":840,
 "descanso":30,
-"horas":8.0,
-"area":null
+"horas":7.5,
+"area":"Exchange Lane"
 },
 {
-"quien":"Robin",
+"quien":"Riley",
 "desde":840,
 "hasta":1320,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Exchange Lane"
 },
 {
-"quien":"Morgan",
-"desde":960,
-"hasta":1470,
+"quien":"Drew",
+"desde":1320,
+"hasta":360,
 "descanso":30,
-"horas":8.0,
-"area":null
+"horas":7.5,
+"area":"In Room Dining"
 },
 {
 "quien":"Taylor",
-"desde":660,
-"hasta":1230,
+"desde":1140,
+"hasta":180,
 "descanso":30,
-"horas":9.0,
-"area":null
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 },
@@ -8488,183 +10178,177 @@ var DATOS_DEMO = [
 "areas":{
 "Penny Blue":{
 "Breakfast":{
-"Covers":46,
-"Food":1763.59,
-"Beverage":134.27,
-"Total":1897.86,
-"AV Check":41.26
+"Covers":42,
+"Food":2022.93,
+"Beverage":142.66,
+"Total":2165.59,
+"AV Check":51.56,
+"Discounts":58.19
 },
 "Lunch":{
-"Covers":3,
-"Food":650.89,
-"Beverage":471.47,
-"Total":1122.36,
-"AV Check":374.12
+"Covers":1,
+"Food":776.69,
+"Beverage":130.83,
+"Total":907.52,
+"AV Check":907.52,
+"Discounts":116.51
 },
 "Dinner":{
-"Covers":115,
-"Food":6216.74,
-"Beverage":2893.82,
-"Misc/Banquets":1095.87,
-"Total":10206.43,
-"AV Check":88.75
+"Covers":138,
+"Food":5913.54,
+"Beverage":3376.11,
+"Misc/Banquets":1114.34,
+"Total":10403.99,
+"AV Check":75.39,
+"Discounts":1500.0
 },
 "All Day":{
-"Covers":164,
-"Food":8631.22,
-"Beverage":3499.56,
-"Misc/Banquets":1095.87,
-"Total":13226.65,
-"AV Check":80.65
+"Covers":181,
+"Food":8713.16,
+"Beverage":3649.6,
+"Discounts":1674.7,
+"Misc/Banquets":1114.34,
+"Total":13477.1,
+"AV Check":74.46
 }
 },
 "Exchange Lane":{
 "Breakfast":{
-"Covers":120,
-"Food":1514.72,
-"Beverage":44.85,
-"Total":1559.57,
-"AV Check":13.0
+"Covers":131,
+"Food":1320.37,
+"Beverage":19.6,
+"Total":1339.97,
+"AV Check":10.23
 },
 "Lunch":{
-"Covers":86,
-"Food":1088.58,
-"Beverage":219.98,
-"Total":1308.56,
-"AV Check":15.22
+"Covers":67,
+"Food":823.17,
+"Beverage":381.08,
+"Total":1204.25,
+"AV Check":17.97
 },
 "Dinner":{
-"Covers":86,
-"Food":1377.75,
-"Beverage":1989.31,
-"Total":3367.06,
-"AV Check":39.15,
-"Discounts":251.86
+"Covers":89,
+"Food":1414.02,
+"Beverage":1506.56,
+"Total":2920.58,
+"AV Check":32.82
 },
 "All Day":{
-"Covers":292,
-"Food":3981.05,
-"Beverage":2254.14,
-"Discounts":251.86,
-"Total":6235.19,
-"AV Check":21.35
+"Covers":287,
+"Food":3557.56,
+"Beverage":1907.24,
+"Total":5464.8,
+"AV Check":19.04
 }
 },
 "In Room Dining":{
 "Breakfast":{
-"Covers":2,
-"Food":88.69,
-"Beverage":12.7,
-"Delivery Charge":23.25,
-"Total":124.64,
-"AV Check":62.32
+"Covers":5,
+"Food":86.76,
+"Beverage":4.6,
+"Delivery Charge":15.94,
+"Total":107.3,
+"AV Check":21.46
 },
 "Lunch":{
 "Covers":12,
-"Food":367.49,
-"Beverage":65.35,
-"Delivery Charge":37.97,
-"Total":470.81,
-"AV Check":39.23,
-"Discounts":53.68
+"Food":244.6,
+"Beverage":17.97,
+"Delivery Charge":41.33,
+"Total":303.9,
+"AV Check":25.32,
+"Discounts":19.73
 },
 "Dinner":{
-"Covers":19,
-"Food":1411.85,
-"Beverage":59.45,
-"Delivery Charge":175.49,
-"Total":1646.79,
-"AV Check":86.67
+"Covers":30,
+"Food":1177.62,
+"Beverage":126.61,
+"Delivery Charge":164.83,
+"Total":1469.06,
+"AV Check":48.97
 },
 "Overnight":{
-"Covers":2,
-"Food":38.84,
-"Beverage":7.15,
-"Delivery Charge":9.77,
-"Total":55.76,
-"AV Check":27.88
+"Covers":5,
+"Food":58.99,
+"Beverage":5.26,
+"Delivery Charge":10.67,
+"Total":74.92,
+"AV Check":14.98
 },
 "All Day":{
-"Covers":35,
-"Food":1906.87,
-"Beverage":144.65,
-"Delivery Charge":246.48,
-"Discounts":53.68,
-"Total":2298.0,
-"AV Check":65.66
+"Covers":52,
+"Food":1567.97,
+"Beverage":154.44,
+"Delivery Charge":232.77,
+"Discounts":19.73,
+"Total":1955.18,
+"AV Check":37.6
 }
 }
 },
 "comentarios":[
 {
-"texto":"Busy evening across the restaurant. Two large tables extended past closing and service ran smoothly.",
-"area":"Penny Blue"
+"texto":"An order was delayed due to an incorrect room number. Corrected and delivered with an apology.",
+"area":"In Room Dining"
 }
 ],
 "turnos":[
+{
+"quien":"Jordan",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
 {
 "quien":"Robin",
 "desde":1020,
 "hasta":1380,
 "descanso":30,
 "horas":5.5,
-"area":null
-},
-{
-"quien":"Morgan",
-"desde":960,
-"hasta":1470,
-"descanso":30,
-"horas":8.0,
-"area":null
-},
-{
-"quien":"Reese",
-"desde":1020,
-"hasta":1380,
-"descanso":30,
-"horas":5.5,
-"area":null
+"area":"Penny Blue"
 },
 {
 "quien":"Sam",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Casey",
-"desde":840,
-"hasta":1320,
-"descanso":30,
-"horas":7.5,
-"area":null
-},
-{
-"quien":"Avery",
 "desde":660,
 "hasta":1230,
 "descanso":30,
 "horas":9.0,
-"area":null
+"area":"Penny Blue"
+},
+{
+"quien":"Reese",
+"desde":1080,
+"hasta":0,
+"descanso":30,
+"horas":5.5,
+"area":"Penny Blue"
+},
+{
+"quien":"Casey",
+"desde":1020,
+"hasta":1380,
+"descanso":30,
+"horas":5.5,
+"area":"Exchange Lane"
 },
 {
 "quien":"Quinn",
-"desde":1080,
-"hasta":1440,
-"descanso":30,
-"horas":5.5,
-"area":null
-},
-{
-"quien":"Blake",
 "desde":360,
 "hasta":840,
 "descanso":30,
 "horas":7.5,
-"area":null
+"area":"Exchange Lane"
+},
+{
+"quien":"Jamie",
+"desde":1140,
+"hasta":180,
+"descanso":30,
+"horas":7.5,
+"area":"In Room Dining"
 }
 ]
 }

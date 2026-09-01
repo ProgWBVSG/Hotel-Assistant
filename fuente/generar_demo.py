@@ -35,6 +35,21 @@ COMENTARIOS = {
   ]
 }
 
+# Quien trabaja en cada salon. En el hotel no son los mismos: el que atiende
+# Penny Blue no es el que sale a las habitaciones.
+PLANTEL = {
+    'Penny Blue':     ['Robin', 'Morgan', 'Reese', 'Alex', 'Jordan', 'Sam'],
+    'Exchange Lane':  ['Casey', 'Riley', 'Quinn', 'Avery'],
+    'In Room Dining': ['Taylor', 'Jamie', 'Drew'],
+}
+
+# Turnos que cruzan la noche: entran a la tarde y salen de madrugada.
+TURNOS_NOCHE = [
+    (19 * 60, 27 * 60, 30),      # 19:00 a 03:00
+    (22 * 60, 30 * 60, 30),      # 22:00 a 06:00
+    (15 * 60, 23 * 60, 30),      # 15:00 a 23:00
+]
+
 TURNOS_TIPO = [(17*60, 23*60, 30), (18*60, 24*60, 30), (11*60, 20*60+30, 30),
                (16*60, 24*60+30, 30), (6*60, 14*60, 30), (14*60, 22*60, 30)]
 
@@ -112,14 +127,23 @@ def armar_dia(fecha, evento):
     areas['In Room Dining'] = ird
 
     # --- turnos ---
+    # Cada persona trabaja siempre en la misma area: asi es en el hotel y asi
+    # el sistema puede aprender quien es de donde. In Room Dining es el unico
+    # que tiene turno de noche, que es donde entran los recargos.
     turnos = []
-    for _ in range(random.randint(4, 8)):
-        desde, hasta, desc = random.choice(TURNOS_TIPO)
-        turnos.append({
-            'quien': random.choice(NOMBRES), 'desde': desde, 'hasta': hasta,
-            'descanso': desc, 'horas': round((hasta - desde - desc) / 60.0, 2),
-            'area': None
-        })
+    for area, plantel, cuantos, horarios in [
+        ('Penny Blue',     PLANTEL['Penny Blue'],     (2, 4), TURNOS_TIPO),
+        ('Exchange Lane',  PLANTEL['Exchange Lane'],  (1, 3), TURNOS_TIPO),
+        ('In Room Dining', PLANTEL['In Room Dining'], (1, 2), TURNOS_NOCHE),
+    ]:
+        for quien in random.sample(plantel, random.randint(*cuantos)):
+            desde, hasta, desc = random.choice(horarios)
+            span = (hasta - desde) if hasta > desde else (hasta + 1440 - desde)
+            turnos.append({
+                'quien': quien, 'desde': desde, 'hasta': hasta % 1440,
+                'descanso': desc, 'horas': round((span - desc) / 60.0, 2),
+                'area': area
+            })
 
     # --- comentarios ---
     coment = []

@@ -225,16 +225,18 @@ function vistaDatos() {
 
   /* --- historial --- */
   if (E.historial.length) {
-    h += '<div class="titulo-seccion">Últimos movimientos</div>';
-    h += '<div class="marco"><table><thead><tr><th style="width:150px">Cuándo</th>' +
-      '<th>Qué pasó</th></tr></thead><tbody>';
+    h += '<div class="titulo-seccion">' +
+      (enIngles() ? 'Latest activity' : 'Últimos movimientos') + '</div>';
+    h += '<div class="marco"><table><thead><tr><th style="width:150px">' +
+      (enIngles() ? 'When' : 'Cuándo') + '</th>' +
+      '<th>' + (enIngles() ? 'What happened' : 'Qué pasó') + '</th></tr></thead><tbody>';
     E.historial.slice(0, 15).forEach(function (x) {
       var f = new Date(x.cuando);
       h += '<tr><td style="color:var(--tinta-suave);font-size:11.5px">' +
         f.toLocaleString(enIngles() ? 'en-AU' : 'es-AR',
           { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' }) + '</td>' +
-        '<td><strong>' + esc(x.que) + '</strong> ' +
-        '<span style="color:var(--tinta-media)">' + esc(x.detalle || '') + '</span></td></tr>';
+        '<td><strong>' + esc(T(x.que)) + '</strong> ' +
+        '<span style="color:var(--tinta-media)">' + esc(x.detalle ? T(x.detalle) : '') + '</span></td></tr>';
     });
     h += '</tbody></table></div>';
   }

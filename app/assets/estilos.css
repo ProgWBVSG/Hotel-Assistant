@@ -461,3 +461,83 @@ tbody tr:has(select.celda) td{ padding-top:8px; padding-bottom:8px; }
 /* La ultima pestana quedaba cortada al hacer scroll */
 .tabs{ padding-right:10px; }
 .tabs a:last-child{ margin-right:6px; }
+
+/* ---------- WhatsApp ---------- */
+.boton.wa{
+  background:#1f7a4d; color:#fff; border-color:#1f7a4d; font-weight:600;
+}
+.boton.wa:hover{ background:#186139; border-color:#186139; }
+.vista-wa{ padding:16px 18px; background:#eef2ec; }
+.vista-wa pre{
+  white-space:pre-wrap; font-family:inherit; font-size:12.5px;
+  line-height:1.6; margin:0; color:var(--tinta);
+}
+
+/* ---------- staff en la presentación ---------- */
+.hoja-seccion{ margin-top:20px; }
+.hoja-titulo{
+  font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+  color:var(--tinta-media); margin-bottom:9px;
+  padding-bottom:5px; border-bottom:1px solid var(--linea);
+}
+table.hoja-staff{ width:100%; border-collapse:collapse; margin-bottom:12px; font-size:11.5px; }
+table.hoja-staff th.area{
+  text-align:left; padding:6px 0 4px; font-size:12px; font-weight:700;
+  color:var(--tinta); border-bottom:1px solid var(--linea-fuerte); text-transform:none; letter-spacing:0;
+}
+table.hoja-staff th.area span{ font-weight:400; color:var(--tinta-media); font-size:11px; }
+table.hoja-staff thead tr:last-child th{
+  font-size:9.5px; text-transform:uppercase; letter-spacing:.05em;
+  color:var(--tinta-suave); padding:4px 6px; border-bottom:1px solid var(--linea);
+  background:transparent; position:static;
+}
+table.hoja-staff td{ padding:3px 6px; border-bottom:1px solid #f0eeea; }
+table.hoja-staff td.hora{ color:var(--tinta-media); font-variant-numeric:tabular-nums; }
+table.hoja-staff td.hora .desc{ color:var(--tinta-suave); font-size:10px; }
+table.hoja-staff td.num{ text-align:right; font-variant-numeric:tabular-nums; }
+table.hoja-staff .rec{ color:var(--aviso); font-weight:700; margin-left:2px; }
+.hoja-staff-total{
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  padding:8px 6px; border-top:1.5px solid var(--linea-fuerte);
+  font-size:12px;
+}
+
+@media print{
+  table.hoja-staff{ break-inside:avoid; }
+  .hoja-seccion{ break-inside:avoid; }
+}
+
+/* ---------- barra de pestañas ----------
+   Con trece pestañas el scroll horizontal esconde las últimas y no se nota
+   que están: en pantalla ancha se acomodan en dos filas y quedan todas a la
+   vista. El scroll queda solo para pantallas chicas, donde ya se espera. */
+@media (min-width: 900px){
+  .barra{ align-items:flex-start; }
+  .tabs{
+    flex-wrap:wrap; overflow:visible;
+    row-gap:2px; padding-bottom:4px;
+  }
+  .barra-der{ margin-top:1px; }
+}
+
+/* ---------- quién es casual ---------- */
+.chip-casual{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:5px 11px; border:1px solid var(--linea-fuerte); border-radius:20px;
+  font-size:12.5px; cursor:pointer; background:#fff; user-select:none;
+}
+.chip-casual:hover{ border-color:var(--acento); }
+.chip-casual.puesto{
+  background:var(--acento); border-color:var(--acento); color:#fff; font-weight:600;
+}
+.chip-casual input{ margin:0; cursor:pointer; }
+
+/* ---------- que nada desborde en el teléfono ----------
+   Las tablas anchas se desplazan dentro de su propio recuadro, en vez de
+   estirar la página entera y dejar todo corrido. */
+@media (max-width: 640px){
+  .hoja-seccion{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  table.hoja-staff{ min-width:330px; }
+  .calendario{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .hoja-staff-total{ flex-direction:column; gap:4px; }
+}
