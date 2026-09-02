@@ -12,6 +12,7 @@ function iniciar() {
   if (typeof recuperarSesion === 'function') {
     recuperarSesion();
     recuperarCola();
+    recuperarHuellas();
     try { MODO_LOCAL = localStorage.getItem(CLAVE_LOCAL) === '1'; } catch (e) {}
     if (puedeUsarNube()) {
       NUBE_ESTADO = 'lista';

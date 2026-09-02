@@ -231,6 +231,7 @@ function bajarTodo() {
     }
 
     guardarLocal();
+    anotarHuellasDeLoBajado();
     return true;
   });
 }
@@ -335,9 +336,21 @@ function vaciarCola() {
     marcaNube();
   }).catch(function (e) {
     _VACIANDO = false;
+    /* Un error 4xx quiere decir que ESA tarea esta mal armada: reintentarla
+       eternamente bloquea todo lo que viene atras. Se descarta y se sigue.
+       Un error de red si se reintenta, que para eso esta la cola. */
+    var esDelDato = e.status >= 400 && e.status < 500;
+    if (esDelDato) {
+      var mala = PENDIENTES.shift();
+      try { localStorage.setItem(CLAVE_COLA, JSON.stringify(PENDIENTES)); } catch (x) {}
+      if (window.console) console.warn('Descartado de la cola:', mala && mala.tipo, e.message);
+      NUBE_ESTADO = 'lista';
+      marcaNube();
+      if (PENDIENTES.length) return vaciarCola();
+      return;
+    }
     NUBE_ESTADO = navigator.onLine ? 'error' : 'sinRed';
     marcaNube();
-    /* no se descarta: se reintenta cuando vuelva la red */
   });
 }
 
@@ -402,7 +415,34 @@ function mandar(tarea) {
 
 /* Qué mandar cuando se guarda. Se comparan los días contra lo último que se
    subió para no mandar el mes entero cada vez que se toca una tecla. */
+/* Que se subio y con que contenido. Se guarda en el navegador: si viviera
+   solo en memoria, cada vez que se abre el sistema volveria a mandar el mes
+   entero a la nube. */
 var _ULTIMO_SUBIDO = {};
+var CLAVE_HUELLAS = 'reporte_diario_huellas';
+
+function recuperarHuellas() {
+  try {
+    var c = localStorage.getItem(CLAVE_HUELLAS);
+    _ULTIMO_SUBIDO = c ? JSON.parse(c) : {};
+  } catch (e) { _ULTIMO_SUBIDO = {}; }
+}
+var _GUARDAR_HUELLAS;
+function guardarHuellas() {
+  clearTimeout(_GUARDAR_HUELLAS);
+  _GUARDAR_HUELLAS = setTimeout(function () {
+    try { localStorage.setItem(CLAVE_HUELLAS, JSON.stringify(_ULTIMO_SUBIDO)); } catch (e) {}
+  }, 400);
+}
+
+/* Lo que acaba de bajar de la nube ya esta alla: no hay que devolverlo. */
+function anotarHuellasDeLoBajado() {
+  E.dias.forEach(function (d) {
+    _ULTIMO_SUBIDO[d.fecha] = JSON.stringify([d.areas, d.turnos, d.comentarios]);
+  });
+  guardarHuellas();
+}
+
 function sincronizar() {
   if (!puedeUsarNube()) return;
   /* Los dias de ejemplo NO se suben. Si alguien abre el sistema por primera
@@ -414,6 +454,7 @@ function sincronizar() {
     var huella = JSON.stringify([d.areas, d.turnos, d.comentarios]);
     if (_ULTIMO_SUBIDO[d.fecha] === huella) return;
     _ULTIMO_SUBIDO[d.fecha] = huella;
+    guardarHuellas();
     encolar('dia', d);
   });
 
@@ -422,7 +463,9 @@ function sincronizar() {
     var huella = JSON.stringify(E[k]);
     if (_ULTIMO_SUBIDO['@' + k] === huella) return;
     _ULTIMO_SUBIDO['@' + k] = huella;
-    encolar('ajuste', { clave: k, valor: E[k] === undefined ? null : E[k] });
+    guardarHuellas();
+    if (E[k] === undefined || E[k] === null) return;   /* la base no acepta vacio */
+    encolar('ajuste', { clave: k, valor: E[k] });
   });
 }
 
