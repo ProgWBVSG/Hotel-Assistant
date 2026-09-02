@@ -34,8 +34,17 @@ var CLAVE_G = 'reporte_diario_v2';
 
 function guardarTodo() {
   guardarLocal();
+  marcarDiaTocado();
   /* y después, si hay sesión, se manda a la nube: primero local, siempre */
   if (typeof sincronizar === 'function') sincronizar();
+}
+
+/* El día que se está mirando queda marcado con la hora. Sin esto, al unir lo
+   de dos computadoras no hay forma de saber cuál versión es la nueva. */
+function marcarDiaTocado() {
+  if (typeof DIA_SEL !== 'string' || !DIA_SEL) return;
+  var d = dia(DIA_SEL);
+  if (d) d.editado_en = new Date().toISOString();
 }
 
 /* Escribir en este navegador. Es lo único que tiene que ser instantáneo. */

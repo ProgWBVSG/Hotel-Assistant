@@ -12,11 +12,9 @@ var CLAVE_LOCAL = 'reporte_diario_solo_local';
 var ENTRANDO = false;
 var ERROR_ENTRAR = null;
 
-function necesitaEntrar() {
-  if (!nubeConfigurada()) return false;
-  if (MODO_LOCAL) return false;
-  return !haySesion();
-}
+/* Ya no se pide cuenta para entrar: el sistema guarda igual. La pantalla de
+   entrada queda para cuando se quiera saber quién cargó cada cosa. */
+function necesitaEntrar() { return false; }
 
 function seguirSoloLocal() {
   MODO_LOCAL = true;

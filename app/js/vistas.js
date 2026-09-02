@@ -13,9 +13,13 @@ function iniciar() {
     recuperarSesion();
     recuperarCola();
     try { MODO_LOCAL = localStorage.getItem(CLAVE_LOCAL) === '1'; } catch (e) {}
-    /* con sesión guardada se baja lo de la nube antes de mostrar nada viejo */
-    if (haySesion()) {
+    if (puedeUsarNube()) {
       NUBE_ESTADO = 'lista';
+      /* Primero se sube lo que hay en esta computadora, después se baja y se
+         une con lo de las demás. En ese orden no se pierde nada de ningún
+         lado, ni la primera vez que se conecta una computadora que venía
+         trabajando sola. */
+      sincronizar();
       bajarTodo().then(function () {
         var ms = mesesDisponibles();
         if (ms.length) MES = ms[ms.length - 1];

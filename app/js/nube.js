@@ -23,6 +23,9 @@ var NUBE = {
   clave: 'sb_publishable_HlqNyLpoZPwZQ0DELSFQ4Q_-xJuXZGj'
 };
 
+/* El hotel. Es una sola propiedad, con un id fijo: no hace falta buscarlo. */
+var PROPIEDAD = '00000000-0000-0000-0000-000000000001';
+
 var SESION = null;          /* { access_token, refresh_token, expira, usuario } */
 var CLAVE_SESION = 'reporte_diario_sesion';
 var PENDIENTES = [];        /* lo que falta mandar */
@@ -51,12 +54,18 @@ function pedir(camino, opciones) {
     headers: cab,
     body: o.cuerpo ? JSON.stringify(o.cuerpo) : undefined
   }).then(function (r) {
-    if (r.status === 204) return null;
-    return r.json().then(function (j) {
+    /* Un DELETE o un POST sin "return=representation" contestan sin cuerpo.
+       Hay que leer el texto y recien ahi intentar interpretarlo: pedirle
+       json() a una respuesta vacia revienta. */
+    return r.text().then(function (txt) {
+      var j = null;
+      if (txt) { try { j = JSON.parse(txt); } catch (e) { j = null; } }
       if (!r.ok) {
-        var e = new Error((j && (j.message || j.error_description || j.msg)) || ('HTTP ' + r.status));
-        e.status = r.status;
-        throw e;
+        var msg = (j && (j.message || j.error_description || j.msg)) ||
+                  txt.slice(0, 200) || ('HTTP ' + r.status);
+        var e2 = new Error(msg);
+        e2.status = r.status;
+        throw e2;
       }
       return j;
     });
@@ -150,15 +159,21 @@ function salir() {
 }
 
 function haySesion() { return !!(SESION && SESION.access_token && SESION.usuario); }
-function miRol() { return haySesion() ? SESION.usuario.rol : null; }
-function miPropiedad() { return haySesion() ? SESION.usuario.propiedad_id : null; }
+
+/* Se puede usar la nube sin cuenta. Quien entra con cuenta queda identificado
+   en el historial; quien no, igual guarda. */
+function puedeUsarNube() { return nubeConfigurada(); }
+function miRol() { return haySesion() ? SESION.usuario.rol : 'gerente'; }
+function miPropiedad() {
+  return haySesion() ? SESION.usuario.propiedad_id : PROPIEDAD;
+}
+function quienSoyId() { return haySesion() ? SESION.usuario.id : null; }
 function veSueldosEnNube() { return ['gerente', 'admin'].indexOf(miRol()) !== -1; }
 
 /* ------------------------------------------------------- traer de la nube */
 
 function bajarTodo() {
-  if (!haySesion()) return Promise.resolve(false);
-  var p = miPropiedad();
+  if (!puedeUsarNube()) return Promise.resolve(false);
 
   return Promise.all([
     pedirConSesion('/rest/v1/dias?select=*&order=fecha.asc'),
@@ -179,33 +194,113 @@ function bajarTodo() {
       });
     });
 
-    E.dias = dias.map(function (d) {
+    var deLaNube = dias.map(function (d) {
       return {
         fecha: d.fecha, areas: d.areas || {}, comentarios: d.comentarios || [],
-        hoja: d.hoja, turnos: porFecha[d.fecha] || []
+        hoja: d.hoja, turnos: porFecha[d.fecha] || [],
+        editado_en: d.editado_en
       };
     });
 
-    /* la configuración vuelve a su lugar en E */
+    /* Si lo que hay en pantalla son los dias de ejemplo, se descartan: lo de
+       la nube es lo real. Unirlos dejaria numeros inventados adentro. */
+    var locales = (typeof sonDatosDeEjemplo === 'function' && sonDatosDeEjemplo())
+      ? [] : (E.dias || []);
+    E.dias = unirDias(locales, deLaNube);
+
     ajustes.forEach(function (a) {
-      if (E.hasOwnProperty(a.clave)) E[a.clave] = a.valor;
+      if (!E.hasOwnProperty(a.clave)) return;
+      /* la configuración de la nube manda, salvo que acá no haya nada */
+      if (a.valor !== null && a.valor !== undefined) E[a.clave] = a.valor;
     });
 
     if (personas.length) {
-      E.personas = {};
       personas.forEach(function (x) {
-        E.personas[x.nombre] = { equipo: x.equipo, valor: x.valor_hora ? parseFloat(x.valor_hora) : 0 };
+        if (!E.personas[x.nombre]) {
+          E.personas[x.nombre] = { equipo: x.equipo, valor: x.valor_hora ? parseFloat(x.valor_hora) : 0 };
+        }
       });
     }
     if (equipos.length) {
-      E.equipos = equipos.map(function (x) {
-        return { nombre: x.nombre, valor: x.valor_hora ? parseFloat(x.valor_hora) : 0 };
+      var tengo = (E.equipos || []).map(function (e) { return e.nombre; });
+      equipos.forEach(function (x) {
+        if (tengo.indexOf(x.nombre) === -1) {
+          E.equipos.push({ nombre: x.nombre, valor: x.valor_hora ? parseFloat(x.valor_hora) : 0 });
+        }
       });
     }
 
     guardarLocal();
     return true;
   });
+}
+
+/*
+   Unir lo de esta computadora con lo de la nube.
+
+   La regla es una sola: NADA SE BORRA. Un día que está de un solo lado se
+   conserva tal cual. Un día que está de los dos se fusiona campo por campo,
+   así lo que cargó una hermana no tapa lo que cargó la otra. Cuando los dos
+   lados tienen el mismo dato distinto, gana el que se editó más tarde.
+*/
+function unirDias(locales, remotos) {
+  var mapa = {};
+  locales.forEach(function (d) { mapa[d.fecha] = d; });
+
+  remotos.forEach(function (r) {
+    var l = mapa[r.fecha];
+    if (!l) { mapa[r.fecha] = r; return; }
+    mapa[r.fecha] = fusionarDia(l, r);
+  });
+
+  return Object.keys(mapa).sort().map(function (f) { return mapa[f]; });
+}
+
+function fusionarDia(local, remoto) {
+  var lMs = local.editado_en ? Date.parse(local.editado_en) : 0;
+  var rMs = remoto.editado_en ? Date.parse(remoto.editado_en) : 0;
+  var mandaRemoto = rMs > lMs;
+
+  var out = {
+    fecha: local.fecha,
+    hoja: local.hoja || remoto.hoja,
+    editado_en: (rMs > lMs ? remoto.editado_en : local.editado_en) || null
+  };
+
+  /* Áreas: se juntan las dos. Si un área está de los dos lados con distinto
+     contenido, se queda la del lado que se editó más tarde. */
+  out.areas = {};
+  var todas = {};
+  Object.keys(local.areas || {}).forEach(function (a) { todas[a] = 1; });
+  Object.keys(remoto.areas || {}).forEach(function (a) { todas[a] = 1; });
+  Object.keys(todas).forEach(function (a) {
+    var la = (local.areas || {})[a], ra = (remoto.areas || {})[a];
+    if (!la) { out.areas[a] = ra; return; }
+    if (!ra) { out.areas[a] = la; return; }
+    out.areas[a] = mandaRemoto ? ra : la;
+  });
+
+  /* Turnos: se juntan por persona y horario, sin repetir. */
+  out.turnos = juntarSinRepetir(local.turnos || [], remoto.turnos || [], function (t) {
+    return [t.quien, t.area, t.desde, t.hasta].join('|');
+  });
+
+  /* Comentarios: se juntan por texto, sin repetir. */
+  out.comentarios = juntarSinRepetir(local.comentarios || [], remoto.comentarios || [], function (c) {
+    return (c.area || '') + '|' + (c.texto || '').slice(0, 80);
+  });
+
+  return out;
+}
+
+function juntarSinRepetir(a, b, clave) {
+  var visto = {}, out = [];
+  a.concat(b).forEach(function (x) {
+    var k = clave(x);
+    if (visto[k]) return;
+    visto[k] = 1; out.push(x);
+  });
+  return out;
 }
 
 /* -------------------------------------------------------- mandar a la nube */
@@ -226,7 +321,7 @@ function recuperarCola() {
 
 var _VACIANDO = false;
 function vaciarCola() {
-  if (_VACIANDO || !PENDIENTES.length || !haySesion()) return Promise.resolve();
+  if (_VACIANDO || !PENDIENTES.length || !puedeUsarNube()) return Promise.resolve();
   if (!navigator.onLine) { NUBE_ESTADO = 'sinRed'; return Promise.resolve(); }
   _VACIANDO = true;
 
@@ -258,8 +353,8 @@ function mandar(tarea) {
         propiedad_id: p, fecha: d.fecha,
         areas: d.areas || {}, comentarios: d.comentarios || [],
         hoja: d.hoja || null, origen: d.origen || 'manual',
-        cargado_por: SESION.usuario.id,
-        editado_en: new Date().toISOString()
+        cargado_por: quienSoyId(),
+        editado_en: d.editado_en || new Date().toISOString()
       }]
     }).then(function () {
       /* los turnos de ese día se reemplazan enteros: es lo más simple y no
@@ -296,7 +391,7 @@ function mandar(tarea) {
     return pedirConSesion('/rest/v1/historial', {
       metodo: 'POST',
       cuerpo: [{
-        propiedad_id: p, usuario_id: SESION.usuario.id,
+        propiedad_id: p, usuario_id: quienSoyId(),
         que: tarea.datos.que, detalle: tarea.datos.detalle || null
       }]
     });
@@ -309,7 +404,11 @@ function mandar(tarea) {
    subió para no mandar el mes entero cada vez que se toca una tecla. */
 var _ULTIMO_SUBIDO = {};
 function sincronizar() {
-  if (!haySesion()) return;
+  if (!puedeUsarNube()) return;
+  /* Los dias de ejemplo NO se suben. Si alguien abre el sistema por primera
+     vez ve datos de muestra: si esos viajaran a la nube se mezclarian con los
+     reales del hotel y no habria forma de distinguirlos despues. */
+  if (typeof sonDatosDeEjemplo === 'function' && sonDatosDeEjemplo()) return;
 
   E.dias.forEach(function (d) {
     var huella = JSON.stringify([d.areas, d.turnos, d.comentarios]);
@@ -334,7 +433,7 @@ function marcaNube() {
   if (!el) return;
   var EN = enIngles();
 
-  if (!haySesion()) { el.innerHTML = ''; return; }
+  if (!puedeUsarNube()) { el.innerHTML = ''; return; }
 
   var pend = PENDIENTES.length;
   var texto, clase;
@@ -353,7 +452,8 @@ function marcaNube() {
   }
 
   el.innerHTML = '<span class="nube ' + clase + '" title="' +
-    esc(SESION.usuario.nombre + ' · ' + SESION.usuario.rol) + '">' +
+    esc(haySesion() ? (SESION.usuario.nombre + ' \u00b7 ' + SESION.usuario.rol)
+                    : (EN ? 'Saved for everyone' : 'Se guarda para todas')) + '">' +
     '<span class="punto-nube"></span>' + esc(texto) + '</span>';
 }
 
