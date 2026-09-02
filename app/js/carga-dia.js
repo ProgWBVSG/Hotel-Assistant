@@ -464,6 +464,7 @@ function guardarDiaCargado() {
     manual: true
   };
 
+  var eraNuevo = !dia(FORM.fecha);
   var existente = dia(FORM.fecha);
   if (existente) {
     for (var i = 0; i < E.dias.length; i++) {
@@ -477,6 +478,7 @@ function guardarDiaCargado() {
 
   E.dias.sort(function (a, b) { return a.fecha < b.fecha ? -1 : 1; });
   guardarTodo();
+  if (eraNuevo && typeof tucoPrimerDia === 'function') tucoPrimerDia();
 
   MES = mesDe(FORM.fecha);
   DIA_SEL = FORM.fecha;

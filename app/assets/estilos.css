@@ -747,3 +747,86 @@ body.sin-entrar .principal{ max-width:none; padding:0; }
   .nube{ font-size:0; padding:5px; gap:0; }
   .punto-nube{ width:8px; height:8px; }
 }
+
+/* ==========================================================================
+   Tuco, el ayudante
+   ========================================================================== */
+.tuco{
+  position:fixed; left:18px; bottom:18px; z-index:80;
+  display:flex; flex-direction:column; align-items:flex-start; gap:12px;
+}
+
+.tuco-boton{
+  width:58px; height:58px; border-radius:50%; padding:0;
+  border:3px solid #fff; background:var(--acento);
+  box-shadow:0 3px 10px rgba(20,28,32,.22);
+  cursor:pointer; overflow:hidden; flex-shrink:0;
+  animation:tuco-respira 3.2s ease-in-out infinite;
+}
+.tuco-boton img{ width:100%; height:100%; object-fit:cover; transform:scale(1.32); }
+.tuco-boton:hover{ animation-play-state:paused; transform:scale(1.05); }
+.tuco-boton:focus-visible{ outline:2px solid var(--acento); outline-offset:3px; }
+
+@keyframes tuco-respira{
+  0%, 100%{ transform:scale(1); }
+  50%{ transform:scale(1.045); }
+}
+
+/* ---------- el globo ---------- */
+.tuco-globo{
+  position:relative;
+  width:min(320px, calc(100vw - 56px));
+  background:#fff; border:1px solid var(--linea-fuerte);
+  border-radius:14px; padding:16px 18px 14px;
+  box-shadow:0 8px 24px rgba(20,28,32,.16);
+  animation:tuco-entra .32s cubic-bezier(.2,1.4,.4,1);
+}
+.tuco-globo::after{
+  content:""; position:absolute; left:26px; bottom:-9px;
+  width:18px; height:18px; background:#fff;
+  border-right:1px solid var(--linea-fuerte); border-bottom:1px solid var(--linea-fuerte);
+  transform:rotate(45deg); border-radius:0 0 3px 0;
+}
+@keyframes tuco-entra{
+  from{ opacity:0; transform:translateY(14px) scale(.96); }
+  to{ opacity:1; transform:translateY(0) scale(1); }
+}
+
+.tuco-cerrar{
+  position:absolute; top:8px; right:9px; width:22px; height:22px;
+  border:none; background:transparent; border-radius:50%;
+  color:var(--tinta-suave); font-size:16px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+}
+.tuco-cerrar:hover{ background:var(--fondo-suave, #f3f1ed); color:var(--tinta); }
+
+.tuco-figura{
+  display:block; width:84px; height:84px; object-fit:contain;
+  margin:0 auto 6px;
+}
+.tuco-globo[data-pose="festejo"] .tuco-figura{ animation:tuco-festejo .6s ease-in-out 2; }
+@keyframes tuco-festejo{
+  0%, 100%{ transform:translateY(0); }
+  30%{ transform:translateY(-9px); }
+  55%{ transform:translateY(0); }
+}
+
+.tuco-texto{ font-size:12.8px; line-height:1.58; color:var(--tinta-media); }
+.tuco-texto p{ margin:0 0 8px; }
+.tuco-texto p:last-child{ margin-bottom:0; }
+
+@media (prefers-reduced-motion: reduce){
+  .tuco-boton{ animation:none; }
+  .tuco-globo{ animation:none; }
+  .tuco-globo[data-pose="festejo"] .tuco-figura{ animation:none; }
+}
+
+@media (max-width:640px){
+  .tuco{ left:12px; bottom:12px; }
+  .tuco-boton{ width:50px; height:50px; }
+}
+
+/* que no tape la barra de pestañas achicada ni quede debajo del panel de WhatsApp */
+@media (max-width:900px){
+  .tuco{ z-index:40; }
+}

@@ -39,6 +39,7 @@ function iniciar() {
     DIA_SEL = ds.length ? ds[ds.length - 1].fecha : null;
   }
   pintar();
+  if (typeof tucoAlIniciar === 'function') tucoAlIniciar();
 }
 
 function ir(v) {
@@ -112,6 +113,8 @@ function pintar() {
   _ULTIMA_VISTA = VISTA;
 
   if (typeof marcaNube === 'function') marcaNube();
+  if (typeof tucoSiguioLaVista === 'function') tucoSiguioLaVista();
+  if (typeof pintarTuco === 'function' && !document.getElementById('tuco').innerHTML) pintarTuco();
 }
 
 function cambiarMes(m) {

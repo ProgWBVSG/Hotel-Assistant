@@ -27,6 +27,7 @@ function cuadranteAcumulado(mes) {
     'El <b>' + fechaCorta(ultimo.fecha) + '</b> sumó esto');
   if (meta) {
     var falta = meta - ultimo.acumulado;
+    if (falta <= 0 && typeof tucoMeta === 'function') tucoMeta(mes);
     h += tarjeta(falta <= 0 ? 'ok' : '', 'Falta para la meta',
       falta > 0 ? falta : 0, '',
       falta > 0 ? 'Va por el <b>' + Math.round((ultimo.acumulado / meta) * 100) + '%</b> de la meta'
