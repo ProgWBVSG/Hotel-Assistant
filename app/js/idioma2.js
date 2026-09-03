@@ -44,6 +44,23 @@ var FRASES = {
   'Reset to the starting values? Public holidays and bands are cleared.',
 'Reglas restauradas': 'Rules reset',
 'Marcó como casual': 'Marked as casual',
+'Dio de alta a alguien': 'Added someone to the team',
+'Dio de baja a alguien': 'Took someone off the team',
+'Volvió a activar a alguien': 'Put someone back on the team',
+'Borró a alguien de la lista': 'Deleted someone from the list',
+'Agregó un nivel': 'Added a level',
+'Sacó los días viejos': 'Removed the old days',
+'¿Cómo se llama el nivel? Por ejemplo: Nivel 2':
+  'What is the level called? For example: Level 2',
+'Hay {} personas en este nivel. Van a quedar con el valor del equipo. ¿Seguir?':
+  '{} people are on this level. They will fall back to the team rate. Continue?',
+'Tiene turnos cargados, así que no se puede borrar. Se le puede dar de baja.':
+  'This person has shifts on record, so they cannot be deleted. They can be taken off the team.',
+'¿Borrar a {} de la lista?': 'Delete {} from the list?',
+'Falta el nombre': 'The name is missing',
+'Ya hay alguien con ese nombre': 'Someone with that name already exists',
+'{} quedó en el plantel': '{} is on the team now',
+'Listo. Quedaron {} días.': 'Done. {} days left.',
 'Marcó como permanente': 'Marked as permanent',
 'Cambió el multiplicador del día (casual)': 'Changed the day multiplier (casual)',
 'Cambió el valor hora de un equipo': 'Changed a team hourly rate',

@@ -55,6 +55,11 @@ function vecesEn(quien, area) {
 function nombresDeArea(area) {
   var todos = areasDeCadaPersona();
   var lista = Object.keys(todos).map(function (k) { return todos[k]; });
+  /* El que ya no trabaja no se sugiere: es la mitad del problema de cargar
+     un turno rapido, elegir de una lista llena de gente que no esta. */
+  if (typeof estadoPersona === 'function') {
+    lista = lista.filter(function (p) { return estadoPersona(p.quien || p.nombre).activa; });
+  }
   var propios = lista.filter(function (p) { return (p.areas[area] || 0) > 0; })
     .sort(function (a, b) { return (b.areas[area] || 0) - (a.areas[area] || 0); });
   var otros = lista.filter(function (p) { return !(p.areas[area] || 0); })

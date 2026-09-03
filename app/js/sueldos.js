@@ -39,6 +39,16 @@ function valorHoraDe(nombre) {
   if (f && typeof f.valorHora === 'number' && f.valorHora > 0) {
     return { valor:f.valorHora, origen:'persona', detalle:'valor propio' };
   }
+  /* el nivel dentro del equipo: un cocinero nivel 2 no cobra lo mismo que
+     uno nivel 1, aunque los dos sean de Cocina */
+  if (f && f.equipo && f.nivel && typeof nivelPorId === 'function') {
+    var niv = nivelPorId(f.equipo, f.nivel);
+    if (niv && niv.valorHora > 0) {
+      var eqn = equipoPorId(f.equipo);
+      return { valor:niv.valorHora, origen:'nivel',
+               detalle:(eqn ? eqn.nombre + ' · ' : '') + niv.nombre };
+    }
+  }
   if (f && f.equipo) {
     var eq = equipoPorId(f.equipo);
     if (eq && eq.valorHora > 0) {

@@ -15,10 +15,16 @@ function vistaEquipos() {
   /* --- valor general y moneda --- */
   h += '<div class="marco" style="padding:16px 18px;margin-bottom:18px">' +
     '<div class="config-fila">' +
-    '<div class="campo ancho"><label>Valor general por hora</label>' +
-    '<input type="number" step="0.5" value="' + (E.valorHora || '') + '" placeholder="Ej: 32" ' +
-    'onchange="E.valorHora=this.value?+this.value:0;guardarTodo();pintar()">' +
-    '<div class="pista">Se usa para quien no tenga equipo ni valor propio.</div></div>' +
+    campoConGuardado('valor-gral',
+      enIngles() ? 'General hourly rate' : 'Valor general por hora',
+      '<input type="text" id="valor-gral" inputmode="decimal" ' +
+        'value="' + (E.valorHora || '') + '" placeholder="' +
+        (enIngles() ? 'e.g. 32' : 'Ej: 32') + '" ' +
+        'onkeypress="soloNumeros(event)" oninput="limpiarSiSobra(this)" ' +
+        'onchange="guardarCampo(\'valor-gral\',function(){E.valorHora=parseFloat(String(this.value).replace(\',\',\'.\'))||0}.bind(this),!!this.value);pintar()">',
+      enIngles() ? 'Used for anyone with no team and no own rate.'
+                 : 'Se usa para quien no tenga equipo ni valor propio.',
+      !!E.valorHora) +
     '<div class="campo angosto"><label>Moneda</label>' +
     '<select onchange="E.moneda=this.value;guardarTodo();pintar()">' +
     ['AUD','USD','NZD','GBP','EUR'].map(function (m) {
@@ -51,6 +57,7 @@ function vistaEquipos() {
       'title="Pone en este equipo a todos los que todavía no tienen uno">Asignar sueltos</button>' +
       '<button class="boton chico" onclick="borrarEquipo(\'' + eq.id + '\')" ' +
       'title="Borrar el equipo">✕</button></div></td></tr>';
+    h += filaNiveles(eq);
   });
   h += '</tbody></table></div>';
   h += '<div class="acciones" style="border:none;margin-top:11px">' +
@@ -138,8 +145,39 @@ function vistaEquipos() {
   return h;
 }
 
+/* Los niveles de un equipo. Un cocinero nivel 2 cobra distinto que uno
+   nivel 1, y eso no se puede resolver con un solo valor por equipo. */
+function filaNiveles(eq) {
+  var EN = enIngles();
+  var ns = nivelesDe(eq.id);
+  var h = '<tr class="fila-niveles"><td colspan="4"><div class="niveles">';
+  h += '<span class="niveles-rotulo">' + (EN ? 'Levels' : 'Niveles') + '</span>';
+  if (!ns.length) {
+    h += '<span class="niveles-vacio">' +
+      (EN ? 'everyone in this team is paid the same'
+          : 'todos en este equipo cobran igual') + '</span>';
+  } else {
+    ns.forEach(function (n) {
+      h += '<span class="nivel">' +
+        '<input class="nivel-nombre" type="text" value="' + esc(n.nombre) + '" ' +
+        'onchange="setNombreNivel(\'' + eq.id + '\',\'' + n.id + '\',this.value)">' +
+        '<input class="nivel-valor" type="text" inputmode="decimal" ' +
+        'value="' + (n.valorHora || '') + '" placeholder="' + (eq.valorHora || '—') + '" ' +
+        'onkeypress="soloNumeros(event)" oninput="limpiarSiSobra(this)" ' +
+        'onchange="setValorNivel(\'' + eq.id + '\',\'' + n.id + '\',this.value)">' +
+        '<button class="nivel-x" onclick="borrarNivel(\'' + eq.id + '\',\'' + n.id + '\')" ' +
+        'aria-label="' + (EN ? 'Remove level' : 'Quitar nivel') + '">&times;</button></span>';
+    });
+  }
+  h += '<button class="boton chico" onclick="agregarNivel(\'' + eq.id + '\')">' +
+    (EN ? '+ Level' : '+ Nivel') + '</button>';
+  h += '</div></td></tr>';
+  return h;
+}
+
 function etiquetaOrigen(origen, detalle) {
   if (origen === 'persona') return '<span class="eti eti-acento">valor propio</span>';
+  if (origen === 'nivel') return '<span class="eti eti-acento">' + esc(detalle) + '</span>';
   if (origen === 'equipo') return '<span class="eti eti-ok">' + esc(detalle) + '</span>';
   if (origen === 'general') return '<span class="eti eti-neutro">valor general</span>';
   return '<span class="eti eti-mal">sin valor</span>';

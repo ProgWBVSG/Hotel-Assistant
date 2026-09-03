@@ -89,7 +89,8 @@ function pintar() {
               horarios:vistaHorarios, personal:vistaPersonal,
               presentacion:vistaPresentacion, comentarios:vistaComentarios,
               enviar:vistaEnviar, equipos:vistaEquipos,
-              cargar:vistaCargar, datos:vistaDatos, pagos:vistaPagos })[VISTA] || vistaResumen;
+              cargar:vistaCargar, datos:vistaDatos, pagos:vistaPagos,
+              plantel:vistaPlantel })[VISTA] || vistaResumen;
   cont.innerHTML = (typeof sonDatosDeEjemplo === 'function' && sonDatosDeEjemplo() && VISTA !== 'datos'
     ? (enIngles()
         ? '<div class="caja mal" style="margin-bottom:16px">' +
@@ -434,17 +435,36 @@ function vistaProyeccion() {
     'Basada en ' + p.diasCargados + ' días cargados · se recalcula con cada día nuevo');
 
   /* configuración */
-  h += '<div class="marco no-imprimir" style="padding:16px 18px;margin-bottom:18px">' +
-    '<div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end">' +
-    '<div class="campo" style="margin:0;flex:1;min-width:190px"><label>Meta del mes</label>' +
-    '<input type="number" value="' + (E.meta[MES] || '') + '" placeholder="Sin meta cargada" ' +
-    'onchange="E.meta[MES]=this.value?+this.value:null;guardarTodo();pintar()"></div>' +
-    '<div class="campo" style="margin:0;flex:1;min-width:190px"><label>Días de evento que faltan en Penny Blue</label>' +
-    '<input type="number" min="0" max="' + p.faltan + '" value="' + p.eventosPrevistos + '" ' +
-    'onchange="E.eventos[MES]=this.value===\'\'?null:+this.value;guardarTodo();pintar()">' +
-    '<div class="pista">' + (p.eventosSupuestos
-      ? 'Lo estoy suponiendo por la proporción de los días ya cargados. Si sabés el número real, cargalo.'
-      : 'Cargado por vos.') + '</div></div>' +
+  /* Los dos campos tienen que ocupar lo mismo y empezar a la misma altura.
+     Antes uno llevaba texto de ayuda y el otro no, asi que las etiquetas
+     quedaban a distinta altura y la fila se veia torcida. */
+  var EN6 = enIngles();
+  var hayMeta6 = !!(typeof metaTotal === 'function' ? metaTotal(MES) : E.meta[MES]);
+  h += '<div class="marco no-imprimir" style="padding:18px;margin-bottom:18px">' +
+    '<div class="config-par">' +
+    campoConGuardado('meta-mes',
+      EN6 ? 'Month target' : 'Meta del mes',
+      '<input type="text" id="meta-mes" inputmode="decimal" ' +
+        'value="' + (metaTotal(MES) || '') + '" placeholder="' +
+        (EN6 ? 'No target set' : 'Sin meta cargada') + '" ' +
+        'onkeypress="soloNumeros(event)" oninput="limpiarSiSobra(this)" ' +
+        'onchange="guardarMetaDelMes(this.value)">',
+      (typeof hayMetasPorArea === 'function' && hayMetasPorArea(MES))
+        ? (EN6 ? 'Sum of the targets per area, further down.'
+               : 'Es la suma de las metas por área, más abajo.')
+        : (EN6 ? 'Or set one per area further down, and this adds them up.'
+               : 'O poné una por área más abajo, y esto las suma.'),
+      hayMeta6) +
+    campoConGuardado('ev-mes',
+      EN6 ? 'Remaining event days at Penny Blue' : 'Días de evento que faltan en Penny Blue',
+      '<input type="number" id="ev-mes" min="0" max="' + p.faltan + '" ' +
+        'value="' + p.eventosPrevistos + '" ' +
+        'onchange="guardarCampo(\'ev-mes\',function(){E.eventos[MES]=this.value===\'\'?null:+this.value}.bind(this),this.value!==\'\');pintar()">',
+      p.eventosSupuestos
+        ? (EN6 ? 'Assumed from the proportion of days already entered. If you know the real number, enter it.'
+               : 'Lo estoy suponiendo por la proporción de los días ya cargados. Si sabés el número real, cargalo.')
+        : (EN6 ? 'Entered by you.' : 'Cargado por vos.'),
+      !p.eventosSupuestos) +
     '</div></div>';
 
   /* resultado */

@@ -23,6 +23,7 @@ var ICONOS = {
   comentarios: 'M21 12a8 8 0 0 1-8 8H8l-5 3 1.5-5A8 8 0 1 1 21 12z',
   enviar:      'M22 3L11 14M22 3l-7 19-4-8-8-4 19-7z',
   cargar:      'M12 16V4M7 9l5-5 5 5M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2',
+  plantel:     'M17 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9.5 10a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M19 8v6M22 11h-6',
   equipos:     'M12 2l3 6 7 1-5 5 1 7-6-3.2L6 21l1-7-5-5 7-1 3-6z',
   pagos:       'M3 7h18a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zM2 11h20M6 15h3',
   datos:       'M12 3c4.4 0 8 1.3 8 3s-3.6 3-8 3-8-1.3-8-3 3.6-3 8-3zM4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3'
@@ -52,6 +53,7 @@ function MENU() {
       ] },
     { id:'ajustes', titulo: EN ? 'Setup' : 'Configuración',
       items: [
+        ['plantel',     EN ? 'The team'       : 'El plantel'],
         ['equipos',     EN ? 'Teams and pay'  : 'Equipos y sueldos'],
         ['pagos',       EN ? 'Pay rules'      : 'Reglas de pago'],
         ['cargar',      EN ? 'Import Excel'   : 'Cargar Excel'],

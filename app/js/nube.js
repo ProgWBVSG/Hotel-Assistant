@@ -397,7 +397,10 @@ function mandar(tarea) {
   }
 
   if (tarea.tipo === 'borrarDia') {
-    return pedirConSesion('/rest/v1/dias?fecha=eq.' + tarea.datos.fecha, { metodo: 'DELETE' });
+    return pedirConSesion('/rest/v1/turnos?fecha=eq.' + tarea.datos.fecha, { metodo: 'DELETE' })
+      .then(function () {
+        return pedirConSesion('/rest/v1/dias?fecha=eq.' + tarea.datos.fecha, { metodo: 'DELETE' });
+      });
   }
 
   if (tarea.tipo === 'historial') {

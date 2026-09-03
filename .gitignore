@@ -36,3 +36,5 @@ fuente/reglas_sin_recargo.py
 fuente/pantalla_franjas.py
 fuente/enganchar_nube.py
 fuente/fusion.py
+fuente/plantel.py
+fuente/estilos-plantel.css

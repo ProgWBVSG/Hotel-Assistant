@@ -196,3 +196,20 @@ function bloqueMetas(mes) {
   }
   return h;
 }
+
+
+/* La meta escrita como un solo numero: se reparte entre las areas para que
+   la pantalla no muestre dos verdades distintas. */
+function guardarMetaDelMes(v) {
+  var n = parseFloat(String(v).replace(/[^\d.,-]/g, '').replace(',', '.'));
+  if (isNaN(n) || n <= 0) {
+    delete E.meta[MES];
+    if (E.metaArea) delete E.metaArea[MES];
+    guardarTodo();
+    if (typeof avisarGuardado === 'function') avisarGuardado('meta-mes', false);
+    pintar();
+    return;
+  }
+  repartirMeta(MES, n);
+  if (typeof avisarGuardado === 'function') avisarGuardado('meta-mes', true);
+}

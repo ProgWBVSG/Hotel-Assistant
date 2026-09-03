@@ -208,6 +208,8 @@ function vistaDatos() {
     '</div>';
 
   /* --- empezar de cero --- */
+  if (typeof bloqueLimpiarViejos === 'function') h += bloqueLimpiarViejos();
+
   h += '<div class="titulo-seccion">Empezar de cero</div>';
   h += '<div class="marco" style="padding:18px 20px">' +
     '<div style="font-size:12.5px;color:var(--tinta-media);margin-bottom:13px">' +
