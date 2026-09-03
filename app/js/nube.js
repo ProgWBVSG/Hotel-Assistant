@@ -210,9 +210,20 @@ function bajarTodo() {
 
     ajustes.forEach(function (a) {
       if (!E.hasOwnProperty(a.clave)) return;
-      /* la configuración de la nube manda, salvo que acá no haya nada */
-      if (a.valor !== null && a.valor !== undefined) E[a.clave] = a.valor;
+      if (a.valor === null || a.valor === undefined) return;
+      /* Gana el cambio más reciente, no "la nube siempre manda". Si en esta
+         computadora se tocó ese ajuste (una meta, por ejemplo) después de lo
+         que hay en la nube, se respeta lo local: si no, al abrir se le
+         revertía sola la meta que había puesto. */
+      var localMs = (E.ajustesEditados || {})[a.clave];
+      var nubeMs = a.editado_en ? Date.parse(a.editado_en) : 0;
+      if (localMs && Date.parse(localMs) > nubeMs) return;
+      E[a.clave] = a.valor;
     });
+
+    /* recién ahora, con el corte ya aplicado desde la nube, se podan los
+       días viejos de esta computadora */
+    if (typeof aplicarCorteHistorial === 'function') aplicarCorteHistorial();
 
     if (personas.length) {
       personas.forEach(function (x) {
@@ -391,7 +402,7 @@ function mandar(tarea) {
       cabeceras: { 'Prefer': 'resolution=merge-duplicates' },
       cuerpo: [{
         propiedad_id: p, clave: tarea.datos.clave, valor: tarea.datos.valor,
-        editado_en: new Date().toISOString()
+        editado_en: tarea.datos.editado_en || new Date().toISOString()
       }]
     });
   }
@@ -454,6 +465,7 @@ function sincronizar() {
   if (typeof sonDatosDeEjemplo === 'function' && sonDatosDeEjemplo()) return;
 
   E.dias.forEach(function (d) {
+    if (E.corteHistorial && d.fecha < E.corteHistorial) return;  /* podado */
     var huella = JSON.stringify([d.areas, d.turnos, d.comentarios]);
     if (_ULTIMO_SUBIDO[d.fecha] === huella) return;
     _ULTIMO_SUBIDO[d.fecha] = huella;
@@ -461,14 +473,18 @@ function sincronizar() {
     encolar('dia', d);
   });
 
+  if (!E.ajustesEditados) E.ajustesEditados = {};
   ['meta', 'metaArea', 'eventos', 'marcados', 'reglasPago', 'valorHora',
-   'notasPersonal', 'mail', 'moneda'].forEach(function (k) {
+   'notasPersonal', 'mail', 'moneda', 'corteHistorial'].forEach(function (k) {
     var huella = JSON.stringify(E[k]);
     if (_ULTIMO_SUBIDO['@' + k] === huella) return;
     _ULTIMO_SUBIDO['@' + k] = huella;
+    /* cuándo se tocó, para que el que baja sepa si su copia es más vieja */
+    var cuando = new Date().toISOString();
+    E.ajustesEditados[k] = cuando;
     guardarHuellas();
     if (E[k] === undefined || E[k] === null) return;   /* la base no acepta vacio */
-    encolar('ajuste', { clave: k, valor: E[k] });
+    encolar('ajuste', { clave: k, valor: E[k], editado_en: cuando });
   });
 }
 

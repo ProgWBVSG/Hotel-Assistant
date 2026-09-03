@@ -123,6 +123,9 @@ function borrarAnteriores() {
     });
   }
 
+  /* el corte queda registrado y se sincroniza: las demás computadoras
+     tambien se limpian al bajarlo, en vez de resubir los dias viejos */
+  if (!E.corteHistorial || CORTE_LIMPIEZA > E.corteHistorial) E.corteHistorial = CORTE_LIMPIEZA;
   anotar('Sacó los días viejos', fechasQueSeVan.length + ' días anteriores al ' + CORTE_LIMPIEZA);
   guardarTodo();
 

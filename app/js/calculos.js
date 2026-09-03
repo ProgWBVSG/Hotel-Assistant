@@ -21,8 +21,21 @@ var E = {
   historial: [],
   metaArea: {},       /* "2026-08" -> { "Penny Blue": monto, ... } */
   reglasPago: null,   /* multiplicadores, recargos y feriados */
-  ui: {}              /* barra achicada, grupos cerrados */
+  ui: {},             /* barra achicada, grupos cerrados */
+  ajustesEditados: {},/* clave de config -> cuándo se tocó acá, para sincronizar */
+  tuco: null,         /* qué avisos del ayudante ya se vieron */
+  corteHistorial: null/* 'YYYY-MM-DD': se descarta todo lo anterior, en todas las computadoras */
 };
+
+/* Los días anteriores al corte se van, acá y en cualquier computadora que
+   baje el corte. Así podar el historial se propaga en vez de que otra
+   máquina lo vuelva a subir. */
+function aplicarCorteHistorial() {
+  if (!E.corteHistorial) return 0;
+  var antes = E.dias.length;
+  E.dias = E.dias.filter(function (d) { return d.fecha >= E.corteHistorial; });
+  return antes - E.dias.length;
+}
 
 /* Lo que NO se borra al vaciar el sistema: es cómo trabaja la persona,
    no datos del hotel. */

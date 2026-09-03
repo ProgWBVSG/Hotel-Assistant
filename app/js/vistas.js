@@ -9,6 +9,7 @@ var DIA_SEL = null;
 
 function iniciar() {
   cargarTodo();
+  if (typeof aplicarCorteHistorial === 'function') aplicarCorteHistorial();
   if (typeof recuperarSesion === 'function') {
     recuperarSesion();
     recuperarCola();

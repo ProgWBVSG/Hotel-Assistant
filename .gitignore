@@ -38,3 +38,6 @@ fuente/enganchar_nube.py
 fuente/fusion.py
 fuente/plantel.py
 fuente/estilos-plantel.css
+fuente/respaldo-historial-viejo.json
+fuente/_*.py
+fuente/_*.mjs
