@@ -17,19 +17,22 @@ function iniciar() {
     try { MODO_LOCAL = localStorage.getItem(CLAVE_LOCAL) === '1'; } catch (e) {}
     if (puedeUsarNube()) {
       NUBE_ESTADO = 'lista';
-      /* Primero se sube lo que hay en esta computadora, después se baja y se
-         une con lo de las demás. En ese orden no se pierde nada de ningún
-         lado, ni la primera vez que se conecta una computadora que venía
-         trabajando sola. */
-      sincronizar();
+      /* Se BAJA primero. bajarTodo une lo de la nube con lo local sin borrar
+         nada (unirDias conserva los dos lados), trae el corte de historial y
+         poda lo viejo. Recién DESPUÉS se sube lo que la nube no tenía. Subir
+         antes hacía que una computadora con días viejos los reenviara antes
+         de conocer el corte, y volvían a aparecer los que ya se habían
+         borrado. */
       bajarTodo().then(function () {
         var ms = mesesDisponibles();
         if (ms.length) MES = ms[ms.length - 1];
         pintar();
+        sincronizar();   /* sube lo local que la nube no tenía, ya reconciliado y podado */
         vaciarCola();
       }).catch(function (e) {
-        /* sin red se sigue con lo local, que para eso está */
+        /* sin red se sigue con lo local, y se sube cuando vuelva */
         NUBE_ESTADO = navigator.onLine ? 'error' : 'sinRed';
+        sincronizar();
         pintar();
       });
     }

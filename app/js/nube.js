@@ -242,7 +242,10 @@ function bajarTodo() {
     }
 
     guardarLocal();
-    anotarHuellasDeLoBajado();
+    /* Se marca como "ya subido" SOLO lo que quedó idéntico a la nube. Un día
+       que esta computadora tiene y la nube no (porque la subida se trabó
+       alguna vez) queda sin marca, así se resube y no se pierde. */
+    reconciliarHuellas(deLaNube);
     return true;
   });
 }
@@ -450,9 +453,31 @@ function guardarHuellas() {
 }
 
 /* Lo que acaba de bajar de la nube ya esta alla: no hay que devolverlo. */
-function anotarHuellasDeLoBajado() {
+/* Huella estable de un día: ordena turnos y comentarios para que dos copias
+   con el mismo contenido den la misma cadena, aunque estén en distinto orden.
+   Sin esto, la nube y lo local nunca coincidían y se resubía todo. */
+function huellaDia(d) {
+  var t = (d.turnos || []).map(function (x) {
+    return [x.quien || '', x.area || '', x.desde || 0, x.hasta || 0, x.descanso || 0, x.horas || 0];
+  }).sort(function (a, b) { return (a[0] + '|' + a[2]) < (b[0] + '|' + b[2]) ? -1 : 1; });
+  var c = (d.comentarios || []).map(function (x) {
+    return [x.area || '', x.texto || ''];
+  }).sort(function (a, b) { return (a[0] + '|' + a[1]) < (b[0] + '|' + b[1]) ? -1 : 1; });
+  return JSON.stringify([d.areas || {}, t, c]);
+}
+
+function reconciliarHuellas(deLaNube) {
+  var enNube = {};
+  (deLaNube || []).forEach(function (d) {
+    enNube[d.fecha] = huellaDia(d);
+  });
   E.dias.forEach(function (d) {
-    _ULTIMO_SUBIDO[d.fecha] = JSON.stringify([d.areas, d.turnos, d.comentarios]);
+    var huella = huellaDia(d);
+    if (enNube[d.fecha] === huella) {
+      _ULTIMO_SUBIDO[d.fecha] = huella;      /* está igual en la nube: nada que subir */
+    } else {
+      delete _ULTIMO_SUBIDO[d.fecha];        /* difiere o no está: hay que subirlo */
+    }
   });
   guardarHuellas();
 }
@@ -466,7 +491,7 @@ function sincronizar() {
 
   E.dias.forEach(function (d) {
     if (E.corteHistorial && d.fecha < E.corteHistorial) return;  /* podado */
-    var huella = JSON.stringify([d.areas, d.turnos, d.comentarios]);
+    var huella = huellaDia(d);
     if (_ULTIMO_SUBIDO[d.fecha] === huella) return;
     _ULTIMO_SUBIDO[d.fecha] = huella;
     guardarHuellas();
