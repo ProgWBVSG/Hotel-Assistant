@@ -136,7 +136,12 @@ function renovarSesion() {
 /* Quién soy y a qué hotel pertenezco. Sin esta fila, RLS no devuelve nada:
    la cuenta existe en Supabase pero no está vinculada a ninguna propiedad. */
 function traerQuienSoy() {
-  return pedirConSesion('/rest/v1/usuarios?select=id,nombre,email,rol,propiedad_id&limit=1')
+  /* Hay que traer MI fila, no una cualquiera: con varias cuentas en el hotel,
+     pedir "la primera" podía devolver el rol de otra persona. El id propio
+     está dentro del token de sesión (el campo "sub"). */
+  var miId = idDeSesion();
+  var filtro = miId ? '&id=eq.' + miId : '&limit=1';
+  return pedirConSesion('/rest/v1/usuarios?select=id,nombre,email,rol,propiedad_id' + filtro)
     .then(function (filas) {
       if (!filas || !filas.length) {
         throw new Error('SIN_VINCULAR');
@@ -146,6 +151,16 @@ function traerQuienSoy() {
       NUBE_ESTADO = 'lista';
       return SESION.usuario;
     });
+}
+
+/* El id del usuario, leído del token de sesión (JWT: el campo "sub"). */
+function idDeSesion() {
+  try {
+    var t = SESION && SESION.access_token;
+    if (!t) return null;
+    var carga = JSON.parse(atob(t.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+    return carga.sub || null;
+  } catch (e) { return null; }
 }
 
 function salir() {

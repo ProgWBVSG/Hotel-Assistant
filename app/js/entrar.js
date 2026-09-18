@@ -12,9 +12,13 @@ var CLAVE_LOCAL = 'reporte_diario_solo_local';
 var ENTRANDO = false;
 var ERROR_ENTRAR = null;
 
-/* Ya no se pide cuenta para entrar: el sistema guarda igual. La pantalla de
-   entrada queda para cuando se quiera saber quién cargó cada cosa. */
-function necesitaEntrar() { return false; }
+/* Login obligatorio: sin sesión no se muestra nada del hotel. Cada persona
+   entra con su cuenta y su rol. Los datos no se pierden — al entrar, lo que
+   ya estaba en la computadora se fusiona con la nube. */
+function necesitaEntrar() {
+  if (!nubeConfigurada()) return false;   /* sin nube configurada, uso local */
+  return !haySesion();
+}
 
 function seguirSoloLocal() {
   MODO_LOCAL = true;
@@ -47,6 +51,10 @@ function intentarEntrar() {
     MES = ms.length ? ms[ms.length - 1] : new Date().toISOString().slice(0, 7);
     VISTA = 'resumen';
     pintar();
+    /* subir lo que esta computadora tenía y la nube no (fusionado, sin pisar) */
+    if (typeof sincronizar === 'function') sincronizar();
+    if (typeof vaciarCola === 'function') vaciarCola();
+    if (typeof tucoAlIniciar === 'function') tucoAlIniciar();
     decir(T('Hola de nuevo'), 'ok');
   }).catch(function (e) {
     ENTRANDO = false;
@@ -106,13 +114,9 @@ function vistaEntrar() {
     (ENTRANDO ? (EN ? 'Checking…' : 'Comprobando…') : (EN ? 'Come in' : 'Entrar')) +
     '</button>';
 
-  h += '<div class="entrada-o"><span>' + (EN ? 'or' : 'o') + '</span></div>';
-
-  h += '<button class="boton ancho" onclick="seguirSoloLocal()">' +
-    (EN ? 'Work on this computer only' : 'Trabajar solo en esta computadora') + '</button>';
   h += '<p class="entrada-pie">' +
-    (EN ? 'Nothing gets shared: everything stays in this browser, like before.'
-        : 'No se comparte nada: queda todo en este navegador, como hasta ahora.') + '</p>';
+    (EN ? 'Enter with the account the hotel gave you. Your data is safe — nothing is lost when you sign in.'
+        : 'Entrá con la cuenta que te dieron. Tus datos están a salvo — al entrar no se pierde nada.') + '</p>';
 
   h += '</div></div>';
   return h;

@@ -15,7 +15,9 @@ function iniciar() {
     recuperarCola();
     recuperarHuellas();
     try { MODO_LOCAL = localStorage.getItem(CLAVE_LOCAL) === '1'; } catch (e) {}
-    if (puedeUsarNube()) {
+    /* si el login es obligatorio y no hay sesión, se espera a que entre:
+       la sincronización la dispara el login, no el arranque */
+    if (puedeUsarNube() && !necesitaEntrar()) {
       NUBE_ESTADO = 'lista';
       /* Se BAJA primero. bajarTodo une lo de la nube con lo local sin borrar
          nada (unirDias conserva los dos lados), trae el corte de historial y

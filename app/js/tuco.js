@@ -135,6 +135,8 @@ function alternarTuco() {
 
 /* Se llama una vez, al arrancar. */
 function tucoAlIniciar() {
+  /* si todavía tiene que iniciar sesión, el saludo espera a que entre */
+  if (typeof necesitaEntrar === 'function' && necesitaEntrar()) return;
   var e = estadoTuco();
   if (!e.vistoBienvenida) {
     e.vistoBienvenida = true;
@@ -173,6 +175,8 @@ var _POSE_TUCO = 'explica';
 function pintarTuco(pose) {
   var cont = document.getElementById('tuco');
   if (!cont) return;
+  /* en la pantalla de entrada, Tuco no aparece */
+  if (typeof necesitaEntrar === 'function' && necesitaEntrar()) { cont.innerHTML = ''; return; }
   var EN = enIngles();
   if (pose) _POSE_TUCO = pose;
 
