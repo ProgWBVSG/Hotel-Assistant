@@ -172,6 +172,30 @@ function veSueldosEnNube() { return ['gerente', 'admin'].indexOf(miRol()) !== -1
 
 /* ------------------------------------------------------- traer de la nube */
 
+/* ¿Es un objeto simple {clave:valor}, no un array ni null? */
+function esObjetoPlano(x) {
+  return x && typeof x === 'object' && !Array.isArray(x);
+}
+
+/* Une dos objetos por clave sin perder nada. Una clave que está de un solo
+   lado se conserva siempre. Si está en los dos con distinto valor, gana la
+   nube solo cuando `nubeGana` es true (es igual o más nueva). Baja recursivo
+   para metaArea, que es { mes: { área: monto } }. */
+function fusionarPorClave(local, nube, nubeGana) {
+  var out = {};
+  for (var k in local) if (local.hasOwnProperty(k)) out[k] = local[k];
+  for (var j in nube) {
+    if (!nube.hasOwnProperty(j)) continue;
+    if (!(j in out)) { out[j] = nube[j]; continue; }
+    if (esObjetoPlano(out[j]) && esObjetoPlano(nube[j])) {
+      out[j] = fusionarPorClave(out[j], nube[j], nubeGana);
+    } else if (out[j] !== nube[j] && nubeGana) {
+      out[j] = nube[j];
+    }
+  }
+  return out;
+}
+
 function bajarTodo() {
   if (!puedeUsarNube()) return Promise.resolve(false);
 
@@ -208,17 +232,27 @@ function bajarTodo() {
       ? [] : (E.dias || []);
     E.dias = unirDias(locales, deLaNube);
 
+    /* Ajustes que son un objeto por mes (o por fecha): la meta, la meta por
+       área, los días de evento, los días marcados, las notas. Estos se
+       FUSIONAN, no se pisan: lo que una computadora fijó para un mes se
+       conserva aunque la otra sincronice una versión que no lo tenía. Solo
+       si las dos tocaron exactamente el mismo mes gana el más reciente.
+       Antes se reemplazaba el bloque entero y por eso "se le cambiaba solo"
+       lo que la hermana había puesto. */
+    var CLAVES_POR_MES = ['meta', 'metaArea', 'eventos', 'marcados', 'notasPersonal'];
     ajustes.forEach(function (a) {
       if (!E.hasOwnProperty(a.clave)) return;
       if (a.valor === null || a.valor === undefined) return;
-      /* Gana el cambio más reciente, no "la nube siempre manda". Si en esta
-         computadora se tocó ese ajuste (una meta, por ejemplo) después de lo
-         que hay en la nube, se respeta lo local: si no, al abrir se le
-         revertía sola la meta que había puesto. */
-      var localMs = (E.ajustesEditados || {})[a.clave];
+      var localMs = Date.parse((E.ajustesEditados || {})[a.clave] || 0) || 0;
       var nubeMs = a.editado_en ? Date.parse(a.editado_en) : 0;
-      if (localMs && Date.parse(localMs) > nubeMs) return;
-      E[a.clave] = a.valor;
+      if (CLAVES_POR_MES.indexOf(a.clave) !== -1 && esObjetoPlano(a.valor) && esObjetoPlano(E[a.clave])) {
+        /* la nube gana los conflictos solo si es igual o más nueva */
+        E[a.clave] = fusionarPorClave(E[a.clave], a.valor, nubeMs >= localMs);
+      } else {
+        /* escalares (valor hora, moneda, reglas de pago, corte): gana el más reciente */
+        if (localMs && localMs > nubeMs) return;
+        E[a.clave] = a.valor;
+      }
     });
 
     /* recién ahora, con el corte ya aplicado desde la nube, se podan los
