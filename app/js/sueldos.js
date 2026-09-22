@@ -74,9 +74,14 @@ function costoPersonalReal(d, area) {
 /* ¿Hay algún valor cargado? */
 function hayValores() {
   if (E.valorHora > 0) return true;
-  if ((E.equipos || []).some(function (e) { return e.valorHora > 0; })) return true;
+  /* valor del equipo, o de alguno de sus niveles (un rango cobra distinto que
+     otro dentro del mismo equipo: ahí puede estar el único valor cargado) */
+  if ((E.equipos || []).some(function (e) {
+    if (e.valorHora > 0) return true;
+    return (e.niveles || []).some(function (n) { return n.valorHora > 0; });
+  })) return true;
   var p = E.personas || {};
-  for (var k in p) if (p[k].valorHora > 0) return true;
+  for (var k in p) if (p[k] && p[k].valorHora > 0) return true;
   return false;
 }
 
