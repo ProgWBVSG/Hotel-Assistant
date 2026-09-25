@@ -85,15 +85,15 @@ drop policy if exists p_ajustes_ver on ajustes;
 drop policy if exists p_ajustes_editar on ajustes;
 create policy p_ajustes_ver on ajustes for select using (
   propiedad_id = mi_propiedad()
-  and (ve_sueldos() or clave not in ('meta','metaArea','reglasPago','valorHora'))
+  and (ve_sueldos() or clave not in ('meta','metaArea','reglasPago','valorHora','equipos','personas'))
 );
 create policy p_ajustes_editar on ajustes for all
   using (propiedad_id = mi_propiedad() and (
     ve_sueldos() or (puede_escribir()
-      and clave not in ('meta','metaArea','reglasPago','valorHora'))))
+      and clave not in ('meta','metaArea','reglasPago','valorHora','equipos','personas'))))
   with check (propiedad_id = mi_propiedad() and (
     ve_sueldos() or (puede_escribir()
-      and clave not in ('meta','metaArea','reglasPago','valorHora'))));
+      and clave not in ('meta','metaArea','reglasPago','valorHora','equipos','personas'))));
 
 drop policy if exists p_historial_ver on historial;
 drop policy if exists p_historial_escribir on historial;
