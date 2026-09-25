@@ -211,6 +211,36 @@ function fusionarPorClave(local, nube, nubeGana) {
   return out;
 }
 
+/* Une dos listas de equipos por id. Un equipo que está de un solo lado se
+   conserva; si está en los dos, se fusionan sus campos y sus niveles, y en
+   conflicto de valor gana el lado más reciente. Así configurar un equipo o
+   un nivel en una computadora no borra lo que se hizo en otra. */
+function fusionarEquipos(local, nube, nubeGana) {
+  var porId = {};
+  (local || []).forEach(function (e) { if (e && e.id) porId[e.id] = e; });
+  (nube || []).forEach(function (e) {
+    if (!e || !e.id) return;
+    if (!porId[e.id]) { porId[e.id] = e; return; }
+    var o = porId[e.id];
+    o.nombre = nubeGana ? (e.nombre || o.nombre) : (o.nombre || e.nombre);
+    if (typeof e.valorHora === 'number' && (nubeGana || !(o.valorHora > 0))) o.valorHora = e.valorHora;
+    o.niveles = fusionarNiveles(o.niveles || [], e.niveles || [], nubeGana);
+  });
+  return Object.keys(porId).map(function (k) { return porId[k]; });
+}
+function fusionarNiveles(local, nube, nubeGana) {
+  var porId = {};
+  local.forEach(function (n) { if (n && n.id) porId[n.id] = n; });
+  nube.forEach(function (n) {
+    if (!n || !n.id) return;
+    if (!porId[n.id]) { porId[n.id] = n; return; }
+    var o = porId[n.id];
+    o.nombre = nubeGana ? (n.nombre || o.nombre) : (o.nombre || n.nombre);
+    if (typeof n.valorHora === 'number' && (nubeGana || !(o.valorHora > 0))) o.valorHora = n.valorHora;
+  });
+  return Object.keys(porId).map(function (k) { return porId[k]; });
+}
+
 function bajarTodo() {
   if (!puedeUsarNube()) return Promise.resolve(false);
 
@@ -254,7 +284,7 @@ function bajarTodo() {
        si las dos tocaron exactamente el mismo mes gana el más reciente.
        Antes se reemplazaba el bloque entero y por eso "se le cambiaba solo"
        lo que la hermana había puesto. */
-    var CLAVES_POR_MES = ['meta', 'metaArea', 'eventos', 'marcados', 'notasPersonal'];
+    var CLAVES_POR_MES = ['meta', 'metaArea', 'eventos', 'marcados', 'notasPersonal', 'personas'];
     ajustes.forEach(function (a) {
       if (!E.hasOwnProperty(a.clave)) return;
       if (a.valor === null || a.valor === undefined) return;
@@ -263,6 +293,8 @@ function bajarTodo() {
       if (CLAVES_POR_MES.indexOf(a.clave) !== -1 && esObjetoPlano(a.valor) && esObjetoPlano(E[a.clave])) {
         /* la nube gana los conflictos solo si es igual o más nueva */
         E[a.clave] = fusionarPorClave(E[a.clave], a.valor, nubeMs >= localMs);
+      } else if (a.clave === 'equipos' && Array.isArray(a.valor) && Array.isArray(E.equipos)) {
+        E.equipos = fusionarEquipos(E.equipos, a.valor, nubeMs >= localMs);
       } else {
         /* escalares (valor hora, moneda, reglas de pago, corte): gana el más reciente */
         if (localMs && localMs > nubeMs) return;
@@ -274,21 +306,9 @@ function bajarTodo() {
        días viejos de esta computadora */
     if (typeof aplicarCorteHistorial === 'function') aplicarCorteHistorial();
 
-    if (personas.length) {
-      personas.forEach(function (x) {
-        if (!E.personas[x.nombre]) {
-          E.personas[x.nombre] = { equipo: x.equipo, valor: x.valor_hora ? parseFloat(x.valor_hora) : 0 };
-        }
-      });
-    }
-    if (equipos.length) {
-      var tengo = (E.equipos || []).map(function (e) { return e.nombre; });
-      equipos.forEach(function (x) {
-        if (tengo.indexOf(x.nombre) === -1) {
-          E.equipos.push({ nombre: x.nombre, valor: x.valor_hora ? parseFloat(x.valor_hora) : 0 });
-        }
-      });
-    }
+    /* Los equipos, niveles y personas viajan completos como ajuste (arriba),
+       no desde las tablas viejas: así se sincronizan los valores por hora,
+       los niveles y los plazos, que antes quedaban solo en una computadora. */
 
     guardarLocal();
     /* Se marca como "ya subido" SOLO lo que quedó idéntico a la nube. Un día
@@ -549,7 +569,8 @@ function sincronizar() {
 
   if (!E.ajustesEditados) E.ajustesEditados = {};
   ['meta', 'metaArea', 'eventos', 'marcados', 'reglasPago', 'valorHora',
-   'notasPersonal', 'mail', 'moneda', 'corteHistorial'].forEach(function (k) {
+   'notasPersonal', 'mail', 'moneda', 'corteHistorial',
+   'equipos', 'personas'].forEach(function (k) {
     var huella = JSON.stringify(E[k]);
     if (_ULTIMO_SUBIDO['@' + k] === huella) return;
     _ULTIMO_SUBIDO['@' + k] = huella;
