@@ -249,8 +249,20 @@ function bajarTodo() {
     pedirConSesion('/rest/v1/turnos?select=*'),
     pedirConSesion('/rest/v1/ajustes?select=*'),
     pedirConSesion('/rest/v1/personas?select=*').catch(function () { return []; }),
-    pedirConSesion('/rest/v1/equipos?select=*').catch(function () { return []; })
+    pedirConSesion('/rest/v1/equipos?select=*').catch(function () { return []; }),
+    pedirConSesion('/rest/v1/usuarios?select=id,nombre,email').catch(function () { return []; }),
+    pedirConSesion('/rest/v1/historial?select=que,detalle,cuando,usuario_id&order=cuando.desc&limit=100')
+      .catch(function () { return []; })
   ]).then(function (r) {
+    /* el historial compartido: cada cambio con el nombre de la cuenta */
+    var nombres = {};
+    (r[5] || []).forEach(function (u) { nombres[u.id] = u.nombre || u.email; });
+    if ((r[6] || []).length || (r[5] || []).length) {
+      E.historialNube = (r[6] || []).map(function (x) {
+        return { cuando: x.cuando, que: x.que, detalle: x.detalle || '',
+                 quien: nombres[x.usuario_id] || '' };
+      });
+    }
     var dias = r[0] || [], turnos = r[1] || [], ajustes = r[2] || [];
     var personas = r[3] || [], equipos = r[4] || [];
 
@@ -493,7 +505,8 @@ function mandar(tarea) {
       metodo: 'POST',
       cuerpo: [{
         propiedad_id: p, usuario_id: quienSoyId(),
-        que: tarea.datos.que, detalle: tarea.datos.detalle || null
+        que: tarea.datos.que, detalle: tarea.datos.detalle || null,
+        cuando: tarea.datos.cuando || new Date().toISOString()
       }]
     });
   }

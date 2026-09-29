@@ -24,7 +24,8 @@ var E = {
   ui: {},             /* barra achicada, grupos cerrados */
   ajustesEditados: {},/* clave de config -> cuándo se tocó acá, para sincronizar */
   tuco: null,         /* qué avisos del ayudante ya se vieron */
-  corteHistorial: null/* 'YYYY-MM-DD': se descarta todo lo anterior, en todas las computadoras */
+  corteHistorial: null,/* 'YYYY-MM-DD': se descarta todo lo anterior, en todas las computadoras */
+  historialNube: []   /* los últimos cambios de TODAS las cuentas, con quién los hizo */
 };
 
 /* Los días anteriores al corte se van, acá y en cualquier computadora que
@@ -113,10 +114,13 @@ function cargarDatosReales() {
 }
 
 function anotar(que, detalle) {
-  E.historial.unshift({ cuando:new Date().toISOString(), que:que, detalle:detalle || '' });
+  var cuando = new Date().toISOString();
+  var quien = (typeof haySesion === 'function' && haySesion() && SESION.usuario)
+    ? (SESION.usuario.nombre || SESION.usuario.email || '') : '';
+  E.historial.unshift({ cuando:cuando, que:que, detalle:detalle || '', quien:quien });
   if (E.historial.length > 200) E.historial.length = 200;
   if (typeof encolar === 'function' && typeof haySesion === 'function' && haySesion()) {
-    encolar('historial', { que:que, detalle:detalle || '' });
+    encolar('historial', { que:que, detalle:detalle || '', cuando:cuando });
   }
 }
 

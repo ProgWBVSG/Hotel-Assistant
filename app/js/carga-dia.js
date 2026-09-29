@@ -461,7 +461,10 @@ function guardarDiaCargado() {
     fecha: FORM.fecha,
     hoja: FORM.editando ? (dia(FORM.fecha) || {}).hoja || 'Carga manual' : 'Carga manual',
     areas: areas, comentarios: comentarios, turnos: turnos,
-    manual: true
+    manual: true,
+    /* guardar a mano es siempre la versión más nueva de ese día, aunque no
+       se haya cambiado nada: así le gana a cualquier copia vieja */
+    editado_en: new Date().toISOString()
   };
 
   var eraNuevo = !dia(FORM.fecha);
@@ -477,6 +480,11 @@ function guardarDiaCargado() {
   }
 
   E.dias.sort(function (a, b) { return a.fecha < b.fecha ? -1 : 1; });
+  /* y se manda a la nube sí o sí, aunque parezca igual a lo ya subido */
+  if (typeof _ULTIMO_SUBIDO !== 'undefined') delete _ULTIMO_SUBIDO[registro.fecha];
+  if (typeof _HUELLA_CONTENIDO !== 'undefined' && typeof huellaContenido === 'function') {
+    _HUELLA_CONTENIDO[registro.fecha] = huellaContenido(registro);
+  }
   guardarTodo();
   if (eraNuevo && typeof tucoPrimerDia === 'function') tucoPrimerDia();
 

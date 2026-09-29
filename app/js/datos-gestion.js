@@ -226,17 +226,22 @@ function vistaDatos() {
     '</div></div>';
 
   /* --- historial --- */
-  if (E.historial.length) {
+  var movs = historialVisible();
+  if (movs.length) {
     h += '<div class="titulo-seccion">' +
       (enIngles() ? 'Latest activity' : 'Últimos movimientos') + '</div>';
-    h += '<div class="marco"><table><thead><tr><th style="width:150px">' +
+    h += '<div class="marco tabla-ancha"><table><thead><tr><th style="width:130px">' +
       (enIngles() ? 'When' : 'Cuándo') + '</th>' +
+      '<th style="width:150px">' + (enIngles() ? 'Who' : 'Quién') + '</th>' +
       '<th>' + (enIngles() ? 'What happened' : 'Qué pasó') + '</th></tr></thead><tbody>';
-    E.historial.slice(0, 15).forEach(function (x) {
+    movs.forEach(function (x) {
       var f = new Date(x.cuando);
       h += '<tr><td style="color:var(--tinta-suave);font-size:11.5px">' +
         f.toLocaleString(enIngles() ? 'en-AU' : 'es-AR',
           { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit', timeZone:'Australia/Sydney' }) + '</td>' +
+        '<td>' + (x.quien ? '<span class="quien-chip">' + esc(x.quien) + '</span>'
+          : '<span style="color:var(--tinta-suave);font-size:11.5px">' +
+            (enIngles() ? 'no account' : 'sin cuenta') + '</span>') + '</td>' +
         '<td><strong>' + esc(T(x.que)) + '</strong> ' +
         '<span style="color:var(--tinta-media)">' + esc(x.detalle ? T(x.detalle) : '') + '</span></td></tr>';
     });
@@ -244,4 +249,17 @@ function vistaDatos() {
   }
 
   return h;
+}
+
+
+/* Los últimos cambios de todas las cuentas. Lo que viene de la nube ya trae
+   el nombre de quien lo hizo; se le suma lo propio que todavía no subió. */
+function historialVisible() {
+  var nube = E.historialNube || [];
+  if (!nube.length) return (E.historial || []).slice(0, 30);
+  var ultima = Date.parse(nube[0].cuando) || 0;
+  var pendientes = (E.historial || []).filter(function (x) {
+    return (Date.parse(x.cuando) || 0) > ultima;
+  });
+  return pendientes.concat(nube).slice(0, 30);
 }
