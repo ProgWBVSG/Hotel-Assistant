@@ -121,3 +121,27 @@ function vistaEntrar() {
   h += '</div></div>';
   return h;
 }
+
+
+/* ------------------------------------------------------------- la cuenta --
+   Arriba a la derecha: con qué cuenta se está trabajando, y cómo salir.
+   Salir NO borra nada: los datos siguen en esta computadora y en la nube;
+   lo que todavía no subió se manda la próxima vez que se entre. */
+function pintarCuenta() {
+  var el = document.getElementById('cuenta');
+  if (!el) return;
+  if (typeof haySesion !== 'function' || !haySesion()) { el.innerHTML = ''; return; }
+  var EN = enIngles();
+  var u = SESION.usuario || {};
+  el.innerHTML = '<span class="cuenta-nombre" title="' + esc(u.email || '') + '">' +
+    esc(u.nombre || u.email || '') + '</span>' +
+    '<button class="boton chico" onclick="cerrarSesion()">' + (EN ? 'Log out' : 'Cerrar sesión') + '</button>';
+}
+
+function cerrarSesion() {
+  var EN = enIngles();
+  if (PENDIENTES.length && !confirm(EN
+      ? 'Some changes are still being saved. Log out anyway? They stay on this computer and upload the next time you sign in.'
+      : 'Hay cambios que todavía se están guardando. ¿Salir igual? Quedan en esta computadora y se suben la próxima vez que entres.')) return;
+  salir();
+}

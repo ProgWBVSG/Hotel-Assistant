@@ -100,8 +100,9 @@ function vistaHorarios() {
       h += '<tr><td><strong>' + x.franja.nombre + '</strong></td>' +
         '<td class="num">' + plata(x.total) + '</td>' +
         '<td class="num">' + x.horas + '</td>' +
-        '<td class="num">' + (E.valorHora ? plata(x.costo) : '<span style="color:var(--tinta-suave)">cargá el valor hora</span>') + '</td>' +
-        '<td class="num">' + (x.pesoCosto !== null && E.valorHora
+        '<td class="num">' + (hayValores() ? plata(x.costo) : '<span style="color:var(--tinta-suave)">' +
+          (enIngles() ? 'no rates yet' : 'sin valores') + '</span>') + '</td>' +
+        '<td class="num">' + (x.pesoCosto !== null && hayValores()
             ? '<span style="color:' + (x.pesoCosto > 35 ? 'var(--mal)' : x.pesoCosto > 25 ? 'var(--aviso)' : 'var(--ok)') + '">' +
               x.pesoCosto + '%</span>' : '—') + '</td>' +
         '<td class="num"><strong>' + (x.porHora ? plata(x.porHora) : '—') + '</strong></td>' +
@@ -112,11 +113,11 @@ function vistaHorarios() {
     });
     h += '</tbody></table></div>';
 
-    if (!E.valorHora) {
+    if (!hayValores()) {
       h += '<div class="caja aviso" style="margin-top:13px">' +
-        (enIngles() ? 'To see the cost you need to set ' : 'Para ver el costo hace falta cargar ') +
-        (enIngles() ? 'the hourly rate. It is under ' : 'cuánto se paga la hora. Está en ') +
-        '<span class="link" onclick="ir(\'personal\')">' + (enIngles() ? 'Staff' : 'Personal') +
+        (enIngles() ? 'To see the cost, set each person\'s hourly rate in '
+                    : 'Para ver el costo, cargá el valor hora de cada persona en ') +
+        '<span class="link" onclick="ir(\'plantel\')">' + (enIngles() ? 'The team' : 'El plantel') +
         '</span>.</div>';
     }
 
@@ -200,68 +201,92 @@ function vistaHorarios() {
 /* ==========================  PERSONAL  =================================== */
 
 function vistaPersonal() {
+  var EN = enIngles();
   var mes = personalDelMes(MES);
   var ds = diasDelMes(MES);
 
-  var h = cab('Personal', 'Horas trabajadas, costo y dotación · ' + nombreMes(MES));
+  var h = cab(EN ? 'Staff' : 'Personal',
+    (EN ? 'Hours worked, cost and staffing · ' : 'Horas trabajadas, costo y dotación · ') + nombreMes(MES));
 
-  /* configuración */
-  h += '<div class="marco no-imprimir" style="padding:16px 18px;margin-bottom:18px">' +
-    '<div class="config-fila">' +
-    '<div class="campo ancho">' +
-    '<label>Cuánto se paga la hora (' + E.moneda + ')</label>' +
-    '<input type="number" step="0.5" value="' + (E.valorHora || '') + '" placeholder="Ej: 32" ' +
-    'onchange="E.valorHora=this.value?+this.value:0;guardarTodo();pintar()">' +
-    '<div class="pista">En Australia se paga por hora. Este valor multiplica las horas de cada turno.</div>' +
-    '</div>' +
-    '<div class="campo angosto"><label>Moneda</label>' +
-    '<select onchange="E.moneda=this.value;guardarTodo();pintar()">' +
-    ['AUD','USD','EUR','GBP','NZD'].map(function (m) {
-      return '<option value="' + m + '"' + (m === E.moneda ? ' selected' : '') + '>' + m + '</option>';
-    }).join('') + '</select></div>' +
-    '</div></div>';
+  h += '<div class="caja gris">' + (EN
+    ? 'The cost is calculated <strong>person by person</strong>, with the hourly rate each one has in ' +
+      '<span class="link" onclick="ir(\'plantel\')">The team</span> or ' +
+      '<span class="link" onclick="ir(\'equipos\')">Teams and pay</span>. There is no general rate: ' +
+      'everyone is paid what their own rate says.'
+    : 'El costo se calcula <strong>persona por persona</strong>, con el valor hora que tiene cada una en ' +
+      '<span class="link" onclick="ir(\'plantel\')">El plantel</span> o ' +
+      '<span class="link" onclick="ir(\'equipos\')">Equipos y sueldos</span>. No hay un valor general: ' +
+      'cada uno cobra lo que dice su propio valor.') + '</div>';
 
   if (!mes) {
-    return h + '<div class="vacio"><h3>No hay turnos cargados en ' + nombreMes(MES) + '</h3>' +
-      '<p>Los turnos salen de las columnas de la derecha del reporte (nombre, horario y descanso).</p></div>';
+    return h + '<div class="vacio"><h3>' +
+      (EN ? 'No shifts entered in ' : 'No hay turnos cargados en ') + nombreMes(MES) + '</h3>' +
+      '<p>' + (EN ? 'Shifts are entered on the Enter today screen, area by area.'
+                  : 'Los turnos se cargan en la pantalla Cargar el día, área por área.') + '</p></div>';
+  }
+
+  /* quién no tiene valor: sus horas no suman al costo */
+  var sinValor = mes.gente.filter(function (g) { return !g.valor; });
+  if (sinValor.length) {
+    var nombres = sinValor.slice(0, 6).map(function (g) { return esc(g.quien); }).join(', ');
+    h += '<div class="caja aviso"><strong>' + sinValor.length +
+      (EN ? (sinValor.length === 1 ? ' person has no hourly rate' : ' people have no hourly rate')
+          : (sinValor.length === 1 ? ' persona sin valor hora' : ' personas sin valor hora')) +
+      '</strong> — ' + (EN ? 'their hours add nothing to the cost until it is set: '
+                           : 'sus horas no suman al costo hasta que se les cargue: ') +
+      nombres + (sinValor.length > 6 ? (EN ? ' and ' : ' y ') + (sinValor.length - 6) + (EN ? ' more' : ' más') : '') +
+      '. <span class="link" onclick="ir(\'plantel\')">' + (EN ? 'Set them in The team' : 'Cargarlos en El plantel') +
+      '</span></div>';
   }
 
   /* números del mes */
   h += '<div class="tarjetas">';
-  h += tarjeta('acento', 'Horas del mes', mes.horas, 'grande',
-    '<b>' + mes.dias + ' días</b> con turnos cargados');
-  h += tarjeta('', 'Costo de personal', E.valorHora ? mes.costo : '—', '',
-    E.valorHora ? mes.horas + ' horas × ' + plata(E.valorHora) : 'Cargá el valor hora arriba');
+  h += tarjeta('acento', EN ? 'Hours this month' : 'Horas del mes', mes.horas, 'grande',
+    '<b>' + mes.dias + (EN ? ' days' : ' días') + '</b> ' + (EN ? 'with shifts entered' : 'con turnos cargados'));
+  h += tarjeta('', EN ? 'Staff cost' : 'Costo de personal', mes.costo, '',
+    EN ? 'each person\'s hours × their own rate' : 'horas de cada persona × su propio valor');
   h += tarjeta(mes.pesoCosto === null ? '' : mes.pesoCosto > 35 ? 'mal' : mes.pesoCosto > 25 ? 'aviso' : 'ok',
-    'Costo sobre venta', mes.pesoCosto !== null && E.valorHora ? mes.pesoCosto + '%' : '—', '',
-    E.valorHora ? 'De cada 100 que entran, ' + mes.pesoCosto + ' se van en horas' : '');
-  h += tarjeta('', 'Genera por hora', mes.rendHora, '',
-    'Cada hora de personal generó esto en promedio');
+    EN ? 'Cost over sales' : 'Costo sobre venta', mes.pesoCosto !== null ? mes.pesoCosto + '%' : '—', '',
+    mes.pesoCosto !== null
+      ? (EN ? 'Out of every 100 that comes in, ' + mes.pesoCosto + ' goes to wages'
+            : 'De cada 100 que entran, ' + mes.pesoCosto + ' se van en sueldos') : '');
+  h += tarjeta('', EN ? 'Revenue per hour' : 'Genera por hora', mes.rendHora, '',
+    EN ? 'What each staff hour generated on average' : 'Lo que generó en promedio cada hora de personal');
   h += '</div>';
 
   /* día por día */
-  h += '<div class="titulo-seccion">Día por día</div>';
-  h += '<div class="caja gris">El sistema compara cada día contra días parecidos: mismas ' +
-    'condiciones (evento o normal), horas trabajadas y cuánto rindió cada hora. ' +
-    'Cuando algo se sale de lo habitual lo marca — <strong>pero no saca conclusiones solo</strong>. ' +
-    'Poné el motivo en la última columna: eso es lo que después explica el mes.</div>';
+  h += '<div class="titulo-seccion">' + (EN ? 'Day by day' : 'Día por día') + '</div>';
+  h += '<div class="caja gris">' + (EN
+    ? 'Each day is compared against similar days: same conditions (event or normal), hours worked and ' +
+      'what each hour brought in. When something is off it gets flagged — <strong>but no conclusion is ' +
+      'drawn on its own</strong>. Write the reason in the last column: that is what explains the month later.'
+    : 'El sistema compara cada día contra días parecidos: mismas condiciones (evento o normal), horas ' +
+      'trabajadas y cuánto rindió cada hora. Cuando algo se sale de lo habitual lo marca — <strong>pero no ' +
+      'saca conclusiones solo</strong>. Poné el motivo en la última columna: eso es lo que después explica el mes.') +
+    '</div>';
 
   h += '<div class="marco tabla-muy-ancha"><table><thead><tr>' +
-    '<th>Fecha</th><th class="num">Personas</th><th class="num">Horas</th>' +
-    '<th class="num">Costo</th><th class="num">Venta</th><th class="num">' +
-    (enIngles() ? '% cost' : '% costo') + '</th>' +
-    '<th class="num">Por hora</th><th>Dotación</th><th>Tu nota</th></tr></thead><tbody>';
+    '<th>' + (EN ? 'Date' : 'Fecha') + '</th>' +
+    '<th class="num">' + (EN ? 'People' : 'Personas') + '</th>' +
+    '<th class="num">' + (EN ? 'Hours' : 'Horas') + '</th>' +
+    '<th class="num">' + (EN ? 'Cost' : 'Costo') + '</th>' +
+    '<th class="num">' + (EN ? 'Sales' : 'Venta') + '</th>' +
+    '<th class="num">' + (EN ? '% cost' : '% costo') + '</th>' +
+    '<th class="num">' + (EN ? 'Per hour' : 'Por hora') + '</th>' +
+    '<th>' + (EN ? 'Staffing' : 'Dotación') + '</th>' +
+    '<th>' + (EN ? 'Your note' : 'Tu nota') + '</th></tr></thead><tbody>';
 
   ds.forEach(function (d) {
     var a = analisisPersonal(d, MES);
     if (a.sinDatos) {
       h += '<tr><td><span class="link" onclick="verDia(\'' + d.fecha + '\')">' + fechaCorta(d.fecha) + '</span></td>' +
-        '<td colspan="7" style="color:var(--tinta-suave);font-size:11.5px">Sin turnos cargados</td>' +
+        '<td colspan="7" style="color:var(--tinta-suave);font-size:11.5px">' +
+        (EN ? 'No shifts entered' : 'Sin turnos cargados') + '</td>' +
         '<td>' + inputNota(d.fecha, a.nota) + '</td></tr>';
       return;
     }
-    var eti = a.estado === 'sobra' ? '<span class="eti eti-aviso">pudo sobrar gente</span>'
-            : a.estado === 'falta' ? '<span class="eti eti-mal">pudo faltar gente</span>'
+    var eti = a.estado === 'sobra' ? '<span class="eti eti-aviso">' + (EN ? 'possibly overstaffed' : 'pudo sobrar gente') + '</span>'
+            : a.estado === 'falta' ? '<span class="eti eti-mal">' + (EN ? 'possibly understaffed' : 'pudo faltar gente') + '</span>'
             : '<span class="eti eti-ok">normal</span>';
     h += '<tr' + (a.evento ? ' class="evento"' : '') + '>' +
       '<td><span class="link" onclick="verDia(\'' + d.fecha + '\')">' + fechaCorta(d.fecha) + '</span> ' +
@@ -269,9 +294,9 @@ function vistaPersonal() {
       '<td class="num">' + a.personas + '</td>' +
       '<td class="num">' + Math.round(a.horas) +
         (a.horasEsperadas ? '<span style="color:var(--tinta-suave);font-size:10.5px"> /' + a.horasEsperadas + '</span>' : '') + '</td>' +
-      '<td class="num">' + (E.valorHora ? plata(a.costo) : '—') + '</td>' +
+      '<td class="num">' + plata(a.costo) + '</td>' +
       '<td class="num">' + plata(a.total) + '</td>' +
-      '<td class="num">' + (a.pesoCosto !== null && E.valorHora
+      '<td class="num">' + (a.pesoCosto !== null
           ? '<span style="color:' + (a.pesoCosto > 35 ? 'var(--mal)' : a.pesoCosto > 25 ? 'var(--aviso)' : 'var(--ok)') + '">' +
             a.pesoCosto + '%</span>' : '—') + '</td>' +
       '<td class="num">' + plata(a.rendHora) + '</td>' +
@@ -279,69 +304,84 @@ function vistaPersonal() {
       '<td>' + inputNota(d.fecha, a.nota) + '</td></tr>';
   });
   h += '</tbody></table></div>';
-  h += '<div style="font-size:11.5px;color:var(--tinta-suave);margin-top:8px;text-align:center">' +
-    'La columna Horas muestra las del día y, en chico, las habituales para un día parecido. ' +
-    'Pasá el mouse por la etiqueta de dotación para ver la explicación completa.</div>';
+  h += '<div style="font-size:11.5px;color:var(--tinta-suave);margin-top:8px;text-align:center">' + (EN
+    ? 'The Hours column shows the day\'s hours and, in small, the usual ones for a similar day. ' +
+      'Hover over the staffing label to see the full explanation.'
+    : 'La columna Horas muestra las del día y, en chico, las habituales para un día parecido. ' +
+      'Pasá el mouse por la etiqueta de dotación para ver la explicación completa.') + '</div>';
 
   /* días marcados */
   var marcados = ds.map(function (d) { return { d:d, a:analisisPersonal(d, MES) }; })
     .filter(function (x) { return !x.a.sinDatos && x.a.estado !== 'normal'; });
   if (marcados.length) {
-    h += '<div class="titulo-seccion">Días que conviene revisar</div>';
+    h += '<div class="titulo-seccion">' + (EN ? 'Days worth reviewing' : 'Días que conviene revisar') + '</div>';
     marcados.forEach(function (x) {
       h += '<div class="caja ' + (x.a.estado === 'sobra' ? 'aviso' : 'mal') + '">' +
         '<strong>' + fechaLegible(x.d.fecha) + '</strong> — ' + esc(x.a.mensaje) +
-        (x.a.nota ? '<br><em style="color:var(--tinta-media)">Tu nota: ' + esc(x.a.nota) + '</em>' : '') +
-        '</div>';
+        (x.a.nota ? '<br><em style="color:var(--tinta-media)">' + (EN ? 'Your note: ' : 'Tu nota: ') +
+          esc(x.a.nota) + '</em>' : '') + '</div>';
     });
   }
 
-  /* por persona */
-  h += '<div class="titulo-seccion">Por persona</div>';
-  h += '<div class="marco"><table><thead><tr><th>Quién</th><th class="num">Turnos</th>' +
-    '<th class="num">Horas</th><th class="num">Costo</th><th class="num">Promedio por turno</th>' +
-    '<th></th></tr></thead><tbody>';
-  var maxH = mes.gente.length ? mes.gente[0].horas : 1;
+  /* por persona: cada una con SU valor */
+  h += '<div class="titulo-seccion">' + (EN ? 'By person' : 'Por persona') + '</div>';
+  h += '<div class="marco tabla-ancha"><table><thead><tr>' +
+    '<th>' + (EN ? 'Who' : 'Quién') + '</th>' +
+    '<th class="num">' + (EN ? 'Shifts' : 'Turnos') + '</th>' +
+    '<th class="num">' + (EN ? 'Hours' : 'Horas') + '</th>' +
+    '<th class="num">' + (EN ? 'Hourly rate' : 'Valor hora') + '</th>' +
+    '<th>' + (EN ? 'Rate comes from' : 'De dónde sale') + '</th>' +
+    '<th class="num">' + (EN ? 'Cost' : 'Costo') + '</th>' +
+    '<th class="num">' + (EN ? 'Avg per shift' : 'Promedio por turno') + '</th></tr></thead><tbody>';
   mes.gente.forEach(function (g) {
-    h += '<tr><td><strong>' + esc(g.quien) + '</strong></td>' +
+    h += '<tr' + (!g.valor ? ' style="background:var(--mal-fondo)"' : '') + '>' +
+      '<td><strong>' + esc(g.quien) + '</strong></td>' +
       '<td class="num">' + g.turnos + '</td>' +
       '<td class="num">' + g.horas + '</td>' +
-      '<td class="num">' + (E.valorHora ? plata(g.costo) : '—') + '</td>' +
-      '<td class="num">' + (g.turnos ? (Math.round((g.horas / g.turnos) * 10) / 10) + ' h' : '—') + '</td>' +
-      '<td style="width:130px"><div class="mini"><span style="width:' +
-        Math.round((g.horas / maxH) * 100) + '%;background:var(--acento)"></span></div></td></tr>';
+      '<td class="num">' + (g.valor ? AUDc(g.valor)
+        : '<span class="link" style="color:var(--mal);font-weight:600" onclick="PERSONA_ABIERTA=\'' +
+          esc(g.quien).replace(/'/g, "\\'") + '\';ir(\'plantel\')">' + (EN ? 'set rate' : 'cargar valor') + '</span>') + '</td>' +
+      '<td>' + etiquetaOrigen(g.origen, g.detalle) + '</td>' +
+      '<td class="num">' + (g.valor ? plata(g.costo) : '—') + '</td>' +
+      '<td class="num">' + (g.turnos ? (Math.round((g.horas / g.turnos) * 10) / 10) + ' h' : '—') + '</td></tr>';
   });
   h += '<tr class="total"><td>Total</td><td class="num">' +
     mes.gente.reduce(function (a, g) { return a + g.turnos; }, 0) + '</td>' +
-    '<td class="num">' + mes.horas + '</td>' +
-    '<td class="num">' + (E.valorHora ? plata(mes.costo) : '—') + '</td><td colspan="2"></td></tr>';
+    '<td class="num">' + mes.horas + '</td><td></td><td></td>' +
+    '<td class="num">' + plata(mes.costo) + '</td><td></td></tr>';
   h += '</tbody></table></div>';
 
   var porDia = mes.dias ? Math.round(mes.horas / mes.dias) : 0;
   var turnosDia = mes.dias
     ? Math.round((mes.gente.reduce(function (a, g) { return a + g.turnos; }, 0) / mes.dias) * 10) / 10 : 0;
 
-  if (E.valorHora && mes.pesoCosto !== null && mes.pesoCosto < 20) {
-    h += '<div class="caja aviso" style="margin-top:16px"><strong>Ojo: este costo es parcial.</strong> ' +
-      'En el reporte se anotan <b>' + turnosDia + ' personas por día</b> en promedio (' + porDia + ' horas), ' +
-      'y eso da un costo del <b>' + mes.pesoCosto + '%</b> sobre la venta. ' +
-      'En gastronomía ese porcentaje suele estar entre 25% y 35%, así que ' +
-      '<strong>lo que figura en el reporte no parece ser todo el equipo</strong>: serían solo los turnos ' +
-      'que alguien anota a mano. Sirve para comparar días entre sí, no como costo real de personal.</div>';
+  if (hayValores() && mes.pesoCosto !== null && mes.pesoCosto < 20) {
+    h += '<div class="caja aviso" style="margin-top:16px">' + (EN
+      ? '<strong>Careful: this cost may be partial.</strong> The report shows <b>' + turnosDia +
+        ' people per day</b> on average (' + porDia + ' hours), which gives a cost of <b>' + mes.pesoCosto +
+        '%</b> of sales. In hospitality that usually sits between 25% and 35%, so <strong>the report may not ' +
+        'include the whole team</strong>. Useful to compare days, not as the real staff cost.'
+      : '<strong>Ojo: este costo puede ser parcial.</strong> En el reporte se anotan <b>' + turnosDia +
+        ' personas por día</b> en promedio (' + porDia + ' horas), y eso da un costo del <b>' + mes.pesoCosto +
+        '%</b> sobre la venta. En gastronomía suele estar entre 25% y 35%, así que <strong>puede que el reporte ' +
+        'no tenga a todo el equipo</strong>. Sirve para comparar días, no como costo real de personal.') + '</div>';
   }
 
-  h += '<div class="caja gris" style="margin-top:16px"><strong>Sobre el cálculo.</strong> ' +
-    'Las horas salen de los turnos escritos en el reporte, descontando el descanso cuando está anotado ' +
-    '("30 min break"). Los turnos que cruzan la medianoche se calculan bien. ' +
-    'El costo usa un valor de hora único: no contempla recargos de fin de semana, feriados, nocturnidad ' +
-    'ni categorías distintas. Sirve para comparar días entre sí, no para liquidar sueldos.</div>';
+  h += '<div class="caja gris" style="margin-top:16px">' + (EN
+    ? '<strong>About the calculation.</strong> Hours come from the shifts entered, minus the break when it ' +
+      'is noted. Shifts that cross midnight are handled correctly. The cost uses each person\'s own rate ' +
+      '(their own, their level\'s or their team\'s) and, if pay rules are set, their loadings.'
+    : '<strong>Sobre el cálculo.</strong> Las horas salen de los turnos cargados, descontando el descanso ' +
+      'cuando está anotado. Los turnos que cruzan la medianoche se calculan bien. El costo usa el valor de ' +
+      'cada persona (el propio, el de su nivel o el de su equipo) y, si hay reglas de pago, sus recargos.') +
+    '</div>';
 
   return h;
 }
 
 function inputNota(fecha, valor) {
   return '<input class="filtro" style="width:100%;min-width:130px;height:26px;font-size:11.5px" ' +
-    'placeholder="Motivo…" value="' + esc(valor) + '" ' +
+    'placeholder="' + (enIngles() ? 'Reason…' : 'Motivo…') + '" value="' + esc(valor) + '" ' +
     'onchange="guardarNotaPersonal(\'' + fecha + '\',this.value)">';
 }
 
@@ -351,5 +391,5 @@ function guardarNotaPersonal(fecha, texto) {
   else delete E.notasPersonal[fecha];
   anotar('Anotó sobre el personal', fecha + ': ' + texto);
   guardarTodo();
-  decir('Nota guardada', 'ok');
+  decir(enIngles() ? 'Note saved' : 'Nota guardada', 'ok');
 }

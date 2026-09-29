@@ -9,7 +9,7 @@
 
 /* E.equipos     -> [{id, nombre, valorHora}]
    E.personas    -> { "Nombre": {equipo:"id", valorHora:null} }
-   E.valorHora   -> valor general de respaldo                                */
+   (no hay valor general: cada persona cobra lo suyo)                                */
 
 var EQUIPOS_BASE = [
   { id:'salon',   nombre:'Salón',       valorHora:0 },
@@ -55,7 +55,6 @@ function valorHoraDe(nombre) {
       return { valor:eq.valorHora, origen:'equipo', detalle:eq.nombre };
     }
   }
-  if (E.valorHora > 0) return { valor:E.valorHora, origen:'general', detalle:'valor general' };
   return { valor:0, origen:'ninguno', detalle:'sin cargar' };
 }
 
@@ -73,7 +72,6 @@ function costoPersonalReal(d, area) {
 
 /* ¿Hay algún valor cargado? */
 function hayValores() {
-  if (E.valorHora > 0) return true;
   /* valor del equipo, o de alguno de sus niveles (un rango cobra distinto que
      otro dentro del mismo equipo: ahí puede estar el único valor cargado) */
   if ((E.equipos || []).some(function (e) {
@@ -111,7 +109,9 @@ function gentePorTurnos() {
 
 /* Personas sin valor asignado: las que hacen que el costo quede corto. */
 function genteSinValor() {
-  return gentePorTurnos().filter(function (g) { return !g.valor; });
+  var lista = (typeof plantel === 'function') ? plantel().filter(function (g) { return g.estado.activa; })
+                                              : gentePorTurnos();
+  return lista.filter(function (g) { return !g.valor; });
 }
 
 /* Resumen por equipo del mes. */

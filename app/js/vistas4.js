@@ -5,32 +5,30 @@
 /* =====================  EQUIPOS Y SUELDOS  ============================== */
 
 function vistaEquipos() {
-  var h = cab('Equipos y sueldos', 'Cuánto se paga la hora, por equipo y por persona');
+  var EN = enIngles();
+  var h = cab(EN ? 'Teams and pay' : 'Equipos y sueldos',
+    EN ? 'What each person earns per hour, by team, level or their own rate'
+       : 'Cuánto cobra la hora cada persona, por equipo, nivel o valor propio');
 
-  h += '<div class="caja gris">El valor que se aplica a cada persona sale en este orden: ' +
-    '<b>1)</b> si tiene un valor propio, ese · <b>2)</b> si no, el de su equipo · ' +
-    '<b>3)</b> si no, el valor general. Así se carga una vez por equipo y solo se ajustan ' +
-    'las excepciones.</div>';
+  h += '<div class="caja gris">' + (EN
+    ? 'Each person\'s hourly rate comes from, in this order: <b>1)</b> their own rate · ' +
+      '<b>2)</b> their level within the team · <b>3)</b> their team\'s rate. ' +
+      '<strong>There is no general rate</strong>: anyone without a rate shows in red and adds nothing ' +
+      'to the cost until it is set.'
+    : 'El valor hora de cada persona sale, en este orden: <b>1)</b> su valor propio · ' +
+      '<b>2)</b> su nivel dentro del equipo · <b>3)</b> el valor de su equipo. ' +
+      '<strong>No hay un valor general</strong>: quien no tenga valor aparece en rojo y no suma al ' +
+      'costo hasta que se lo cargue.') + '</div>';
 
-  /* --- valor general y moneda --- */
+  /* --- moneda e idioma --- */
   h += '<div class="marco" style="padding:16px 18px;margin-bottom:18px">' +
     '<div class="config-fila">' +
-    campoConGuardado('valor-gral',
-      enIngles() ? 'General hourly rate' : 'Valor general por hora',
-      '<input type="text" id="valor-gral" inputmode="decimal" ' +
-        'value="' + (E.valorHora || '') + '" placeholder="' +
-        (enIngles() ? 'e.g. 32' : 'Ej: 32') + '" ' +
-        'onkeypress="soloNumeros(event)" oninput="limpiarSiSobra(this)" ' +
-        'onchange="guardarCampo(\'valor-gral\',function(){E.valorHora=parseFloat(String(this.value).replace(\',\',\'.\'))||0}.bind(this),!!this.value);pintar()">',
-      enIngles() ? 'Used for anyone with no team and no own rate.'
-                 : 'Se usa para quien no tenga equipo ni valor propio.',
-      !!E.valorHora) +
-    '<div class="campo angosto"><label>Moneda</label>' +
+    '<div class="campo angosto"><label>' + (EN ? 'Currency' : 'Moneda') + '</label>' +
     '<select onchange="E.moneda=this.value;guardarTodo();pintar()">' +
     ['AUD','USD','NZD','GBP','EUR'].map(function (m) {
       return '<option value="' + m + '"' + (m === E.moneda ? ' selected' : '') + '>' + m + '</option>';
     }).join('') + '</select></div>' +
-    '<div class="campo angosto"><label>Idioma</label>' +
+    '<div class="campo angosto"><label>' + (EN ? 'Language' : 'Idioma') + '</label>' +
     '<select onchange="cambiarIdioma(this.value)">' +
     '<option value="es"' + ((E.idioma || 'es') === 'es' ? ' selected' : '') + '>Español</option>' +
     '<option value="en"' + (E.idioma === 'en' ? ' selected' : '') + '>English</option>' +
@@ -44,12 +42,12 @@ function vistaEquipos() {
     '<th class="num" style="width:90px">Personas</th>' +
     '<th style="width:210px"></th></tr></thead><tbody>';
 
-  var gente = gentePorTurnos();
+  var gente = (typeof plantel === 'function') ? plantel() : gentePorTurnos();
   equipos().forEach(function (eq) {
     var n = gente.filter(function (g) { return g.equipo === eq.id; }).length;
     h += '<tr><td><strong>' + esc(eq.nombre) + '</strong></td>' +
       '<td class="num"><input type="text" inputmode="decimal" class="celda" onkeypress="soloNumeros(event)" oninput="limpiarSiSobra(this)" ' +
-      'value="' + (eq.valorHora || '') + '" placeholder="' + (E.valorHora || 'sin valor') + '" ' +
+      'value="' + (eq.valorHora || '') + '" placeholder="—" ' +
       'onchange="setValorEquipo(\'' + eq.id + '\',this.value)"></td>' +
       '<td class="num">' + (n || '—') + '</td>' +
       '<td><div class="acciones-celda">' +
@@ -179,7 +177,6 @@ function etiquetaOrigen(origen, detalle) {
   if (origen === 'persona') return '<span class="eti eti-acento">valor propio</span>';
   if (origen === 'nivel') return '<span class="eti eti-acento">' + esc(detalle) + '</span>';
   if (origen === 'equipo') return '<span class="eti eti-ok">' + esc(detalle) + '</span>';
-  if (origen === 'general') return '<span class="eti eti-neutro">valor general</span>';
   return '<span class="eti eti-mal">sin valor</span>';
 }
 

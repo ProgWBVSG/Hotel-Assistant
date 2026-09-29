@@ -122,6 +122,7 @@ function pintar() {
   _ULTIMA_VISTA = VISTA;
 
   if (typeof marcaNube === 'function') marcaNube();
+  if (typeof pintarCuenta === 'function') pintarCuenta();
   if (typeof tucoSiguioLaVista === 'function') tucoSiguioLaVista();
   if (typeof pintarTuco === 'function' && !document.getElementById('tuco').innerHTML) pintarTuco();
 }

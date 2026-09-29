@@ -583,7 +583,7 @@ function sincronizar() {
   });
 
   if (!E.ajustesEditados) E.ajustesEditados = {};
-  ['meta', 'metaArea', 'eventos', 'marcados', 'reglasPago', 'valorHora',
+  ['meta', 'metaArea', 'eventos', 'marcados', 'reglasPago',
    'notasPersonal', 'mail', 'moneda', 'corteHistorial',
    'equipos', 'personas'].forEach(function (k) {
     var huella = JSON.stringify(E[k]);

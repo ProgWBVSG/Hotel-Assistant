@@ -149,7 +149,7 @@ function vistaPagos() {
         'que vale un 25% más. El casual tiene <strong>su propia columna</strong>: si se usa, ya ' +
         'trae adentro su recargo y nunca se multiplica una cosa por la otra. Equivocarse en eso ' +
         'es el error que más sueldos mal liquidados genera en el rubro.') + '</div>';
-  var vh0 = E.valorHora || 30;
+  var vh0 = VALOR_EJEMPLO;
   h += '<div class="marco tabla-ancha"><table><thead><tr><th>' + (EN ? 'Day' : 'Día') + '</th>' +
     '<th class="num" style="width:120px">' + (EN ? 'Permanent' : 'Permanente') + '</th>' +
     '<th class="num" style="width:140px">' + (EN ? 'An hour at ' : 'Una hora de ') + vh0 + '</th>' +
@@ -336,12 +336,14 @@ function filaDesglose(nombre, v, total) {
 /* Un turno de prueba, para ver el cálculo con los valores cargados. */
 var EJ_TURNO = { desde: 19*60, hasta: 27*60, descanso: 30 };
 var EJ_FECHA = null;
+/* solo para el ejemplo de esta pantalla: no es un valor general */
+var VALOR_EJEMPLO = 30;
 
 function ejemploPago() {
   var EN = enIngles();
   var f = EJ_FECHA || (E.dias.length ? E.dias[E.dias.length - 1].fecha
                                      : fechaHoy());
-  var vh = E.valorHora || 30;
+  var vh = VALOR_EJEMPLO;
   var p = calcularPagoTurno(EJ_TURNO, f, vh);
 
   var h = '<div class="marco" style="padding:16px 18px">' +
@@ -360,10 +362,10 @@ function ejemploPago() {
       return '<option value="' + m + '"' + (EJ_TURNO.descanso === m ? ' selected' : '') + '>' +
         (m ? m + ' min' : (EN ? 'none' : 'sin descanso')) + '</option>';
     }).join('') + '</select></div>' +
-    '<div class="campo angosto"><label>' + (EN ? 'Base rate' : 'Valor base') + '</label>' +
+    '<div class="campo angosto"><label>' + (EN ? 'Example rate' : 'Valor de ejemplo') + '</label>' +
     '<input type="text" inputmode="decimal" value="' + vh + '" ' +
     'onkeypress="soloNumeros(event)" oninput="limpiarSiSobra(this)" ' +
-    'onchange="E.valorHora=+this.value||0;guardarTodo();pintar()"></div>' +
+    'onchange="VALOR_EJEMPLO=parseFloat(String(this.value).replace(\',\',\'.\'))||30;pintar()"></div>' +
     '</div>';
 
   h += '<div style="font-size:12.5px;color:var(--tinta-media);margin-bottom:10px">' +

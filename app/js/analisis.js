@@ -171,16 +171,21 @@ function horasTrabajadas(d, area) {
 }
 
 function costoPersonal(d, area) {
-  /* con recargos cargados se usa el cálculo del convenio (noche, fin de
-     semana, feriado); si no, el valor por persona; si no, el general */
-  if (typeof costoDiaConReglas === 'function' && typeof hayRecargos === 'function' &&
-      typeof hayValores === 'function' && hayValores() && hayRecargos()) {
+  /* Cada turno cuesta las horas por el valor de ESA persona (propio, de su
+     nivel o de su equipo). No hay un valor general. Con reglas de pago
+     cargadas se suman además los recargos. */
+  if (typeof costoDiaConReglas === 'function' && typeof hayRecargos === 'function' && hayRecargos()) {
     return costoDiaConReglas(d, area);
   }
-  if (typeof costoPersonalReal === 'function' && typeof hayValores === 'function' && hayValores()) {
-    return costoPersonalReal(d, area);
+  return costoPersonalReal(d, area);
+}
+
+/* Lo que cuesta un turno, con reglas de pago si las hay. */
+function costoDeTurno(t, fecha) {
+  if (typeof calcularPagoTurno === 'function' && typeof hayRecargos === 'function' && hayRecargos()) {
+    return calcularPagoTurno(t, fecha).total;
   }
-  return Math.round(horasTrabajadas(d, area) * (E.valorHora || 0));
+  return costoTurno(t);
 }
 
 /*
@@ -195,7 +200,7 @@ function analisisHorario(mes, area) {
 
   var acc = {};
   FRANJAS.forEach(function (f) {
-    acc[f.id] = { franja:f, total:0, cubiertos:0, dias:0, valores:[], horas:0 };
+    acc[f.id] = { franja:f, total:0, cubiertos:0, dias:0, valores:[], horas:0, costo:0 };
   });
 
   ds.forEach(function (d) {
@@ -209,7 +214,11 @@ function analisisHorario(mes, area) {
       FRANJAS.forEach(function (f) {
         var ini = Math.max(t.desde, f.desde);
         var fin = Math.min(t.hasta, f.hasta);
-        if (fin > ini) acc[f.id].horas += (fin - ini) / 60;
+        if (fin > ini) {
+          acc[f.id].horas += (fin - ini) / 60;
+          /* el costo de esa franja, con el valor de quien la trabajó */
+          acc[f.id].costo += ((fin - ini) / 60) * valorHoraDe(t.quien).valor;
+        }
       });
     });
   });
@@ -217,7 +226,7 @@ function analisisHorario(mes, area) {
   var lista = FRANJAS.map(function (f) {
     var a = acc[f.id];
     if (!a.dias) return null;
-    var costo = Math.round(a.horas * (E.valorHora || 0));
+    var costo = Math.round(a.costo);
     return {
       franja: f,
       total: Math.round(a.total),
@@ -345,15 +354,18 @@ function personalDelMes(mes) {
     costo += costoPersonal(d);
     total += totalDia(d);
     (d.turnos || []).forEach(function (t) {
-      var g = gente[t.quien] = gente[t.quien] || { quien:t.quien, turnos:0, horas:0 };
+      var g = gente[t.quien] = gente[t.quien] || { quien:t.quien, turnos:0, horas:0, costo:0 };
       g.turnos++; g.horas += t.horas;
+      g.costo += costoDeTurno(t, d.fecha);
     });
   });
 
   var lista = Object.keys(gente).map(function (k) { return gente[k]; });
   lista.forEach(function (g) {
     g.horas = Math.round(g.horas * 10) / 10;
-    g.costo = Math.round(g.horas * (E.valorHora || 0));
+    g.costo = Math.round(g.costo);
+    var v = valorHoraDe(g.quien);
+    g.valor = v.valor; g.origen = v.origen; g.detalle = v.detalle;
   });
   lista.sort(function (a, b) { return b.horas - a.horas; });
 
