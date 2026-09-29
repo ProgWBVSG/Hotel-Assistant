@@ -315,6 +315,8 @@ function bajarTodo() {
        que esta computadora tiene y la nube no (porque la subida se trabó
        alguna vez) queda sin marca, así se resube y no se pierde. */
     reconciliarHuellas(deLaNube);
+    /* lo que vino de la nube no cuenta como "editado en esta computadora" */
+    if (typeof registrarHuellasContenido === 'function') registrarHuellasContenido();
     return true;
   });
 }
@@ -619,4 +621,37 @@ window.addEventListener('online', function () {
 });
 window.addEventListener('offline', function () {
   NUBE_ESTADO = 'sinRed'; marcaNube();
+});
+
+
+/* ------------------------------------------------ actualización en vivo --
+   Antes la app bajaba de la nube solo al abrir o al entrar: si la otra
+   computadora cargaba algo, no se veía hasta recargar. Ahora se trae lo
+   nuevo cada 30 segundos, al volver a la pestaña y al volver a la ventana.
+   Nunca mientras se está escribiendo o cargando un día, para no pisar nada. */
+var _REFRESCANDO = false;
+function estadoParaComparar() {
+  return E.dias.map(function (d) { return d.fecha + ':' + huellaDia(d); }).join('|') +
+    JSON.stringify([E.equipos, E.personas, E.metaArea, E.meta, E.eventos]);
+}
+function refrescarDesdeNube() {
+  if (_REFRESCANDO || !puedeUsarNube()) return;
+  if (typeof necesitaEntrar === 'function' && necesitaEntrar()) return;
+  if (document.hidden || !navigator.onLine) return;
+  if (typeof FORM !== 'undefined' && FORM) return;               /* cargando un día */
+  var act = document.activeElement;
+  if (act && /^(INPUT|TEXTAREA|SELECT)$/.test(act.tagName)) return; /* escribiendo */
+  if (PENDIENTES.length) { vaciarCola(); return; }                /* primero sube lo propio */
+  _REFRESCANDO = true;
+  var antes = estadoParaComparar();
+  bajarTodo().then(function () {
+    _REFRESCANDO = false;
+    if (estadoParaComparar() !== antes) pintar();
+    if (typeof marcaNube === 'function') marcaNube();
+  }).catch(function () { _REFRESCANDO = false; });
+}
+setInterval(refrescarDesdeNube, 30000);
+window.addEventListener('focus', refrescarDesdeNube);
+document.addEventListener('visibilitychange', function () {
+  if (!document.hidden) refrescarDesdeNube();
 });

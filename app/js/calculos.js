@@ -54,10 +54,28 @@ function guardarTodo() {
 
 /* El día que se está mirando queda marcado con la hora. Sin esto, al unir lo
    de dos computadoras no hay forma de saber cuál versión es la nueva. */
+/* Antes se sellaba el día seleccionado en CADA guardado, aunque no se
+   hubiera tocado. Eso hacía que una copia vieja pareciera la más nueva y le
+   ganara a lo que cargó la otra computadora. Ahora solo se sella un día cuyo
+   contenido realmente cambió desde la última vez que se miró. */
+var _HUELLA_CONTENIDO = {};
+function huellaContenido(d) {
+  return (typeof huellaDia === 'function') ? huellaDia(d)
+    : JSON.stringify([d.areas, d.turnos, d.comentarios]);
+}
+function registrarHuellasContenido() {
+  _HUELLA_CONTENIDO = {};
+  E.dias.forEach(function (d) { _HUELLA_CONTENIDO[d.fecha] = huellaContenido(d); });
+}
 function marcarDiaTocado() {
-  if (typeof DIA_SEL !== 'string' || !DIA_SEL) return;
-  var d = dia(DIA_SEL);
-  if (d) d.editado_en = new Date().toISOString();
+  var ahora = new Date().toISOString();
+  E.dias.forEach(function (d) {
+    var h = huellaContenido(d);
+    if (_HUELLA_CONTENIDO[d.fecha] === h) return;
+    /* día nuevo o contenido distinto: se sella */
+    d.editado_en = ahora;
+    _HUELLA_CONTENIDO[d.fecha] = h;
+  });
 }
 
 /* Escribir en este navegador. Es lo único que tiene que ser instantáneo. */
