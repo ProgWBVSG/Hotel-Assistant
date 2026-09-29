@@ -391,20 +391,21 @@ function compararDia(fecha) {
   var corte = corteEvento(mesDe(fecha));
   var evento = esEvento(d, corte);
 
-  var previos = E.dias.filter(function (x) { return x.fecha < fecha; })
-    .sort(function (a, b) { return a.fecha < b.fecha ? 1 : -1; });
+  /* solo días reales: desde el inicio del historial y con venta cargada */
+  var inicio = E.corteHistorial || '';
+  var previos = E.dias.filter(function (x) {
+    return x.fecha < fecha && x.fecha >= inicio && totalDia(x) > 0;
+  }).sort(function (a, b) { return a.fecha < b.fecha ? 1 : -1; });
 
   var anterior = previos[0] || null;
 
-  /* comparables: mismos días de la semana, mismo tipo (evento o no) */
+  /* comparables: SOLO el mismo día de la semana y del mismo tipo (evento o
+     no). Si no hay, no se inventa: se dice que todavía no hay con qué comparar. */
   var dow = new Date(fecha + 'T00:00:00Z').getUTCDay();
   var comparables = previos.filter(function (x) {
     return new Date(x.fecha + 'T00:00:00Z').getUTCDay() === dow &&
            esEvento(x, corte) === evento;
   }).slice(0, 4);
-  if (comparables.length < 2) {
-    comparables = previos.filter(function (x) { return esEvento(x, corte) === evento; }).slice(0, 4);
-  }
 
   var promComparables = comparables.length
     ? Math.round(comparables.reduce(function (a, x) { return a + totalDia(x); }, 0) / comparables.length)

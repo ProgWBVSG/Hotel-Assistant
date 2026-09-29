@@ -348,9 +348,9 @@ function vistaDia() {
     cmp.variacionComparables !== null
       ? (cmp.variacionComparables >= 0 ? '<b style="color:var(--ok)">' : '<b style="color:var(--mal)">') +
         plata(cmp.variacionComparables, true) + '</b> ' +
-        (enIngles() ? 'vs the average of ' + cmp.comparables + ' similar days'
-                    : 'contra el promedio de ' + cmp.comparables + ' días parecidos')
-      : (enIngles() ? 'No comparable days yet' : 'Sin días comparables todavía'));
+        (enIngles() ? 'vs ' + (cmp.comparables === 1 ? 'the last ' + diaLargo(DIA_SEL) : 'the average of the last ' + cmp.comparables + ' ' + diaLargo(DIA_SEL) + 's')
+                    : 'contra ' + (cmp.comparables === 1 ? 'el ' + diaLargo(DIA_SEL) + ' anterior' : 'el promedio de los últimos ' + cmp.comparables + ' ' + diaLargo(DIA_SEL, true)))
+      : (enIngles() ? 'No days to compare yet' : 'No hay días para comparar todavía'));
   h += tarjeta('', 'Cubiertos', cmp.cubiertos, '',
     cmp.cubiertos ? 'Consumo promedio <b>' + plata(cmp.total / cmp.cubiertos) + '</b> por persona' : '');
   h += tarjeta('', 'Comida / Bebida', '', '',
@@ -361,21 +361,25 @@ function vistaDia() {
   h += '</div>';
 
   /* comparación */
-  if (cmp.anterior) {
-    h += '<div class="caja gris" style="margin-top:16px">' +
-      (enIngles()
-        ? '<strong>Vs the previous day</strong> (' + fechaCorta(cmp.anterior.fecha) + ', ' + diaSemana(cmp.anterior.fecha) + '): ' +
-          plata(cmp.variacionAnterior, true) + '. ' +
-          (cmp.comparables ? 'Vs the average of the last ' + cmp.comparables + ' ' +
-            (cmp.evento ? 'event ' : '') + diaSemana(DIA_SEL) + 's: <strong>' +
-            plata(cmp.variacionComparables, true) + '</strong>. ' +
-            'This second comparison is the one that counts: a Monday against a Sunday always looks bad.' : '')
-        : '<strong>Contra el día anterior</strong> (' + fechaCorta(cmp.anterior.fecha) + ', ' + diaSemana(cmp.anterior.fecha) + '): ' +
-          plata(cmp.variacionAnterior, true) + '. ' +
-          (cmp.comparables ? 'Contra el promedio de los últimos ' + cmp.comparables + ' ' + diaSemana(DIA_SEL) +
-            (cmp.evento ? ' de evento' : '') + ': <strong>' + plata(cmp.variacionComparables, true) + '</strong>. ' +
-            'Esta segunda comparación es la que vale: un lunes contra un domingo siempre da mal.' : '')) +
-      '</div>';
+  {
+    var EN = enIngles(), dsel = diaLargo(DIA_SEL);
+    var ant = cmp.anterior
+      ? (EN ? '<strong>Vs the previous day</strong> (' : '<strong>Contra el día anterior</strong> (') +
+        fechaCorta(cmp.anterior.fecha) + ', ' + diaSemana(cmp.anterior.fecha) + '): ' +
+        plata(cmp.variacionAnterior, true) + '. '
+      : (EN ? '<strong>Vs the previous day:</strong> no earlier days to compare yet. '
+            : '<strong>Contra el día anterior:</strong> no hay días anteriores para comparar. ');
+    var sem = cmp.comparables
+      ? (EN ? 'Vs ' + (cmp.comparables === 1 ? 'the last ' : 'the average of the last ' + cmp.comparables + ' ') +
+              (cmp.evento ? 'event ' : '') + dsel + (cmp.comparables === 1 ? '' : 's') + ': <strong>'
+            : 'Contra ' + (cmp.comparables === 1 ? 'el ' + dsel + ' anterior' :
+              'el promedio de los últimos ' + cmp.comparables + ' ' + diaLargo(DIA_SEL, true)) + (cmp.evento ? ' de evento' : '') + ': <strong>') +
+        plata(cmp.variacionComparables, true) + '</strong>. ' +
+        (EN ? 'This is the comparison that counts: a Monday against a Sunday always looks bad.'
+            : 'Esta es la comparación que vale: un lunes contra un domingo siempre da mal.')
+      : (EN ? 'No previous ' + (cmp.evento ? 'event ' : '') + dsel + 's to compare yet.'
+            : 'Todavía no hay ' + diaLargo(DIA_SEL, true) + (cmp.evento ? ' de evento' : '') + ' anteriores para comparar.');
+    h += '<div class="caja gris" style="margin-top:16px">' + ant + sem + '</div>';
   }
 
   /* detalle por área */
@@ -739,4 +743,12 @@ function vistaComentarios() {
     });
   });
   return h;
+}
+
+/* Nombre completo del día, para las frases de comparación. */
+function diaLargo(f, plural) {
+  var i = new Date(f + 'T00:00:00Z').getUTCDay();
+  return enIngles()
+    ? ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][i]
+    : ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'][i] + (plural && (i === 0 || i === 6) ? 's' : '');
 }
