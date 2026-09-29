@@ -263,7 +263,7 @@ function fichaEditable(g) {
    el dato que importa. */
 function barraPlazo(desde, hasta) {
   var EN = enIngles();
-  var hoy = new Date().toISOString().slice(0, 10);
+  var hoy = fechaHoy();
   var a = Date.parse(desde), b = Date.parse(hasta), n = Date.parse(hoy);
   if (isNaN(a) || isNaN(b) || b <= a) return '';
   var pct = Math.max(0, Math.min(100, ((n - a) / (b - a)) * 100));
@@ -332,7 +332,7 @@ function abrirAlta() { ALTA_ABIERTA = !ALTA_ABIERTA; pintar(); }
 
 function formularioAlta() {
   var EN = enIngles();
-  var hoy = new Date().toISOString().slice(0, 10);
+  var hoy = fechaHoy();
   var h = '<div class="marco alta" style="padding:18px;margin-bottom:18px">';
   h += '<div class="titulo-chico">' + (EN ? 'New person' : 'Alguien nuevo') + '</div>';
   h += '<div class="ficha-grid">' +

@@ -40,7 +40,7 @@ function empezarVacio() {
   E.meta = {}; E.metaArea = {}; E.eventos = {}; E.marcados = {}; E.notasPersonal = {};
   anotar('Empezó de cero', '');
   guardarTodo();
-  MES = new Date().toISOString().slice(0, 7);
+  MES = mesHoy();
   DIA_SEL = null;
   VISTA = 'cargardia';
   pintar();
@@ -236,7 +236,7 @@ function vistaDatos() {
       var f = new Date(x.cuando);
       h += '<tr><td style="color:var(--tinta-suave);font-size:11.5px">' +
         f.toLocaleString(enIngles() ? 'en-AU' : 'es-AR',
-          { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' }) + '</td>' +
+          { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit', timeZone:'Australia/Sydney' }) + '</td>' +
         '<td><strong>' + esc(T(x.que)) + '</strong> ' +
         '<span style="color:var(--tinta-media)">' + esc(x.detalle ? T(x.detalle) : '') + '</span></td></tr>';
     });

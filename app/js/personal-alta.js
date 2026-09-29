@@ -39,7 +39,7 @@ function fichaDe(nombre) {
    todavía no empezó, o se le venció el plazo. */
 function estadoPersona(nombre, hoy) {
   var f = (E.personas || {})[nombre] || {};
-  var d = hoy || new Date().toISOString().slice(0, 10);
+  var d = hoy || fechaHoy();
 
   if (f.baja) return { activa:false, motivo:'baja' };
   if (f.desde && d < f.desde) return { activa:false, motivo:'todavia-no', fecha:f.desde };
@@ -144,7 +144,7 @@ function darDeBaja(nombre) {
 function reactivar(nombre) {
   var f = fichaDe(nombre);
   f.baja = false;
-  if (f.hasta && f.hasta < new Date().toISOString().slice(0, 10)) f.hasta = null;
+  if (f.hasta && f.hasta < fechaHoy()) f.hasta = null;
   anotar('Volvió a activar a alguien', nombre);
   guardarTodo(); pintar();
 }

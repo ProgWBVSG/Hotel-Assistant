@@ -155,6 +155,23 @@ function metricaDia(d, metrica) {
 
 /* ---------------------------------------------------------------- mes -- */
 
+/* El hotel está en Australia: "hoy" es el día de Sídney, no el de la
+   computadora (que puede estar en Argentina) ni el UTC. Toda fecha del día
+   que use el sistema pasa por acá. */
+var ZONA_HOTEL = 'Australia/Sydney';
+function fechaHoy() {
+  try {
+    return new Intl.DateTimeFormat('en-CA', { timeZone: ZONA_HOTEL,
+      year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  } catch (e) { return new Date().toISOString().slice(0, 10); }
+}
+function mesHoy() { return fechaHoy().slice(0, 7); }
+function fechaAyer() {
+  var d = new Date(fechaHoy() + 'T00:00:00Z');
+  d.setUTCDate(d.getUTCDate() - 1);
+  return d.toISOString().slice(0, 10);
+}
+
 function mesDe(fecha) { return fecha.slice(0, 7); }
 
 function diasDelMes(mes) {

@@ -48,7 +48,7 @@ function intentarEntrar() {
     return bajarTodo();
   }).then(function () {
     var ms = mesesDisponibles();
-    MES = ms.length ? ms[ms.length - 1] : new Date().toISOString().slice(0, 7);
+    MES = ms.length ? ms[ms.length - 1] : mesHoy();
     VISTA = 'resumen';
     pintar();
     /* subir lo que esta computadora tenía y la nube no (fusionado, sin pisar) */

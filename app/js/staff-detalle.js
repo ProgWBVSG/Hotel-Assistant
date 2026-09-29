@@ -340,7 +340,7 @@ var EJ_FECHA = null;
 function ejemploPago() {
   var EN = enIngles();
   var f = EJ_FECHA || (E.dias.length ? E.dias[E.dias.length - 1].fecha
-                                     : new Date().toISOString().slice(0, 10));
+                                     : fechaHoy());
   var vh = E.valorHora || 30;
   var p = calcularPagoTurno(EJ_TURNO, f, vh);
 

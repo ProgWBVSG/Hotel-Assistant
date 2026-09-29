@@ -38,7 +38,7 @@ var FORM = null;
 /* ------------------------------------------------------------ arranque -- */
 
 function nuevoFormulario(fecha, editando) {
-  var f = fecha || new Date().toISOString().slice(0, 10);
+  var f = fecha || fechaHoy();
   FORM = {
     fecha: f,
     area: 'Penny Blue',
@@ -233,8 +233,8 @@ function vistaCargarDia() {
   return h;
 }
 
-function hoyISO() { return new Date().toISOString().slice(0, 10); }
-function ayerISO() { var d = new Date(); d.setDate(d.getDate() - 1); return d.toISOString().slice(0, 10); }
+function hoyISO() { return fechaHoy(); }
+function ayerISO() { return fechaAyer(); }
 
 function cambiarFechaForm(f) {
   if (!f) return;

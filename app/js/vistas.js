@@ -276,7 +276,7 @@ function calendarioMes(mes, corte) {
   var p = mes.split('-');
   var primero = new Date(Date.UTC(+p[0], +p[1] - 1, 1)).getUTCDay();
   var offset = (primero + 6) % 7;   /* semana empieza lunes */
-  var hoy = new Date().toISOString().slice(0, 10);
+  var hoy = fechaHoy();
 
   var h = '<div class="marco" style="padding:14px"><div class="calendario">';
   (enIngles() ? ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'] : ['lun','mar','mié','jue','vie','sáb','dom']).forEach(function (d) { h += '<div class="cal-dow">' + d + '</div>'; });
